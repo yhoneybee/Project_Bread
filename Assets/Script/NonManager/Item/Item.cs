@@ -7,15 +7,6 @@ public abstract class Item : MonoBehaviour
     public Unit Owner;
     public Stat Stat;
 
-    protected virtual void Start()
-    {
-        
-    }
-    protected virtual void Update()
-    {
-        
-    }
-
     public abstract void OnAttack(Unit taken);
-    public abstract void OnHit(Unit taker);
+    public abstract void OnHit(Unit take);
 }

@@ -39,6 +39,8 @@ public struct Info
     public int Id;
     ///<summary>Unit Level</summary>///
     public int Level;
+    ///<summary>Unit Cost</summary>///
+    public int Cost;
     ///<summary>Unit Count</summary>///
     public int Count;
     ///<summary>Unit Description</summary>///
@@ -98,6 +100,9 @@ public struct Proportionality
 }
 #endregion
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public abstract class Unit : MonoBehaviour
 {
     private AnimState anim_state;
@@ -117,17 +122,20 @@ public abstract class Unit : MonoBehaviour
     public Info Info;
     public Stat Stat;
     public UnitType UnitType;
-    public List<Item> Items = new();
+    public List<Item> Items = new List<Item>();
 
     Vector2 dir;
 
     protected virtual void Start()
     {
-        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
     }
     protected virtual void Update()
     {
+        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
+        transform.Translate(dir * Stat.MS * Time.deltaTime);
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, LayerMask.NameToLayer("Unit"));
+        Debug.DrawRay(transform.position, dir * Stat.AR);
         foreach (var hit in hits)
         {
             if (hit.transform.gameObject != gameObject)
@@ -141,7 +149,7 @@ public abstract class Unit : MonoBehaviour
     public virtual void OnAttack(Unit taken)
     {
         foreach (var item in Items) item.OnAttack(taken);
-        taken.OnHit(this, Stat.Proportionality.GetTotal(this, taken));
+        taken.OnHit(this, Stat.AD);
     }
     public abstract void OnHit(Unit taker, float damage);
     public abstract void OnAnimChanged();
