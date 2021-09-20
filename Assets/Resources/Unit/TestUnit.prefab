@@ -169,8 +169,11 @@ MonoBehaviour:
       AD: 0
   UnitType: 0
   Items: []
-  Animation:
+  Anim:
     Idle: []
     Walk: []
     Hit: []
     Attack: []
+  SR: {fileID: -4434258211332244624}
+  AnimIndex: 0
+  time: 0

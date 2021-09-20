@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/01 Loading.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/02 Main.unity
+    guid: 940f6958c40cbeb489355cfea71d8f6a
+  - enabled: 1
+    path: Assets/Scenes/03 - 01 Ingame.unity
+    guid: 1819fb268d74bd44f84cc0885b289192
+  - enabled: 1
+    path: Assets/Scenes/03 - 02 - 00 DeckSetting.unity
+    guid: b10a3fb8461037242b8986e3236af9ed
+  - enabled: 1
+    path: Assets/Scenes/03 - 02 - 01 Select.unity
+    guid: d10b72367b8176c40936b29b9f57d762
   m_configObjects: {}

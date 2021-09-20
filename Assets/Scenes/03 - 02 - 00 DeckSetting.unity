@@ -204,7 +204,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16182463}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1352690142}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 02 Main
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &16182463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,7 +2006,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 988187304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1352690142}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 02 Main
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &988187304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2979,6 +3003,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506019661}
+  - component: {fileID: 1506019663}
+  - component: {fileID: 1506019662}
   m_Layer: 5
   m_Name: Leader
   m_TagString: Untagged
@@ -3006,6 +3032,40 @@ RectTransform:
   m_AnchoredPosition: {x: -403, y: -97.42999}
   m_SizeDelta: {x: 428.75, y: 804.43}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1506019662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506019660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Viewer: {fileID: 1506019663}
+  Icon: {fileID: 1446414655}
+  IconBtn: {fileID: 1446414657}
+  InfoBtn: {fileID: 1786270650}
+  Buttons:
+  - {fileID: 1446037639}
+  - {fileID: 428900425}
+  LevelText: {fileID: 0}
+  NameText: {fileID: 1235720376}
+--- !u!114 &1506019663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506019660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9da366fa2dd924c805d043bde9c8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UILinker: {fileID: 1506019662}
 --- !u!1001 &1639273563
 PrefabInstance:
   m_ObjectHideFlags: 0

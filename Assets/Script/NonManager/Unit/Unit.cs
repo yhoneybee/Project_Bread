@@ -143,16 +143,18 @@ public abstract class Unit : MonoBehaviour
     public UnitType UnitType;
     public List<Item> Items = new List<Item>();
     public Anim Anim;
-    public SpriteRenderer SR;
 
-    public int AnimIndex = 0;
-    public float time = 0;
+    SpriteRenderer SR;
+
+    int AnimIndex = 0;
+    float time = 0;
 
     Vector2 dir;
 
     protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        SR = GetComponent<SpriteRenderer>();
     }
     protected virtual void Update()
     {

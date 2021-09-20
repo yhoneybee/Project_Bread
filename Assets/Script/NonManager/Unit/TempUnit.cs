@@ -17,10 +17,6 @@ public class TempUnit : Unit
     {
         throw new System.NotImplementedException();
     }
-    public override void OnBeginFrameAnim()
-    {
-        throw new System.NotImplementedException();
-    }
     public override void OnEndFrameAnim()
     {
         throw new System.NotImplementedException();

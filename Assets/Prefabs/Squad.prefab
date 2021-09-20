@@ -552,6 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5732806272963802534}
+  - component: {fileID: 8572805661188267068}
   - component: {fileID: 3532456202266844401}
   m_Layer: 5
   m_Name: Squad
@@ -580,6 +581,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8572805661188267068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5732806272963802533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b9da366fa2dd924c805d043bde9c8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UILinker: {fileID: 3532456202266844401}
 --- !u!114 &3532456202266844401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,11 +606,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Viewer: {fileID: 8572805661188267068}
   Icon: {fileID: 5732806271745117401}
   IconBtn: {fileID: 8700980962115793089}
   InfoBtn: {fileID: 5732806273019301873}
-  ItemBtn: {fileID: 0}
-  AllocBtn: {fileID: 0}
+  Buttons: []
+  LevelText: {fileID: 5732806272928993347}
+  NameText: {fileID: 5732806272519241389}
 --- !u!1 &5732806273019301879
 GameObject:
   m_ObjectHideFlags: 0

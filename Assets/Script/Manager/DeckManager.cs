@@ -35,18 +35,4 @@ public class DeckManager : MonoBehaviour
                 TeamBtnLocks[i].UnLock();
         }
     }
-
-    public static void ChangeUnit(int index)
-    {
-        var find = Select.Find((o) => { return o.Info.Name == SelectUnit.Info.Name; });
-        int from = 0;
-        if (find)
-        {
-            from = Select.IndexOf(find);
-            var temp = Select[from];
-            Select[from] = Select[index];
-            Select[index] = temp;
-        }
-        Select[index] = SelectUnit;
-    }
 }
