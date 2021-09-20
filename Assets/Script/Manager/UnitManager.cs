@@ -11,12 +11,11 @@ public class UnitManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-            Instance = this;
+        Instance = this;
+        Units.AddRange(Resources.LoadAll<Unit>("Unit"));
     }
     private void Start()
     {
-        Units.AddRange(Resources.LoadAll<Unit>("/Unit"));
     }
 
     public Unit GetUnit(string name, Vector2 pos)

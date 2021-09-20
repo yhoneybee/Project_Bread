@@ -17,25 +17,26 @@ public class UILinker : MonoBehaviour
     public TextMeshProUGUI LevelText;
     public TextMeshProUGUI NameText;
 
+    public GameObject NullUnActive;
+
     private void Start()
     {
         IconBtn.onClick.AddListener(() =>
         {
             UIManager.SelectSlot = Viewer;
-            ButtonActions.Instance.ChangeScene("03 - 02 - 01 Select");
+            ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
         });
         InfoBtn.onClick.AddListener(() =>
         {
             UIManager.SelectSlot = Viewer;
-            ButtonActions.Instance.ChangeScene("03 - 02 - 02 Information");
+            ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
         });
-
         foreach (var btn in Buttons)
         {
             btn.onClick.AddListener(() =>
             {
                 UIManager.SelectSlot = Viewer;
-                ButtonActions.Instance.ChangeScene("03 - 02 - 02 Information");
+                ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });
         }
     }

@@ -613,6 +613,7 @@ MonoBehaviour:
   Buttons: []
   LevelText: {fileID: 5732806272928993347}
   NameText: {fileID: 5732806272519241389}
+  NullUnActive: {fileID: 5732806271426159286}
 --- !u!1 &5732806273019301879
 GameObject:
   m_ObjectHideFlags: 0

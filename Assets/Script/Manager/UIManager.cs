@@ -8,10 +8,15 @@ public class UIManager : MonoBehaviour
 
     public static UnitView SelectSlot;
 
+    public List<UnitView> UnitViews = new List<UnitView>();
+    public List<TeamBtnLock> TeamBtnLocks = new List<TeamBtnLock>();
     public Sprite TeamBtnLock;
 
     private void Awake()
     {
         Instance = this;
+    }
+    private void Start()
+    {
     }
 }

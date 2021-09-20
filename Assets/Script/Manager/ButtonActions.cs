@@ -20,4 +20,8 @@ public class ButtonActions : MonoBehaviour
     {
         SceneManager.LoadScene(name);
     }
+    public void ChangeDeck(int index)
+    {
+        DeckManager.Instance.Index = index;
+    }
 }

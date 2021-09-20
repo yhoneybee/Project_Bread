@@ -8,8 +8,8 @@ public class UnitView : MonoBehaviour
     public Unit Show
     {
         get { return show; }
-        set 
-        { 
+        set
+        {
             show = value;
             SetLinker(show);
         }
@@ -19,12 +19,21 @@ public class UnitView : MonoBehaviour
 
     public void SetLinker(Unit show)
     {
-        UILinker.Icon.sprite = show.Info.Icon;
-        if (UILinker.LevelText)
+        if (show)
         {
-            UILinker.LevelText.text = $"Lv.{show.Info.Level}";
-            UILinker.NameText.text = $"{show.Info.Name}";
+            UILinker.NullUnActive.SetActive(true);
+
+            UILinker.Icon.sprite = show.Info.Icon;
+            if (UILinker.LevelText)
+            {
+                UILinker.LevelText.text = $"Lv.{show.Info.Level}";
+                UILinker.NameText.text = $"{show.Info.Name}";
+            }
+            else UILinker.NameText.text = $"Lv.{show.Info.Level} {show.Info.Name}";
         }
-        else UILinker.NameText.text = $"Lv.{show.Info.Level} {show.Info.Name}";
+        else
+        {
+            UILinker.NullUnActive.SetActive(false);
+        }
     }
 }
