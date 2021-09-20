@@ -7,10 +7,10 @@ using TMPro;
 public class UILinker : MonoBehaviour
 {
     public Image Icon;
+
     public Button IconBtn;
-
     public Button InfoBtn;
-    public Button ItemBtn;
 
-    public Button AllocBtn;
+    public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI NameText;
 }

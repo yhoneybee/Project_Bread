@@ -147,6 +147,7 @@ MonoBehaviour:
   Info:
     Rank: 0
     Name: 
+    Icon: {fileID: 0}
     Id: 0
     Level: 0
     Cost: 0
@@ -168,3 +169,8 @@ MonoBehaviour:
       AD: 0
   UnitType: 0
   Items: []
+  Animation:
+    Idle: []
+    Walk: []
+    Hit: []
+    Attack: []
