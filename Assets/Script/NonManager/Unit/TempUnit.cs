@@ -15,14 +15,15 @@ public class TempUnit : Unit
 
     public override void OnAnimChanged()
     {
-        throw new System.NotImplementedException();
     }
     public override void OnEndFrameAnim()
     {
-        throw new System.NotImplementedException();
     }
     public override void OnHit(Unit taker, float damage)
     {
-        throw new System.NotImplementedException();
+    }
+    public override void OnAttack(Unit taken)
+    {
+        base.OnAttack(taken);
     }
 }

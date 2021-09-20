@@ -12,9 +12,10 @@ public class ButtonActions : MonoBehaviour
         Instance = this;
     }
 
-    public void ChangeScene(int idx)
+    public bool CheckReEntering(string name)
     {
-        SceneManager.LoadScene(idx);
+        string scene = SceneManager.GetActiveScene().name;
+        return name == scene;
     }
     public void ChangeScene(string name)
     {

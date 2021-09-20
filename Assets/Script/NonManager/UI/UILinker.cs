@@ -23,8 +23,16 @@ public class UILinker : MonoBehaviour
     {
         IconBtn.onClick.AddListener(() =>
         {
-            UIManager.SelectSlot = Viewer;
-            ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
+            if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
+            {
+                DeckManager.SelectUnit = Viewer.Show;
+                ButtonActions.Instance.ChangeScene("C - 02 DeckSelect");
+            }
+            else
+            {
+                UIManager.SelectSlot = Viewer;
+                ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
+            }
         });
         InfoBtn.onClick.AddListener(() =>
         {
