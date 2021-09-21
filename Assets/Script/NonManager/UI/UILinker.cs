@@ -21,29 +21,39 @@ public class UILinker : MonoBehaviour
 
     private void Start()
     {
-        IconBtn.onClick.AddListener(() =>
-        {
-            if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
+        if (IconBtn)
+            IconBtn.onClick.AddListener(() =>
             {
-                DeckManager.SelectUnit = Viewer.Show;
-                ButtonActions.Instance.ChangeScene("C - 02 DeckSelect");
-            }
-            else
+                if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
+                {
+                    //GameManager.SelectSlot.Show = Viewer.Show;
+                    // 저장한 Index를 사용
+                    DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
+                    ButtonActions.Instance.ChangeScene("C - 02 DeckSelect");
+                }
+                else
+                {
+                    // 여기서 Index를 저장하고
+                    /*GameManager.SelectSlot = Viewer;*/
+                    GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                    ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
+                }
+            });
+        if (InfoBtn)
+            InfoBtn.onClick.AddListener(() =>
             {
-                UIManager.SelectSlot = Viewer;
-                ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
-            }
-        });
-        InfoBtn.onClick.AddListener(() =>
-        {
-            UIManager.SelectSlot = Viewer;
-            ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
-        });
+                // 여기서 Index를 저장하고
+                /*GameManager.SelectSlot = Viewer;*/
+                GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
+            });
         foreach (var btn in Buttons)
         {
             btn.onClick.AddListener(() =>
             {
-                UIManager.SelectSlot = Viewer;
+                // 여기서 Index를 저장하고
+                /*GameManager.SelectSlot = Viewer;*/
+                GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });
         }
