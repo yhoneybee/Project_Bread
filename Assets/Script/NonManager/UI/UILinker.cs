@@ -26,25 +26,18 @@ public class UILinker : MonoBehaviour
             {
                 if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
                 {
-                    //GameManager.SelectSlot.Show = Viewer.Show;
-                    // 저장한 Index를 사용
                     DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
                     ButtonActions.Instance.ChangeScene("C - 02 DeckSelect");
                 }
                 else
                 {
-                    // 여기서 Index를 저장하고
-                    /*GameManager.SelectSlot = Viewer;*/
                     GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
-                    // 여기서 Viewer안에 Show가 Null인지 확인해서 Except Active 해야함
                     ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
                 }
             });
         if (InfoBtn)
             InfoBtn.onClick.AddListener(() =>
             {
-                // 여기서 Index를 저장하고
-                /*GameManager.SelectSlot = Viewer;*/
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });
@@ -52,8 +45,6 @@ public class UILinker : MonoBehaviour
         {
             btn.onClick.AddListener(() =>
             {
-                // 여기서 Index를 저장하고
-                /*GameManager.SelectSlot = Viewer;*/
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });

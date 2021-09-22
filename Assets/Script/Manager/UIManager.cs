@@ -25,6 +25,12 @@ public class UIManager : MonoBehaviour
             {
                 var view = AllUnits[i];
                 var show = UnitManager.Instance.Units[i];
+                var find = GameManager.Select.Find((o) => 
+                {
+                    if (o == null) return false;
+                    return o.Info.Name == show.Info.Name;
+                });
+                view.gameObject.SetActive(find == null);
                 view.Show = show;
             }
 
