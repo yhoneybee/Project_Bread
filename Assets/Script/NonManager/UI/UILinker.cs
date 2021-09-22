@@ -27,7 +27,7 @@ public class UILinker : MonoBehaviour
                 if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
                 {
                     DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
-                    ButtonActions.Instance.ChangeScene("C - 02 DeckSelect");
+                    ButtonActions.Instance.ChangeScene("C - 03 DeckSelect");
                 }
                 else
                 {

@@ -277,7 +277,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.18403257}
+  m_AnchoredPosition: {x: 0, y: 0.0000535804}
   m_SizeDelta: {x: 0, y: 850.48}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &146569986
@@ -1247,6 +1247,7 @@ MonoBehaviour:
   - {fileID: 1546542513}
   - {fileID: 6835272}
   TeamBtnLock: {fileID: 0}
+  UnitNullSprite: {fileID: 0}
   Except: {fileID: 1517448289}
 --- !u!1001 &1212338264
 PrefabInstance:
@@ -1905,7 +1906,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1573674113}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.18946268
+  m_Size: 0.99810493
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2786,7 +2787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: C - 02 DeckSelect
+      value: C - 03 DeckSelect
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

@@ -28,6 +28,6 @@ public class ButtonActions : MonoBehaviour
     public void ExceptUnit()
     {
         GameManager.Select[GameManager.SelectSlotIdx] = null;
-        ChangeScene("C - 02 DeckSelect");
+        ChangeScene("C - 03 DeckSelect");
     }
 }

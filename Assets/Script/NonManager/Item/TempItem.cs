@@ -7,7 +7,7 @@ public class TempItem : Item
     public override void OnAttack(Unit taken)
     {
     }
-    public override void OnHit(Unit taken)
+    public override void OnHit(Unit taken, ref float damage)
     {
     }
 }
