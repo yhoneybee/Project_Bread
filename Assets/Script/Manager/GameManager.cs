@@ -8,9 +8,15 @@ public class GameManager : MonoBehaviour
 
     public List<List<Unit>> Decks { get; private set; } = new List<List<Unit>>()
     {
-        new List<Unit>(), new List<Unit>(), new List<Unit>(),
-        new List<Unit>(), new List<Unit>(), new List<Unit>(),
-        new List<Unit>(), new List<Unit>(), new List<Unit>(),
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
+        new List<Unit>(){ null,null,null,null,null,null,null, },
     };
 
     /*public static UnitView SelectSlot;*/

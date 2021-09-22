@@ -121,6 +121,7 @@ public struct Anim
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[Serializable]
 public abstract class Unit : MonoBehaviour
 {
     private AnimState anim_state;

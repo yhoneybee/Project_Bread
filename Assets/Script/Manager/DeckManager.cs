@@ -31,10 +31,6 @@ public class DeckManager : MonoBehaviour
     {
         List<Unit> nulls = new List<Unit>() { null, null, null, null, null, null, null, };
 
-        for (int i = 0; i < GameManager.Instance.Decks.Count; ++i)
-            if (GameManager.Instance.Decks[i].Count == 0)
-                GameManager.Instance.Decks[i] = nulls;
-
         DeckApply();
 
         for (int i = 0; i < GameManager.Instance.Decks.Count; i++)
