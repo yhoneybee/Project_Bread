@@ -5,18 +5,7 @@ using UnityEngine;
 public class DeckManager : MonoBehaviour
 {
     public static DeckManager Instance { get; private set; } = null;
-    public static List<Unit> Select => GameManager.Instance.Decks[Instance.Index];
-
-    private int index = 0;
-    public int Index
-    {
-        get { return index; }
-        set
-        {
-            index = value;
-            DeckApply();
-        }
-    }
+    public static List<Unit> Select => GameManager.Instance.Decks[GameManager.Instance.Index];
 
     /*public static Unit SelectUnit;*/
 

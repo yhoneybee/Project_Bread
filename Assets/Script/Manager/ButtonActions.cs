@@ -23,6 +23,11 @@ public class ButtonActions : MonoBehaviour
     }
     public void ChangeDeck(int index)
     {
-        DeckManager.Instance.Index = index;
+        GameManager.Instance.Index = index;
+    }
+    public void ExceptUnit()
+    {
+        GameManager.Select[GameManager.SelectSlotIdx] = null;
+        ChangeScene("C - 02 DeckSelect");
     }
 }

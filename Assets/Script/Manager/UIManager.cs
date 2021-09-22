@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
     public Sprite TeamBtnLock;
+    public Sprite UnitNullSprite;
     public RectTransform Except;
 
     private void Awake()
@@ -25,6 +26,15 @@ public class UIManager : MonoBehaviour
                 var view = AllUnits[i];
                 var show = UnitManager.Instance.Units[i];
                 view.Show = show;
+            }
+
+            var select_unit = DeckManager.Select[GameManager.SelectSlotIdx];
+
+            if (select_unit && Except)
+            {
+                Except.gameObject.SetActive(true);
+                var find = AllUnits.Find((o) => { return o.Show == select_unit; });
+                if (find) find.gameObject.SetActive(false);
             }
         }
     }

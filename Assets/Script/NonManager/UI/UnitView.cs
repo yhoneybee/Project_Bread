@@ -33,6 +33,7 @@ public class UnitView : MonoBehaviour
         }
         else
         {
+            UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
             UILinker.NullUnActive.SetActive(false);
         }
     }

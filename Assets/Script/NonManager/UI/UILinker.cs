@@ -36,6 +36,7 @@ public class UILinker : MonoBehaviour
                     // 여기서 Index를 저장하고
                     /*GameManager.SelectSlot = Viewer;*/
                     GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                    // 여기서 Viewer안에 Show가 Null인지 확인해서 Except Active 해야함
                     ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
                 }
             });

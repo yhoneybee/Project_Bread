@@ -1107,6 +1107,7 @@ MonoBehaviour:
   - {fileID: 102453189}
   AllUnits: []
   TeamBtnLock: {fileID: 21300000, guid: 408d2f00a5b823f4d833007771a8b77e, type: 3}
+  UnitNullSprite: {fileID: 21300000, guid: 22d4b35aa3b7ecc4fb5151e647598d96, type: 3}
   Except: {fileID: 0}
 --- !u!1001 &450569392
 PrefabInstance:

@@ -18,6 +18,18 @@ public class GameManager : MonoBehaviour
         new List<Unit>(){ null,null,null,null,null,null,null, },
         new List<Unit>(){ null,null,null,null,null,null,null, },
     };
+    public static List<Unit> Select => Instance.Decks[Instance.Index];
+
+    private int index = 0;
+    public int Index
+    {
+        get { return index; }
+        set
+        {
+            index = value;
+            if (DeckManager.Instance) DeckManager.Instance.DeckApply();
+        }
+    }
 
     /*public static UnitView SelectSlot;*/
     public static int SelectSlotIdx;
