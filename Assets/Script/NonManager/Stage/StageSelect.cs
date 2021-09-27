@@ -14,6 +14,9 @@ public class StageSelect : MonoBehaviour
     }
 
     [SerializeField] LimitPostiions limits;
+    [SerializeField] GameObject ReadyWindow;
+    [SerializeField] GameObject StageWindow;
+
     RaycastHit2D[] hits;
     void Start()
     {
@@ -33,16 +36,28 @@ public class StageSelect : MonoBehaviour
             if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
             else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
 
-            CameraManager.Instance.MoveCamera(cam_move_position, 5);
+
+            if (!ReadyWindow.activeSelf && !StageWindow.activeSelf)
+                CameraManager.Instance.MoveCamera(cam_move_position, 5);
 
             hits = Physics2D.RaycastAll(mouse_position, Vector3.forward, 10);
 
             if (hits.Length > 0)
             {
+                if (hits[0].transform.CompareTag("Stage Sprite"))
+                {
+                    ReadyWindow.SetActive(true);
+                }
                 // Do Something!
                 // Do Something!
                 // Do Something!
             }
+            else
+            {
+                ReadyWindow.SetActive(false);
+                StageWindow.SetActive(false);
+            }
+
         }
     }
 }
