@@ -1166,7 +1166,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397304357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 968836365}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: D - 01 StageSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1413599464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1413599466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 968836365}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: D - 01 StageSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1450168759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1496,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1465555492}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 968836365}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: D - 01 StageSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1474404686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1519928232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 968836365}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: D - 01 StageSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1686606983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2131,4 +2179,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1821832824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 968836365}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: D - 01 StageSelect
+          m_BoolArgument: 0
+        m_CallState: 2
