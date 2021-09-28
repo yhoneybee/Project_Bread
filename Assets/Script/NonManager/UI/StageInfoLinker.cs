@@ -11,6 +11,6 @@ public class StageInfoLinker : MonoBehaviour
 
     private void Start()
     {
-        
+        RewardInfo reward = StageManager.Instance.GetReward();
     }
 }

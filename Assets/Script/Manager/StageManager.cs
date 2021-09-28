@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; } = null;
 
-    public List<RewardInfo> RewardInfos;
+    public List<RewardInfo>[] RewardInfos;
 
     private void Awake()
     {
@@ -25,4 +25,6 @@ public class StageManager : MonoBehaviour
     {
 
     }
+
+    public RewardInfo GetReward() => RewardInfos[StageInfo.theme_number][StageInfo.stage_number];
 }
