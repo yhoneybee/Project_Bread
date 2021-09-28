@@ -1600,6 +1600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 703237981}
   - component: {fileID: 703237983}
+  - component: {fileID: 703237982}
   m_Layer: 5
   m_Name: Stage Deck Info
   m_TagString: Untagged
@@ -1628,6 +1629,20 @@ RectTransform:
   m_AnchoredPosition: {x: 51, y: -92.44003}
   m_SizeDelta: {x: 1350, y: 814.41}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &703237982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703237980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5436a0250534358458f6c0d63680976b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MobContent: {fileID: 2125525716}
+  RewardContent: {fileID: 2106223917}
 --- !u!222 &703237983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1830,7 +1845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1034855492}
   m_Layer: 5
-  m_Name: Reword
+  m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
