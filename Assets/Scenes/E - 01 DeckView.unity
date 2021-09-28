@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 161153359}
   - component: {fileID: 161153362}
   - component: {fileID: 161153361}
+  - component: {fileID: 161153363}
   m_Layer: 5
   m_Name: Squad View (4)
   m_TagString: Untagged
@@ -396,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 161153362}
   Icon: {fileID: 161153359}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 161153363}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -415,6 +416,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 161153361}
+--- !u!114 &161153363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161153357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 161153359}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &176123923
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +791,7 @@ GameObject:
   - component: {fileID: 302642156}
   - component: {fileID: 302642159}
   - component: {fileID: 302642158}
+  - component: {fileID: 302642160}
   m_Layer: 5
   m_Name: Squad View (3)
   m_TagString: Untagged
@@ -824,7 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 302642159}
   Icon: {fileID: 302642156}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 302642160}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -843,6 +889,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 302642158}
+--- !u!114 &302642160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302642154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 302642156}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &504440618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1448,7 @@ GameObject:
   - component: {fileID: 673051348}
   - component: {fileID: 673051351}
   - component: {fileID: 673051350}
+  - component: {fileID: 673051352}
   m_Layer: 5
   m_Name: Squad View (2)
   m_TagString: Untagged
@@ -1436,7 +1527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 673051351}
   Icon: {fileID: 673051348}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 673051352}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -1455,6 +1546,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 673051350}
+--- !u!114 &673051352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 673051346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 673051348}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &703237980
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,7 +1679,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1964eeedcb560d40973b79bece67c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitViews: []
+  UnitViews:
+  - {fileID: 1695862421}
+  - {fileID: 1671480243}
+  - {fileID: 1160931254}
+  - {fileID: 673051351}
+  - {fileID: 302642159}
+  - {fileID: 161153362}
+  - {fileID: 1227570829}
   TeamBtnLocks:
   - {fileID: 1764866053}
   - {fileID: 1764866052}
@@ -1830,6 +1972,7 @@ GameObject:
   - component: {fileID: 1160931251}
   - component: {fileID: 1160931254}
   - component: {fileID: 1160931253}
+  - component: {fileID: 1160931255}
   m_Layer: 5
   m_Name: Squad View (1)
   m_TagString: Untagged
@@ -1908,7 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1160931254}
   Icon: {fileID: 1160931251}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 1160931255}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -1927,6 +2070,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 1160931253}
+--- !u!114 &1160931255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160931249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1160931251}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1164966654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,6 +2295,7 @@ GameObject:
   - component: {fileID: 1227570826}
   - component: {fileID: 1227570829}
   - component: {fileID: 1227570828}
+  - component: {fileID: 1227570830}
   m_Layer: 5
   m_Name: Squad View (5)
   m_TagString: Untagged
@@ -2186,7 +2374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1227570829}
   Icon: {fileID: 1227570826}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 1227570830}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -2205,6 +2393,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 1227570828}
+--- !u!114 &1227570830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227570824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1227570826}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1328763804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2933,7 @@ GameObject:
   - component: {fileID: 1671480240}
   - component: {fileID: 1671480243}
   - component: {fileID: 1671480242}
+  - component: {fileID: 1671480244}
   m_Layer: 5
   m_Name: Squad View
   m_TagString: Untagged
@@ -2779,7 +3012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1671480243}
   Icon: {fileID: 1671480240}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 1671480244}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -2798,6 +3031,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 1671480242}
+--- !u!114 &1671480244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671480238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1671480240}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1695862416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2811,6 +3088,7 @@ GameObject:
   - component: {fileID: 1695862418}
   - component: {fileID: 1695862421}
   - component: {fileID: 1695862420}
+  - component: {fileID: 1695862422}
   m_Layer: 5
   m_Name: Leader
   m_TagString: Untagged
@@ -2889,7 +3167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1695862421}
   Icon: {fileID: 1695862418}
-  IconBtn: {fileID: 0}
+  IconBtn: {fileID: 1695862422}
   InfoBtn: {fileID: 0}
   Buttons: []
   LevelText: {fileID: 0}
@@ -2908,6 +3186,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UILinker: {fileID: 1695862420}
+--- !u!114 &1695862422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695862416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1695862418}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1748019227
 GameObject:
   m_ObjectHideFlags: 0
