@@ -64,17 +64,10 @@ public class StageSelect : MonoBehaviour
                 {
                     // 스테이지 번호 갖고 있는 오브젝트
                     Transform stage_number_transform = hits[0].transform.GetChild(4);
-                    SpriteRenderer[] number_images = new SpriteRenderer[2];
+                    SpriteRenderer[] number_images;
 
                     // 두 글자 이상일 때 (10스테이지 이상)
-                    if (stage_number_transform.childCount > 0)
-                    {
-                        number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
-                    }
-                    else
-                    {
-                        number_images[0] = stage_number_transform.GetComponent<SpriteRenderer>();
-                    }
+                    number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
 
                     string stage_number = "";
                     foreach (var image in number_images)
