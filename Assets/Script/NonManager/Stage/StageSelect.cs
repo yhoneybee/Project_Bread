@@ -35,6 +35,10 @@ public class StageSelect : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("F - 01 Ingame");
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
