@@ -29,7 +29,7 @@ public class UnitView : MonoBehaviour
                 UILinker.LevelText.text = $"Lv.{show.Info.Level}";
                 UILinker.NameText.text = $"{show.Info.Name}";
             }
-            else UILinker.NameText.text = $"Lv.{show.Info.Level} {show.Info.Name}";
+            else if (UILinker.NameText) UILinker.NameText.text = $"Lv.{show.Info.Level} {show.Info.Name}";
         }
         else
         {

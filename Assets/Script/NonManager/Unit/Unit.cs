@@ -153,8 +153,7 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
-        transform.Translate(dir * Stat.MS * Time.deltaTime);
+        Moveing();
 
         Animator();
 
@@ -218,6 +217,11 @@ public abstract class Unit : MonoBehaviour
         if (SF.Count == 0) return;
         if (SR) SR.sprite = SF[AnimIndex].Sprite;
         if (time >= SF[AnimIndex].Frame) ++AnimIndex;
+    }
+    public virtual void Moveing()
+    {
+        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
+        transform.Translate(dir * Stat.MS * Time.deltaTime);
     }
 
     public virtual void OnAttack(Unit taken)
