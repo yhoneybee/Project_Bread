@@ -14,40 +14,43 @@ public class StageInfoLinker : MonoBehaviour
 
     private void Start()
     {
-        AddRewards();
+        RewardInfo reward = StageManager.Instance.GetReward();
+        AddRewards(reward.FirstClear);
+        AddRewards(reward.ThreeStarClear);
+        AddRewards(reward.Clear);
+
+        RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
     }
 
-    public void AddRewards()
+    public void AddRewards(Tuple<int, int, Unit> clear)
     {
-        RewardInfo reward = StageManager.Instance.GetReward();
-
         GameObject obj = null;
 
-        if (reward.FirstClear.Item3)
+        if (clear.Item3)
         {
             obj = Instantiate(ClearPrefab);
-            obj.name = "F Unit";
+            obj.name = "Unit";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item3}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item3}";
         }
 
-        if (reward.FirstClear.Item1 > 0)
+        if (clear.Item1 > 0)
         {
             obj = Instantiate(ClearPrefab);
-            obj.name = "F Jem";
+            obj.name = "Jem";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item1}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item1}";
         }
 
-        if (reward.FirstClear.Item2 > 0)
+        if (clear.Item2 > 0)
         {
             obj = Instantiate(ClearPrefab);
-            obj.name = "F Coin";
+            obj.name = "Coin";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item2}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item2}";
         }
     }
 }
