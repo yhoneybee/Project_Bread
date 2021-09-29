@@ -24,14 +24,14 @@ public class ButtonActions : MonoBehaviour
     /// <summary>
     /// 테마 선택 후 호출해줘야 하는 함수
     /// </summary>
-    /// <param name="theme_number">테마 번호</param>
+    /// <param name="theme_number">테마 번호 (ex : 1)</param>
     public void SetThemeNumber(int theme_number)
     {
         string[] theme_names = { "밝은 오븐", "넓은 들판", "음침한 숲" };
 
         // 테마 번호 저장 후 테마 이름 바꿔줌
         StageInfo.theme_number = theme_number;
-        StageInfo.theme_name = theme_names[theme_number];
+        StageInfo.theme_name = theme_names[theme_number - 1];
     }
     public void ChangeDeck(int index)
     {

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class StageSelect : MonoBehaviour
 {
     [System.Serializable]
@@ -17,10 +17,19 @@ public class StageSelect : MonoBehaviour
     [SerializeField] GameObject ReadyWindow;
     [SerializeField] GameObject StageWindow;
 
+    [SerializeField] SpriteRenderer[] theme_number_imgs;
+    [SerializeField] Sprite[] theme_number_sprites;
+
+    [SerializeField] TextMeshProUGUI[] stage_name_texts;
+    [SerializeField] TextMeshProUGUI[] theme_name_texts;
+
     RaycastHit2D[] hits;
     void Start()
     {
-
+        for (int i = 0; i < theme_number_imgs.Length; i++)
+        {
+            theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];
+        }
     }
 
     void Update()
@@ -71,6 +80,15 @@ public class StageSelect : MonoBehaviour
                     StageInfo.stage_number = System.Convert.ToInt32(stage_number);
 
                     ReadyWindow.SetActive(true);
+
+                    foreach (var theme_name_text in theme_name_texts)
+                    {
+                        theme_name_text.text = StageInfo.theme_name;
+                    }
+                    foreach (var stage_name_text in stage_name_texts)
+                    {
+                        stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
+                    }
                 }
             }
             else
