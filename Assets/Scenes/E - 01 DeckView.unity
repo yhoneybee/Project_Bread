@@ -1641,6 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5436a0250534358458f6c0d63680976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClearPrefab: {fileID: 4589283204957968001, guid: d31d5f6a298f03543a16c52c979bb85c, type: 3}
   MobContent: {fileID: 2125525716}
   RewardContent: {fileID: 2106223917}
 --- !u!222 &703237983
