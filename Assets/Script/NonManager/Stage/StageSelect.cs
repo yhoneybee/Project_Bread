@@ -28,6 +28,7 @@ public class StageSelect : MonoBehaviour
     {
         for (int i = 0; i < theme_number_imgs.Length; i++)
         {
+            // Sprite Renderer로 되어 있는 각 스테이지 버튼의 테마 번호
             theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];
         }
     }
