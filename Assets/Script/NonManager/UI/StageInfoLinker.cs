@@ -21,29 +21,31 @@ public class StageInfoLinker : MonoBehaviour
     {
         RewardInfo reward = StageManager.Instance.GetReward();
 
-        GameObject obj = Instantiate(ClearPrefab);
-        obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
+        GameObject obj = null;
 
         if (reward.FirstClear.Item3)
         {
+            obj = Instantiate(ClearPrefab);
+            obj.name = "F Unit";
+            obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item3}";
         }
 
-        obj = Instantiate(ClearPrefab);
-        obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
-
         if (reward.FirstClear.Item1 > 0)
         {
+            obj = Instantiate(ClearPrefab);
+            obj.name = "F Jem";
+            obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item1}";
         }
 
-        obj = Instantiate(ClearPrefab);
-        obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
-
         if (reward.FirstClear.Item2 > 0)
         {
+            obj = Instantiate(ClearPrefab);
+            obj.name = "F Coin";
+            obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{reward.FirstClear.Item2}";
         }

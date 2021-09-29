@@ -61,5 +61,5 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public RewardInfo GetReward() => RewardInfos[StageInfo.theme_number][StageInfo.stage_number];
+    public RewardInfo GetReward() => RewardInfos[StageInfo.theme_number - 1][StageInfo.stage_number - 1];
 }
