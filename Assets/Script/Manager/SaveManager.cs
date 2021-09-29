@@ -77,6 +77,7 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     /// <typeparam name="T">불러올 자료형</typeparam>
     /// <param name="load_target">불러와서 갱신할 타겟</param>
+    [Obsolete("Dont use this function", true)]
     public void Load<T>(ref List<T> load_target)
     {
         Text_file_name = typeof(T).Name;
