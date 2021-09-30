@@ -144,6 +144,7 @@ public abstract class Unit : MonoBehaviour
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
+    bool is_attack_able = true;
 
     Vector2 dir;
 
@@ -154,14 +155,12 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (is_walk_able)
-            Moveing();
+        if (is_walk_able) Moveing();
 
         Animator();
 
-        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, LayerMask.NameToLayer("Unit"));
+        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, 1 << LayerMask.NameToLayer("Unit"));
         Debug.DrawRay(transform.position, dir * Stat.AR, Color.yellow);
-        Debug.Log(hits.Length);
 
         if (hits.Length > 1)
         {
@@ -174,8 +173,11 @@ public abstract class Unit : MonoBehaviour
                 {
                     count++;
                     is_walk_able = false;
-                    Debug.Log("ÀÀ¾Ö");
-                    OnAttack(unit);
+                    if (is_attack_able)
+                    {
+                        OnAttack(unit);
+                        StartCoroutine(ASDelay());
+                    }
                     break;
                 }
             }
@@ -231,16 +233,29 @@ public abstract class Unit : MonoBehaviour
         if (SR) SR.sprite = SF[AnimIndex].Sprite;
         if (time >= SF[AnimIndex].Frame) ++AnimIndex;
     }
+
+    IEnumerator ASDelay()
+    {
+        is_attack_able = false;
+        yield return new WaitForSeconds(1 / Stat.AS);
+        is_attack_able = true;
+        yield return null;
+    }
+
     public virtual void Moveing()
     {
         dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
         transform.Translate(dir * Stat.MS * Time.deltaTime);
+        SR.flipX = UnitType == UnitType.FRIEND;
     }
 
     public virtual void OnAttack(Unit taken)
     {
-        foreach (var item in Items) item.OnAttack(taken);
-        taken.OnHit(this, Stat.AD);
+        if (is_attack_able)
+        {
+            foreach (var item in Items) item.OnAttack(taken);
+            taken.OnHit(this, Stat.AD);
+        }
     }
     public virtual void OnHit(Unit taker, float damage)
     {
