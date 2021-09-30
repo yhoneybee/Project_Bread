@@ -101,15 +101,6 @@ public struct SpriteFrame
     public Sprite Sprite;
     public float Frame;
 }
-
-[Serializable]
-public struct Anim
-{
-    public List<SpriteFrame> Idle;
-    public List<SpriteFrame> Walk;
-    public List<SpriteFrame> Hit;
-    public List<SpriteFrame> Attack;
-}
 #endregion
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -152,6 +143,7 @@ public abstract class Unit : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
         SR = GetComponent<SpriteRenderer>();
+        if (Anim == null) Anim = GetComponent<Anim>();
     }
     protected virtual void Update()
     {
