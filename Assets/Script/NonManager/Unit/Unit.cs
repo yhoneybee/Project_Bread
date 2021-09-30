@@ -143,6 +143,7 @@ public abstract class Unit : MonoBehaviour
 
     int AnimIndex = 0;
     float time = 0;
+    bool is_walk_able = true;
 
     Vector2 dir;
 
@@ -153,20 +154,32 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        Moveing();
+        if (is_walk_able)
+            Moveing();
 
         Animator();
 
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, LayerMask.NameToLayer("Unit"));
-        Debug.DrawRay(transform.position, dir * Stat.AR);
+        Debug.DrawRay(transform.position, dir * Stat.AR, Color.yellow);
+        Debug.Log(hits.Length);
 
-        foreach (var hit in hits)
+        if (hits.Length > 1)
         {
-            if (hit.transform.gameObject != gameObject)
+            int count = 0;
+            Unit unit;
+            foreach (var hit in hits)
             {
-                OnAttack(hit.transform.GetComponent<Unit>());
-                break;
+                unit = hit.transform.GetComponent<Unit>();
+                if (unit.UnitType != UnitType)
+                {
+                    count++;
+                    is_walk_able = false;
+                    Debug.Log("¿¿æ÷");
+                    OnAttack(unit);
+                    break;
+                }
             }
+            if (count == 0) is_walk_able = true;
         }
     }
 
