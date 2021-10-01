@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
                 view.Show = show;
             }
 
-            var select_unit = DeckManager.Select[GameManager.SelectSlotIdx];
+            var select_unit = GameManager.SelectUnit;
 
             if (select_unit && Except)
             {

@@ -777,6 +777,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15ea9f1591a6334bb030adfa143f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 8720453528091714051, guid: 58c715f084a8cb747a7941623787784b, type: 3}
   Coin: 0
   Jem: 0
   Stemina: 0

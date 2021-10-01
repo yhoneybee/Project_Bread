@@ -169,7 +169,8 @@ MonoBehaviour:
       ELostHP: 0
       AD: 0
   UnitType: 0
-  Items: []
+  Items:
+  - {fileID: 8720453528091714051, guid: 58c715f084a8cb747a7941623787784b, type: 3}
   Anim: {fileID: 0}
 --- !u!114 &7393170139525600960
 MonoBehaviour:

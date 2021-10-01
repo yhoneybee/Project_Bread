@@ -36,6 +36,7 @@ public class UILinker : MonoBehaviour
                 else
                 {
                     GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                    GameManager.SelectUnit = Viewer.Show;
                     ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
                 }
             });
@@ -43,6 +44,7 @@ public class UILinker : MonoBehaviour
             InfoBtn.onClick.AddListener(() =>
             {
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                GameManager.SelectUnit = Viewer.Show;
                 ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });
         foreach (var btn in Buttons)
@@ -50,6 +52,7 @@ public class UILinker : MonoBehaviour
             btn.onClick.AddListener(() =>
             {
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
+                GameManager.SelectUnit = Viewer.Show;
                 ButtonActions.Instance.ChangeScene("D - 03 UnitInfo");
             });
         }
