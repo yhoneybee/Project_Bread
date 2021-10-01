@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonActions : MonoBehaviour
@@ -41,5 +42,32 @@ public class ButtonActions : MonoBehaviour
     {
         GameManager.Select[GameManager.SelectSlotIdx] = null;
         ChangeScene("C - 03 DeckSelect");
+    }
+    public void AppearAndHideForPivot(RectTransform RT)
+    {
+        StartCoroutine(EAppearAndHideForPivot(RT));
+    }
+    IEnumerator EAppearAndHideForPivot(RectTransform RT)
+    {
+        if (RT.pivot.x == 0.9f)
+        {
+            while (RT.pivot.x > 0.005f)
+            {
+                RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(0, RT.pivot.y), Time.deltaTime * 3);
+                yield return new WaitForSeconds(0.001f);
+            }
+            RT.pivot = new Vector2(0,RT.pivot.y);
+        }
+        else if (RT.pivot.x == 0)
+        {
+            while (RT.pivot.x < 0.895f)
+            {
+                RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(1, RT.pivot.y), Time.deltaTime * 3);
+                yield return new WaitForSeconds(0.001f);
+            }
+            RT.pivot = new Vector2(0.9f,RT.pivot.y);
+        }
+
+        yield return null;
     }
 }

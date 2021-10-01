@@ -1524,7 +1524,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00002260885}
+  m_AnchoredPosition: {x: 0, y: 0.00031964786}
   m_SizeDelta: {x: 0, y: 795.82}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &610707951
@@ -1632,7 +1632,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 638897592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 585487935}
+        m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
+        m_MethodName: AppearAndHideForPivot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2003818824}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.RectTransform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &638897592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,7 +3586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 20, y: 40}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 775, y: 290}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2003818825
