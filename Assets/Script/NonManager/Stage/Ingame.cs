@@ -44,6 +44,7 @@ public class Ingame : MonoBehaviour
             target_guage = Mathf.RoundToInt(current_guage - 1);
         }
 
+        // 게이지가 내려가야 한다면 빨리 내려가게 하기 위해 따로 분리 
         if (target_guage < current_guage)
         {
             current_guage = Mathf.Lerp(current_guage, target_guage, 0.5f);
@@ -89,10 +90,7 @@ public class Ingame : MonoBehaviour
             {
                 if (target_guage - current_guage <= 0.1f)
                 {
-                    if (target_guage > current_guage)
-                    {
-                        yield return new WaitForSeconds(1f);
-                    }
+                    yield return new WaitForSeconds(1f);
                     current_guage = target_guage;
                     target_guage = Mathf.RoundToInt(current_guage + 1);
                 }
