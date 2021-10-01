@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     };
     public static List<Unit> Select => Instance.Decks[Instance.Index];
 
+    public List<Item> Items = new List<Item>();
+
     private int index = 0;
     public int Index
     {
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*public static UnitView SelectSlot;*/
+    public static Unit SelectUnit;
     public static int SelectSlotIdx;
 
     public int Coin = 0;
