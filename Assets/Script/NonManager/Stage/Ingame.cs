@@ -21,7 +21,7 @@ public class Ingame : MonoBehaviour
     [SerializeField] Text guage_text;
 
     float current_guage = 0;
-    float target_guage;
+    float target_guage = 1;
     void Start()
     {
         stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
@@ -31,7 +31,7 @@ public class Ingame : MonoBehaviour
         platforms[StageInfo.theme_number - 1].SetActive(true);
 
         StartCoroutine(SpawnEnemies());
-        StartCoroutine(Guage_Management());
+        StartCoroutine(Guage_Change());
     }
     void Update()
     {
@@ -39,19 +39,16 @@ public class Ingame : MonoBehaviour
         {
             SpawnBread("2단과일케이크");
         }
+
+        // 임시로 만들어 놓은 부분
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            target_guage = Mathf.RoundToInt(current_guage - 1);
+            current_guage--;
+            target_guage--;
         }
 
-        // 게이지가 내려가야 한다면 빨리 내려가게 하기 위해 따로 분리 
-        if (target_guage < current_guage)
-        {
-            current_guage = Mathf.Lerp(current_guage, target_guage, 0.5f);
-        }
-
-        guage_slider.value = current_guage / 10f;
-        guage_text.text = Mathf.RoundToInt(current_guage).ToString();
+        guage_slider.value = current_guage / 10;
+        guage_text.text = ((int)current_guage).ToString();
     }
     public void SetTimeScale(float value)
     {
@@ -82,20 +79,21 @@ public class Ingame : MonoBehaviour
             }
         }
     }
-    IEnumerator Guage_Management()
+    IEnumerator Guage_Change()
     {
         while (true)
         {
-            if (current_guage < 10)
+            // 현재 게이지가 거의 다 올라갔을 때 (Lerp를 통한 값 설정으로 인해 정확히 올라가지 못하기 때문)
+            if (target_guage - current_guage <= 0.05f)
             {
-                if (target_guage - current_guage <= 0.1f)
-                {
-                    yield return new WaitForSeconds(1f);
-                    current_guage = target_guage;
-                    target_guage = Mathf.RoundToInt(current_guage + 1);
-                }
-                current_guage = Mathf.Lerp(current_guage, target_guage, 0.5f);
+                // 정확한 값으로 설정 및 target_guage 설정
+                current_guage = Mathf.Round(current_guage);
+                if (current_guage < 10)
+                    target_guage = current_guage + 1;
+                yield return new WaitForSeconds(1f);
             }
+            current_guage = Mathf.Lerp(current_guage, target_guage, 0.2f);
+
             yield return new WaitForSeconds(0.01f);
         }
     }

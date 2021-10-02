@@ -32,7 +32,6 @@ public class StageSelect : MonoBehaviour
             theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];
         }
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -42,18 +41,8 @@ public class StageSelect : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 cam_move_position = mouse_position;
 
-            // limits와 카메라 위치 비교 후 제한
-            if (cam_move_position.x < limits.limit_x_left.position.x) cam_move_position = new Vector2(limits.limit_x_left.position.x, cam_move_position.y);
-            else if (cam_move_position.x > limits.limit_x_right.position.x) cam_move_position = new Vector2(limits.limit_x_right.position.x, cam_move_position.y);
-
-            if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
-            else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
-
-            // 창이 열려 있지 않을 경우 카메라 이동
-            if (!ReadyWindow.activeSelf && !StageWindow.activeSelf)
-                CameraManager.Instance.MoveCamera(cam_move_position, 5);
+            CameraMove(mouse_position);
 
             hits = Physics2D.RaycastAll(mouse_position, Vector3.forward, 10);
 
@@ -62,31 +51,7 @@ public class StageSelect : MonoBehaviour
             {
                 if (hits[0].transform.CompareTag("Stage Sprite"))
                 {
-                    // 스테이지 번호 갖고 있는 오브젝트
-                    Transform stage_number_transform = hits[0].transform.GetChild(4);
-                    SpriteRenderer[] number_images;
-
-                    // 두 글자 이상일 때 (10스테이지 이상)
-                    number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
-
-                    string stage_number = "";
-                    foreach (var image in number_images)
-                    {
-                        if (image != null)
-                            stage_number += image.sprite.name;
-                    }
-                    StageInfo.stage_number = System.Convert.ToInt32(stage_number);
-
-                    ReadyWindow.SetActive(true);
-
-                    foreach (var theme_name_text in theme_name_texts)
-                    {
-                        theme_name_text.text = StageInfo.theme_name;
-                    }
-                    foreach (var stage_name_text in stage_name_texts)
-                    {
-                        stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
-                    }
+                    SetStageName();
                 }
             }
             else
@@ -94,6 +59,55 @@ public class StageSelect : MonoBehaviour
                 ReadyWindow.SetActive(false);
                 StageWindow.SetActive(false);
             }
+        }
+    }
+    /// <summary>
+    /// 카메라가 범위를 벗어나지 않으면서 목표 위치로 이동시키는 함수
+    /// </summary>
+    /// <param name="target_position">목표 위치</param>
+    void CameraMove(Vector2 target_position)
+    {
+        Vector2 cam_move_position = target_position;
+
+        // limits와 카메라 위치 비교 후 제한
+        if (cam_move_position.x < limits.limit_x_left.position.x) cam_move_position = new Vector2(limits.limit_x_left.position.x, cam_move_position.y);
+        else if (cam_move_position.x > limits.limit_x_right.position.x) cam_move_position = new Vector2(limits.limit_x_right.position.x, cam_move_position.y);
+
+        if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
+        else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
+
+        // 창이 열려 있지 않을 경우 카메라 이동
+        if (!ReadyWindow.activeSelf && !StageWindow.activeSelf)
+            CameraManager.Instance.MoveCamera(cam_move_position, 5);
+    }
+    /// <summary>
+    ///  Stage 정보창 등에서 스테이지 이름과 테마 이름을 설정해주는 함수
+    /// </summary>
+    void SetStageName()
+    {
+        // 스테이지 번호 갖고 있는 오브젝트
+        Transform stage_number_transform = hits[0].transform.GetChild(4);
+        SpriteRenderer[] number_images;
+
+        number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
+
+        string stage_number = "";
+        foreach (var image in number_images)
+        {
+            if (image != null)
+                stage_number += image.sprite.name;
+        }
+        StageInfo.stage_number = System.Convert.ToInt32(stage_number);
+
+        ReadyWindow.SetActive(true);
+
+        foreach (var theme_name_text in theme_name_texts)
+        {
+            theme_name_text.text = StageInfo.theme_name;
+        }
+        foreach (var stage_name_text in stage_name_texts)
+        {
+            stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
         }
     }
 }
