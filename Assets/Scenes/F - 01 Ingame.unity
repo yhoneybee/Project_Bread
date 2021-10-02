@@ -155,7 +155,7 @@ RectTransform:
   - {fileID: 1643256948}
   - {fileID: 2058198151}
   m_Father: {fileID: 1743917754}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1933,7 +1933,7 @@ RectTransform:
   - {fileID: 1435782771}
   - {fileID: 1531596933}
   m_Father: {fileID: 1743917754}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1972,7 +1972,7 @@ RectTransform:
   - {fileID: 1682656081}
   - {fileID: 1800696489}
   m_Father: {fileID: 1743917754}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5880,9 +5880,9 @@ RectTransform:
   m_Children:
   - {fileID: 1731800002}
   - {fileID: 1664083296}
-  - {fileID: 24179988}
   - {fileID: 435064556}
   - {fileID: 456000467}
+  - {fileID: 24179988}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7172,6 +7172,14 @@ MonoBehaviour:
   wave_data: {fileID: 11400000, guid: 4666045629bac974796aa32d526262e1, type: 2}
   guage_slider: {fileID: 456000468}
   guage_text: {fileID: 1800696490}
+  card_units:
+  - {fileID: 1149864967}
+  - {fileID: 1822121492}
+  - {fileID: 1455939209}
+  - {fileID: 222955141}
+  - {fileID: 1993511393}
+  - {fileID: 632278028}
+  - {fileID: 1048131603}
 --- !u!4 &2092540467
 Transform:
   m_ObjectHideFlags: 0

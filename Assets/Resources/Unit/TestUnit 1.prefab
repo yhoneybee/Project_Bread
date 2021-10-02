@@ -151,7 +151,7 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: 42ffdeb8707fac145b9176ed89e49776, type: 3}
     Id: 0
     Level: 0
-    Cost: 0
+    Cost: 1
     Count: 0
     Desc: asd
   Stat:

@@ -20,6 +20,11 @@ public class Ingame : MonoBehaviour
     [SerializeField] Slider guage_slider;
     [SerializeField] Text guage_text;
 
+    [SerializeField] List<GameObject> card_units;
+
+    private List<Image> image_blinds = new List<Image>();
+    private List<Text> image_cost_texts = new List<Text>();
+
     float current_guage = 0;
     float target_guage = 1;
     void Start()
@@ -29,6 +34,12 @@ public class Ingame : MonoBehaviour
 
         backgrounds[StageInfo.theme_number - 1].SetActive(true);
         platforms[StageInfo.theme_number - 1].SetActive(true);
+
+        foreach (var card_unit in card_units)
+        {
+            image_blinds.Add(card_unit.transform.GetChild(2).GetComponent<Image>());
+            image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
+        }
 
         StartCoroutine(SpawnEnemies());
         StartCoroutine(Guage_Change());
@@ -47,6 +58,8 @@ public class Ingame : MonoBehaviour
             target_guage--;
         }
 
+        Set_Unit_Interfaces();
+
         guage_slider.value = current_guage / 10;
         guage_text.text = ((int)current_guage).ToString();
     }
@@ -64,6 +77,17 @@ public class Ingame : MonoBehaviour
         Unit unit = UnitManager.Instance.GetUnit(unit_name, friendly_tower.position);
         unit.transform.SetParent(friendly_tower);
     }
+    void Set_Unit_Interfaces()
+    {
+        int deck_index;
+        foreach (var card_unit in card_units)
+        {
+            deck_index = card_units.IndexOf(card_unit);
+            image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
+            image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
+        }
+    }
+
     IEnumerator SpawnEnemies()
     {
         while (true)
