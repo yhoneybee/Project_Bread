@@ -147,7 +147,7 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (is_walk_able) Moveing();
+        if (is_walk_able) Moving();
 
         Animator();
 
@@ -234,10 +234,26 @@ public abstract class Unit : MonoBehaviour
         yield return null;
     }
 
-    public virtual void Moveing()
+    float angle = 0;
+    bool up;
+    public virtual void Moving()
     {
+        if (angle <= -90)
+            up = true;
+        else if (angle >= 90)
+            up = false;
+
+        // 상수값을 늘릴수록 위아래 폭이 넓어짐
+        angle += Time.deltaTime * (up ? 1000 : -1000);
+
         dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
-        transform.Translate(dir * Stat.MS * Time.deltaTime);
+
+        // Sin 함수를 이용한 위 아래 움직임 구현
+        transform.Translate(dir.x *
+            Stat.MS *
+            Time.deltaTime *
+            new Vector2(1, Mathf.Sin(angle * Mathf.PI / 180)));
+
         SR.flipX = UnitType == UnitType.FRIEND;
     }
 
