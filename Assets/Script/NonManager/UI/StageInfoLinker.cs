@@ -19,7 +19,10 @@ public class StageInfoLinker : MonoBehaviour
         AddRewards(reward.ThreeStarClear);
         AddRewards(reward.Clear);
 
+        AddWaveDatas();
+
         RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
+        MobContent.sizeDelta = new Vector2(-848 + ((165 * MobContent.childCount) + 30), MobContent.sizeDelta.y);
     }
 
     public void AddRewards(Tuple<int, int, Unit> clear)
@@ -51,6 +54,23 @@ public class StageInfoLinker : MonoBehaviour
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item2}";
+        }
+    }
+
+    public void AddWaveDatas()
+    {
+        var wave_data = StageManager.Instance.GetWaveData();
+        GameObject obj = null;
+
+        foreach (var wave in wave_data.wave_information)
+        {
+            if (wave.unit)
+            {
+                obj = Instantiate(ClearPrefab);
+                obj.name = $"{wave.unit.Info.Name}";
+                obj.GetComponent<RectTransform>().SetParent(MobContent, false);
+                obj.GetComponent<Image>().sprite = wave.unit.Info.Icon;
+            }
         }
     }
 }
