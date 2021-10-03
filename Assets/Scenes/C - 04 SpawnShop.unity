@@ -926,7 +926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n00:00\uB0A8\uC74C"
+  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n000:00\uB0A8\uC74C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
   m_sharedMaterial: {fileID: -1216415376583700202, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n00:00\uB0A8\uC74C"
+  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n000:00\uB0A8\uC74C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
   m_sharedMaterial: {fileID: -1216415376583700202, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
@@ -1257,6 +1257,60 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &771121348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 771121349}
+  - component: {fileID: 771121350}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &771121349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771121348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771121350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771121348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aac92e82ce019434dbfe571ae951a65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonImgs:
+  - {fileID: 1746659337}
+  - {fileID: 1762917692}
+  - {fileID: 531017027}
+  - {fileID: 1787934388}
+  - {fileID: 282455474}
+  - {fileID: 1100991780}
+  BubbleMessage:
+  - {fileID: 169151185}
+  - {fileID: 72978775}
+  - {fileID: 349529103}
 --- !u!1 &1100991778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,7 +1656,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n00:00\uB0A8\uC74C"
+  m_text: "\uBB34\uB8CC\uBF51\uAE30 \uAE4C\uC9C0\n000:00\uB0A8\uC74C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
   m_sharedMaterial: {fileID: -1216415376583700202, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public int Stemina = 0;
     public int MaxStemina = 0;
 
+    public DateTime[] DateTimes = new DateTime[3];
+
     private void Awake()
     {
         Instance = this;
@@ -49,6 +51,5 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-
     }
 }
