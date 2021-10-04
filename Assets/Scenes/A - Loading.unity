@@ -816,13 +816,6 @@ MonoBehaviour:
   Jem: 0
   Stemina: 0
   MaxStemina: 0
-  Times:
-  - hour: 0
-    minute: 0
-  - hour: 0
-    minute: 0
-  - hour: 0
-    minute: 0
 --- !u!4 &1952391301
 Transform:
   m_ObjectHideFlags: 0

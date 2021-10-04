@@ -35,8 +35,13 @@ public class Ingame : MonoBehaviour
         backgrounds[StageInfo.theme_number - 1].SetActive(true);
         platforms[StageInfo.theme_number - 1].SetActive(true);
 
+        Image card_image;
         foreach (var card_unit in card_units)
         {
+            card_image = card_unit.transform.GetChild(1).GetComponent<Image>();
+            card_image.sprite = DeckManager.Select[card_units.IndexOf(card_unit)].Info.Icon;
+            card_image.SetNativeSize();
+            card_image.GetComponent<RectTransform>().sizeDelta /= 3f;
             image_blinds.Add(card_unit.transform.GetChild(2).GetComponent<Image>());
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
@@ -46,11 +51,6 @@ public class Ingame : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnBread("2단과일케이크");
-        }
-
         // 임시로 만들어 놓은 부분
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -63,20 +63,6 @@ public class Ingame : MonoBehaviour
         guage_slider.value = current_guage / 10;
         guage_text.text = ((int)current_guage).ToString();
     }
-    public void SetTimeScale(float value)
-    {
-        Time.timeScale = value;
-    }
-
-    /// <summary>
-    /// 아군 빵을 생성하는 함수
-    /// </summary>
-    /// <param name="unit_name">Info에서 저장한 생성할 유닛의 이름</param>
-    void SpawnBread(string unit_name)
-    {
-        Unit unit = UnitManager.Instance.GetUnit(unit_name, friendly_tower.position);
-        unit.transform.SetParent(friendly_tower);
-    }
     void Set_Unit_Interfaces()
     {
         int deck_index;
@@ -86,6 +72,20 @@ public class Ingame : MonoBehaviour
             image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
             image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
         }
+    }
+    public void SetTimeScale(float value)
+    {
+        Time.timeScale = value;
+    }
+    /// <summary>
+    /// 아군 빵을 생성하는 함수
+    /// </summary>
+    /// <param name="index">눌린 버튼(Card)의 index</param>
+    public void SpawnBread(int index)
+    {
+        string unit_name = DeckManager.Select[index].Info.Name;
+        Unit unit = UnitManager.Instance.GetUnit(unit_name, friendly_tower.position);
+        unit.transform.SetParent(friendly_tower);
     }
 
     IEnumerator SpawnEnemies()
