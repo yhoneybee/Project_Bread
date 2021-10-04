@@ -53,7 +53,7 @@ public class UnitManager : MonoBehaviour
     public void ReturnUnit(Unit unit, Transform parent)
     {
         unit.Stat.HP = unit.Stat.MaxHP;
-        if (!Pool.ContainsKey(unit.name))
+        if (!Pool.ContainsKey(unit.Info.Name))
             Pool.Add(unit.Info.Name, new List<Unit>());
         Pool[unit.Info.Name].Add(unit);
         if (parent != null)

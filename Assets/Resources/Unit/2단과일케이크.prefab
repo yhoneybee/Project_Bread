@@ -154,9 +154,10 @@ MonoBehaviour:
     Cost: 1
     Count: 1
     Desc: "\"\uB0B4 \uCF00\uC774\uD06C \uB9DB \uC880 \uBCFC\uB798?\""
+    Position: {x: 0, y: 0}
   Stat:
     AD: 1
-    HP: 1
+    HP: 2
     MaxHP: 1
     MS: 2
     AR: 1

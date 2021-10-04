@@ -154,9 +154,10 @@ MonoBehaviour:
     Cost: 6
     Count: 0
     Desc: asd
+    Position: {x: 0, y: 0}
   Stat:
     AD: 1
-    HP: 1
+    HP: 3
     MaxHP: 1
     MS: 1
     AR: 1

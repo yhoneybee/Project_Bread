@@ -25,6 +25,12 @@ public enum UnitType
     FRIEND,
     UNFRIEND,
 }
+
+public enum AttackedEffectType
+{
+    Tower,
+    Unit
+}
 #endregion
 
 #region Structs
@@ -47,6 +53,8 @@ public struct Info
     public int Count;
     ///<summary>Unit Description</summary>///
     public string Desc;
+    /// <summary>if this unit is tower, tower position</summary>///
+    public Vector2 Position;
 }
 
 [Serializable]
@@ -131,6 +139,7 @@ public abstract class Unit : MonoBehaviour
     public Anim Anim;
 
     SpriteRenderer SR;
+    Coroutine Attacked_Effect = null;
 
     int AnimIndex = 0;
     float time = 0;
@@ -159,29 +168,30 @@ public abstract class Unit : MonoBehaviour
 
         if (hits.Length > 1)
         {
-            int count = 0;
             Unit unit;
             foreach (var hit in hits)
             {
                 unit = hit.transform.GetComponent<Unit>();
                 if (unit.UnitType != UnitType)
                 {
-                    count++;
                     is_walk_able = false;
                     if (is_attack_able)
                     {
                         OnAttack(unit);
                         StartCoroutine(ASDelay());
+                        if (unit.Attacked_Effect != null) unit.StopCoroutine(unit.Attacked_Effect);
+                        unit.Attacked_Effect = unit.StartCoroutine(unit.AttackedEffect(unit.Stat.AR == 0 && unit.Stat.MS == 0 ? AttackedEffectType.Tower : AttackedEffectType.Unit));
                     }
                     break;
                 }
             }
-            if (count == 0) is_walk_able = true;
         }
+        else is_walk_able = true;
     }
 
     public void Animator()
     {
+        if (!Anim) return;
         time += Time.deltaTime;
 
         switch (AnimState)
@@ -273,6 +283,41 @@ public abstract class Unit : MonoBehaviour
         foreach (var item in Items) item.OnHit(taker, ref damage);
 
         Stat.HP -= damage;
+    }
+    public virtual IEnumerator AttackedEffect(AttackedEffectType type)
+    {
+        switch (type)
+        {
+            case AttackedEffectType.Tower:
+                transform.position = Info.Position;
+                float random_x, random_y;
+                for (int i = 0; i < 20; i++)
+                {
+                    random_x = UnityEngine.Random.Range(-0.1f, 0.1f);
+                    random_y = UnityEngine.Random.Range(-0.05f, 0.05f);
+                    transform.Translate(new Vector2(random_x, random_y));
+                    yield return new WaitForSeconds(0.01f);
+                    transform.Translate(new Vector2(-random_x, -random_y));
+                }
+                break;
+            case AttackedEffectType.Unit:
+                SR.color = Color.red;
+                while (true)
+                {
+                    yield return new WaitForSeconds(0.01f);
+                    SR.color = Color.Lerp(SR.color, Color.white, Time.deltaTime * 3);
+
+                    if (SR.color.g >= 0.99f)
+                    {
+                        SR.color = Color.white;
+                        break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+        Attacked_Effect = null;
     }
     public abstract void OnAnimChanged();
     public abstract void OnEndFrameAnim();
