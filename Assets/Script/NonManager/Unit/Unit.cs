@@ -141,8 +141,9 @@ public abstract class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
         SR = GetComponent<SpriteRenderer>();
+        SR.sprite = Info.Icon;
         if (Anim == null) Anim = GetComponent<Anim>();
     }
     protected virtual void Update()
