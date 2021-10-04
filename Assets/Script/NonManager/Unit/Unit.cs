@@ -155,6 +155,8 @@ public abstract class Unit : MonoBehaviour
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, 1 << LayerMask.NameToLayer("Unit"));
         Debug.DrawRay(transform.position, dir * Stat.AR, Color.yellow);
 
+        if (Stat.HP <= 0) UnitManager.Instance.ReturnUnit(this, null);
+
         if (hits.Length > 1)
         {
             int count = 0;

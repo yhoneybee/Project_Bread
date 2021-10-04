@@ -56,7 +56,8 @@ public class UnitManager : MonoBehaviour
         if (!Pool.ContainsKey(unit.name))
             Pool.Add(unit.Info.Name, new List<Unit>());
         Pool[unit.Info.Name].Add(unit);
-        unit.transform.SetParent(parent);
+        if (parent != null)
+            unit.transform.SetParent(parent);
         unit.gameObject.SetActive(false);
     }
 }
