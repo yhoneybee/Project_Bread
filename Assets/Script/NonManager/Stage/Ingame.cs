@@ -83,9 +83,14 @@ public class Ingame : MonoBehaviour
     /// <param name="index">눌린 버튼(Card)의 index</param>
     public void SpawnBread(int index)
     {
-        string unit_name = DeckManager.Select[index].Info.Name;
-        Unit unit = UnitManager.Instance.GetUnit(unit_name, friendly_tower.position);
-        unit.transform.SetParent(friendly_tower);
+        Unit unit = DeckManager.Select[index];
+
+        if (current_guage < unit.Info.Cost) return;
+        target_guage -= unit.Info.Cost;
+        current_guage -= unit.Info.Cost;
+
+        Unit bread = UnitManager.Instance.GetUnit(unit.Info.Name, friendly_tower.position);
+        bread.transform.SetParent(friendly_tower);
     }
 
     IEnumerator SpawnEnemies()
@@ -97,7 +102,8 @@ public class Ingame : MonoBehaviour
             {
                 if (data.unit != null)
                 {
-                    Instantiate(data.unit, enemy_tower);
+                    Unit enemy = UnitManager.Instance.GetUnit(data.unit.Info.Name, enemy_tower.position);
+                    enemy.transform.SetParent(enemy_tower);
                 }
                 yield return new WaitForSeconds(data.delay);
             }
