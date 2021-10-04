@@ -21,11 +21,12 @@ public class UIManager : MonoBehaviour
     {
         if (AllUnits != null)
         {
+            var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND; });
             for (int i = 0; i < AllUnits.Count; i++)
             {
                 var view = AllUnits[i];
-                var show = UnitManager.Instance.Units[i];
-                var find = GameManager.Select.Find((o) => 
+                var show = friends[i];
+                var find = GameManager.Select.Find((o) =>
                 {
                     if (o == null) return false;
                     return o.Info.Name == show.Info.Name;
