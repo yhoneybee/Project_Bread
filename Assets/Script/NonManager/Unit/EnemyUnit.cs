@@ -21,6 +21,7 @@ public class EnemyUnit : Unit
     }
     public override void OnHit(Unit taker, float damage)
     {
+        base.OnHit(taker, damage);
     }
     public override void OnAttack(Unit taken)
     {
