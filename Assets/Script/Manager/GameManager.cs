@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public int Stemina = 0;
     public int MaxStemina = 0;
 
-    public DateTime[] DateTimes = new DateTime[3];
+    public TimeSpan[] TimeSpans = new TimeSpan[3];
 
     private void Awake()
     {
@@ -51,5 +51,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        for (int i = 0; i < 3; i++)
+        {
+        }
     }
 }
