@@ -8735,6 +8735,7 @@ MonoBehaviour:
     result_window: {fileID: 1531747860}
     title_text: {fileID: 1549710112}
     reward_window: {fileID: 1445902724}
+    button_text: {fileID: 609817976}
   friendly_tower: {fileID: 419333994}
   enemy_tower: {fileID: 1189597169}
   guage_slider: {fileID: 456000468}

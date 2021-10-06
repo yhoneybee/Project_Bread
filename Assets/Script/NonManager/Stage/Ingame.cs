@@ -12,6 +12,7 @@ public class Ingame : MonoBehaviour
         public GameObject result_window;
         public TextMeshProUGUI title_text;
         public GameObject reward_window;
+        public TextMeshProUGUI button_text;
     }
 
     [SerializeField] TextMeshProUGUI stage_name_text;
@@ -112,6 +113,7 @@ public class Ingame : MonoBehaviour
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
             result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
+            result_window.button_text.text = is_game_clear ? "다음\n스테이지" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\n재시작";
         }
     }
 
@@ -137,7 +139,7 @@ public class Ingame : MonoBehaviour
     public void LoadNextStage()
     {
         StageInfo.stage_number++;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("F - 01 Ingame");
+        ButtonActions.Instance.ChangeScene("F - 01 Ingame");
     }
 
     IEnumerator SpawnEnemies()
