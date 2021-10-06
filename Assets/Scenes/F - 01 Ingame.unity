@@ -2143,19 +2143,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 419333991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d074735efab92314abe89adf14a4ad40, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ebda1e5bcf840849a1d2c9c5003a210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
     Name: 
-    Icon: {fileID: 21300000, guid: aeb8df65246f4c84ebca52c4df1c67a9, type: 3}
+    Icon: {fileID: 0}
     Id: 0
     Level: 0
     Cost: 0
     Count: 0
     Desc: 
-    Position: {x: -18, y: -3.03}
   Stat:
     AD: 0
     HP: 10
@@ -2173,6 +2172,10 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
+  position: {x: -18, y: -3.03}
+  text_position: {x: 0, y: 0}
+  main_canvas: {fileID: 0}
+  text_object: {fileID: 3997540009024140822, guid: 47d2b3066fad45747afc1dd630822ab7, type: 3}
 --- !u!50 &419333995
 Rigidbody2D:
   serializedVersion: 4
@@ -2181,7 +2184,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419333991}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -4182,19 +4185,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1189597166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dfabed878cb66d44917349dfb33f7fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ebda1e5bcf840849a1d2c9c5003a210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
     Name: 
-    Icon: {fileID: 21300000, guid: e9cc1ba64523ff14d89f9cc796ab73fe, type: 3}
+    Icon: {fileID: 0}
     Id: 0
     Level: 0
     Cost: 0
     Count: 0
     Desc: 
-    Position: {x: 18, y: -2.61}
   Stat:
     AD: 0
     HP: 10
@@ -4212,6 +4214,10 @@ MonoBehaviour:
   UnitType: 1
   Items: []
   Anim: {fileID: 0}
+  position: {x: 18, y: -2.61}
+  text_position: {x: 0, y: 0}
+  main_canvas: {fileID: 1743917753}
+  text_object: {fileID: 3997540009024140822, guid: 47d2b3066fad45747afc1dd630822ab7, type: 3}
 --- !u!50 &1189597170
 Rigidbody2D:
   serializedVersion: 4
@@ -4220,7 +4226,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189597166}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -8748,6 +8754,7 @@ MonoBehaviour:
   - {fileID: 1993511393}
   - {fileID: 632278028}
   - {fileID: 1048131603}
+  wave_data: {fileID: 11400000, guid: 4666045629bac974796aa32d526262e1, type: 2}
 --- !u!4 &2092540467
 Transform:
   m_ObjectHideFlags: 0

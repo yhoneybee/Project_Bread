@@ -40,7 +40,7 @@ public class Ingame : MonoBehaviour
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
-    private WaveData wave_data;
+    [SerializeField] WaveData wave_data;
 
     Coroutine EnemySpawn = null;
     Coroutine GuageChange = null;
@@ -68,7 +68,8 @@ public class Ingame : MonoBehaviour
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
 
-        wave_data = StageManager.Instance.GetWaveData();
+        //로딩씬 StageManager에 wave_data가 전부 담겼다면 주석 해제하기
+        //wave_data = StageManager.Instance.GetWaveData();
 
         EnemySpawn = StartCoroutine(SpawnEnemies());
         GuageChange = StartCoroutine(Guage_Change());
@@ -114,6 +115,12 @@ public class Ingame : MonoBehaviour
             result_window.reward_window.SetActive(is_game_clear);
             result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
             result_window.button_text.text = is_game_clear ? "다음\n스테이지" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\n재시작";
+            result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
+                () =>
+                {
+                    StageInfo.stage_number += is_game_clear ? 1 : 0;
+                    ButtonActions.Instance.ChangeScene("E - 01 DeckView");
+                });
         }
     }
 
@@ -135,11 +142,6 @@ public class Ingame : MonoBehaviour
 
         Unit bread = UnitManager.Instance.GetUnit(unit.Info.Name, friendly_tower.transform.position);
         bread.transform.SetParent(friendly_tower.transform);
-    }
-    public void LoadNextStage()
-    {
-        StageInfo.stage_number++;
-        ButtonActions.Instance.ChangeScene("F - 01 Ingame");
     }
 
     IEnumerator SpawnEnemies()

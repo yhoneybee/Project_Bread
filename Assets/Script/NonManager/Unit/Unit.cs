@@ -53,8 +53,6 @@ public struct Info
     public int Count;
     ///<summary>Unit Description</summary>///
     public string Desc;
-    /// <summary>if this unit is tower, tower position</summary>///
-    public Vector2 Position;
 }
 
 [Serializable]
@@ -184,7 +182,7 @@ public abstract class Unit : MonoBehaviour
                         OnAttack(unit);
                         StartCoroutine(ASDelay());
                         if (unit.Attacked_Effect != null) unit.StopCoroutine(unit.Attacked_Effect);
-                        unit.Attacked_Effect = unit.StartCoroutine(unit.AttackedEffect(unit.Stat.AR == 0 && unit.Stat.MS == 0 ? AttackedEffectType.Tower : AttackedEffectType.Unit));
+                        unit.Attacked_Effect = unit.StartCoroutine(unit.AttackedEffect());
                     }
                     break;
                 }
@@ -294,41 +292,23 @@ public abstract class Unit : MonoBehaviour
 
         Stat.HP -= damage;
     }
-    public virtual IEnumerator AttackedEffect(AttackedEffectType type)
+    public virtual IEnumerator AttackedEffect()
     {
-        switch (type)
+        SR.color = Color.red;
+        while (true)
         {
-            case AttackedEffectType.Tower:
-                transform.position = Info.Position;
-                float random_x, random_y;
-                for (int i = 0; i < 20; i++)
-                {
-                    random_x = UnityEngine.Random.Range(-0.1f, 0.1f);
-                    random_y = UnityEngine.Random.Range(-0.05f, 0.05f);
-                    transform.Translate(new Vector2(random_x, random_y));
-                    yield return new WaitForSeconds(0.01f);
-                    transform.Translate(new Vector2(-random_x, -random_y));
-                }
-                break;
-            case AttackedEffectType.Unit:
-                SR.color = Color.red;
-                while (true)
-                {
-                    yield return new WaitForSeconds(0.01f);
-                    SR.color = Color.Lerp(SR.color, Color.white, Time.deltaTime * 3);
+            yield return new WaitForSeconds(0.01f);
+            SR.color = Color.Lerp(SR.color, Color.white, Time.deltaTime * 3);
 
-                    if (SR.color.g >= 0.99f)
-                    {
-                        SR.color = Color.white;
-                        break;
-                    }
-                }
+            if (SR.color.g >= 0.99f)
+            {
+                SR.color = Color.white;
                 break;
-            default:
-                break;
+            }
         }
         Attacked_Effect = null;
     }
+
     public abstract void OnAnimChanged();
     public abstract void OnEndFrameAnim();
 }
