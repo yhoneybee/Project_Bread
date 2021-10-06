@@ -61,29 +61,51 @@ public class ShopManager : MonoBehaviour
 
     IEnumerator EUnboxing()
     {
-        RankParticle.Play();
+        Unboxing.gameObject.SetActive(true);
 
-        // 터치 입력
-        yield return new WaitForSeconds(1);
+        for (int i = 0; i < 7; i++)
+        {
+            RankParticle.Play();
 
-        RankParticle.Stop();
+            yield return StartCoroutine(EWaitClick());
 
-        yield return StartCoroutine(ERewardCountText());
+            RankParticle.Stop();
 
-        yield return StartCoroutine(EBoxMove());
+            yield return StartCoroutine(EHideRewardCountText());
 
-        yield return StartCoroutine(EDrawing());
+            yield return StartCoroutine(EBoxMove());
 
-        // 여기서 RewardCount가 0이 되면 뽑은거 전부 보여주는 화면을 띄움
+            yield return StartCoroutine(EHideCard(false));
 
-        yield return StartCoroutine(EBoxMove(false));
+            yield return StartCoroutine(EDrawing());
 
-        yield return StartCoroutine(ERewardCountText(false));
+            yield return StartCoroutine(EHideCard());
+
+            yield return StartCoroutine(EShowResult());
+
+            // 여기서 RewardCount가 0이 되면 뽑은거 전부 보여주는 화면을 띄움
+
+            yield return StartCoroutine(EBoxMove(false));
+
+            yield return StartCoroutine(EHideRewardCountText(false));
+        }
+
+        //Unboxing.gameObject.SetActive(false);
 
         yield return null;
     }
 
-    IEnumerator ERewardCountText(bool hide = true)
+    IEnumerator EWaitClick()
+    {
+        var wait = new WaitForSeconds(0.001f);
+        while (true)
+        {
+            if (Input.GetMouseButton(0)) yield break;
+            yield return wait;
+        }
+    }
+
+    IEnumerator EHideRewardCountText(bool hide = true)
     {
         var wait = new WaitForSeconds(0.001f);
         if (hide)
@@ -134,7 +156,7 @@ public class ShopManager : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator ECard(bool hide = true)
+    IEnumerator EHideCard(bool hide = true)
     {
         var wait = new WaitForSeconds(0.001f);
         var img = Card.GetComponent<Image>();
@@ -163,13 +185,11 @@ public class ShopManager : MonoBehaviour
     {
         var wait = new WaitForSeconds(0.001f);
 
-        yield return StartCoroutine(ECard(false));
-
         float rotate_force = 0;
         Vector2 card_pos = Card.anchoredPosition;
         Vector2 card_size = Card.sizeDelta;
 
-        while (rotate_force < 2.8f)
+        while (Card.anchoredPosition.y < Screen.height / 2 - Card.sizeDelta.y)
         {
             rotate_force += Time.deltaTime;
             Card.anchoredPosition = Vector2.MoveTowards(Card.anchoredPosition, Vector2.up * ((Screen.height / 2) - (Card.sizeDelta.y / 2)), 1);
@@ -178,12 +198,8 @@ public class ShopManager : MonoBehaviour
             yield return wait;
         }
 
-        yield return StartCoroutine(ECard());
-
         Card.anchoredPosition = card_pos;
         Card.sizeDelta = card_size;
-
-        yield return StartCoroutine(EShowResult());
 
         yield return null;
     }
