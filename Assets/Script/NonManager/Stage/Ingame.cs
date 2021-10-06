@@ -6,27 +6,48 @@ using TMPro;
 
 public class Ingame : MonoBehaviour
 {
+    [System.Serializable]
+    struct Result_Window
+    {
+        public GameObject result_window;
+        public TextMeshProUGUI title_text;
+        public GameObject reward_window;
+    }
+
     [SerializeField] TextMeshProUGUI stage_name_text;
     [SerializeField] TextMeshProUGUI theme_name_text;
 
+    [Space(10)]
     [SerializeField] GameObject[] backgrounds;
     [SerializeField] GameObject[] platforms;
 
-    [SerializeField] Transform friendly_tower;
-    [SerializeField] Transform enemy_tower;
+    [Space(10)]
+    [SerializeField] Result_Window result_window;
 
-    [SerializeField] WaveData wave_data;
+    [Space(10)]
+    [SerializeField] Unit friendly_tower;
+    [SerializeField] Unit enemy_tower;
 
+
+    [Space(10)]
     [SerializeField] Slider guage_slider;
     [SerializeField] Text guage_text;
 
+    [Space(10)]
     [SerializeField] List<GameObject> card_units;
 
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
+    private WaveData wave_data;
+
+    Coroutine EnemySpawn = null;
+    Coroutine GuageChange = null;
+
     float current_guage = 0;
     float target_guage = 1;
+    bool is_game_clear = false;
+    bool is_game_over = false;
     void Start()
     {
         stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
@@ -46,8 +67,10 @@ public class Ingame : MonoBehaviour
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
 
-        StartCoroutine(SpawnEnemies());
-        StartCoroutine(Guage_Change());
+        wave_data = StageManager.Instance.GetWaveData();
+
+        EnemySpawn = StartCoroutine(SpawnEnemies());
+        GuageChange = StartCoroutine(Guage_Change());
     }
     void Update()
     {
@@ -57,6 +80,8 @@ public class Ingame : MonoBehaviour
             current_guage--;
             target_guage--;
         }
+
+        Check_Game_End();
 
         Set_Unit_Interfaces();
 
@@ -73,6 +98,23 @@ public class Ingame : MonoBehaviour
             image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
         }
     }
+    void Check_Game_End()
+    {
+        if (result_window.result_window.activeSelf) return;
+        is_game_clear = enemy_tower.Stat.HP <= 0;
+        is_game_over = friendly_tower.Stat.HP <= 0;
+
+        if (is_game_clear || is_game_over)
+        {
+            StopCoroutine(EnemySpawn);
+            StopCoroutine(GuageChange);
+
+            result_window.result_window.SetActive(true);
+            result_window.reward_window.SetActive(is_game_clear);
+            result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
+        }
+    }
+
     public void SetTimeScale(float value)
     {
         Time.timeScale = value;
@@ -89,8 +131,13 @@ public class Ingame : MonoBehaviour
         target_guage -= unit.Info.Cost;
         current_guage -= unit.Info.Cost;
 
-        Unit bread = UnitManager.Instance.GetUnit(unit.Info.Name, friendly_tower.position);
-        bread.transform.SetParent(friendly_tower);
+        Unit bread = UnitManager.Instance.GetUnit(unit.Info.Name, friendly_tower.transform.position);
+        bread.transform.SetParent(friendly_tower.transform);
+    }
+    public void LoadNextStage()
+    {
+        StageInfo.stage_number++;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("F - 01 Ingame");
     }
 
     IEnumerator SpawnEnemies()
@@ -102,8 +149,8 @@ public class Ingame : MonoBehaviour
             {
                 if (data.unit != null)
                 {
-                    Unit enemy = UnitManager.Instance.GetUnit(data.unit.Info.Name, enemy_tower.position);
-                    enemy.transform.SetParent(enemy_tower);
+                    Unit enemy = UnitManager.Instance.GetUnit(data.unit.Info.Name, enemy_tower.transform.position);
+                    enemy.transform.SetParent(enemy_tower.transform);
                 }
                 yield return new WaitForSeconds(data.delay);
             }

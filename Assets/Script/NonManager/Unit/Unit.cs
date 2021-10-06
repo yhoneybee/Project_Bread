@@ -164,7 +164,11 @@ public abstract class Unit : MonoBehaviour
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, 1 << LayerMask.NameToLayer("Unit"));
         Debug.DrawRay(transform.position, dir * Stat.AR, Color.yellow);
 
-        if (Stat.HP <= 0) UnitManager.Instance.ReturnUnit(this, null);
+        if (Stat.HP <= 0)
+        {
+            SR.color = Color.white;
+            UnitManager.Instance.ReturnUnit(this, null);
+        }
 
         if (hits.Length > 1)
         {
@@ -184,11 +188,17 @@ public abstract class Unit : MonoBehaviour
                     }
                     break;
                 }
+                else
+                    is_walk_able = true;
             }
         }
         else is_walk_able = true;
     }
 
+    public void Init()
+    {
+        Stat.HP = Stat.MaxHP;
+    }
     public void Animator()
     {
         if (!Anim) return;

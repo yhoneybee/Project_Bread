@@ -19,10 +19,13 @@ public class StageInfoLinker : MonoBehaviour
         AddRewards(reward.ThreeStarClear);
         AddRewards(reward.Clear);
 
-        AddWaveDatas();
+        if (MobContent)
+        {
+            AddWaveDatas();
 
+            MobContent.sizeDelta = new Vector2(-848 + ((165 * MobContent.childCount) + 30), MobContent.sizeDelta.y);
+        }
         RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
-        MobContent.sizeDelta = new Vector2(-848 + ((165 * MobContent.childCount) + 30), MobContent.sizeDelta.y);
     }
 
     public void AddRewards(Tuple<int, int, Unit> clear)

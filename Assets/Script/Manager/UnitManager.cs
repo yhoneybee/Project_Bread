@@ -46,13 +46,13 @@ public class UnitManager : MonoBehaviour
         }
 
         unit.transform.position = pos;
+        unit.Init();
         unit.gameObject.SetActive(true);
 
         return unit;
     }
     public void ReturnUnit(Unit unit, Transform parent)
     {
-        unit.Stat.HP = unit.Stat.MaxHP;
         if (!Pool.ContainsKey(unit.Info.Name))
             Pool.Add(unit.Info.Name, new List<Unit>());
         Pool[unit.Info.Name].Add(unit);

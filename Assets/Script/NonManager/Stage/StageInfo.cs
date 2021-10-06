@@ -18,6 +18,11 @@ public class StageInfo
         set
         {
             _stage_number = value;
+            while (_stage_number > 10)
+            {
+                theme_number++;
+                _stage_number -= 10;
+            }
             stage_name = $"{theme_number}-{stage_number}";
         }
     }
