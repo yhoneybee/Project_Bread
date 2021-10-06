@@ -13,6 +13,7 @@ public class UnitManager : MonoBehaviour
     {
         Instance = this;
         Units.AddRange(Resources.LoadAll<Unit>("Unit"));
+        Units.AddRange(Resources.LoadAll<Unit>("Unit/Enemy"));
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
