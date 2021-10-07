@@ -19,6 +19,7 @@ public class Tower : Unit
         transform.position = position;
         float random_x, random_y;
 
+        // 맞았을 때 타워 흔들리는 부분
         for (int i = 0; i < 20; i++)
         {
             random_x = Random.Range(-0.1f, 0.1f);
@@ -35,6 +36,7 @@ public class Tower : Unit
     IEnumerator TextAnimation()
     {
         GameObject textObject = Instantiate(text_object, canvas.transform);
+        textObject.transform.localPosition = new Vector2(0, 300);
 
         texts.Add(textObject);
 
@@ -43,7 +45,7 @@ public class Tower : Unit
             textObject.transform.Translate(Vector2.up / 5);
             yield return new WaitForSeconds(0.01f);
 
-            if (textObject.transform.localPosition.y >= 500)
+            if (textObject.transform.localPosition.y >= 1000)
             {
                 Destroy(textObject);
                 texts.Remove(textObject);
