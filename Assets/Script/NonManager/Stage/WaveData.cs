@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "WaveData", menuName = "Datas/WaveData", order = 0)]
+[Serializable]
 public class WaveData : ScriptableObject
 {
     [Serializable]

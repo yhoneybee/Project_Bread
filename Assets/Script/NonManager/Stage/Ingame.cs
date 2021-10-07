@@ -61,7 +61,8 @@ public class Ingame : MonoBehaviour
         foreach (var card_unit in card_units)
         {
             card_image = card_unit.transform.GetChild(1).GetComponent<Image>();
-            card_image.sprite = DeckManager.Select[card_units.IndexOf(card_unit)].Info.Icon;
+            if (DeckManager.Select[card_units.IndexOf(card_unit)])
+                card_image.sprite = DeckManager.Select[card_units.IndexOf(card_unit)].Info.Icon;
             card_image.SetNativeSize();
             card_image.GetComponent<RectTransform>().sizeDelta /= 3f;
             image_blinds.Add(card_unit.transform.GetChild(2).GetComponent<Image>());
@@ -96,8 +97,11 @@ public class Ingame : MonoBehaviour
         foreach (var card_unit in card_units)
         {
             deck_index = card_units.IndexOf(card_unit);
-            image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
-            image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
+            if (DeckManager.Select[deck_index])
+            {
+                image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
+                image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
+            }
         }
     }
     void Check_Game_End()
@@ -115,6 +119,12 @@ public class Ingame : MonoBehaviour
             result_window.reward_window.SetActive(is_game_clear);
             result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
             result_window.button_text.text = is_game_clear ? "다음\n스테이지" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\n재시작";
+
+            foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())
+            {
+                Destroy(unit);
+            }
+
             result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
                 () =>
                 {

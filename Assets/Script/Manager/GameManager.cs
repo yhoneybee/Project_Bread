@@ -57,4 +57,11 @@ public class GameManager : MonoBehaviour
             DateTimers[i].Time = new TimeSpan(0, 30 * (i + 1), 0);
         }
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Time.timeScale = Time.timeScale == 1 ? 3 : 1;
+        }
+    }
 }

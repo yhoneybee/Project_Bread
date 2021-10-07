@@ -10,15 +10,19 @@ public struct RewardInfo
     public Tuple<int, int, Unit> Clear;
 }
 
+[Serializable]
+public struct  Wave_Data
+{
+    public List<WaveData> stage_waves;
+}
+
 public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; } = null;
 
     public List<RewardInfo>[] RewardInfos;
 
-    public List<WaveData> theme1_waves;
-    public List<WaveData> theme2_waves;
-    public List<WaveData> theme3_waves;
+    public Wave_Data[] theme_waves;
 
     private void Awake()
     {
@@ -66,11 +70,5 @@ public class StageManager : MonoBehaviour
     }
 
     public RewardInfo GetReward() => RewardInfos[StageInfo.theme_number - 1][StageInfo.stage_number - 1];
-    public WaveData GetWaveData() => StageInfo.theme_number switch
-    {
-        1 => theme1_waves[StageInfo.stage_number - 1],
-        2 => theme2_waves[StageInfo.stage_number - 1],
-        3 => theme3_waves[StageInfo.stage_number - 1],
-        _ => null,
-    };
+    public WaveData GetWaveData() => theme_waves[StageInfo.theme_number].stage_waves[StageInfo.stage_number - 1];
 }

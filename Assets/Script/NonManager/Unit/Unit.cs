@@ -137,7 +137,6 @@ public abstract class Unit : MonoBehaviour
     public Anim Anim;
 
     SpriteRenderer SR;
-    Coroutine Attacked_Effect = null;
 
     int AnimIndex = 0;
     float time = 0;
@@ -181,8 +180,7 @@ public abstract class Unit : MonoBehaviour
                     {
                         OnAttack(unit);
                         StartCoroutine(ASDelay());
-                        if (unit.Attacked_Effect != null) unit.StopCoroutine(unit.Attacked_Effect);
-                        unit.Attacked_Effect = unit.StartCoroutine(unit.AttackedEffect());
+                        unit.StartCoroutine(unit.AttackedEffect());
                     }
                     break;
                 }
@@ -306,7 +304,6 @@ public abstract class Unit : MonoBehaviour
                 break;
             }
         }
-        Attacked_Effect = null;
     }
 
     public abstract void OnAnimChanged();
