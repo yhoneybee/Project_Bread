@@ -16,7 +16,9 @@ public class Tower : Unit
 
     public override IEnumerator AttackedEffect()
     {
-        transform.position = position;
+        StartCoroutine(TextAnimation());
+
+        //transform.position = position;
         float random_x, random_y;
 
         // 맞았을 때 타워 흔들리는 부분
@@ -29,7 +31,6 @@ public class Tower : Unit
             transform.Translate(new Vector2(-random_x, -random_y));
         }
 
-        StartCoroutine(TextAnimation());
 
         base.AttackedEffect();
     }
