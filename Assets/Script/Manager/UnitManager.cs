@@ -23,28 +23,20 @@ public class UnitManager : MonoBehaviour
     public Unit GetUnit(string name, Vector2 pos)
     {
         Unit unit = null;
-        bool need_unit = false;
 
-        if (Pool.ContainsKey(name) && Pool[name].Count > 0)
+        if (Pool.ContainsKey(name))
         {
-            if (Pool[name][0] != null)
+            Pool[name].RemoveAll(o => o == null);
+
+            if (Pool[name].Count > 0)
             {
                 unit = Pool[name][0];
                 Pool[name].Remove(unit);
             }
-            else
-            {
-                need_unit = true;
-            }
         }
-        else
-        {
-            need_unit = true;
-        }
-        if (need_unit)
-        {
+
+        if (unit == null)
             unit = Instantiate(Units.Find((o) => { return o.Info.Name == name; }), pos, Quaternion.identity);
-        }
 
         unit.transform.position = pos;
         unit.Init();

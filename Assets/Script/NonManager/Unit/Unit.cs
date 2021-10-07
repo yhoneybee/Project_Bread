@@ -179,7 +179,7 @@ public abstract class Unit : MonoBehaviour
                     if (is_attack_able)
                     {
                         OnAttack(unit);
-                        StartCoroutine(ASDelay());
+                        if (gameObject.activeSelf) StartCoroutine(ASDelay());
                         unit.StartCoroutine(unit.AttackedEffect());
                     }
                     break;
