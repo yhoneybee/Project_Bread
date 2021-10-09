@@ -4,7 +4,16 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public Unit Owner;
+    Unit owner;
+    public Unit Owner
+    {
+        get {  return owner; }
+        set 
+        {
+            if (owner != null) owner.Items.Remove(this);
+            owner = value;
+        }
+    }
     public Sprite Icon;
     public Stat Stat;
     public string Name;

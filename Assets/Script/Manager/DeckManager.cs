@@ -39,5 +39,14 @@ public class DeckManager : MonoBehaviour
             var unit = Select[i];
             view.Show = unit;
         }
+
+        if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+        {
+            foreach (var view in UIManager.Instance.UnitViews)
+            {
+                if (view && view.Show)
+                    view.UILinker.Icon.GetComponent<RectTransform>().sizeDelta /= view.Show.Info.DValue;
+            }
+        }
     }
 }
