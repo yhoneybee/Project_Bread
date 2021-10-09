@@ -104,7 +104,6 @@ public class ItemManager : MonoBehaviour
 
     public void Equip(Item item)
     {
-        print("E");
         if (GameManager.SelectUnit.Items.Count < 3 && !GameManager.SelectUnit.Items.Contains(item))
         {
             item.Owner = GameManager.SelectUnit;
@@ -116,7 +115,6 @@ public class ItemManager : MonoBehaviour
 
     public void Release(Item item)
     {
-        print("R");
         item = GameManager.SelectUnit.Items.Find((o) => { return o.Name == item.Name; });
         GameManager.SelectUnit.Items.Remove(item);
         item.Owner = null;
