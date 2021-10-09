@@ -9,7 +9,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269962a5e0904de448b2985a3766198c, type: 3}
+  m_Script: {fileID: 11500000, guid: 099284aa4ddc1564c8e6d24a8bb986ac, type: 3}
   m_Name: Stage 4
   m_EditorClassIdentifier: 
-  wave_information: []
+  wave_information:
+    wave_information:
+    - unit: {fileID: 80032049494775327, guid: a4e220e186b53684fa9e7063debea203, type: 3}
+      delay: 2
+    - unit: {fileID: 80032049494775327, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 2
+    - unit: {fileID: 80032049494775327, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 2
+    - unit: {fileID: 0}
+      delay: 2
+  reward_information:
+    FirstClear:
+      coin: 0
+      jem: 0
+      unit: {fileID: 0}
+    ThreeStarClear:
+      coin: 0
+      jem: 0
+      unit: {fileID: 0}
+    Clear:
+      coin: 0
+      jem: 0
+      unit: {fileID: 0}

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     public int Stemina = 0;
     public int MaxStemina = 0;
 
+    public readonly int theme_count = 3;
+
     public DateTimer[] DateTimers = new DateTimer[3];
 
     private void Awake()

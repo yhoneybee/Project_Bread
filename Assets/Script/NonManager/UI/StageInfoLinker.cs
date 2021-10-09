@@ -14,7 +14,7 @@ public class StageInfoLinker : MonoBehaviour
 
     private void Start()
     {
-        RewardInfo reward = StageManager.Instance.GetReward();
+        RewardInformation reward = StageManager.Instance.GetReward();
         AddRewards(reward.FirstClear);
         AddRewards(reward.ThreeStarClear);
         AddRewards(reward.Clear);
@@ -28,35 +28,35 @@ public class StageInfoLinker : MonoBehaviour
         RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
     }
 
-    public void AddRewards(Tuple<int, int, Unit> clear)
+    public void AddRewards(RewardInformation.Reward_Information clear)
     {
         GameObject obj = null;
 
-        if (clear.Item3)
+        if (clear.unit)
         {
             obj = Instantiate(ClearPrefab);
             obj.name = "Unit";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item3}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.unit}";
         }
 
-        if (clear.Item1 > 0)
+        if (clear.jem > 0)
         {
             obj = Instantiate(ClearPrefab);
             obj.name = "Jem";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item1}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.jem}";
         }
 
-        if (clear.Item2 > 0)
+        if (clear.coin > 0)
         {
             obj = Instantiate(ClearPrefab);
             obj.name = "Coin";
             obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
             obj.GetComponent<Image>().sprite = null;
-            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.Item2}";
+            obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.coin}";
         }
     }
 

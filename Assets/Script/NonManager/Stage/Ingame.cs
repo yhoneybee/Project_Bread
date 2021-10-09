@@ -40,7 +40,7 @@ public class Ingame : MonoBehaviour
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
-    private WaveData wave_data;
+    private WaveInformation wave_data;
 
     Coroutine EnemySpawn = null;
     Coroutine GuageChange = null;
