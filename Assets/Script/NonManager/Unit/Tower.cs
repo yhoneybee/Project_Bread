@@ -37,7 +37,7 @@ public class Tower : Unit
     {
         GameObject textObject = Instantiate(text_object, canvas.transform);
         textObject.transform.localPosition = new Vector2(Random.Range(-200, 200), 300);
-        textObject.GetComponentInChildren<Text>().text = damage.ToString();
+        textObject.GetComponentInChildren<Text>().text = "- " + damage.ToString();
 
         texts.Add(textObject);
 

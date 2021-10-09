@@ -57,14 +57,18 @@ public class Ingame : MonoBehaviour
         backgrounds[StageInfo.theme_number - 1].SetActive(true);
         platforms[StageInfo.theme_number - 1].SetActive(true);
 
+        int card_index;
         Image card_image;
         foreach (var card_unit in card_units)
         {
+            card_index = card_units.IndexOf(card_unit);
             card_image = card_unit.transform.GetChild(1).GetComponent<Image>();
             if (DeckManager.Select[card_units.IndexOf(card_unit)])
-                card_image.sprite = DeckManager.Select[card_units.IndexOf(card_unit)].Info.Icon;
+                card_image.sprite = DeckManager.Select[card_index].Info.Icon;
+
             card_image.SetNativeSize();
-            card_image.GetComponent<RectTransform>().sizeDelta /= 3f;
+            card_image.GetComponent<RectTransform>().sizeDelta /= DeckManager.Select[card_index].Info.DValue;
+
             image_blinds.Add(card_unit.transform.GetChild(2).GetComponent<Image>());
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }

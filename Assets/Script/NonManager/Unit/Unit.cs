@@ -53,6 +53,10 @@ public struct Info
     public int Count;
     ///<summary>Unit Description</summary>///
     public string Desc;
+    /// <summary> Image Devide Value </summary>///
+    public float DValue;
+    /// <summary> Sprite Flip X </summary>///
+    public bool FlipX;
 }
 
 [Serializable]
@@ -147,7 +151,7 @@ public abstract class Unit : MonoBehaviour
 
     protected virtual void Start()
     {
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
         SR = GetComponent<SpriteRenderer>();
         SR.sprite = Info.Icon;
         if (Anim == null) Anim = GetComponent<Anim>();
@@ -273,7 +277,7 @@ public abstract class Unit : MonoBehaviour
             Time.deltaTime *
             new Vector2(1, Mathf.Sin(angle * Mathf.PI / 180)));
 
-        SR.flipX = UnitType == UnitType.FRIEND;
+        SR.flipX = Info.FlipX;
     }
 
     public virtual void OnAttack(Unit taken)
