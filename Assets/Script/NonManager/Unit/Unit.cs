@@ -180,7 +180,7 @@ public abstract class Unit : MonoBehaviour
                     {
                         OnAttack(unit);
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
-                        unit.StartCoroutine(unit.AttackedEffect());
+                        unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
                     }
                     break;
                 }
@@ -290,7 +290,7 @@ public abstract class Unit : MonoBehaviour
 
         Stat.HP -= damage;
     }
-    public virtual IEnumerator AttackedEffect()
+    public virtual IEnumerator AttackedEffect(float damage)
     {
         SR.color = Color.red;
         while (true)
