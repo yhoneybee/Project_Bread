@@ -45,6 +45,8 @@ public class Ingame : MonoBehaviour
     Coroutine EnemySpawn = null;
     Coroutine GuageChange = null;
 
+    int game_count = 0;
+
     float current_guage = 0;
     float target_guage = 1;
     bool is_game_clear = false;
@@ -78,6 +80,8 @@ public class Ingame : MonoBehaviour
 
         EnemySpawn = StartCoroutine(SpawnEnemies());
         GuageChange = StartCoroutine(Guage_Change());
+
+        InvokeRepeating(nameof(CountUp), 0, 1);
     }
     void Update()
     {
@@ -94,6 +98,10 @@ public class Ingame : MonoBehaviour
 
         guage_slider.value = current_guage / 10;
         guage_text.text = ((int)current_guage).ToString();
+    }
+    void CountUp()
+    {
+        game_count++;
     }
     void Set_Unit_Interfaces()
     {
@@ -129,12 +137,16 @@ public class Ingame : MonoBehaviour
                 Destroy(unit);
             }
 
+            if (is_game_clear)
+            {
+                StageManager.Instance.GetStage().star_count = StageManager.Instance.GetStage().three_star_count > game_count ? 3 : 1;
+                StageInfo.stage_number++;
+                StageManager.Instance.GetStage().is_startable = true;
+            }
+
             result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
                 () =>
                 {
-                    StageManager.Instance.GetStage().star_count = StageManager.Instance.GetStage().three_star_count;
-                    StageInfo.stage_number += is_game_clear ? 1 : 0;
-                    StageManager.Instance.GetStage().is_startable = true;
                     ButtonActions.Instance.ChangeScene("E - 01 DeckView");
                 });
         }

@@ -21,14 +21,6 @@ public class GameManager : MonoBehaviour
     };
     public static List<Unit> Select => Instance.Decks[Instance.Index];
 
-    public List<bool> StageCleared { get; set; } = new List<bool>
-    {
-        true,false,false,false,false,false,false,false,false,false,
-        false,false,false,false,false,false,false,false,false,false,
-        false,false,false,false,false,false,false,false,false,false,
-        false,
-    };
-
     public List<Item> Items = new List<Item>();
 
     private int index = 0;

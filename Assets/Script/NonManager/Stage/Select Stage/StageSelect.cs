@@ -30,7 +30,7 @@ public class StageSelect : MonoBehaviour
 
     RaycastHit2D[] hits;
 
-    SpriteRenderer[] theme_number_imgs;
+    SpriteRenderer[] theme_number_imgs = new SpriteRenderer[10];
     void Start()
     {
         for (int i = 0; i < stage_objects.Length; i++)
@@ -38,8 +38,8 @@ public class StageSelect : MonoBehaviour
             // Sprite Renderer로 되어 있는 각 스테이지 버튼의 테마 번호
             theme_number_imgs[i] = stage_objects[i].theme_number_image;
 
-            stage_objects[i].star_count = StageManager.Instance.GetStage().star_count;
-            stage_objects[i].is_startable = StageManager.Instance.GetStage().is_startable;
+            stage_objects[i].star_count = StageManager.Instance.GetStage(i).star_count;
+            stage_objects[i].is_startable = StageManager.Instance.GetStage(i).is_startable;
             theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];
         }
     }
@@ -59,7 +59,7 @@ public class StageSelect : MonoBehaviour
                 if (hits[0].transform.CompareTag("Stage Sprite"))
                 {
                     if (hits[0].transform.GetComponent<StageObject>().is_startable)
-                        SetStageName();
+                        OnReadyWindow();
                 }
             }
             else
@@ -88,9 +88,9 @@ public class StageSelect : MonoBehaviour
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
     }
     /// <summary>
-    ///  Stage 정보창 등에서 스테이지 이름과 테마 이름을 설정해주는 함수
+    ///  Stage 정보창 등에서 스테이지 이름과 테마 이름을 설정해주고 Ready Window를 띄워주는 함수
     /// </summary>
-    void SetStageName()
+    void OnReadyWindow()
     {
         // 스테이지 번호 갖고 있는 오브젝트
         Transform stage_number_transform = hits[0].transform.GetChild(4);
