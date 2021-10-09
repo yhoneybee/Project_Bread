@@ -46,6 +46,13 @@ public class ItemManager : MonoBehaviour
 
         InfoView.Close.onClick.AddListener(() => InfoView.Parent.gameObject.SetActive(false));
 
+        InfoView.Release.onClick.AddListener(() =>
+        {
+            var find = FindInGameManager(Select);
+            if (GameManager.SelectUnit.Items.Contains(find)) Release(Select);
+            else Equip(find);
+        });
+
         foreach (var item in GameManager.Instance.Items)
         {
             Item obj = Instantiate(item);
@@ -92,31 +99,27 @@ public class ItemManager : MonoBehaviour
         InfoView.Name.text = $"{Select.Name}";
         InfoView.Desc.text = $"{Select.Desc}";
 
-        InfoView.Release.onClick.AddListener(() =>
-        {
-            var find = FindInGameManager(Select);
-            if (GameManager.SelectUnit.Items.Contains(find)) Release(Select);
-            else Equip(find);
-        });
-
         InfoView.Parent.gameObject.SetActive(true);
     }
 
     public void Equip(Item item)
     {
+        print("E");
         if (GameManager.SelectUnit.Items.Count < 3 && !GameManager.SelectUnit.Items.Contains(item))
         {
+            print("E IN");
             item.Owner = GameManager.SelectUnit;
             GameManager.SelectUnit.Items.Add(item);
             // 소환할때 Owner 실제 obj의 Unit Instnce로 갱신 필요
+            item.Equip();
             Refresh();
         }
     }
 
     public void Release(Item item)
     {
+        print("R");
         item = GameManager.SelectUnit.Items.Find((o) => { return o.Name == item.Name; });
-        GameManager.SelectUnit.Items.Remove(item);
         item.Owner = null;
         Refresh();
     }

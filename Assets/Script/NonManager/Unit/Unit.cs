@@ -297,7 +297,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (is_attack_able)
         {
-            foreach (var item in Items) item.OnAttack(this, taken);
+            foreach (var item in Items) item.OnAttack(taken);
             taken.OnHit(this, Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken));
         }
     }

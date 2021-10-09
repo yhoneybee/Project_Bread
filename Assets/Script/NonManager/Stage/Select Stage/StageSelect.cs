@@ -5,7 +5,7 @@ using TMPro;
 public class StageSelect : MonoBehaviour
 {
     [System.Serializable]
-    struct LimitPostiions // Ä«¸Þ¶ó À§Ä¡ Á¦ÇÑ Á¤º¸ ´ã±ä ±¸Á¶Ã¼
+    struct LimitPostiions // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼
     {
         public Transform limit_x_left;
         public Transform limit_x_right;
@@ -13,19 +13,19 @@ public class StageSelect : MonoBehaviour
         public Transform limit_y_under;
     }
 
-    /// <summary> Ä«¸Þ¶ó ÀÌµ¿ À§Ä¡ Á¦ÇÑ Á¤º¸ ´ã±ä ±¸Á¶Ã¼ </summary>///
+    /// <summary> Ä«ï¿½Þ¶ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ </summary>///
     [SerializeField] LimitPostiions limits;
-    /// <summary> °ÔÀÓ ÁØºñ Ã¢ </summary>///
+    /// <summary> ï¿½ï¿½ï¿½ï¿½ ï¿½Øºï¿½ Ã¢ </summary>///
     [SerializeField] GameObject ReadyWindow;
 
-    /// <summary> ÃÑ 10°³ ½ºÅ×ÀÌÁö ¿ÀºêÁ§Æ®µé </summary>///
+    /// <summary> ï¿½ï¿½ 10ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ </summary>///
     [SerializeField] StageObject[] stage_objects;
-    /// <summary> ¼ýÀÚ(0~9) ÅØ½ºÆ® Sprite </summary>///
+    /// <summary> ï¿½ï¿½ï¿½ï¿½(0~9) ï¿½Ø½ï¿½Æ® Sprite </summary>///
     [SerializeField] Sprite[] theme_number_sprites;
 
-    /// <summary> ½ºÅ×ÀÌÁö Á¤º¸ Ã¢¿¡¼­ ½ºÅ×ÀÌÁö ÀÌ¸§ ÅØ½ºÆ® </summary>///
+    /// <summary> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ø½ï¿½Æ® </summary>///
     [SerializeField] TextMeshProUGUI stage_name_text;
-    /// <summary> ½ºÅ×ÀÌÁö Á¤º¸ Ã¢¿¡¼­ Å×¸¶ ÀÌ¸§ ÅØ½ºÆ® </summary>///
+    /// <summary> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½Ì¸ï¿½ ï¿½Ø½ï¿½Æ® </summary>///
     [SerializeField] TextMeshProUGUI theme_name_text;
 
     RaycastHit2D[] hits;
@@ -33,9 +33,11 @@ public class StageSelect : MonoBehaviour
     SpriteRenderer[] theme_number_imgs = new SpriteRenderer[10];
     void Start()
     {
+        // ï¿½ï¿½ï¿½ï¿½Ö±æ·¹ ï¿½Ó½Ã·ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ - yhoney
+        theme_number_imgs = new SpriteRenderer[stage_objects.Length];
         for (int i = 0; i < stage_objects.Length; i++)
         {
-            // Sprite Renderer·Î µÇ¾î ÀÖ´Â °¢ ½ºÅ×ÀÌÁö ¹öÆ°ÀÇ Å×¸¶ ¹øÈ£
+            // Sprite Rendererï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½È£
             theme_number_imgs[i] = stage_objects[i].theme_number_image;
 
             stage_objects[i].star_count = StageManager.Instance.GetStage(i).star_count;
@@ -53,7 +55,7 @@ public class StageSelect : MonoBehaviour
 
             hits = Physics2D.RaycastAll(mouse_position, Vector3.forward, 10);
 
-            // Ãæµ¹µÈ ¿ÀºêÁ§Æ®°¡ ÀÖÀ» ¶§ °Ë»ç
+            // ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ë»ï¿½
             if (hits.Length > 0)
             {
                 if (hits[0].transform.CompareTag("Stage Sprite"))
@@ -69,30 +71,30 @@ public class StageSelect : MonoBehaviour
         }
     }
     /// <summary>
-    /// Ä«¸Þ¶ó°¡ ¹üÀ§¸¦ ¹þ¾î³ªÁö ¾ÊÀ¸¸é¼­ ¸ñÇ¥ À§Ä¡·Î ÀÌµ¿½ÃÅ°´Â ÇÔ¼ö
+    /// Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ªï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
-    /// <param name="target_position">¸ñÇ¥ À§Ä¡</param>
+    /// <param name="target_position">ï¿½ï¿½Ç¥ ï¿½ï¿½Ä¡</param>
     void CameraMove(Vector2 target_position)
     {
         Vector2 cam_move_position = target_position;
 
-        // limits¿Í Ä«¸Þ¶ó À§Ä¡ ºñ±³ ÈÄ Á¦ÇÑ
+        // limitsï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (cam_move_position.x < limits.limit_x_left.position.x) cam_move_position = new Vector2(limits.limit_x_left.position.x, cam_move_position.y);
         else if (cam_move_position.x > limits.limit_x_right.position.x) cam_move_position = new Vector2(limits.limit_x_right.position.x, cam_move_position.y);
 
         if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
         else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
 
-        // Ã¢ÀÌ ¿­·Á ÀÖÁö ¾ÊÀ» °æ¿ì Ä«¸Þ¶ó ÀÌµ¿
+        // Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½Ìµï¿½
         if (!ReadyWindow.activeSelf)
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
     }
     /// <summary>
-    ///  Stage Á¤º¸Ã¢ µî¿¡¼­ ½ºÅ×ÀÌÁö ÀÌ¸§°ú Å×¸¶ ÀÌ¸§À» ¼³Á¤ÇØÁÖ°í Ready Window¸¦ ¶ç¿öÁÖ´Â ÇÔ¼ö
+    ///  Stage ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½î¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ Ready Windowï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     void OnReadyWindow()
     {
-        // ½ºÅ×ÀÌÁö ¹øÈ£ °®°í ÀÖ´Â ¿ÀºêÁ§Æ®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
         Transform stage_number_transform = hits[0].transform.GetChild(4);
         SpriteRenderer[] number_images;
 

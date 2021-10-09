@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8720453528091714050}
   - component: {fileID: 8720453528091714049}
   - component: {fileID: 8720453528091714048}
-  - component: {fileID: 3600416196861177426}
+  - component: {fileID: 8007145488228825700}
   m_Layer: 5
-  m_Name: Item 15
+  m_Name: "\uCCB4\uB2E4\uCE58\uC988"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3600416196861177426
+--- !u!114 &8007145488228825700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,6 +130,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 8720453528091714054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c61754afc86a054d82c88f299bfe5fb, type: 3}
+  m_Script: {fileID: 11500000, guid: b1f3ff3d7cd81a044a66c83ee165f85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Icon: {fileID: 0}
+  Stat:
+    AD: 0
+    HP: 0
+    MaxHP: 0
+    MS: 0
+    AR: 0
+    AS: 0
+    LS: 0
+    Proportionality:
+      MaxHP: 0
+      LostHP: 0
+      EMaxHP: 0
+      ELostHP: 0
+      AD: 0
+  Name: "\uCCB4\uB2E4 \uCE58\uC988"
+  Desc: "\uACF5\uACA9 \uC0AC\uAC70\uB9AC\uC5D0 \uB530\uB77C \uCD94\uAC00 \uD53C\uD574
+    ( \uD6A8\uACFC \uC911\uCCA9 X )\n2\uC774\uC0C1 5%, 2.5\uC774\uC0C1 7.5%, 3\uC774\uC0C1
+    10%"
