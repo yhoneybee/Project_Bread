@@ -14,6 +14,13 @@ public class Ingame : MonoBehaviour
         public GameObject reward_window;
         public TextMeshProUGUI button_text;
     }
+    [System.Serializable]
+    struct Three_Star_Limit
+    {
+        public Slider slider;
+        public Image line;
+        public Image[] stars;
+    }
 
     [SerializeField] TextMeshProUGUI stage_name_text;
     [SerializeField] TextMeshProUGUI theme_name_text;
@@ -24,6 +31,9 @@ public class Ingame : MonoBehaviour
 
     [Space(10)]
     [SerializeField] Result_Window result_window;
+
+    [Space(10)]
+    [SerializeField] Three_Star_Limit three_star_limit;
 
     [Space(10)]
     [SerializeField] Unit friendly_tower;
@@ -46,6 +56,7 @@ public class Ingame : MonoBehaviour
     Coroutine GuageChange = null;
 
     int game_count = 0;
+    int three_star_count;
 
     float current_guage = 0;
     float target_guage = 1;
@@ -59,6 +70,29 @@ public class Ingame : MonoBehaviour
         backgrounds[StageInfo.theme_number - 1].SetActive(true);
         platforms[StageInfo.theme_number - 1].SetActive(true);
 
+        SetUIsSize();
+
+        wave_data = StageManager.Instance.GetWaveData();
+
+        EnemySpawn = StartCoroutine(SpawnEnemies());
+        GuageChange = StartCoroutine(Guage_Change());
+
+        InvokeRepeating(nameof(CountUp), 0, 1);
+        three_star_count = StageManager.Instance.GetStage().three_star_count;
+    }
+    void Update()
+    {
+        Check_Game_End();
+
+        Set_Unit_Interfaces();
+
+        guage_slider.value = current_guage / 10;
+        guage_text.text = ((int)current_guage).ToString();
+
+        Set_Three_Star_Limit_UIs();
+    }
+    void SetUIsSize()
+    {
         int card_index;
         Image card_image;
         foreach (var card_unit in card_units)
@@ -75,29 +109,6 @@ public class Ingame : MonoBehaviour
             image_blinds.Add(card_unit.transform.GetChild(2).GetComponent<Image>());
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
-
-        wave_data = StageManager.Instance.GetWaveData();
-
-        EnemySpawn = StartCoroutine(SpawnEnemies());
-        GuageChange = StartCoroutine(Guage_Change());
-
-        InvokeRepeating(nameof(CountUp), 0, 1);
-    }
-    void Update()
-    {
-        // 임시로 만들어 놓은 부분
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            current_guage--;
-            target_guage--;
-        }
-
-        Check_Game_End();
-
-        Set_Unit_Interfaces();
-
-        guage_slider.value = current_guage / 10;
-        guage_text.text = ((int)current_guage).ToString();
     }
     void CountUp()
     {
@@ -139,7 +150,7 @@ public class Ingame : MonoBehaviour
 
             if (is_game_clear)
             {
-                StageManager.Instance.GetStage().star_count = StageManager.Instance.GetStage().three_star_count > game_count ? 3 : 1;
+                StageManager.Instance.GetStage().star_count = three_star_count > game_count ? 3 : 1;
                 StageInfo.stage_number++;
                 StageManager.Instance.GetStage().is_startable = true;
             }
@@ -150,6 +161,32 @@ public class Ingame : MonoBehaviour
                     ButtonActions.Instance.ChangeScene("E - 01 DeckView");
                 });
         }
+    }
+    void Set_Three_Star_Limit_UIs()
+    {
+        float value = 1 - game_count / (float)(three_star_count);
+        three_star_limit.slider.value = value;
+
+        if (three_star_limit.slider.value == 0)
+        {
+            foreach (var image in three_star_limit.slider.GetComponentsInChildren<Image>())
+            {
+                if (image.enabled)
+                    FadeOutImage(image);
+            }
+            foreach (var star in three_star_limit.stars)
+            {
+                if (star.enabled)
+                    FadeOutImage(star);
+            }
+            if (three_star_limit.line.enabled)
+                FadeOutImage(three_star_limit.line);
+        }
+    }
+    void FadeOutImage(Image image)
+    {
+        image.color = Color.Lerp(image.color, new Color(image.color.r, image.color.g, image.color.b, 0), 0.01f);
+        image.enabled = image.color.a > 0.01f;
     }
 
     public void SetTimeScale(float value)
