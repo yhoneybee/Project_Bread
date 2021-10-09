@@ -19,6 +19,6 @@ public abstract class Item : MonoBehaviour
     public string Name;
     public string Desc;
 
-    public abstract void OnAttack(Unit taken);
+    public abstract void OnAttack(Unit taker, Unit taken);
     public abstract void OnHit(Unit take, ref float damage);
 }

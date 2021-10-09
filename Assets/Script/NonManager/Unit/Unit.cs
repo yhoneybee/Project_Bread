@@ -103,6 +103,16 @@ public struct Proportionality
     {
         return (taker.Stat.AD * AD, taker.Stat.MaxHP * MaxHP, (taker.Stat.MaxHP - taker.Stat.HP) * LostHP, taken.Stat.MaxHP * EMaxHP, (taken.Stat.MaxHP - taken.Stat.HP) * ELostHP);
     }
+    public float GetTotalDamage(Unit taker, Unit taken)
+    {
+        float sum = 0;
+        sum += GetDamages(taker, taken).ad;
+        sum += GetDamages(taker, taken).max_hp;
+        sum += GetDamages(taker, taken).lost_hp;
+        sum += GetDamages(taker, taken).e_max_hp;
+        sum += GetDamages(taker, taken).e_lost_hp;
+        return sum;
+    }
 }
 
 [Serializable]
@@ -141,6 +151,9 @@ public abstract class Unit : MonoBehaviour
     public Anim Anim;
 
     SpriteRenderer SR;
+
+    public bool WalkAble => is_walk_able;
+    public bool AttakAble => is_walk_able;
 
     int AnimIndex = 0;
     float time = 0;
@@ -284,8 +297,8 @@ public abstract class Unit : MonoBehaviour
     {
         if (is_attack_able)
         {
-            foreach (var item in Items) item.OnAttack(taken);
-            taken.OnHit(this, Stat.AD);
+            foreach (var item in Items) item.OnAttack(this, taken);
+            taken.OnHit(this, Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken));
         }
     }
     public virtual void OnHit(Unit taker, float damage)
