@@ -132,7 +132,9 @@ public class Ingame : MonoBehaviour
             result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
                 () =>
                 {
+                    StageManager.Instance.GetStage().star_count = StageManager.Instance.GetStage().three_star_count;
                     StageInfo.stage_number += is_game_clear ? 1 : 0;
+                    StageManager.Instance.GetStage().is_startable = true;
                     ButtonActions.Instance.ChangeScene("E - 01 DeckView");
                 });
         }

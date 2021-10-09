@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public RewardInformation GetReward() => all_themes[StageInfo.theme_number - 1].stages[StageInfo.stage_number - 1].reward_information;
-    // Wave Data 모두 채웠을 때 아래 주석 지우기
-    public WaveInformation GetWaveData() => all_themes[StageInfo.theme_number - 1].stages[StageInfo.stage_number - 1].wave_information;
+    public StageData GetStage() => all_themes[StageInfo.theme_number - 1].stages[StageInfo.stage_number - 1];
+    public WaveInformation GetWaveData() => GetStage().wave_information;
+    public RewardInformation GetReward() => GetStage().reward_information;
 }
