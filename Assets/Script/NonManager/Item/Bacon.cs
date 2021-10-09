@@ -8,6 +8,10 @@ public class Bacon : Item
     {
     }
 
+    public override void Ingame()
+    {
+    }
+
     public override void OnAttack(Unit taken)
     {
         if (taken.Stat.HP <= taken.Stat.MaxHP / 100 * 40)

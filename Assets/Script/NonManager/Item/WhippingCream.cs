@@ -10,6 +10,11 @@ public class WhippingCream : Item
 
     public override void Equip()
     {
+
+    }
+
+    public override void Ingame()
+    {
         active = false;
         count = 0;
         add = 0;

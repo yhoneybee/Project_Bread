@@ -12,6 +12,10 @@ public class GrapeJam : Item
         Owner.Stat.LS += add;
     }
 
+    public override void Ingame()
+    {
+    }
+
     public override void OnAttack(Unit taken)
     {
     }

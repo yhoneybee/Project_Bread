@@ -9,6 +9,10 @@ public class CondensedMilk : Item
 
     public override void Equip()
     {
+    }
+
+    public override void Ingame()
+    {
         active = false;
     }
 

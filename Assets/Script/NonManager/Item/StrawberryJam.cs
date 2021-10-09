@@ -8,6 +8,10 @@ public class StrawberryJam : Item
     {
     }
 
+    public override void Ingame()
+    {
+    }
+
     public override void OnAttack(Unit taken)
     {
     }

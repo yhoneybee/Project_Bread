@@ -8,6 +8,10 @@ public class Butter : Item
     {
     }
 
+    public override void Ingame()
+    {
+    }
+
     public override void OnAttack(Unit taken)
     {
     }

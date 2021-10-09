@@ -9,6 +9,11 @@ public class Ketchup : Item
 
     public override void Equip()
     {
+
+    }
+
+    public override void Ingame()
+    {
         first = true;
         add = 0;
     }

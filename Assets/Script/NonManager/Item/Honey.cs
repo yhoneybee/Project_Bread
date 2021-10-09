@@ -13,6 +13,10 @@ public class Honey : Item
 
     public override void Equip()
     {
+    }
+
+    public override void Ingame()
+    {
         Stack = 0;
     }
 

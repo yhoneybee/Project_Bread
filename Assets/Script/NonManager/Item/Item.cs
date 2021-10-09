@@ -24,6 +24,7 @@ public abstract class Item : MonoBehaviour
     [Multiline(5)]
     public string Desc;
 
+    public abstract void Ingame();
     public abstract void Equip();
     public abstract void UnEquip();
     public abstract void OnAttack(Unit taken);
