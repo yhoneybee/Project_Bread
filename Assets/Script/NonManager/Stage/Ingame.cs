@@ -40,7 +40,7 @@ public class Ingame : MonoBehaviour
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
-    [SerializeField] WaveData wave_data;
+    private WaveData wave_data;
 
     Coroutine EnemySpawn = null;
     Coroutine GuageChange = null;
@@ -74,8 +74,7 @@ public class Ingame : MonoBehaviour
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
 
-        //로딩씬 StageManager에 wave_data가 전부 담겼다면 주석 해제하기
-        //wave_data = StageManager.Instance.GetWaveData();
+        wave_data = StageManager.Instance.GetWaveData();
 
         EnemySpawn = StartCoroutine(SpawnEnemies());
         GuageChange = StartCoroutine(Guage_Change());

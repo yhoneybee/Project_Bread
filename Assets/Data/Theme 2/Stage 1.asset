@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269962a5e0904de448b2985a3766198c, type: 3}
   m_Name: Stage 1
   m_EditorClassIdentifier: 
-  wave_information: []
+  wave_information:
+  - unit: {fileID: 80032049494775327, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+    delay: 2
+  - unit: {fileID: 80032049494775327, guid: f770105234162d048b3129ae3c23084d, type: 3}
+    delay: 2
+  - unit: {fileID: 80032049494775327, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+    delay: 2
+  - unit: {fileID: 0}
+    delay: 2

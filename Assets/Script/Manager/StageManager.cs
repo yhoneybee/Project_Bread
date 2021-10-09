@@ -11,7 +11,7 @@ public struct RewardInfo
 }
 
 [Serializable]
-public struct  Wave_Data
+public struct Wave_Data
 {
     public List<WaveData> stage_waves;
 }
@@ -70,5 +70,6 @@ public class StageManager : MonoBehaviour
     }
 
     public RewardInfo GetReward() => RewardInfos[StageInfo.theme_number - 1][StageInfo.stage_number - 1];
-    public WaveData GetWaveData() => theme_waves[StageInfo.theme_number].stage_waves[StageInfo.stage_number - 1];
+    // Wave Data 모두 채웠을 때 아래 주석 지우기
+    public WaveData GetWaveData() => theme_waves[StageInfo.theme_number - 1].stage_waves[0/*StageInfo.stage_number - 1*/];
 }
