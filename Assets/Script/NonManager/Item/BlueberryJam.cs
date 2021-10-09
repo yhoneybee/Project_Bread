@@ -5,20 +5,29 @@ using UnityEngine;
 public class BlueberryJam : Item
 {
     bool active = false;
-    public override void OnAttack(Unit taker, Unit taken)
+
+    public override void Equip()
     {
-        if (taker.WalkAble)
+    }
+
+    public override void OnAttack(Unit taken)
+    {
+        if (Owner.WalkAble)
         {
             active = true;
         }
         if (active)
         {
             active = false;
-            taker.Stat.HP += taker.Stat.AD / (2 * taker.Info.Level);
+            Owner.Stat.HP += Owner.Stat.AD / 100 * 2 * Owner.Info.Level;
         }
     }
 
     public override void OnHit(Unit take, ref float damage)
+    {
+    }
+
+    public override void UnEquip()
     {
     }
 }

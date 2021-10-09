@@ -10,15 +10,22 @@ public abstract class Item : MonoBehaviour
         get {  return owner; }
         set 
         {
-            if (owner != null) owner.Items.Remove(this);
+            if (owner != null)
+            {
+                UnEquip();
+                owner.Items.Remove(this);
+            }
             owner = value;
         }
     }
     public Sprite Icon;
     public Stat Stat;
     public string Name;
+    [Multiline(5)]
     public string Desc;
 
-    public abstract void OnAttack(Unit taker, Unit taken);
+    public abstract void Equip();
+    public abstract void UnEquip();
+    public abstract void OnAttack(Unit taken);
     public abstract void OnHit(Unit take, ref float damage);
 }

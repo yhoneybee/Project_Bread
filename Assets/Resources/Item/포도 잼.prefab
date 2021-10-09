@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8720453528091714050}
   - component: {fileID: 8720453528091714049}
   - component: {fileID: 8720453528091714048}
-  - component: {fileID: 1028871799318590825}
+  - component: {fileID: 7070569871944935439}
   m_Layer: 5
-  m_Name: Item 11
+  m_Name: "\uD3EC\uB3C4 \uC7BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1028871799318590825
+--- !u!114 &7070569871944935439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8720453528091714054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51b8077ebad3db3428670445c8171ebf, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5159bcb38bae741a6f5a98080ac7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
@@ -148,5 +148,5 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  Name: 
-  Desc: 
+  Name: "\uD3EC\uB3C4 \uC7BC"
+  Desc: "LS\uAC00 \uB808\uBCA8\uC5D0 \uBE44\uB840\uD574\uC11C \uC99D\uAC00\uD569\uB2C8\uB2E4"

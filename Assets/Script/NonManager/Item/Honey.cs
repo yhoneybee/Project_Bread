@@ -10,12 +10,17 @@ public class Honey : Item
         get { return stack; }
         set { stack = Mathf.Min(value, 8); }
     }
-    public override void OnAttack(Unit taker, Unit taken)
+
+    public override void Equip()
+    {
+    }
+
+    public override void OnAttack(Unit taken)
     {
         CancelInvoke(nameof(ResetStack));
         ++Stack;
-        if (taker.Stat.AR <= 1.5f) ++Stack;
-        taken.OnHit(taker, Stack);
+        if (Owner.Stat.AR <= 1.5f) ++Stack;
+        taken.OnHit(Owner, Stack);
         Invoke(nameof(ResetStack), 5);
     }
 
@@ -24,4 +29,8 @@ public class Honey : Item
     }
 
     public void ResetStack() => Stack = 0;
+
+    public override void UnEquip()
+    {
+    }
 }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8720453528091714050}
   - component: {fileID: 8720453528091714049}
   - component: {fileID: 8720453528091714048}
-  - component: {fileID: 6917443943168017846}
+  - component: {fileID: 5339225504236965770}
   m_Layer: 5
-  m_Name: Item 13
+  m_Name: "\uBE14\uB8E8\uBCA0\uB9AC \uC7BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6917443943168017846
+--- !u!114 &5339225504236965770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8720453528091714054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48eb46f5bd8cc374aaecb66ad29897ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 66354965aa9fcbd44929c71cda21deed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
@@ -148,5 +148,6 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  Name: 
-  Desc: 
+  Name: "\uBE14\uB8E8\uBCA0\uB9AC \uC7BC"
+  Desc: "\uC774\uB3D9 \uD6C4 \uCCAB\uACF5\uACA9 \uC2DC \uB808\uBCA8\uC5D0 \uBE44\uB840\uD574\uC11C
+    \uCCB4\uB825 \uD68C\uBCF5"

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8720453528091714050}
   - component: {fileID: 8720453528091714049}
   - component: {fileID: 8720453528091714048}
-  - component: {fileID: 8007145488228825700}
+  - component: {fileID: 6917443943168017846}
   m_Layer: 5
-  m_Name: Item 3
+  m_Name: "\uB538\uAE30 \uC7BC"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8007145488228825700
+--- !u!114 &6917443943168017846
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8720453528091714054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f3ff3d7cd81a044a66c83ee165f85b, type: 3}
+  m_Script: {fileID: 11500000, guid: 48eb46f5bd8cc374aaecb66ad29897ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
@@ -148,5 +148,6 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  Name: 
-  Desc: 
+  Name: "\uB538\uAE30 \uC7BC"
+  Desc: "\uC0AC\uAC70\uB9AC\uAC00 1.5\uC774\uD558\uC77C \uACBD\uC6B0\n\uCD5C\uB300
+    \uCCB4\uB825\uC758 10% \uC544\uB2C8\uB77C\uBA74 6%\uC758 \uD53C\uD574\uB97C \uC90C"

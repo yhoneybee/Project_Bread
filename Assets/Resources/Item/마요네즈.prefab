@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8720453528091714050}
   - component: {fileID: 8720453528091714049}
   - component: {fileID: 8720453528091714048}
-  - component: {fileID: 5276007118530814018}
+  - component: {fileID: 3744357786349458693}
   m_Layer: 5
-  m_Name: Item 2
+  m_Name: "\uB9C8\uC694\uB124\uC988"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5276007118530814018
+--- !u!114 &3744357786349458693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8720453528091714054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44b11af2f7972ba4ea1fcef4a52da676, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d70f53b00981064882edb8c24191a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
@@ -148,5 +148,5 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  Name: 
-  Desc: 
+  Name: "\uB9C8\uC694\uB124\uC988"
+  Desc: "HP\uAC00 40%\uC774\uD558 \uC77C\uB54C LS\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4"

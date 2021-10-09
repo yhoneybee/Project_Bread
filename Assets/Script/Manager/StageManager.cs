@@ -36,7 +36,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public StageData GetStage() => all_themes[StageInfo.theme_number - 1].stages[StageInfo.stage_number - 1];
+    public StageData GetStage() => all_themes[StageInfo.theme_number - 1].stages[StageInfo.stage_number];
     public WaveInformation GetWaveData() => GetStage().wave_information;
     public RewardInformation GetReward() => GetStage().reward_information;
 }

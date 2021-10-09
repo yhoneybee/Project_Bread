@@ -33,11 +33,14 @@ public class StageSelect : MonoBehaviour
     SpriteRenderer[] theme_number_imgs;
     void Start()
     {
+        // 비어있길레 임시로 추가함 - yhoney
+        theme_number_imgs = new SpriteRenderer[stage_objects.Length];
         for (int i = 0; i < stage_objects.Length; i++)
         {
             // Sprite Renderer로 되어 있는 각 스테이지 버튼의 테마 번호
             theme_number_imgs[i] = stage_objects[i].theme_number_image;
 
+            // Scene에서 stage_objects 비어있길레 넣어줌 - yhoney
             stage_objects[i].star_count = StageManager.Instance.GetStage().star_count;
             stage_objects[i].is_startable = StageManager.Instance.GetStage().is_startable;
             theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];

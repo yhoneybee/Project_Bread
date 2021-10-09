@@ -6,9 +6,14 @@ public class CondensedMilk : Item
 {
     bool active = false;
     Coroutine CDotDealing;
-    public override void OnAttack(Unit taker, Unit taken)
+
+    public override void Equip()
     {
-        if (taker.WalkAble)
+    }
+
+    public override void OnAttack(Unit taken)
+    {
+        if (Owner.WalkAble)
         {
             active = true;
         }
@@ -16,11 +21,15 @@ public class CondensedMilk : Item
         {
             active = false;
             if (CDotDealing != null) StopCoroutine(CDotDealing);
-            CDotDealing = StartCoroutine(EDotDealing(taker, taken));
+            CDotDealing = StartCoroutine(EDotDealing(Owner, taken));
         }
     }
 
     public override void OnHit(Unit take, ref float damage)
+    {
+    }
+
+    public override void UnEquip()
     {
     }
 
