@@ -168,6 +168,8 @@ public abstract class Unit : MonoBehaviour
         SR = GetComponent<SpriteRenderer>();
         SR.sprite = Info.Icon;
         if (Anim == null) Anim = GetComponent<Anim>();
+
+        foreach (var item in Items) item.Equip();
     }
     protected virtual void Update()
     {

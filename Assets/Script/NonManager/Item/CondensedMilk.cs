@@ -9,6 +9,7 @@ public class CondensedMilk : Item
 
     public override void Equip()
     {
+        active = false;
     }
 
     public override void OnAttack(Unit taken)

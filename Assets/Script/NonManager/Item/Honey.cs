@@ -13,6 +13,7 @@ public class Honey : Item
 
     public override void Equip()
     {
+        Stack = 0;
     }
 
     public override void OnAttack(Unit taken)

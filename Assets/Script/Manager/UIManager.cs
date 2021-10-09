@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
             Content.sizeDelta = new Vector2 { x = Content.sizeDelta.x, y = friends.Count / 5 * (375.1f + 58) };
             for (int i = 0; i < friends.Count; i++)
             {
-                var view_go = Instantiate(SquadPrefab, Content);
+                var view_go = Instantiate(SquadPrefab, Content, false);
                 var view = view_go.GetComponent<UnitView>();
                 var show = friends[i];
                 var find = GameManager.Select.Find((o) =>

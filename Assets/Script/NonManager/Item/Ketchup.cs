@@ -9,6 +9,8 @@ public class Ketchup : Item
 
     public override void Equip()
     {
+        first = true;
+        add = 0;
     }
 
     public override void OnAttack(Unit taken)
@@ -21,7 +23,8 @@ public class Ketchup : Item
         {
             first = false;
             print("Start");
-            StartCoroutine(EADUpFor3sec());
+            //StartCoroutine(EADUpFor3sec());
+            Owner.GetComponent<MonoBehaviour>().StartCoroutine(EADUpFor3sec());
         }
     }
 
@@ -39,16 +42,15 @@ public class Ketchup : Item
         dp[0] = 0;
         dp[1] = 1;
         dp[2] = 1;
+        dp[3] = 2;
 
-        int idx = 3;
+        int idx = 2;
 
         while (Owner.Stat.HP > 0)
         {
-            for (int i = 0; i < 2; i++)
-            {
-                dp[idx++] = dp[idx - 1] + dp[idx - 2];
-            }
-            print($"dp[idx] = {dp[idx]}");
+            ++idx;
+            dp[idx] = dp[idx - 1] + dp[idx - 2];
+            print($"dp[{idx}] = {dp[idx]}");
             Owner.Stat.AD += dp[idx];
             add += dp[idx];
             yield return wait;

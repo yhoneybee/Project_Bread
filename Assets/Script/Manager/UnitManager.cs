@@ -36,7 +36,16 @@ public class UnitManager : MonoBehaviour
         }
 
         if (unit == null)
-            unit = Instantiate(Units.Find((o) => { return o.Info.Name == name; }), pos, Quaternion.identity);
+        {
+            var find = Units.Find((o) => { return o.Info.Name == name; });
+            unit = Instantiate(find, pos, Quaternion.identity);
+
+            for (int i = 0; i < find.Items.Count; i++)
+            {
+                var item = find.Items[i];
+                item.Owner = unit;
+            }
+        }
 
         unit.transform.position = pos;
         unit.Init();

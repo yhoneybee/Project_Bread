@@ -5,9 +5,13 @@ using UnityEngine;
 public class BlueberryJam : Item
 {
     bool active = false;
-
+    private void Start()
+    {
+        active = false;
+    }
     public override void Equip()
     {
+        
     }
 
     public override void OnAttack(Unit taken)

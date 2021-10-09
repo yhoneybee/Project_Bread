@@ -7,8 +7,12 @@ public class WhippingCream : Item
     bool active = false;
     int count = 0;
     float add = 0;
+
     public override void Equip()
     {
+        active = false;
+        count = 0;
+        add = 0;
     }
 
     public override void OnAttack(Unit taken)
