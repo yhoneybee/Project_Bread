@@ -13,31 +13,38 @@ public class StageSelect : MonoBehaviour
         public Transform limit_y_under;
     }
 
+    /// <summary> 카메라 이동 위치 제한 정보 담긴 구조체 </summary>///
     [SerializeField] LimitPostiions limits;
+    /// <summary> 게임 준비 창 </summary>///
     [SerializeField] GameObject ReadyWindow;
-    [SerializeField] GameObject StageWindow;
 
-    [SerializeField] SpriteRenderer[] theme_number_imgs;
+    /// <summary> 총 10개 스테이지 오브젝트들 </summary>///
+    [SerializeField] StageObject[] stage_objects;
+    /// <summary> 숫자(0~9) 텍스트 Sprite </summary>///
     [SerializeField] Sprite[] theme_number_sprites;
 
-    [SerializeField] TextMeshProUGUI[] stage_name_texts;
-    [SerializeField] TextMeshProUGUI[] theme_name_texts;
+    /// <summary> 스테이지 정보 창에서 스테이지 이름 텍스트 </summary>///
+    [SerializeField] TextMeshProUGUI stage_name_text;
+    /// <summary> 스테이지 정보 창에서 테마 이름 텍스트 </summary>///
+    [SerializeField] TextMeshProUGUI theme_name_text;
 
     RaycastHit2D[] hits;
+
+    SpriteRenderer[] theme_number_imgs;
     void Start()
     {
-        for (int i = 0; i < theme_number_imgs.Length; i++)
+        for (int i = 0; i < stage_objects.Length; i++)
         {
             // Sprite Renderer로 되어 있는 각 스테이지 버튼의 테마 번호
+            theme_number_imgs[i] = stage_objects[i].theme_number_image;
+
+            stage_objects[i].star_count = StageManager.Instance.GetStage().star_count;
+            stage_objects[i].is_startable = StageManager.Instance.GetStage().is_startable;
             theme_number_imgs[i].sprite = theme_number_sprites[StageInfo.theme_number - 1];
         }
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("F - 01 Ingame");
-        }
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,13 +58,13 @@ public class StageSelect : MonoBehaviour
             {
                 if (hits[0].transform.CompareTag("Stage Sprite"))
                 {
-                    SetStageName();
+                    if (hits[0].transform.GetComponent<StageObject>().is_startable)
+                        SetStageName();
                 }
             }
             else
             {
                 ReadyWindow.SetActive(false);
-                StageWindow.SetActive(false);
             }
         }
     }
@@ -77,7 +84,7 @@ public class StageSelect : MonoBehaviour
         else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
 
         // 창이 열려 있지 않을 경우 카메라 이동
-        if (!ReadyWindow.activeSelf && !StageWindow.activeSelf)
+        if (!ReadyWindow.activeSelf)
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
     }
     /// <summary>
@@ -101,13 +108,7 @@ public class StageSelect : MonoBehaviour
 
         ReadyWindow.SetActive(true);
 
-        foreach (var theme_name_text in theme_name_texts)
-        {
-            theme_name_text.text = StageInfo.theme_name;
-        }
-        foreach (var stage_name_text in stage_name_texts)
-        {
-            stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
-        }
+        theme_name_text.text = StageInfo.theme_name;
+        stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
     }
 }

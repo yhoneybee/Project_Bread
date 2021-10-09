@@ -15,9 +15,9 @@ public class StageInfoLinker : MonoBehaviour
     private void Start()
     {
         RewardInformation reward = StageManager.Instance.GetReward();
-        AddRewards(reward.FirstClear);
-        AddRewards(reward.ThreeStarClear);
-        AddRewards(reward.Clear);
+        AddRewards(reward.first_clear);
+        AddRewards(reward.three_star_clear);
+        AddRewards(reward.basic_clear);
 
         if (MobContent)
         {
