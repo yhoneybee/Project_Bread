@@ -154,7 +154,7 @@ MonoBehaviour:
     Cost: 1
     Count: 1
     Desc: "\"\uB0B4 \uCD08\uCF54\uC870\uAC01\uCF00\uC774\uD06C \uB9DB \uC880 \uBCFC\uB798?\""
-    DValue: 1
+    DValue: 3
     FlipX: 0
   Stat:
     AD: 1

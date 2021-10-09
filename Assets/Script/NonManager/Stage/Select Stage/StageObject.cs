@@ -21,13 +21,13 @@ public class StageObject : MonoBehaviour
             SetStarsColor();
         }
     }
-    public bool is_startable { get; set; }
+    public bool is_startable;
 
     void SetStarsColor()
     {
         for (int i = 0; i < star_count; i++)
         {
-            stars[i].color = Color.white;
+            stars[i].color = Color./*white*/yellow;
         }
     }
 }
