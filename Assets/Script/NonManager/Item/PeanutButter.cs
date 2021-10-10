@@ -14,6 +14,8 @@ public class PeanutButter : Item
 
     public override void OnAttack(Unit taken)
     {
+        if (taken.Stat.HP <= taken.Stat.MaxHP / 100 * 5)
+            if (!taken.Invincibility) taken.Stat.HP = 0;
     }
 
     public override void OnHit(Unit take, ref float damage)
