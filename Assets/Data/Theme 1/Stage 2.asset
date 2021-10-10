@@ -22,6 +22,7 @@ MonoBehaviour:
       delay: 2
     - unit: {fileID: 0}
       delay: 2
+  enemies_sprite: []
   reward_information:
     first_clear:
       coin: 0
@@ -35,6 +36,7 @@ MonoBehaviour:
       coin: 0
       jem: 0
       unit: {fileID: 0}
+  rewards_sprite: []
   star_count: 0
   three_star_count: 120
-  is_startable: 0
+  is_startable: 1

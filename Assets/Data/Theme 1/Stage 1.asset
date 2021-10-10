@@ -22,6 +22,10 @@ MonoBehaviour:
       delay: 2
     - unit: {fileID: 0}
       delay: 2
+  enemies_sprite:
+  - {fileID: 21300000, guid: 694672819b3716845a84749ce75961ce, type: 3}
+  - {fileID: 21300000, guid: ebabe1dbdf2d83947bab5915ea48b751, type: 3}
+  - {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
   reward_information:
     first_clear:
       coin: 0
@@ -35,6 +39,7 @@ MonoBehaviour:
       coin: 0
       jem: 0
       unit: {fileID: 0}
+  rewards_sprite: []
   star_count: 3
   three_star_count: 120
   is_startable: 1

@@ -62,18 +62,14 @@ public class StageInfoLinker : MonoBehaviour
 
     public void AddWaveDatas()
     {
-        var wave_data = StageManager.Instance.GetWaveData();
+        var sprites = StageManager.Instance.GetEnemiesSprite();
         GameObject obj = null;
 
-        foreach (var wave in wave_data.wave_information)
+        foreach (var sprite in sprites)
         {
-            if (wave.unit)
-            {
-                obj = Instantiate(ClearPrefab);
-                obj.name = $"{wave.unit.Info.Name}";
-                obj.GetComponent<RectTransform>().SetParent(MobContent, false);
-                obj.GetComponent<Image>().sprite = wave.unit.Info.Icon;
-            }
+            obj = Instantiate(ClearPrefab);
+            obj.GetComponent<RectTransform>().SetParent(MobContent, false);
+            obj.GetComponent<Image>().sprite = sprite;
         }
     }
 }

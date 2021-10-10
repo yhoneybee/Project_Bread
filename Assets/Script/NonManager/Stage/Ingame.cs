@@ -138,6 +138,8 @@ public class Ingame : MonoBehaviour
             StopCoroutine(EnemySpawn);
             StopCoroutine(GuageChange);
 
+            CancelInvoke(nameof(CountUp));
+
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
             result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";

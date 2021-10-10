@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class StageSelect : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class StageSelect : MonoBehaviour
     [SerializeField] LimitPostiions limits;
     /// <summary> ���� �غ� â </summary>///
     [SerializeField] GameObject ReadyWindow;
+    [SerializeField] Image[] enemies_image;
+    [SerializeField] Image[] rewards_image;
 
     /// <summary> �� 10�� �������� ������Ʈ�� </summary>///
     [SerializeField] StageObject[] stage_objects;
@@ -112,5 +115,21 @@ public class StageSelect : MonoBehaviour
 
         theme_name_text.text = StageInfo.theme_name;
         stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
+
+        Sprite[] enemies_sprite = StageManager.Instance.GetEnemiesSprite();
+
+        for (int i = 0; i < enemies_sprite.Length; i++)
+            if (enemies_sprite[i])
+            {
+                enemies_image[i].sprite = enemies_sprite[i];
+                enemies_image[i].SetNativeSize();
+                enemies_image[i].GetComponent<RectTransform>().sizeDelta /= 5;
+            }
+
+        Sprite[] rewards_sprite = StageManager.Instance.GetRewardsSprite();
+
+        for (int i = 0; i < rewards_sprite.Length; i++)
+            if (rewards_sprite[i])
+                rewards_image[i].sprite = rewards_sprite[i];
     }
 }

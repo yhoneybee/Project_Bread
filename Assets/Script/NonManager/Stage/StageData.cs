@@ -7,7 +7,10 @@ using System;
 public class StageData : ScriptableObject
 {
     public WaveInformation wave_information;
+    public Sprite[] enemies_sprite;
+    [Space(15)]
     public RewardInformation reward_information;
+    public Sprite[] rewards_sprite;
     [Space(15)]
     public int star_count = 0; // 획득한 별 개수
     public int three_star_count = 0; // 별 3개 제한 시간
