@@ -10,11 +10,17 @@ public abstract class Item : MonoBehaviour
         get {  return owner; }
         set 
         {
-            if (owner != null && owner.Info.Name != value.Info.Name)
+            bool un_equip = false;
+
+            if (!value) un_equip = true;
+            else if (owner && owner.Info.Name != value.Info.Name) un_equip = true;
+
+            if (un_equip)
             {
                 UnEquip();
                 owner.Items.Remove(this);
             }
+
             owner = value;
         }
     }
