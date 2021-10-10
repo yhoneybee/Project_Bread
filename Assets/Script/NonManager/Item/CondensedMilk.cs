@@ -14,6 +14,7 @@ public class CondensedMilk : Item
     public override void Ingame()
     {
         active = false;
+        MonoOwner = Owner.GetComponent<MonoBehaviour>();
     }
 
     public override void OnAttack(Unit taken)
@@ -25,8 +26,8 @@ public class CondensedMilk : Item
         if (active)
         {
             active = false;
-            if (CDotDealing != null) StopCoroutine(CDotDealing);
-            CDotDealing = StartCoroutine(EDotDealing(Owner, taken));
+            if (CDotDealing != null) MonoOwner.StopCoroutine(CDotDealing);
+            CDotDealing = MonoOwner.StartCoroutine(EDotDealing(Owner, taken));
         }
     }
 

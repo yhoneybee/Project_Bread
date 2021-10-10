@@ -155,6 +155,8 @@ public abstract class Unit : MonoBehaviour
     public bool WalkAble => is_walk_able;
     public bool AttakAble => is_walk_able;
 
+    public bool Invincibility = false;
+
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
@@ -305,9 +307,9 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual void OnHit(Unit taker, float damage)
     {
-        foreach (var item in Items) item.OnHit(taker, ref damage);
+        foreach (var item in Items) if (!Invincibility) item.OnHit(taker, ref damage);
 
-        Stat.HP -= damage;
+        if (!Invincibility) Stat.HP -= damage;
     }
     public virtual IEnumerator AttackedEffect(float damage)
     {

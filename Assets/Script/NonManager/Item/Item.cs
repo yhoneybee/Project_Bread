@@ -18,6 +18,7 @@ public abstract class Item : MonoBehaviour
             owner = value;
         }
     }
+    public MonoBehaviour MonoOwner;
     public Sprite Icon;
     public Stat Stat;
     public string Name;

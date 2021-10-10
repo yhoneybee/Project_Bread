@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b8077ebad3db3428670445c8171ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MonoOwner: {fileID: 0}
   Icon: {fileID: 0}
   Stat:
     AD: 0
@@ -149,5 +150,5 @@ MonoBehaviour:
       ELostHP: 0
       AD: 0
   Name: "\uB204\uD154\uB77C"
-  Desc: "3\uCD08\uAC04 3\uD68C \uACF5\uACA9\uC2DC \uD070 \uCDA9\uACA9\uC744 \uAC00\uD568\n\uC0B4\uC544\uC788\uC744
+  Desc: "2.5\uCD08\uAC04 3\uD68C \uACF5\uACA9\uC2DC \uD070 \uCDA9\uACA9\uC744 \uAC00\uD568\n\uC0B4\uC544\uC788\uC744
     \uB54C \uD55C\uBC88 \uBC1C\uB3D9"

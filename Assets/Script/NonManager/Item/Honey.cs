@@ -18,15 +18,16 @@ public class Honey : Item
     public override void Ingame()
     {
         Stack = 0;
+        MonoOwner = Owner.GetComponent<MonoBehaviour>();
     }
 
     public override void OnAttack(Unit taken)
     {
-        CancelInvoke(nameof(ResetStack));
+        MonoOwner.CancelInvoke(nameof(ResetStack));
         ++Stack;
         if (Owner.Stat.AR <= 1.5f) ++Stack;
         taken.OnHit(Owner, Stack);
-        Invoke(nameof(ResetStack), 5);
+        MonoOwner.Invoke(nameof(ResetStack), 5);
     }
 
     public override void OnHit(Unit take, ref float damage)

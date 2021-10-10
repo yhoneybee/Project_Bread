@@ -14,6 +14,7 @@ public class Ketchup : Item
 
     public override void Ingame()
     {
+        MonoOwner = Owner.GetComponent<MonoBehaviour>();
         first = true;
         add = 0;
     }
@@ -27,9 +28,7 @@ public class Ketchup : Item
         if (first)
         {
             first = false;
-            print("Start");
-            //StartCoroutine(EADUpFor3sec());
-            Owner.GetComponent<MonoBehaviour>().StartCoroutine(EADUpFor3sec());
+            MonoOwner.StartCoroutine(EADUpFor3sec());
         }
     }
 
@@ -39,7 +38,6 @@ public class Ketchup : Item
 
     IEnumerator EADUpFor3sec()
     {
-        print("IN");
         var wait = new WaitForSeconds(10);
 
         int[] dp = new int[30];
@@ -55,14 +53,11 @@ public class Ketchup : Item
         {
             ++idx;
             dp[idx] = dp[idx - 1] + dp[idx - 2];
-            print($"dp[{idx}] = {dp[idx]}");
             Owner.Stat.AD += dp[idx];
             add += dp[idx];
             yield return wait;
         }
 
         Owner.Stat.HP -= add;
-
-        // 0 1 1 2 3 5 8 13
     }
 }

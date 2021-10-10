@@ -14,6 +14,15 @@ public class StrawberryJam : Item
 
     public override void OnAttack(Unit taken)
     {
+        switch (Owner.Stat.AR)
+        {
+            case float f when f <= 1.5f:
+                taken.OnHit(Owner, taken.Stat.MaxHP / 100 * 10);
+                break;
+            case float f when f > 1.5f:
+                taken.OnHit(Owner, taken.Stat.MaxHP / 100 * 6);
+                break;
+        }
     }
 
     public override void OnHit(Unit take, ref float damage)
