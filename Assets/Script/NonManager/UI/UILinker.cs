@@ -45,7 +45,7 @@ public class UILinker : MonoBehaviour
             {
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 GameManager.SelectUnit = Viewer.Show;
-                ButtonActions.Instance.ChangeScene("D - 03 UnitItemInfo");
+                ButtonActions.Instance.ChangeScene("D - 04 UnitInfo");
             });
         foreach (var btn in Buttons)
         {

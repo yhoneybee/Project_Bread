@@ -45,8 +45,11 @@ EditorBuildSettings:
     path: Assets/Scenes/D - 02 UnitSelect.unity
     guid: d10b72367b8176c40936b29b9f57d762
   - enabled: 1
-    path: Assets/Scenes/D - 03 UnitInfo.unity
+    path: Assets/Scenes/D - 03 UnitItemInfo.unity
     guid: ac01b4f9330cb2d4092eba38d0ded43c
+  - enabled: 1
+    path: Assets/Scenes/D - 04 UnitInfo.unity
+    guid: 70a76f7aa8c87dc49b3dda0f665877b6
   - enabled: 1
     path: Assets/Scenes/E - 01 DeckView.unity
     guid: 3702ec65f624c974ba840d28bef644a0
