@@ -56,7 +56,7 @@ public class Ingame : MonoBehaviour
     Coroutine GuageChange = null;
 
     int game_count = 0;
-    int three_star_count;
+    int three_star_count = 120;
     int current_star_count = 3;
 
     float current_guage = 0;
@@ -79,7 +79,6 @@ public class Ingame : MonoBehaviour
         GuageChange = StartCoroutine(Guage_Change());
 
         InvokeRepeating(nameof(CountUp), 0, 1);
-        three_star_count = StageManager.Instance.GetStage().three_star_count;
     }
     void Update()
     {

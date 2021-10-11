@@ -79,9 +79,10 @@ public class StageSelect : MonoBehaviour
             // �浹�� ������Ʈ�� ���� �� �˻�
             if (hits.Length > 0)
             {
-                if (hits[0].transform.CompareTag("Stage Sprite"))
+                if (hits[hits.Length - 1].transform.CompareTag("Stage Sprite"))
                 {
-                    if (hits[0].transform.GetComponent<StageObject>().is_startable)
+                    // Stage Sprite만 감지 (위에 있는 UI를 클릭했을 때를 제외시키기 위함)
+                    if (hits[hits.Length - 1].transform.GetComponent<StageObject>().is_startable)
                         OnReadyWindow();
                 }
             }

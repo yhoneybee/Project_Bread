@@ -13,7 +13,6 @@ public class StageData : ScriptableObject
     public Sprite[] rewards_sprite;
     [Space(15)]
     public int star_count = 0; // ȹ���� �� ����
-    public int three_star_count = 0; // �� 3�� ���� �ð�
     public bool is_startable;
 }
 
