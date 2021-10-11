@@ -42,4 +42,4 @@ MonoBehaviour:
   rewards_sprite: []
   star_count: 0
   three_star_count: 120
-  is_startable: 1
+  is_startable: 0

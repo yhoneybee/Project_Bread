@@ -13,12 +13,13 @@ public class Ingame : MonoBehaviour
         public TextMeshProUGUI title_text;
         public GameObject reward_window;
         public TextMeshProUGUI button_text;
+        public RectTransform stars_parent;
     }
     [System.Serializable]
     struct Three_Star_Limit
     {
         public Slider slider;
-        public Image line;
+        public Image[] lines;
         public Image[] stars;
     }
 
@@ -39,7 +40,6 @@ public class Ingame : MonoBehaviour
     [SerializeField] Unit friendly_tower;
     [SerializeField] Unit enemy_tower;
 
-
     [Space(10)]
     [SerializeField] Slider guage_slider;
     [SerializeField] Text guage_text;
@@ -57,6 +57,7 @@ public class Ingame : MonoBehaviour
 
     int game_count = 0;
     int three_star_count;
+    int current_star_count = 3;
 
     float current_guage = 0;
     float target_guage = 1;
@@ -142,8 +143,8 @@ public class Ingame : MonoBehaviour
 
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
-            result_window.title_text.text = is_game_clear ? "°ÔÀÓ Å¬¸®¾î!" : "°ÔÀÓ ¿À¹ö..";
-            result_window.button_text.text = is_game_clear ? "´ÙÀ½\n½ºÅ×ÀÌÁö" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\nÀç½ÃÀÛ";
+            result_window.title_text.text = is_game_clear ? "ê²Œì„ í´ë¦¬ì–´!" : "ê²Œì„ ì˜¤ë²„..";
+            result_window.button_text.text = is_game_clear ? "ë‹¤ìŒ\nìŠ¤í…Œì´ì§€" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\nì¬ì‹œì‘";
 
             foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())
             {
@@ -152,9 +153,17 @@ public class Ingame : MonoBehaviour
 
             if (is_game_clear)
             {
-                StageManager.Instance.GetStage().star_count = three_star_count > game_count ? 3 : 1;
+                if (current_star_count > StageManager.Instance.GetStage().star_count)
+                    StageManager.Instance.GetStage().star_count = current_star_count;
                 StageInfo.stage_number++;
                 StageManager.Instance.GetStage().is_startable = true;
+                result_window.stars_parent.gameObject.SetActive(true);
+
+                Image[] star_images = result_window.stars_parent.GetComponentsInChildren<Image>();
+                for (int i = 0; i < current_star_count; i++)
+                {
+                    star_images[i].color = Color.yellow;
+                }
             }
 
             result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
@@ -164,30 +173,47 @@ public class Ingame : MonoBehaviour
                 });
         }
     }
+    /// <summary>
+    /// 3ì„± ì¡°ê±´ UIë“¤ ì„¤ì •í•´ì¤Œ (Slider value, Image Fade ë“±)
+    /// </summary>
     void Set_Three_Star_Limit_UIs()
     {
         float value = 1 - game_count / (float)(three_star_count);
         three_star_limit.slider.value = value;
 
-        if (three_star_limit.slider.value == 0)
+        int index;
+
+        switch (three_star_limit.slider.value)
         {
-            foreach (var image in three_star_limit.slider.GetComponentsInChildren<Image>())
-            {
-                if (image.enabled)
-                    FadeOutImage(image);
-            }
-            foreach (var star in three_star_limit.stars)
-            {
-                if (star.enabled)
-                    FadeOutImage(star);
-            }
-            if (three_star_limit.line.enabled)
-                FadeOutImage(three_star_limit.line);
+            case float f when (f == 0f):
+                index = 0;
+                current_star_count = 1;
+                foreach (var image in three_star_limit.slider.GetComponentsInChildren<Image>())
+                    if (image.enabled)
+                        FadeOutImage(image);
+                break;
+            case float f when (f < 0.33f):
+                index = 1;
+                current_star_count = 2;
+                break;
+            default:
+                return;
         }
+
+        // ì´ë¯¸ì§€ fade outí•´ì•¼ë  ê²½ìš° í•´ë‹¹ ì´ë¯¸ì§€ë¥¼ fade out ì²˜ë¦¬
+        if (three_star_limit.stars[index].enabled)
+            FadeOutImage(three_star_limit.stars[index]);
+
+        if (three_star_limit.lines[index].enabled)
+            FadeOutImage(three_star_limit.lines[index]);
     }
+    /// <summary>
+    /// Imageë¥¼ Fade Out í•´ì£¼ëŠ” í•¨ìˆ˜
+    /// </summary>
+    /// <param name="image">Fade Out ì²˜ë¦¬í•  ì´ë¯¸ì§€</param>
     void FadeOutImage(Image image)
     {
-        image.color = Color.Lerp(image.color, new Color(image.color.r, image.color.g, image.color.b, 0), 0.01f);
+        image.color = Color.Lerp(image.color, new Color(image.color.r, image.color.g, image.color.b, 0), 0.1f);
         image.enabled = image.color.a > 0.01f;
     }
 
@@ -196,9 +222,9 @@ public class Ingame : MonoBehaviour
         Time.timeScale = value;
     }
     /// <summary>
-    /// ¾Æ±º »§À» »ı¼ºÇÏ´Â ÇÔ¼ö
+    /// ï¿½Æ±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
-    /// <param name="index">´­¸° ¹öÆ°(Card)ÀÇ index</param>
+    /// <param name="index">ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°(Card)ï¿½ï¿½ index</param>
     public void SpawnBread(int index)
     {
         Unit unit = DeckManager.Select[index];
@@ -215,7 +241,7 @@ public class Ingame : MonoBehaviour
     {
         while (true)
         {
-            // wave_dataÀÇ wave_information¿¡¼­ ´ã°Ü ÀÖ´Â À¯´Ö Á¤º¸¿Í µô·¹ÀÌ¸¦ ÀÌ¿ëÇÏ¿© ¿şÀÌºê ±¸¼º
+            // wave_dataï¿½ï¿½ wave_informationï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½
             foreach (var data in wave_data.wave_information)
             {
                 if (data.unit != null)
@@ -231,10 +257,10 @@ public class Ingame : MonoBehaviour
     {
         while (true)
         {
-            // ÇöÀç °ÔÀÌÁö°¡ °ÅÀÇ ´Ù ¿Ã¶ó°¬À» ¶§ (Lerp¸¦ ÅëÇÑ °ª ¼³Á¤À¸·Î ÀÎÇØ Á¤È®È÷ ¿Ã¶ó°¡Áö ¸øÇÏ±â ¶§¹®)
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ ï¿½ï¿½ (Lerpï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½ ï¿½Ã¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½)
             if (target_guage - current_guage <= 0.05f)
             {
-                // Á¤È®ÇÑ °ªÀ¸·Î ¼³Á¤ ¹× target_guage ¼³Á¤
+                // ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ target_guage ï¿½ï¿½ï¿½ï¿½
                 current_guage = Mathf.Round(current_guage);
                 if (current_guage < 10)
                     target_guage = current_guage + 1;

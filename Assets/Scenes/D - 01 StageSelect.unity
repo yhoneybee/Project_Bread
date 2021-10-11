@@ -1114,14 +1114,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1820,14 +1812,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1905,14 +1889,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2141,14 +2117,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2563,6 +2531,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
+    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2618,6 +2594,10 @@ PrefabInstance:
     - target: {fileID: 9104904821251350536, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129303506423754728, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
@@ -2813,14 +2793,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3579,14 +3551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4104,14 +4068,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4743,14 +4699,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851277532457, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5595,10 +5543,23 @@ MonoBehaviour:
   - {fileID: 1317685638}
   - {fileID: 1461880844}
   - {fileID: 948338128}
-  theme_number_sprites:
+  text_number_sprites:
+  - {fileID: 21300000, guid: d711286bb2723b449a33a6a3dea87975, type: 3}
   - {fileID: 21300000, guid: 7c1f53c3c026c1b44af50bc602119c5b, type: 3}
   - {fileID: 21300000, guid: 1f833a0a273ddde418addc690cb2274a, type: 3}
   - {fileID: 21300000, guid: abe91f5663db269418555317904e4267, type: 3}
+  - {fileID: 21300000, guid: 9b10814f88d5b8f4d8fcd49802e12e2d, type: 3}
+  - {fileID: 21300000, guid: 9c5e8af3da044994db7e265303b3f9aa, type: 3}
+  - {fileID: 21300000, guid: b4e60d3b33d144d4eba2146991e1a6a0, type: 3}
+  - {fileID: 21300000, guid: 18411ac37caea4a488a4833f72519ad0, type: 3}
+  - {fileID: 21300000, guid: c29fa1881230bde45892097387235b0e, type: 3}
+  - {fileID: 21300000, guid: f9c5169e549a4a3438eebd0d96766bed, type: 3}
+  stage_sprites:
+    not_startable: {fileID: 21300000, guid: 97696d00d1eae8a4eac1f43a11732196, type: 3}
+    startable: {fileID: 21300000, guid: 84e4660e535b1c24e9dceb137e498f80, type: 3}
+    one_star: {fileID: 21300000, guid: 3856dd6fc95604c4b8633d11c9f91449, type: 3}
+    two_star: {fileID: 21300000, guid: d6d112f3662272e41a8915ce45b33eba, type: 3}
+    three_star: {fileID: 21300000, guid: db46f9116af4da44aae6d6c92112da1c, type: 3}
   stage_name_text: {fileID: 1384111680}
   theme_name_text: {fileID: 1392168835}
 --- !u!4 &1941283826
@@ -5836,14 +5797,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331447704}
     m_Modifications:
-    - target: {fileID: 1084426142663343173, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8109080851277532456, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 8109080851562426370, guid: bad68f5f7dffc944b9764fef1f5d863a, type: 3}
       propertyPath: m_Name
       value: Platform Sprite

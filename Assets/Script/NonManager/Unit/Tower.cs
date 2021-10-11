@@ -10,7 +10,6 @@ public class Tower : Unit
     [SerializeField] GameObject text_object;
     [SerializeField] Slider hp_slider;
     [SerializeField] Text hp_text;
-
     List<GameObject> texts = new List<GameObject>();
 
     public override IEnumerator AttackedEffect(float damage)
@@ -20,7 +19,7 @@ public class Tower : Unit
         //transform.position = position;
         float random_x, random_y;
 
-        // ¸Â¾ÒÀ» ¶§ Å¸¿ö Èçµé¸®´Â ºÎºÐ
+        // ï¿½Â¾ï¿½ï¿½ï¿½ ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½é¸®ï¿½ï¿½ ï¿½Îºï¿½
         for (int i = 0; i < 20; i++)
         {
             random_x = Random.Range(-0.1f, 0.1f);

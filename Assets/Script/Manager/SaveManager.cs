@@ -55,10 +55,10 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Á»´õ º¸¿ÏµÈ SaveÇÔ¼ö
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ Saveï¿½Ô¼ï¿½
     /// </summary>
-    /// <typeparam name="T">ÀúÀåÇÒ ÀÚ·áÇü</typeparam>
-    /// <param name="save_target">ÀúÀåµÇ´Â Å¸°Ù(TÀÇ ÇÊµå(º¯¼ö)¿¡ Á¢±ÙÇÏ·Á¸é linq·Î ³Ñ±â¸é µÈ´Ù)</param>
+    /// <typeparam name="T">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½</typeparam>
+    /// <param name="save_target">ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ Å¸ï¿½ï¿½(Tï¿½ï¿½ ï¿½Êµï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ linqï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ ï¿½È´ï¿½)</param>
     public static void Save<T>(IEnumerable<T> save_target, string file = "")
     {
         var datas = save_target.Cast<T>();
@@ -73,10 +73,10 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Á»´õ º¸¿ÏµÈ LoadÇÔ¼ö
+    /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ïµï¿½ Loadï¿½Ô¼ï¿½
     /// </summary>
-    /// <typeparam name="T">ºÒ·¯¿Ã ÀÚ·áÇü</typeparam>
-    /// <param name="load_target">ºÒ·¯¿Í¼­ °»½ÅÇÒ Å¸°Ù</param>
+    /// <typeparam name="T">ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½</typeparam>
+    /// <param name="load_target">ï¿½Ò·ï¿½ï¿½Í¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½</param>
     [Obsolete("Dont use this function", true)]
     public void Load<T>(ref List<T> load_target)
     {
@@ -93,10 +93,10 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// list¸¦ returnÇØ¼­ Á÷Á¢ ´ëÀÔÇØ¾ßÇÏ´Â LoadÇÔ¼ö
+    /// listï¿½ï¿½ returnï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½Ï´ï¿½ Loadï¿½Ô¼ï¿½
     /// </summary>
-    /// <typeparam name="T">ÀúÀåµÈ Å¸ÀÔ</typeparam>
-    /// <returns>ÀúÀåµÈ Á¤º¸ÀÇ IEnumerable</returns>
+    /// <typeparam name="T">ï¿½ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½</typeparam>
+    /// <returns>ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IEnumerable</returns>
     public static IEnumerable<T> Load<T>(string file = "")
     {
         Instance.Text_file_name = file;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// stage_name : ½ºÅ×ÀÌÁö ÀÌ¸§
-/// theme_name : Å×¸¶ ÀÌ¸§
-/// stage_dificulty : ½ºÅ×ÀÌÁö ³­ÀÌµµ (1 ~ 3)
+/// stage_name : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+/// theme_name : ï¿½×¸ï¿½ ï¿½Ì¸ï¿½
+/// stage_dificulty : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ (1 ~ 3)
 /// </summary>
 public class StageInfo
 {

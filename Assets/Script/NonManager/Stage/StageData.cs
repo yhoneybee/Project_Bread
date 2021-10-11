@@ -12,8 +12,8 @@ public class StageData : ScriptableObject
     public RewardInformation reward_information;
     public Sprite[] rewards_sprite;
     [Space(15)]
-    public int star_count = 0; // È¹µæÇÑ º° °³¼ö
-    public int three_star_count = 0; // º° 3°³ Á¦ÇÑ ½Ã°£
+    public int star_count = 0; // È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    public int three_star_count = 0; // ï¿½ï¿½ 3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     public bool is_startable;
 }
 
@@ -40,10 +40,10 @@ public struct RewardInformation
         public Unit unit;
     }
 
-    // Ã³À½À¸·Î Å¬¸®¾îÇßÀ» ¶§ º¸»ó
+    // Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Reward_Information first_clear;
-    // 3°³ º° È¹µæÇÏ¿´À» ¶§ º¸»ó
+    // 3ï¿½ï¿½ ï¿½ï¿½ È¹ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Reward_Information three_star_clear;
-    // ±âº» Å¬¸®¾î º¸»ó
+    // ï¿½âº» Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public Reward_Information basic_clear;
 }

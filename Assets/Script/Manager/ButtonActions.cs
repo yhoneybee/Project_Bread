@@ -23,14 +23,14 @@ public class ButtonActions : MonoBehaviour
         SceneManager.LoadScene(name);
     }
     /// <summary>
-    /// Å×¸¶ ¼±ÅÃ ÈÄ È£ÃâÇØÁà¾ß ÇÏ´Â ÇÔ¼ö
+    /// ï¿½×¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
-    /// <param name="theme_number">Å×¸¶ ¹øÈ£ (ex : 1)</param>
+    /// <param name="theme_number">ï¿½×¸ï¿½ ï¿½ï¿½È£ (ex : 1)</param>
     public void SetThemeNumber(int theme_number)
     {
-        string[] theme_names = { "¹àÀº ¿Àºì", "³ĞÀº µéÆÇ", "À½Ä§ÇÑ ½£" };
+        string[] theme_names = { "ë°ì€ ì˜¤ë¸", "ë„“ì€ ë“±íŒ", "ìŒì¹¨í•œ ìˆ²" };
 
-        // Å×¸¶ ¹øÈ£ ÀúÀå ÈÄ Å×¸¶ ÀÌ¸§ ¹Ù²ãÁÜ
+        // ï¿½×¸ï¿½ ï¿½ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½×¸ï¿½ ï¿½Ì¸ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½
         StageInfo.theme_number = theme_number;
         StageInfo.theme_name = theme_names[theme_number - 1];
     }

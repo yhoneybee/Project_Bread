@@ -76,26 +76,26 @@ public struct Stat
     public float AS;
     ///<summary>LS : LifeSteal</summary>///
     public float LS;
-    ///<summary>ºñ·Ê(ÆÛµ©) µ¥¹ÌÁö Á¤º¸</summary>///
+    ///<summary>ï¿½ï¿½ï¿½(ï¿½Ûµï¿½) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½</summary>///
     public Proportionality Proportionality;
 }
 
 [Serializable]
 public struct Proportionality
 {
-    ///<summary>ÃÖ´ë Ã¼·Â ºñ·Ê</summary>///
+    ///<summary>ï¿½Ö´ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½</summary>///
     [Range(0.0f, 1.0f)]
     public float MaxHP;
-    ///<summary>ÀÒÀº Ã¼·Â ºñ·Ê</summary>///
+    ///<summary>ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½</summary>///
     [Range(0.0f, 1.0f)]
     public float LostHP;
-    ///<summary>Àû ÃÖ´ë Ã¼·Â ºñ·Ê</summary>///
+    ///<summary>ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½</summary>///
     [Range(0.0f, 1.0f)]
     public float EMaxHP;
-    ///<summary>Àû ÀÒÀº Ã¼·Â ºñ·Ê</summary>///
+    ///<summary>ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½</summary>///
     [Range(0.0f, 1.0f)]
     public float ELostHP;
-    ///<summary>°ø°Ý·Â ºñ·Ê</summary>///
+    ///<summary>ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½ï¿½ï¿½</summary>///
     [Range(0.0f, 1.0f)]
     public float AD;
 
@@ -283,12 +283,12 @@ public abstract class Unit : MonoBehaviour
         else if (angle >= 90)
             up = false;
 
-        // »ó¼ö°ªÀ» ´Ã¸±¼ö·Ï À§¾Æ·¡ ÆøÀÌ ³Ð¾îÁü
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½
         angle += Time.deltaTime * (up ? 1000 : -1000);
 
         dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
 
-        // Sin ÇÔ¼ö¸¦ ÀÌ¿ëÇÑ À§ ¾Æ·¡ ¿òÁ÷ÀÓ ±¸Çö
+        // Sin ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         transform.Translate(dir.x *
             Stat.MS *
             Time.deltaTime *
