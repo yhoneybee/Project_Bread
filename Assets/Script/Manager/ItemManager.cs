@@ -81,11 +81,13 @@ public class ItemManager : MonoBehaviour
                 {
                     var item = selected.Items[i];
 
+                    itemslot.Icon.color = Color.white;
                     itemslot.Icon.sprite = item.Icon;
                     itemslot.TMP.text = $"{item.Desc}";
                 }
                 else
                 {
+                    itemslot.Icon.color = Color.clear;
                     itemslot.Icon.sprite = null;
                     itemslot.TMP.text = $"";
                 }
