@@ -27,6 +27,7 @@ public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance { get; private set; } = null;
 
+    [SerializeField] ItemView ItemViewPrefab;
     [SerializeField] RectTransform ItemContent;
     [SerializeField] Image SelectUnitImg;
     [SerializeField] InfoView InfoView;
@@ -41,27 +42,31 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
-        SelectUnitImg.SetNativeSize();
-
-        InfoView.Close.onClick.AddListener(() => InfoView.Parent.gameObject.SetActive(false));
-
-        InfoView.Release.onClick.AddListener(() =>
+        if (ButtonActions.Instance.CheckReEntering("D - 03 UnitItemInfo"))
         {
-            var find = FindInGameManager(Select);
-            if (GameManager.SelectUnit.Items.Contains(find)) Release(Select);
-            else Equip(find);
-        });
+            SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
+            SelectUnitImg.SetNativeSize();
 
-        foreach (var item in GameManager.Instance.Items)
-        {
-            Item obj = Instantiate(item);
-            obj.GetComponent<RectTransform>().SetParent(ItemContent, false);
-            obj.GetComponent<Button>().onClick.AddListener(() =>
+            InfoView.Close.onClick.AddListener(() => InfoView.Parent.gameObject.SetActive(false));
+
+            InfoView.Release.onClick.AddListener(() =>
             {
-                Select = obj;
-                ActiveInfoView();
+                var find = FindInGameManager(Select);
+                if (GameManager.SelectUnit.Items.Contains(find)) Release(Select);
+                else Equip(find);
             });
+
+            foreach (var item in GameManager.Instance.Items)
+            {
+                ItemView obj = Instantiate(ItemViewPrefab);
+                obj.Item = item;
+                obj.GetComponent<RectTransform>().SetParent(ItemContent, false);
+                obj.Btn.onClick.AddListener(() =>
+                {
+                    Select = obj.Item;
+                    ActiveInfoView();
+                });
+            }
         }
 
         Refresh();
@@ -81,8 +86,11 @@ public class ItemManager : MonoBehaviour
                 {
                     var item = selected.Items[i];
 
-                    itemslot.Icon.color = Color.white;
-                    itemslot.Icon.sprite = item.Icon;
+                    if (item.Icon)
+                    {
+                        itemslot.Icon.color = Color.white;
+                        itemslot.Icon.sprite = item.Icon;
+                    }
                     itemslot.TMP.text = $"{item.Desc}";
                 }
                 else
@@ -97,7 +105,7 @@ public class ItemManager : MonoBehaviour
 
     public void ActiveInfoView()
     {
-        InfoView.Icon.sprite = Select.Icon;
+        if (Select.Icon) InfoView.Icon.sprite = Select.Icon;
         InfoView.Name.text = $"{Select.Name}";
         InfoView.Desc.text = $"{Select.Desc}";
 

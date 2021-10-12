@@ -49,23 +49,26 @@ public class ButtonActions : MonoBehaviour
     }
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
+        var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();
         if (RT.pivot.x == 0.9f)
         {
             while (RT.pivot.x > 0.005f)
             {
                 RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(0, RT.pivot.y), Time.deltaTime * 3);
+                if (RT.pivot.x < 0.3f) arrow.sprite = UIManager.Instance.SwitchSprite.BSprite;
                 yield return new WaitForSeconds(0.001f);
             }
-            RT.pivot = new Vector2(0,RT.pivot.y);
+            RT.pivot = new Vector2(0, RT.pivot.y);
         }
         else if (RT.pivot.x == 0)
         {
             while (RT.pivot.x < 0.895f)
             {
                 RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(1, RT.pivot.y), Time.deltaTime * 3);
+                if (RT.pivot.x > 0.6f) arrow.sprite = UIManager.Instance.SwitchSprite.ASprite;
                 yield return new WaitForSeconds(0.001f);
             }
-            RT.pivot = new Vector2(0.9f,RT.pivot.y);
+            RT.pivot = new Vector2(0.9f, RT.pivot.y);
         }
 
         yield return null;

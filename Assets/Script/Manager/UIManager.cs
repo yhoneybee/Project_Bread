@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct SwitchSprite
+{
+    public Sprite ASprite;
+    public Sprite BSprite;
+}
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; } = null;
@@ -14,6 +21,8 @@ public class UIManager : MonoBehaviour
     public UILinker Except;
     public RectTransform Content;
     public GameObject SquadPrefab;
+
+    public SwitchSprite SwitchSprite;
 
     private void Awake()
     {
