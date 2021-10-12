@@ -43,6 +43,10 @@ public class ButtonActions : MonoBehaviour
         GameManager.Select[GameManager.SelectSlotIdx] = null;
         ChangeScene("C - 03 DeckSelect");
     }
+    public void ChangeAnimState(int index)
+    {
+        UIManager.Instance.AnimState = (AnimState)index;
+    }
     public void AppearAndHideForPivot(RectTransform RT)
     {
         StartCoroutine(EAppearAndHideForPivot(RT));

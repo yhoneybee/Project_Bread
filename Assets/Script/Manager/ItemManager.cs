@@ -42,11 +42,10 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
+        SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
+        SelectUnitImg.SetNativeSize();
         if (ButtonActions.Instance.CheckReEntering("D - 03 UnitItemInfo"))
         {
-            SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
-            SelectUnitImg.SetNativeSize();
-
             InfoView.Close.onClick.AddListener(() => InfoView.Parent.gameObject.SetActive(false));
 
             InfoView.Release.onClick.AddListener(() =>
