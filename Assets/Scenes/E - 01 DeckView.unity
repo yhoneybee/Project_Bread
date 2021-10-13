@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1442279767}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999961
+  m_Size: 0.9987807
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1889,7 +1889,11 @@ MonoBehaviour:
   Except: {fileID: 0}
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
-  SwitchSprite:
+  AnimImg: {fileID: 0}
+  ArrowSwitchSprite:
+    ASprite: {fileID: 0}
+    BSprite: {fileID: 0}
+  EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
 --- !u!1 &946514496
@@ -4272,7 +4276,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 35863302}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9999961
+  m_Size: 0.9987807
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4650,7 +4654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4662,7 +4666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      value: GoHome
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -4875,7 +4879,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000023348437, y: 0}
+  m_AnchoredPosition: {x: 0.00007135912, y: 0}
   m_SizeDelta: {x: -848, y: 235.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2106223918
@@ -4935,7 +4939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0000023348437, y: 0}
+  m_AnchoredPosition: {x: 0.00007135912, y: 0}
   m_SizeDelta: {x: -848, y: 235.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2125525717

@@ -8,6 +8,8 @@ public class ButtonActions : MonoBehaviour
 {
     public static ButtonActions Instance { get; private set; } = null;
 
+    public bool EnterDeckView = false;
+
     private void Awake()
     {
         Instance = this;
@@ -18,8 +20,22 @@ public class ButtonActions : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name;
         return name == scene;
     }
+    public void GoHome()
+    {
+        SceneManager.LoadScene("B - Main");
+    }
     public void ChangeScene(string name)
     {
+        if (name == "E - 01 DeckView")
+            EnterDeckView = true;
+
+        if (EnterDeckView && name == "B - Main")
+        {
+            EnterDeckView = false;
+            SceneManager.LoadScene("E - 01 DeckView");
+            return;
+        }
+
         SceneManager.LoadScene(name);
     }
     /// <summary>

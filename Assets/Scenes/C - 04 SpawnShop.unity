@@ -6405,6 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac92e82ce019434dbfe571ae951a65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnUnits: []
   ButtonImgs:
   - {fileID: 1746659337}
   - {fileID: 1762917692}
@@ -8153,7 +8154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8165,7 +8166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      value: GoHome
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

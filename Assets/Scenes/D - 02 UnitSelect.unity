@@ -668,6 +668,13 @@ MonoBehaviour:
   Except: {fileID: 1517448290}
   Content: {fileID: 146569985}
   SquadPrefab: {fileID: 5732806272963802533, guid: 1d7b9476951f4964d8cce57e368ffa9e, type: 3}
+  AnimImg: {fileID: 0}
+  ArrowSwitchSprite:
+    ASprite: {fileID: 0}
+    BSprite: {fileID: 0}
+  EnquipSwitchSprite:
+    ASprite: {fileID: 0}
+    BSprite: {fileID: 0}
 --- !u!1 &1517448288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1759,7 +1766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      value: GoHome
       objectReference: {fileID: 0}
     - target: {fileID: 4267957875417519073, guid: d401941d13ab48745b6228844b43e225, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

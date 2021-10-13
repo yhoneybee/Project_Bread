@@ -9016,8 +9016,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 943315565}
         m_TargetAssemblyTypeName: ButtonActions, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
+        m_MethodName: GoHome
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
