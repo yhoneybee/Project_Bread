@@ -5,6 +5,11 @@ using UnityEngine;
 public class Mayonnaise : Item
 {
     float add = 0;
+
+    public Mayonnaise(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

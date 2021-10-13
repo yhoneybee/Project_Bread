@@ -5,6 +5,11 @@ using UnityEngine;
 public class Butter : Item
 {
     bool active = false;
+
+    public Butter(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

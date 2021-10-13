@@ -5,7 +5,11 @@ using UnityEngine;
 public class FriedEgg : Item
 {
     bool active = false;
-    MonoBehaviour owner_mono;
+
+    public FriedEgg(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

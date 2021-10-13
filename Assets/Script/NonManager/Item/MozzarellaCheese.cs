@@ -5,6 +5,11 @@ using UnityEngine;
 public class MozzarellaCheese : Item
 {
     float def = 200;
+
+    public MozzarellaCheese(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

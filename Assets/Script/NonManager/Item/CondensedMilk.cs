@@ -7,6 +7,10 @@ public class CondensedMilk : Item
     bool active = false;
     Coroutine CDotDealing;
 
+    public CondensedMilk(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

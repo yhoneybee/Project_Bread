@@ -6,6 +6,10 @@ public class GrapeJam : Item
 {
     float add = 0;
 
+    public GrapeJam(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
         add = 0.6f * Owner.Info.Level;
