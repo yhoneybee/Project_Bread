@@ -159,7 +159,7 @@ MonoBehaviour:
   Stat:
     AD: 1
     HP: 999
-    MaxHP: 2
+    MaxHP: 999
     MS: 2
     AR: 1
     AS: 1

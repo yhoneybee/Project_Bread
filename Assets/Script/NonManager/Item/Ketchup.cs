@@ -58,6 +58,6 @@ public class Ketchup : Item
             yield return wait;
         }
 
-        Owner.Stat.HP -= add;
+        Owner.Stat.AD -= add;
     }
 }
