@@ -40,5 +40,5 @@ MonoBehaviour:
       jem: 10
       unit: {fileID: 0}
   rewards_sprite: []
-  star_count: 3
+  star_count: 0
   is_startable: 1
