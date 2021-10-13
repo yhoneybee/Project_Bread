@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    Unit owner;
+    [SerializeField] Unit owner;
     public Unit Owner
     {
-        get {  return owner; }
-        set 
+        get { return owner; }
+        set
         {
             bool un_equip = false;
 

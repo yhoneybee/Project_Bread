@@ -32,6 +32,16 @@ public class UnitManager : MonoBehaviour
             {
                 unit = Pool[name][0];
                 Pool[name].Remove(unit);
+
+                if (unit != null)
+                {
+                    foreach (var item in unit.Items)
+                        if (item != null)
+                        {
+                            item.Owner = unit;
+                            item.Ingame();
+                        }
+                }
             }
         }
 
@@ -42,8 +52,10 @@ public class UnitManager : MonoBehaviour
 
             for (int i = 0; i < find.Items.Count; i++)
             {
-                var item = find.Items[i];
+                var item = Instantiate(find.Items[i], unit.transform, false);
                 item.Owner = unit;
+                item.Ingame();
+                unit.Items[i] = item;
             }
         }
 
