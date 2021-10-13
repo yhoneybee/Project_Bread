@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Milk : Item
 {
-    public Milk(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
     }

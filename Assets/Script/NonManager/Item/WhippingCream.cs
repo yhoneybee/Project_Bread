@@ -8,10 +8,6 @@ public class WhippingCream : Item
     int count = 0;
     float add = 0;
 
-    public WhippingCream(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
 

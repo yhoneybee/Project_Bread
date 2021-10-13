@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
-    public Item(Unit owner) => Owner = owner;
-
     Unit owner;
     public Unit Owner
     {

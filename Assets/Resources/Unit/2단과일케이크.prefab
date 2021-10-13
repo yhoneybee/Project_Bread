@@ -158,7 +158,7 @@ MonoBehaviour:
     FlipX: 1
   Stat:
     AD: 1
-    HP: 2
+    HP: 999
     MaxHP: 2
     MS: 2
     AR: 1
