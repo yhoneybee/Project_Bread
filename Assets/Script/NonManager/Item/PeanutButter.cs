@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PeanutButter : Item
 {
+    public PeanutButter(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }

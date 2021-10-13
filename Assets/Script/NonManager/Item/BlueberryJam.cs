@@ -5,6 +5,11 @@ using UnityEngine;
 public class BlueberryJam : Item
 {
     bool active = false;
+
+    public BlueberryJam(Unit owner) : base(owner)
+    {
+    }
+
     public override void Equip()
     {
     }
