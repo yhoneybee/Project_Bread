@@ -6,10 +6,6 @@ public class Honey : Item
 {
     int stack;
 
-    public Honey(Unit owner) : base(owner)
-    {
-    }
-
     int Stack
     {
         get { return stack; }

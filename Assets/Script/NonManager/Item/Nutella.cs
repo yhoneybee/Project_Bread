@@ -8,10 +8,6 @@ public class Nutella : Item
     bool time_out = false;
     int count = 0;
 
-    public Nutella(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
     }

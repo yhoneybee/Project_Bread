@@ -177,6 +177,8 @@ public abstract class Unit : MonoBehaviour
     {
         if (is_walk_able) Moving();
 
+        if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
+
         Animator();
 
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, 1 << LayerMask.NameToLayer("Unit"));

@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Bacon : Item
 {
-    public Bacon(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
     }

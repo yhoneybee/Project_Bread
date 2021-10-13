@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class StrawberryJam : Item
 {
-    public StrawberryJam(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
     }

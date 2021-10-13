@@ -6,10 +6,6 @@ public class FriedEgg : Item
 {
     bool active = false;
 
-    public FriedEgg(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
     }

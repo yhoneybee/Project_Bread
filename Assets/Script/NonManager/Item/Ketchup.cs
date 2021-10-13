@@ -7,10 +7,6 @@ public class Ketchup : Item
     bool first = true;
     float add = 0;
 
-    public Ketchup(Unit owner) : base(owner)
-    {
-    }
-
     public override void Equip()
     {
 
