@@ -39,7 +39,8 @@ public class UIManager : MonoBehaviour
     public GameObject SquadPrefab;
     public Image AnimImg;
 
-    public SwitchSprite SwitchSprite;
+    public SwitchSprite ArrowSwitchSprite;
+    public SwitchSprite EnquipSwitchSprite;
 
     int AnimIndex = 0;
     float time = 0;

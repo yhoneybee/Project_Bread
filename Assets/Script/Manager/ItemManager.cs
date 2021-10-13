@@ -53,6 +53,8 @@ public class ItemManager : MonoBehaviour
                 var find = FindInGameManager(Select);
                 if (GameManager.SelectUnit.Items.Contains(find)) Release(Select);
                 else Equip(find);
+                if (find.Owner) InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.ASprite;
+                else InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.BSprite;
             });
 
             foreach (var item in GameManager.Instance.Items)
@@ -63,6 +65,8 @@ public class ItemManager : MonoBehaviour
                 obj.Btn.onClick.AddListener(() =>
                 {
                     Select = obj.Item;
+                    if (obj.Item.Owner) InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.ASprite;
+                    else InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.BSprite;
                     ActiveInfoView();
                 });
             }

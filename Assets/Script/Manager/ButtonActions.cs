@@ -59,7 +59,7 @@ public class ButtonActions : MonoBehaviour
             while (RT.pivot.x > 0.005f)
             {
                 RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(0, RT.pivot.y), Time.deltaTime * 3);
-                if (RT.pivot.x < 0.3f) arrow.sprite = UIManager.Instance.SwitchSprite.BSprite;
+                if (RT.pivot.x < 0.3f) arrow.sprite = UIManager.Instance.ArrowSwitchSprite.BSprite;
                 yield return new WaitForSeconds(0.001f);
             }
             RT.pivot = new Vector2(0, RT.pivot.y);
@@ -69,7 +69,7 @@ public class ButtonActions : MonoBehaviour
             while (RT.pivot.x < 0.895f)
             {
                 RT.pivot = Vector2.Lerp(RT.pivot, new Vector2(1, RT.pivot.y), Time.deltaTime * 3);
-                if (RT.pivot.x > 0.6f) arrow.sprite = UIManager.Instance.SwitchSprite.ASprite;
+                if (RT.pivot.x > 0.6f) arrow.sprite = UIManager.Instance.ArrowSwitchSprite.ASprite;
                 yield return new WaitForSeconds(0.001f);
             }
             RT.pivot = new Vector2(0.9f, RT.pivot.y);

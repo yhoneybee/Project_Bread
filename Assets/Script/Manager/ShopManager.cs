@@ -15,6 +15,8 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager Instance { get; private set; } = null;
 
+    public List<Unit> SpawnUnits = new List<Unit>();
+
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
 
@@ -58,7 +60,8 @@ public class ShopManager : MonoBehaviour
     {
         Unboxing.gameObject.SetActive(true);
 
-        for (int i = 0; i < 7; i++)
+        //for (int i = 0; i < SpawnUnits.Count; i++)
+        foreach (var unit in SpawnUnits)
         {
             RankParticle.Play();
 
@@ -76,7 +79,7 @@ public class ShopManager : MonoBehaviour
 
             yield return StartCoroutine(EHideCard());
 
-            yield return StartCoroutine(EShowResult());
+            yield return StartCoroutine(EShowResult(unit));
 
             // 여기서 RewardCount가 0이 되면 뽑은거 전부 보여주는 화면을 띄움
 
@@ -89,7 +92,6 @@ public class ShopManager : MonoBehaviour
 
         yield return null;
     }
-
     IEnumerator EWaitClick()
     {
         var wait = new WaitForSeconds(0.001f);
@@ -99,7 +101,6 @@ public class ShopManager : MonoBehaviour
             yield return wait;
         }
     }
-
     IEnumerator EHideRewardCountText(bool hide = true)
     {
         var wait = new WaitForSeconds(0.001f);
@@ -123,7 +124,6 @@ public class ShopManager : MonoBehaviour
         }
         yield return null;
     }
-
     IEnumerator EBoxMove(bool down = true)
     {
         var wait = new WaitForSeconds(0.001f);
@@ -150,7 +150,6 @@ public class ShopManager : MonoBehaviour
 
         yield return null;
     }
-
     IEnumerator EHideCard(bool hide = true)
     {
         var wait = new WaitForSeconds(0.001f);
@@ -175,7 +174,6 @@ public class ShopManager : MonoBehaviour
         }
         yield return null;
     }
-
     IEnumerator EDrawing()
     {
         var wait = new WaitForSeconds(0.001f);
@@ -198,10 +196,17 @@ public class ShopManager : MonoBehaviour
 
         yield return null;
     }
-
-    IEnumerator EShowResult()
+    IEnumerator EShowResult(Unit unit)
     {
         print("Show something");
+
+        yield return null;
+    }
+    IEnumerator EShowAllResult()
+    {
+        print("Show all");
+
+
         yield return null;
     }
 }
