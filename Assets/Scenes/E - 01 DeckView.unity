@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1442279767}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999961
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1736,6 +1736,9 @@ MonoBehaviour:
   ClearPrefab: {fileID: 4589283204957968001, guid: d31d5f6a298f03543a16c52c979bb85c, type: 3}
   MobContent: {fileID: 2125525716}
   RewardContent: {fileID: 2106223917}
+  coin_sprite: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
+  jem_sprite: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
+  image_devide_value: 5
 --- !u!222 &703237983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1886,6 +1889,9 @@ MonoBehaviour:
   Except: {fileID: 0}
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
+  SwitchSprite:
+    ASprite: {fileID: 0}
+    BSprite: {fileID: 0}
 --- !u!1 &946514496
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,7 +4272,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 35863302}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999961
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4869,7 +4875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000029117687, y: 0}
+  m_AnchoredPosition: {x: 0.0000023348437, y: 0}
   m_SizeDelta: {x: -848, y: 235.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2106223918
@@ -4929,7 +4935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000029117687, y: 0}
+  m_AnchoredPosition: {x: 0.0000023348437, y: 0}
   m_SizeDelta: {x: -848, y: 235.2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2125525717

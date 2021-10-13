@@ -47,6 +47,9 @@ public class Ingame : MonoBehaviour
     [Space(10)]
     [SerializeField] List<GameObject> card_units;
 
+    [Space(10)]
+    [SerializeField] StageInfoLinker stage_linker;
+
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
@@ -152,11 +155,12 @@ public class Ingame : MonoBehaviour
 
             if (is_game_clear)
             {
+                result_window.stars_parent.gameObject.SetActive(true);
+                stage_linker.SetRewards(StageManager.Instance.GetStage().star_count == 0, current_star_count == 3 && StageManager.Instance.GetStage().star_count < 3);
                 if (current_star_count > StageManager.Instance.GetStage().star_count)
                     StageManager.Instance.GetStage().star_count = current_star_count;
                 StageInfo.stage_number++;
                 StageManager.Instance.GetStage().is_startable = true;
-                result_window.stars_parent.gameObject.SetActive(true);
 
                 Image[] star_images = result_window.stars_parent.GetComponentsInChildren<Image>();
                 for (int i = 0; i < current_star_count; i++)

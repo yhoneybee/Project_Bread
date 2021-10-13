@@ -12,11 +12,27 @@ public class StageInfoLinker : MonoBehaviour
     [SerializeField] RectTransform MobContent;
     [SerializeField] RectTransform RewardContent;
 
+    [SerializeField] Sprite coin_sprite = null;
+    [SerializeField] Sprite jem_sprite = null;
+
+    [SerializeField] float image_devide_value;
+
+    bool is_played = false;
+
     private void Start()
     {
+        SetRewards();
+    }
+
+    public void SetRewards(bool first = true, bool three_star = true)
+    {
+        if (is_played) return;
+        is_played = true;
         RewardInformation reward = StageManager.Instance.GetReward();
-        AddRewards(reward.first_clear);
-        AddRewards(reward.three_star_clear);
+        if (first)
+            AddRewards(reward.first_clear, 1);
+        if (three_star)
+            AddRewards(reward.three_star_clear, 2);
         AddRewards(reward.basic_clear);
 
         if (MobContent)
@@ -27,8 +43,7 @@ public class StageInfoLinker : MonoBehaviour
         }
         RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
     }
-
-    public void AddRewards(RewardInformation.Reward_Information clear)
+    public void AddRewards(RewardInformation.Reward_Information clear, int type = 0) // type 1 : first clear, type 2 : 3 star clear
     {
         GameObject obj = null;
 
@@ -45,18 +60,32 @@ public class StageInfoLinker : MonoBehaviour
         {
             obj = Instantiate(ClearPrefab);
             obj.name = "Jem";
-            obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
-            obj.GetComponent<Image>().sprite = null;
+            RectTransform rt = obj.GetComponent<RectTransform>();
+            rt.SetParent(RewardContent, false);
+            Image image = obj.GetComponentsInChildren<Image>()[1];
+            image.sprite = jem_sprite;
+            image.SetNativeSize();
+            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
+
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.jem}";
+
+            rt.GetChild(type + 1).gameObject.SetActive(true);
         }
 
         if (clear.coin > 0)
         {
             obj = Instantiate(ClearPrefab);
             obj.name = "Coin";
-            obj.GetComponent<RectTransform>().SetParent(RewardContent, false);
-            obj.GetComponent<Image>().sprite = null;
+            RectTransform rt = obj.GetComponent<RectTransform>();
+            rt.SetParent(RewardContent, false);
+            Image image = obj.GetComponentsInChildren<Image>()[1];
+            image.sprite = coin_sprite;
+            image.SetNativeSize();
+            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
+
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.coin}";
+
+            rt.GetChild(type + 1).gameObject.SetActive(true);
         }
     }
 
@@ -64,12 +93,19 @@ public class StageInfoLinker : MonoBehaviour
     {
         var sprites = StageManager.Instance.GetEnemiesSprite();
         GameObject obj = null;
+        RectTransform rt;
+        Image image;
 
         foreach (var sprite in sprites)
         {
             obj = Instantiate(ClearPrefab);
-            obj.GetComponent<RectTransform>().SetParent(MobContent, false);
-            obj.GetComponent<Image>().sprite = sprite;
+            rt = obj.GetComponent<RectTransform>();
+            rt.SetParent(MobContent, false);
+
+            image = obj.GetComponentsInChildren<Image>()[1];
+            image.sprite = sprite;
+            image.SetNativeSize();
+            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
         }
     }
 }
