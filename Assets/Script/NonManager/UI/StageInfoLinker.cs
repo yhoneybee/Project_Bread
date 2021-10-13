@@ -40,10 +40,10 @@ public class StageInfoLinker : MonoBehaviour
             AddWaveDatas();
 
             var MobGLG = MobContent.GetComponent<GridLayoutGroup>();
-            MobContent.sizeDelta = new Vector2(MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left), MobContent.sizeDelta.y);
+            MobContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left));
         }
         var RewardGLG = RewardContent.GetComponent<GridLayoutGroup>();
-        RewardContent.sizeDelta = new Vector2(RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left), RewardContent.sizeDelta.y);
+        RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left));
     }
     public void AddRewards(RewardInformation.Reward_Information clear, int type = 0) // type 1 : first clear, type 2 : 3 star clear
     {
