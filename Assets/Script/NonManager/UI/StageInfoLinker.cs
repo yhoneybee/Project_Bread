@@ -39,9 +39,11 @@ public class StageInfoLinker : MonoBehaviour
         {
             AddWaveDatas();
 
-            MobContent.sizeDelta = new Vector2(-848 + ((165 * MobContent.childCount) + 30), MobContent.sizeDelta.y);
+            var MobGLG = MobContent.GetComponent<GridLayoutGroup>();
+            MobContent.sizeDelta = new Vector2(MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left), MobContent.sizeDelta.y);
         }
-        RewardContent.sizeDelta = new Vector2(-848 + ((165 * RewardContent.childCount) + 30), RewardContent.sizeDelta.y);
+        var RewardGLG = RewardContent.GetComponent<GridLayoutGroup>();
+        RewardContent.sizeDelta = new Vector2(RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left), RewardContent.sizeDelta.y);
     }
     public void AddRewards(RewardInformation.Reward_Information clear, int type = 0) // type 1 : first clear, type 2 : 3 star clear
     {
