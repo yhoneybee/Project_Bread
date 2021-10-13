@@ -156,7 +156,16 @@ public class Ingame : MonoBehaviour
             if (is_game_clear)
             {
                 result_window.stars_parent.gameObject.SetActive(true);
-                stage_linker.SetRewards(StageManager.Instance.GetStage().star_count == 0, current_star_count == 3 && StageManager.Instance.GetStage().star_count < 3);
+
+                bool is_first_clear = StageManager.Instance.GetStage().star_count == 0;
+                bool is_three_star_clear = current_star_count == 3 && StageManager.Instance.GetStage().star_count < 3;
+
+                stage_linker.SetRewards(is_first_clear, is_three_star_clear);
+                var rewards = stage_linker.GetRewards(is_first_clear, is_three_star_clear);
+
+                GameManager.Instance.Coin += rewards.Item1;
+                GameManager.Instance.Jem += rewards.Item2;
+
                 if (current_star_count > StageManager.Instance.GetStage().star_count)
                     StageManager.Instance.GetStage().star_count = current_star_count;
                 StageInfo.stage_number++;

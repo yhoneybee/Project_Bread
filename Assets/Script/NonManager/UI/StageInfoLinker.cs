@@ -7,6 +7,13 @@ using System;
 
 public class StageInfoLinker : MonoBehaviour
 {
+    public enum Reward_Kind
+    {
+        Coin,
+        Jem,
+        Unit
+    }
+
     [SerializeField] GameObject ClearPrefab;
 
     [SerializeField] RectTransform MobContent;
@@ -89,6 +96,29 @@ public class StageInfoLinker : MonoBehaviour
 
             rt.GetChild(type + 1).gameObject.SetActive(true);
         }
+    }
+    public (int, int, Unit) GetRewards(bool first, bool three_star)
+    {
+        int coin = 0, jem = 0; Unit unit = null;
+
+        RewardInformation rewards = StageManager.Instance.GetStage().reward_information;
+
+        if (first)
+        {
+            coin += rewards.first_clear.coin;
+            jem += rewards.first_clear.jem;
+        }
+
+        if(three_star)
+        {
+            coin += rewards.three_star_clear.coin;
+            jem += rewards.three_star_clear.jem;
+        }
+
+        coin += rewards.basic_clear.coin;
+        jem += rewards.three_star_clear.jem;
+
+        return (coin, jem, unit);
     }
 
     public void AddWaveDatas()
