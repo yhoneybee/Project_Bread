@@ -52,11 +52,6 @@ public class ShopManager : MonoBehaviour
                 Timer[i].text = $"¹«·á »Ì±â!";
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(EUnboxing());
-        }
     }
 
     IEnumerator EUnboxing()
