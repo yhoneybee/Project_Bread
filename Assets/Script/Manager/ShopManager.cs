@@ -59,25 +59,25 @@ public class ShopManager : MonoBehaviour
 
     public void AddCommon(int count)
     {
-        var commons = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.COMMON);
+        var commons = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.COMMON);
         for (int i = 0; i < count; i++)
             SpawnUnits.Add(commons[UnityEngine.Random.Range(0, commons.Count)]);
     }
     public void AddRare(int count)
     {
-        var rares = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.RARE);
+        var rares = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.RARE);
         for (int i = 0; i < count; i++)
             SpawnUnits.Add(rares[UnityEngine.Random.Range(0, rares.Count)]);
     }
     public void AddEpic(int count)
     {
-        var epics = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.EPIC);
+        var epics = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.EPIC);
         for (int i = 0; i < count; i++)
             SpawnUnits.Add(epics[UnityEngine.Random.Range(0, epics.Count)]);
     }
     public void AddLegend(int count)
     {
-        var legends = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.LEGEND);
+        var legends = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.LEGEND);
         for (int i = 0; i < count; i++)
             SpawnUnits.Add(legends[UnityEngine.Random.Range(0, legends.Count)]);
     }
