@@ -26,6 +26,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI RewardCount;
     [SerializeField] RectTransform Card;
     [SerializeField] Button NextReward;
+    [SerializeField] Image ShowUnitInCard;
 
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
 
@@ -56,13 +57,62 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    public void AddCommon(int count)
+    {
+        var commons = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.COMMON);
+        for (int i = 0; i < count; i++)
+            SpawnUnits.Add(commons[UnityEngine.Random.Range(0, commons.Count)]);
+    }
+    public void AddRare(int count)
+    {
+        var rares = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.RARE);
+        for (int i = 0; i < count; i++)
+            SpawnUnits.Add(rares[UnityEngine.Random.Range(0, rares.Count)]);
+    }
+    public void AddEpic(int count)
+    {
+        var epics = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.EPIC);
+        for (int i = 0; i < count; i++)
+            SpawnUnits.Add(epics[UnityEngine.Random.Range(0, epics.Count)]);
+    }
+    public void AddLegend(int count)
+    {
+        var legends = UnitManager.Instance.Units.FindAll((o) => o.Info.Rank == Rank.LEGEND);
+        for (int i = 0; i < count; i++)
+            SpawnUnits.Add(legends[UnityEngine.Random.Range(0, legends.Count)]);
+    }
+    public void UnBoxing()
+    {
+        StartCoroutine(EUnboxing());
+    }
+
     IEnumerator EUnboxing()
     {
         Unboxing.gameObject.SetActive(true);
 
         //for (int i = 0; i < SpawnUnits.Count; i++)
-        foreach (var unit in SpawnUnits)
+        for (int i = SpawnUnits.Count - 1; i >= 0; i--)
         {
+            RewardCount.text = $"{i + 1}";
+
+            var particle_module = RankParticle.main;
+
+            switch (SpawnUnits[i].Info.Rank)
+            {
+                case Rank.COMMON:
+                    particle_module.startColor = Color.white;
+                    break;
+                case Rank.RARE:
+                    particle_module.startColor = new Color(0, 1, 0.9023998f, 1);
+                    break;
+                case Rank.EPIC:
+                    particle_module.startColor = new Color(0.7924528f, 0.4223923f, 0.6858099f, 1);
+                    break;
+                case Rank.LEGEND:
+                    particle_module.startColor = new Color(0.9617409f, 0.9716981f, 0.2704254f, 1);
+                    break;
+            }
+
             RankParticle.Play();
 
             yield return StartCoroutine(EWaitClick());
@@ -79,16 +129,19 @@ public class ShopManager : MonoBehaviour
 
             yield return StartCoroutine(EHideCard());
 
-            yield return StartCoroutine(EShowResult(unit));
-
-            // 여기서 RewardCount가 0이 되면 뽑은거 전부 보여주는 화면을 띄움
+            yield return StartCoroutine(EShowResult(SpawnUnits[i]));
 
             yield return StartCoroutine(EBoxMove(false));
 
+            RewardCount.text = $"{i}";
             yield return StartCoroutine(EHideRewardCountText(false));
+
+            if (i == 0) yield return StartCoroutine(EShowAllResult());
         }
 
         //Unboxing.gameObject.SetActive(false);
+
+        SpawnUnits.Clear();
 
         yield return null;
     }
@@ -185,7 +238,7 @@ public class ShopManager : MonoBehaviour
         while (Card.anchoredPosition.y < Screen.height / 2 - Card.sizeDelta.y)
         {
             rotate_force += Time.deltaTime;
-            Card.anchoredPosition = Vector2.MoveTowards(Card.anchoredPosition, Vector2.up * ((Screen.height / 2) - (Card.sizeDelta.y / 2)), 1);
+            Card.anchoredPosition = Vector2.MoveTowards(Card.anchoredPosition, Vector2.up * ((Screen.height / 2) - (Card.sizeDelta.y / 2)), 500 * Time.deltaTime);
             Card.Rotate(Vector2.up * (rotate_force + 3));
             Card.sizeDelta = Vector2.Lerp(Card.sizeDelta, Vector2.zero, Time.deltaTime);
             yield return wait;
@@ -198,15 +251,49 @@ public class ShopManager : MonoBehaviour
     }
     IEnumerator EShowResult(Unit unit)
     {
-        print("Show something");
+        var wait = new WaitForSeconds(0.001f);
 
-        yield return null;
+        var rectTf = ShowUnitInCard.GetComponent<RectTransform>();
+
+        Vector2 pos = rectTf.anchoredPosition;
+
+        while (rectTf.anchoredPosition.y > 0.05f)
+        {
+            rectTf.anchoredPosition = Vector2.Lerp(rectTf.anchoredPosition, Vector2.right * rectTf.anchoredPosition, Time.deltaTime * 3);
+            yield return wait;
+        }
+
+        yield return StartCoroutine(EWaitClick());
+
+        var img = rectTf.GetChild(0).GetComponent<Image>();
+
+        img.sprite = unit.Info.Icon;
+
+        while (img.color.a < 0.95f)
+        {
+            img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * 3);
+            yield return wait;
+        }
+        img.color = Color.white;
+
+        yield return StartCoroutine(EWaitClick());
+
+        while (ShowUnitInCard.color.a > 0.05f)
+        {
+            ShowUnitInCard.color = Color.Lerp(ShowUnitInCard.color, Color.clear, Time.deltaTime * 3);
+            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
+            yield return wait;
+        }
+        ShowUnitInCard.color = Color.clear;
+        img.color = Color.clear;
+
+        rectTf.anchoredPosition = pos;
+        ShowUnitInCard.color = Color.white;
     }
     IEnumerator EShowAllResult()
     {
         print("Show all");
 
-
-        yield return null;
+        yield return StartCoroutine(EWaitClick());
     }
 }
