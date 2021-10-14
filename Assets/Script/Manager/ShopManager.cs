@@ -134,12 +134,14 @@ public class ShopManager : MonoBehaviour
             yield return StartCoroutine(EBoxMove(false));
 
             RewardCount.text = $"{i}";
-            yield return StartCoroutine(EHideRewardCountText(false));
 
-            if (i == 0) yield return StartCoroutine(EShowAllResult());
+            if (i == 0)
+            {
+                yield return StartCoroutine(EShowAllResult());
+                Unboxing.gameObject.SetActive(false);
+            }
+            else yield return StartCoroutine(EHideRewardCountText(false));
         }
-
-        //Unboxing.gameObject.SetActive(false);
 
         SpawnUnits.Clear();
 
