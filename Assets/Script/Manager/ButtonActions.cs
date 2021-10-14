@@ -128,7 +128,7 @@ public class ButtonActions : MonoBehaviour
             case 0: // common
                 break;
             case 1: // rare
-                if (Random.Range(1,101) >= 50)
+                if (Random.Range(1, 101) >= 50)
                 {
                     --soso;
                     ++good;
