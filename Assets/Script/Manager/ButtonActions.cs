@@ -156,6 +156,18 @@ public class ButtonActions : MonoBehaviour
     {
         StartCoroutine(EAppearAndHideForPivot(RT));
     }
+    public void GetDailyReward()
+    {
+        if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now)
+        {
+            print("아직 하루가 지나지 않았습니다.");
+        }
+        else
+        {
+            print("보상을 받고 시간을 갱신합니다");
+            GameManager.Instance.Daily.Date = System.DateTime.Now;
+        }
+    }
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
         var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();

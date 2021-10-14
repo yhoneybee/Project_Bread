@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
 
     public DateTimer[] DateTimers = new DateTimer[3];
 
+    public DateTimer Daily = new DateTimer { Time = new TimeSpan(24, 0, 0) };
+
     private void Awake()
     {
         Instance = this;
