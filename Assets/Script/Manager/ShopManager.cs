@@ -52,10 +52,10 @@ public class ShopManager : MonoBehaviour
         {
             if (CUnBoxing != null)
             {
-
                 StopAllCoroutines();
                 if (CSkipUnBoxing != null) StopCoroutine(CSkipUnBoxing);
                 CSkipUnBoxing = StartCoroutine(ESkipUnboxing());
+                SkipBtn.gameObject.SetActive(false);
             }
         });
     }
@@ -155,14 +155,14 @@ public class ShopManager : MonoBehaviour
             RankParticle.Play();
 
             SkipBtn.gameObject.SetActive(true);
-            yield return new WaitForSeconds(1);
-            SkipBtn.gameObject.SetActive(false);
 
             yield return StartCoroutine(EWaitClick());
 
             RankParticle.Stop();
 
             yield return StartCoroutine(EHideRewardCountText());
+
+            SkipBtn.gameObject.SetActive(false);
 
             yield return StartCoroutine(EBoxMove());
 
