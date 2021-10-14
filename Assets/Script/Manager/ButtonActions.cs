@@ -4,6 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public struct DoActionForPersent
+{
+    private int persent;
+    public int Persent
+    {
+        get { return persent; }
+        set
+        {
+            persent = value;
+            persent = Mathf.Min(Mathf.Max(persent, 1), 100);
+        }
+    }
+    public System.Action Action;
+}
+
 public class ButtonActions : MonoBehaviour
 {
     public static ButtonActions Instance { get; private set; } = null;
@@ -60,6 +75,80 @@ public class ButtonActions : MonoBehaviour
     public void ChangeAnimState(int index)
     {
         UIManager.Instance.AnimState = (AnimState)index;
+    }
+    public void DoForPersent(params DoActionForPersent[] persent_actions)
+    {
+        int persent = Random.Range(1, 101);
+        for (int i = 0; i < persent_actions.Length; i++)
+        {
+            if (persent_actions[i].Persent <= persent)
+                persent_actions[i].Action();
+        }
+    }
+    public void UnBoxingOne(int rank)
+    {
+        switch (rank)
+        {
+            case 0: // common
+                DoForPersent(
+                    new DoActionForPersent { Persent = 90, Action = () => { ShopManager.Instance.AddRare(1); } },
+                    new DoActionForPersent { Persent = 10, Action = () => { ShopManager.Instance.AddCommon(1); } }
+                    );
+                break;
+            case 1: // rare
+                DoForPersent(
+                    new DoActionForPersent { Persent = 90, Action = () => { ShopManager.Instance.AddEpic(1); } },
+                    new DoActionForPersent { Persent = 10, Action = () => { ShopManager.Instance.AddRare(1); } }
+                    );
+                break;
+            case 2: // epic
+                DoForPersent(
+                    new DoActionForPersent { Persent = 90, Action = () => { ShopManager.Instance.AddLegend(1); } },
+                    new DoActionForPersent { Persent = 10, Action = () => { ShopManager.Instance.AddEpic(1); } }
+                    );
+                break;
+            case 3: // legend
+                ShopManager.Instance.AddLegend(1);
+                break;
+        }
+
+        ShopManager.Instance.UnBoxing();
+    }
+    public void UnBoxingTen(int rank)
+    {
+        int persent_max = GameManager.Instance.UnBoxingCount + 1;
+        int soso = Random.Range(persent_max / 2, persent_max);
+        soso += Random.Range(0, persent_max - soso);
+        int good = Random.Range(0, persent_max - soso);
+        int great = Random.Range(0, persent_max - soso - good);
+        soso += GameManager.Instance.UnBoxingCount - good - great - soso;
+
+        switch (rank)
+        {
+            case 0: // common
+                break;
+            case 1: // rare
+                if (Random.Range(1,101) >= 50)
+                {
+                    --soso;
+                    ++good;
+                }
+                break;
+            case 2: // epic
+                --soso;
+                ++good;
+                break;
+            case 3: // legend
+                --good;
+                ++great;
+                break;
+        }
+
+        ShopManager.Instance.AddCommon(soso);
+        ShopManager.Instance.AddRare(good);
+        ShopManager.Instance.AddEpic(great);
+
+        ShopManager.Instance.UnBoxing();
     }
     public void AppearAndHideForPivot(RectTransform RT)
     {

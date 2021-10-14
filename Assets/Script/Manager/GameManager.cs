@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     public int Jem = 0;
     public int Stemina = 0;
     public int MaxStemina = 0;
+    public int UnBoxingCount = 11;
 
     public bool EnteredDeckView = false;
 
