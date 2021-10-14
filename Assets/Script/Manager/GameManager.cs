@@ -68,5 +68,11 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = Time.timeScale == 1 ? 3 : 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Coin += 50;
+            Jem += 50;
+        }
     }
 }
