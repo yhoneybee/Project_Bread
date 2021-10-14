@@ -147,9 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 2
-    Name: "\uCD08\uCF54\uC870\uAC01\uCF00\uC774\uD06C"
-    Icon: {fileID: 21300000, guid: b1f0cd00193ac444bb4a2ca570355e84, type: 3}
-    Rank: 0
     Name: "\uACF5\uAC08\uBE75"
     Icon: {fileID: 21300000, guid: cfbd7bf07dedcb04ca5059d349bae518, type: 3}
     Id: 0
