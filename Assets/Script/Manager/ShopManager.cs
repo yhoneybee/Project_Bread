@@ -35,6 +35,8 @@ public class ShopManager : MonoBehaviour
     Coroutine CUnBoxing;
     Coroutine CSkipUnBoxing;
 
+    Button SkipBtn;
+
     readonly string FREE_SAPWN = "무료뽑기 까지\n";
 
     private void Awake()
@@ -45,11 +47,13 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++) Timer[i] = BubbleMessage[i].GetComponentInChildren<TextMeshProUGUI>();
 
-        Unboxing.transform.Find("Skip").GetComponent<Button>().onClick.AddListener(() =>
+        SkipBtn = Unboxing.transform.Find("Skip").GetComponent<Button>();
+        SkipBtn.onClick.AddListener(() =>
         {
             if (CUnBoxing != null)
             {
-                StopCoroutine(CUnBoxing);
+
+                StopAllCoroutines();
                 if (CSkipUnBoxing != null) StopCoroutine(CSkipUnBoxing);
                 CSkipUnBoxing = StartCoroutine(ESkipUnboxing());
             }
@@ -126,7 +130,6 @@ public class ShopManager : MonoBehaviour
     {
         Unboxing.gameObject.SetActive(true);
 
-
         for (int i = SpawnUnits.Count - 1; i >= 0; i--)
         {
             RewardCount.text = $"{i + 1}";
@@ -150,6 +153,10 @@ public class ShopManager : MonoBehaviour
             }
 
             RankParticle.Play();
+
+            SkipBtn.gameObject.SetActive(true);
+            yield return new WaitForSeconds(1);
+            SkipBtn.gameObject.SetActive(false);
 
             yield return StartCoroutine(EWaitClick());
 
