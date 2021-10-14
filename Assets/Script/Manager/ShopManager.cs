@@ -27,8 +27,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] RectTransform Card;
     [SerializeField] Button NextReward;
     [SerializeField] Image ShowUnitInCard;
+    [SerializeField] RectTransform ShowAll;
+    [SerializeField] GameObject ShowAllPrefab;
 
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
+
+    Coroutine CUnBoxing;
+    Coroutine CSkipUnBoxing;
 
     readonly string FREE_SAPWN = "무료뽑기 까지\n";
 
@@ -39,6 +44,16 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         for (int i = 0; i < 3; i++) Timer[i] = BubbleMessage[i].GetComponentInChildren<TextMeshProUGUI>();
+
+        Unboxing.transform.Find("Skip").GetComponent<Button>().onClick.AddListener(() =>
+        {
+            if (CUnBoxing != null)
+            {
+                StopCoroutine(CUnBoxing);
+                if (CSkipUnBoxing != null) StopCoroutine(CSkipUnBoxing);
+                CSkipUnBoxing = StartCoroutine(ESkipUnboxing());
+            }
+        });
     }
     private void Update()
     {
@@ -83,14 +98,35 @@ public class ShopManager : MonoBehaviour
     }
     public void UnBoxing()
     {
-        StartCoroutine(EUnboxing());
+        CUnBoxing = StartCoroutine(EUnboxing());
     }
 
+    IEnumerator ESkipUnboxing()
+    {
+        yield return StartCoroutine(EBoxMove(false));
+
+        yield return StartCoroutine(EShowAllResult());
+
+        Image img = Unboxing.GetComponent<Image>();
+        Color color = img.color;
+
+        var wait = new WaitForSeconds(0.001f);
+
+        while (img.color.a > 0.05f)
+        {
+            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
+            if (img.color.a < 0.3f) Unboxing.gameObject.SetActive(false);
+            yield return wait;
+        }
+        img.color = color;
+
+        SpawnUnits.Clear();
+    }
     IEnumerator EUnboxing()
     {
         Unboxing.gameObject.SetActive(true);
 
-        //for (int i = 0; i < SpawnUnits.Count; i++)
+
         for (int i = SpawnUnits.Count - 1; i >= 0; i--)
         {
             RewardCount.text = $"{i + 1}";
@@ -138,7 +174,19 @@ public class ShopManager : MonoBehaviour
             if (i == 0)
             {
                 yield return StartCoroutine(EShowAllResult());
-                Unboxing.gameObject.SetActive(false);
+
+                Image img = Unboxing.GetComponent<Image>();
+                Color color = img.color;
+
+                var wait = new WaitForSeconds(0.001f);
+
+                while (img.color.a > 0.05f)
+                {
+                    img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
+                    if (img.color.a < 0.3f) Unboxing.gameObject.SetActive(false);
+                    yield return wait;
+                }
+                img.color = color;
             }
             else yield return StartCoroutine(EHideRewardCountText(false));
         }
@@ -294,8 +342,34 @@ public class ShopManager : MonoBehaviour
     }
     IEnumerator EShowAllResult()
     {
-        print("Show all");
+        var wait = new WaitForSeconds(0.001f);
+        var img = ShowAll.GetComponent<Image>();
+
+        ShowAll.gameObject.SetActive(true);
+
+        while (img.color.a < 0.95f)
+        {
+            img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * 3);
+            yield return wait;
+        }
+        img.color = Color.white;
+
+        List<GameObject> objs = new List<GameObject>();
+
+        foreach (var unit in SpawnUnits)
+        {
+            var obj = Instantiate(ShowAllPrefab, ShowAll, false);
+            var icon = obj.transform.GetChild(0).GetComponent<Image>();
+            icon.sprite = unit.Info.Icon;
+            objs.Add(obj);
+            yield return new WaitForSeconds(0.5f);
+        }
 
         yield return StartCoroutine(EWaitClick());
+
+        ShowAll.gameObject.SetActive(false);
+
+        for (int i = 0; i < objs.Count; i++)
+            Destroy(objs[i]);
     }
 }
