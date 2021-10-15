@@ -5,6 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
+public struct DailyUI
+{
+    public RectTransform Get;
+    public TextMeshProUGUI GetRewardText;
+    public Image GetRewardIcon;
+    public Button GetRewardBtn;
+    public TextMeshProUGUI RewardBtnText;
+    public TextMeshProUGUI Fail;
+}
+[System.Serializable]
 public struct SwitchSprite
 {
     public Sprite ASprite;
@@ -41,6 +51,8 @@ public class UIManager : MonoBehaviour
 
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
+
+    public DailyUI DailyUI;
 
     int AnimIndex = 0;
     float time = 0;

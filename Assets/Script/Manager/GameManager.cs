@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -76,5 +78,30 @@ public class GameManager : MonoBehaviour
             Coin += 50;
             Jem += 50;
         }
+    }
+
+    public IEnumerator EAppearUI(params Graphic[] graphics)
+    {
+        var wait = new WaitForSeconds(0.001f);
+        while (graphics[0].color.a < 0.95f)
+        {
+            foreach (var graphic in graphics)
+                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 1), Time.deltaTime * 3);
+            yield return wait;
+        }
+        foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 1);
+        yield return null;
+    }
+    public IEnumerator EHideUI(params Graphic[] graphics)
+    {
+        var wait = new WaitForSeconds(0.001f);
+        while (graphics[0].color.a > 0.05f)
+        {
+            foreach (var graphic in graphics)
+                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0), Time.deltaTime * 3);
+            yield return wait;
+        }
+        foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);
+        yield return null;
     }
 }

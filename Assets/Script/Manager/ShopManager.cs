@@ -213,25 +213,8 @@ public class ShopManager : MonoBehaviour
     }
     IEnumerator EHideRewardCountText(bool hide = true)
     {
-        var wait = new WaitForSeconds(0.001f);
-        if (hide)
-        {
-            while (RewardCount.color.a > 0.05f)
-            {
-                RewardCount.color = Color.Lerp(RewardCount.color, Color.clear, Time.deltaTime * 3);
-                yield return wait;
-            }
-            RewardCount.color = Color.clear;
-        }
-        else
-        {
-            while (RewardCount.color.a < 0.95f)
-            {
-                RewardCount.color = Color.Lerp(RewardCount.color, Color.white, Time.deltaTime * 3);
-                yield return wait;
-            }
-            RewardCount.color = Color.white;
-        }
+        if (hide) yield return StartCoroutine(GameManager.Instance.EHideUI(RewardCount));
+        else yield return StartCoroutine(GameManager.Instance.EAppearUI(RewardCount));
         yield return null;
     }
     IEnumerator EBoxMove(bool down = true)
@@ -264,24 +247,8 @@ public class ShopManager : MonoBehaviour
     {
         var wait = new WaitForSeconds(0.001f);
         var img = Card.GetComponent<Image>();
-        if (hide)
-        {
-            while (img.color.a > 0.05f)
-            {
-                img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
-                yield return wait;
-            }
-            img.color = Color.clear;
-        }
-        else
-        {
-            while (img.color.a < 0.95f)
-            {
-                img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * 3);
-                yield return wait;
-            }
-            img.color = Color.white;
-        }
+        if (hide) yield return StartCoroutine(GameManager.Instance.EHideUI(img));
+        else yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
         yield return null;
     }
     IEnumerator EDrawing()
@@ -326,23 +293,11 @@ public class ShopManager : MonoBehaviour
 
         img.sprite = unit.Info.Icon;
 
-        while (img.color.a < 0.95f)
-        {
-            img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * 3);
-            yield return wait;
-        }
-        img.color = Color.white;
+        yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
 
         yield return StartCoroutine(EWaitClick());
 
-        while (ShowUnitInCard.color.a > 0.05f)
-        {
-            ShowUnitInCard.color = Color.Lerp(ShowUnitInCard.color, Color.clear, Time.deltaTime * 3);
-            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
-            yield return wait;
-        }
-        ShowUnitInCard.color = Color.clear;
-        img.color = Color.clear;
+        yield return StartCoroutine(GameManager.Instance.EHideUI(img, ShowUnitInCard));
 
         rectTf.anchoredPosition = pos;
         ShowUnitInCard.color = Color.white;
@@ -354,12 +309,7 @@ public class ShopManager : MonoBehaviour
 
         ShowAll.gameObject.SetActive(true);
 
-        while (img.color.a < 0.95f)
-        {
-            img.color = Color.Lerp(img.color, Color.white, Time.deltaTime * 3);
-            yield return wait;
-        }
-        img.color = Color.white;
+        yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
 
         List<GameObject> objs = new List<GameObject>();
 
