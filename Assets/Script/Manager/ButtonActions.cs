@@ -23,7 +23,8 @@ public class ButtonActions : MonoBehaviour
 {
     public static ButtonActions Instance { get; private set; } = null;
 
-    Coroutine CFailText;
+    bool fail_open = false;
+    bool fail_close = false;
 
     private void Awake()
     {
@@ -160,11 +161,12 @@ public class ButtonActions : MonoBehaviour
     }
     public void GetDailyReward()
     {
-        if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now)
+        if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now &&
+            !fail_open && !fail_close)
         {
             print("아직 하루가 지나지 않았습니다.");
-            if (CFailText != null) StopCoroutine(CFailText);
-            CFailText = StartCoroutine(EFailText());
+            StopAllCoroutines();
+            StartCoroutine(EFailText());
         }
         else
         {
@@ -182,14 +184,18 @@ public class ButtonActions : MonoBehaviour
     {
         var get = UIManager.Instance.DailyUI.Get;
         // 데일리 Icon 적용
+        fail_close = true;
         yield return StartCoroutine(GameManager.Instance.EHideUI(get.GetComponent<Image>(), UIManager.Instance.DailyUI.GetRewardText, UIManager.Instance.DailyUI.GetRewardIcon, UIManager.Instance.DailyUI.RewardBtnText));
         get.gameObject.SetActive(false);
+        fail_open = false;
+        fail_close = false;
         yield return null;
     }
     IEnumerator EGetOpen()
     {
         var get = UIManager.Instance.DailyUI.Get;
         get.gameObject.SetActive(true);
+        fail_open = true;
         yield return StartCoroutine(GameManager.Instance.EAppearUI(get.GetComponent<Image>(), UIManager.Instance.DailyUI.GetRewardText, UIManager.Instance.DailyUI.GetRewardIcon, UIManager.Instance.DailyUI.RewardBtnText));
         yield return null;
     }
