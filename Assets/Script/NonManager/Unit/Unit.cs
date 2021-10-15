@@ -55,8 +55,6 @@ public struct Info
     public string Desc;
     /// <summary> Image Devide Value </summary>///
     public float DValue;
-    /// <summary> Sprite Flip X </summary>///
-    public bool FlipX;
 }
 
 [Serializable]
@@ -157,6 +155,11 @@ public abstract class Unit : MonoBehaviour
 
     public bool Invincibility = false;
 
+    [SerializeField] Canvas canvas;
+
+    [SerializeField] GameObject text_object;
+    protected List<GameObject> texts = new List<GameObject>();
+
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
@@ -184,6 +187,12 @@ public abstract class Unit : MonoBehaviour
 
         if (Stat.HP <= 0)
         {
+            foreach (var text in texts)
+            {
+                Destroy(text);
+            }
+            texts.Clear();
+
             SR.color = Color.white;
             UnitManager.Instance.ReturnUnit(this, null);
         }
@@ -293,8 +302,6 @@ public abstract class Unit : MonoBehaviour
             Stat.MS *
             Time.deltaTime *
             new Vector2(1, Mathf.Sin(angle * Mathf.PI / 180)));
-
-        SR.flipX = Info.FlipX;
     }
 
     public virtual void OnAttack(Unit taken)
@@ -313,6 +320,9 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual IEnumerator AttackedEffect(float damage)
     {
+        if (Stat.MS == 0)
+            Debug.Log("Tower Parent's AttackedEffect");
+        StartCoroutine(TextAnimation(damage));
         SR.color = Color.red;
         while (true)
         {
@@ -322,6 +332,27 @@ public abstract class Unit : MonoBehaviour
             if (SR.color.g >= 0.99f)
             {
                 SR.color = Color.white;
+                break;
+            }
+        }
+    }
+    IEnumerator TextAnimation(float damage)
+    {
+        GameObject textObject = Instantiate(text_object, canvas.transform);
+        textObject.transform.localPosition = new Vector2(UnityEngine.Random.Range(-200, 200), 300);
+        textObject.GetComponentInChildren<UnityEngine.UI.Text>().text = "- " + damage.ToString();
+
+        texts.Add(textObject);
+
+        while (true)
+        {
+            textObject.transform.Translate(Vector2.up / 7);
+            yield return new WaitForSeconds(0.01f);
+
+            if (textObject.transform.localPosition.y >= 1000)
+            {
+                Destroy(textObject);
+                texts.Remove(textObject);
                 break;
             }
         }

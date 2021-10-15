@@ -12,7 +12,7 @@ public class LoadingLinker : MonoBehaviour
 
     [SerializeField] private float loading_persent;
 
-    private float sin_value;
+    private float sin_value = 0;
     public float LoadingPersent
     {
         get { return loading_persent; }
@@ -27,12 +27,17 @@ public class LoadingLinker : MonoBehaviour
 
     int speed = 1;
 
-    private void Start() => InvokeRepeating(nameof(SpeedMulti), 0, 3f);
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpeedMulti), 0, 3f);
+    }
     private void Update()
     {
         LoadingPersent += Time.deltaTime * speed;
 
-        Logo.Translate(Vector2.up * Mathf.Sin(sin_value -= 0.01f) * 180 / Mathf.PI);
+        sin_value += 0.5f;
+
+        Logo.position += new Vector3(0, 0.005f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
     }
 
     public void SpeedMulti() => speed *= 5;

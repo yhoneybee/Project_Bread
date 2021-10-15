@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wave_information:
     wave_information:
-    - unit: {fileID: 80032049494775327, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
       delay: 2
-    - unit: {fileID: 80032049494775327, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
       delay: 2
-    - unit: {fileID: 80032049494775327, guid: bf6e9ff92e050b24d96486df51b96eb4, type: 3}
+    - unit: {fileID: 7184538617974196193, guid: bf6e9ff92e050b24d96486df51b96eb4, type: 3}
       delay: 2
     - unit: {fileID: 0}
       delay: 2
@@ -40,5 +40,5 @@ MonoBehaviour:
       jem: 10
       unit: {fileID: 0}
   rewards_sprite: []
-  star_count: 0
+  star_count: 3
   is_startable: 1
