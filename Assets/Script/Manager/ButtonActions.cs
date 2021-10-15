@@ -161,18 +161,20 @@ public class ButtonActions : MonoBehaviour
     }
     public void GetDailyReward()
     {
-        if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now &&
-            !fail_open && !fail_close)
+        if (!fail_open && !fail_close)
         {
-            print("아직 하루가 지나지 않았습니다.");
-            StopAllCoroutines();
-            StartCoroutine(EFailText());
-        }
-        else
-        {
-            print("보상을 받고 시간을 갱신합니다");
-            GameManager.Instance.Daily.Date = System.DateTime.Now;
-            StartCoroutine(EGetOpen());
+            if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now)
+            {
+                print("아직 하루가 지나지 않았습니다.");
+                StopAllCoroutines();
+                StartCoroutine(EFailText());
+            }
+            else
+            {
+                print("보상을 받고 시간을 갱신합니다");
+                GameManager.Instance.Daily.Date = System.DateTime.Now;
+                StartCoroutine(EGetOpen());
+            }
         }
     }
     public void GetDaily()
