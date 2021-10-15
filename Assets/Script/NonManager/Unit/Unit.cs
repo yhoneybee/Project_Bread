@@ -209,8 +209,8 @@ public abstract class Unit : MonoBehaviour
                     if (is_attack_able)
                     {
                         OnAttack(unit);
-                        if (gameObject.activeSelf) StartCoroutine(ASDelay());
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
+                        if (gameObject.activeSelf) StartCoroutine(ASDelay());
                     }
                     break;
                 }
@@ -320,13 +320,17 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual IEnumerator AttackedEffect(float damage)
     {
-        if (Stat.MS == 0)
-            Debug.Log("Tower Parent's AttackedEffect");
         StartCoroutine(TextAnimation(damage));
+        if (!SR) yield break;
+
         SR.color = Color.red;
+
         while (true)
         {
             yield return new WaitForSeconds(0.01f);
+
+            if (!SR) yield break;
+
             SR.color = Color.Lerp(SR.color, Color.white, Time.deltaTime * 3);
 
             if (SR.color.g >= 0.99f)

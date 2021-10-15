@@ -10,7 +10,7 @@ public class Tower : Unit
 
     public override IEnumerator AttackedEffect(float damage)
     {
-        base.AttackedEffect(damage);
+        StartCoroutine(base.AttackedEffect(damage));
 
         float random_x, random_y;
 
