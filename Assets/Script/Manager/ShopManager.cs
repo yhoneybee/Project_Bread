@@ -319,6 +319,7 @@ public class ShopManager : MonoBehaviour
             var icon = obj.transform.GetChild(0).GetComponent<Image>();
             icon.sprite = unit.Info.Icon;
             objs.Add(obj);
+            unit.Info.Count++;
             yield return new WaitForSeconds(0.5f);
         }
 
