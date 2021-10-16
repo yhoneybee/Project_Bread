@@ -285,7 +285,7 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  UnitType: 0
+  UnitType: 1
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0

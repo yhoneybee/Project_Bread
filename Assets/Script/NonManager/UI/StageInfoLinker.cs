@@ -50,7 +50,10 @@ public class StageInfoLinker : MonoBehaviour
             MobContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left));
         }
         var RewardGLG = RewardContent.GetComponent<GridLayoutGroup>();
-        RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left));
+        if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+            RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, RewardContent.sizeDelta.y + (((RewardGLG.cellSize.y + RewardGLG.spacing.y) * (RewardContent.childCount / 6)) + RewardGLG.padding.top));
+        else
+            RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left));
     }
     public void AddRewards(RewardInformation.Reward_Information clear, int type = 0) // type 1 : first clear, type 2 : 3 star clear
     {
@@ -67,14 +70,17 @@ public class StageInfoLinker : MonoBehaviour
 
         if (clear.jem > 0)
         {
-            obj = Instantiate(ClearPrefab);
+            obj = Instantiate(ClearPrefab, RewardContent, false);
             obj.name = "Jem";
             RectTransform rt = obj.GetComponent<RectTransform>();
-            rt.SetParent(RewardContent, false);
             Image image = obj.GetComponentsInChildren<Image>()[1];
             image.sprite = jem_sprite;
             image.SetNativeSize();
-            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
+            var childRTf = image.GetComponent<RectTransform>();
+            childRTf.sizeDelta /= image_devide_value;
+            childRTf.pivot = Vector2.one * 0.5f;
+            childRTf.anchorMax = Vector2.one * 0.5f;
+            childRTf.anchorMin = Vector2.one * 0.5f;
 
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.jem}";
 
@@ -83,14 +89,17 @@ public class StageInfoLinker : MonoBehaviour
 
         if (clear.coin > 0)
         {
-            obj = Instantiate(ClearPrefab);
+            obj = Instantiate(ClearPrefab, RewardContent, false);
             obj.name = "Coin";
             RectTransform rt = obj.GetComponent<RectTransform>();
-            rt.SetParent(RewardContent, false);
             Image image = obj.GetComponentsInChildren<Image>()[1];
             image.sprite = coin_sprite;
             image.SetNativeSize();
-            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
+            var childRTf = image.GetComponent<RectTransform>();
+            childRTf.sizeDelta /= image_devide_value;
+            childRTf.pivot = Vector2.one * 0.5f;
+            childRTf.anchorMax = Vector2.one * 0.5f;
+            childRTf.anchorMin = Vector2.one * 0.5f;
 
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.coin}";
 
@@ -109,7 +118,7 @@ public class StageInfoLinker : MonoBehaviour
             jem += rewards.first_clear.jem;
         }
 
-        if(three_star)
+        if (three_star)
         {
             coin += rewards.three_star_clear.coin;
             jem += rewards.three_star_clear.jem;
@@ -125,19 +134,20 @@ public class StageInfoLinker : MonoBehaviour
     {
         var sprites = StageManager.Instance.GetEnemiesSprite();
         GameObject obj = null;
-        RectTransform rt;
         Image image;
 
         foreach (var sprite in sprites)
         {
-            obj = Instantiate(ClearPrefab);
-            rt = obj.GetComponent<RectTransform>();
-            rt.SetParent(MobContent, false);
+            obj = Instantiate(ClearPrefab, MobContent, false);
 
             image = obj.GetComponentsInChildren<Image>()[1];
             image.sprite = sprite;
             image.SetNativeSize();
-            image.GetComponent<RectTransform>().sizeDelta /= image_devide_value;
+            var childRTf = image.GetComponent<RectTransform>();
+            childRTf.sizeDelta /= image_devide_value;
+            childRTf.pivot = Vector2.one * 0.5f;
+            childRTf.anchorMax = Vector2.one * 0.5f;
+            childRTf.anchorMin = Vector2.one * 0.5f;
         }
     }
 }

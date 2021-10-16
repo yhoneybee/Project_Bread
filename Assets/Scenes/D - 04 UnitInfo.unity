@@ -2828,11 +2828,18 @@ MonoBehaviour:
   SquadPrefab: {fileID: 0}
   AnimImg: {fileID: 559321616}
   ArrowSwitchSprite:
-    ASprite: {fileID: 0}
-    BSprite: {fileID: 0}
+    ASprite: {fileID: 21300000, guid: 559002e5b9664e641940fb9679b1f8b0, type: 3}
+    BSprite: {fileID: 21300000, guid: 506a939a928d7e943960f2f64d0994ce, type: 3}
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  DailyUI:
+    Get: {fileID: 0}
+    GetRewardText: {fileID: 0}
+    GetRewardIcon: {fileID: 0}
+    GetRewardBtn: {fileID: 0}
+    RewardBtnText: {fileID: 0}
+    Fail: {fileID: 0}
 --- !u!4 &1102601929
 Transform:
   m_ObjectHideFlags: 0
