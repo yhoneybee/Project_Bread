@@ -22,8 +22,11 @@ public class UnitView : MonoBehaviour
         if (show)
         {
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(true);
-            if (UILinker.Icon) UILinker.Icon.sprite = show.Info.Icon;
-
+            if (UILinker.Icon)
+            {
+                UILinker.Icon.color = Color.white;
+                UILinker.Icon.sprite = show.Info.Icon;
+            }
             if (UILinker.LevelText)
             {
                 UILinker.LevelText.text = $"Lv.{show.Info.Level}";
@@ -33,7 +36,12 @@ public class UnitView : MonoBehaviour
         }
         else
         {
-            if (UILinker.Icon) UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
+            if (UILinker.Icon)
+            {
+                if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+                    UILinker.Icon.color = Color.clear;
+                UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
+            }
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(false);
         }
     }

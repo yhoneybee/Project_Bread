@@ -42,8 +42,10 @@ public class ButtonActions : MonoBehaviour
     }
     public void ChangeScene(string name)
     {
-        if (name == "E - 01 DeckView")
-            GameManager.Instance.EnteredDeckView = true;
+        if (name == "E - 01 DeckView" || (name == "C - 03 DeckSelect" && !GameManager.Instance.EnteredDeckView))
+        {
+            GameManager.Instance.EnteredDeckView = !GameManager.Instance.EnteredDeckView;
+        }
 
         if (GameManager.Instance.EnteredDeckView && name == "B - Main")
         {
