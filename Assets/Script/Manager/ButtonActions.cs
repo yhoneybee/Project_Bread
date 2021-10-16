@@ -56,15 +56,10 @@ public class ButtonActions : MonoBehaviour
 
         SceneManager.LoadScene(name);
     }
-    /// <summary>
-    /// �׸� ���� �� ȣ������� �ϴ� �Լ�
-    /// </summary>
-    /// <param name="theme_number">�׸� ��ȣ (ex : 1)</param>
     public void SetThemeNumber(int theme_number)
     {
-        string[] theme_names = { "밝은 오븐", "넓은 등판", "음침한 숲" };
+        string[] theme_names = { "밝은 오븐", "넓은 등판", "음침한 숲", "???", "업데이트 예정" };
 
-        // �׸� ��ȣ ���� �� �׸� �̸� �ٲ���
         StageInfo.theme_number = theme_number;
         StageInfo.theme_name = theme_names[theme_number - 1];
     }
