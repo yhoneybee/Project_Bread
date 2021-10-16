@@ -44,8 +44,6 @@ public class ButtonActions : MonoBehaviour
     {
         if (name == "E - 01 DeckView")
             GameManager.Instance.EnteredDeckView = true;
-        else
-            GameManager.Instance.EnteredDeckView = false;
 
         if (GameManager.Instance.EnteredDeckView && name == "B - Main")
         {
