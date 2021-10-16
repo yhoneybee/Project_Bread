@@ -12,7 +12,7 @@ public class Ingame : MonoBehaviour
         public GameObject result_window;
         public TextMeshProUGUI title_text;
         public GameObject reward_window;
-        public TextMeshProUGUI button_text;
+        public Button next_button;
         public RectTransform stars_parent;
     }
     [System.Serializable]
@@ -23,28 +23,43 @@ public class Ingame : MonoBehaviour
         public Image[] stars;
     }
 
+    // 화면 왼쪽 상단 스테이지 이름
     [SerializeField] TextMeshProUGUI stage_name_text;
+    // 화면 왼쪽 상단 테마 이름
     [SerializeField] TextMeshProUGUI theme_name_text;
 
     [Space(10)]
+    // 인게임 배경 오브젝트들
     [SerializeField] GameObject[] backgrounds;
+    // 인게임 바닥 오브젝트들
     [SerializeField] GameObject[] platforms;
 
     [Space(10)]
+    // UI에 띄울 획득한 별 Sprite
+    [SerializeField] Sprite star_sprite;
+
+    [Space(10)]
+    // 게임 끝나면 나오는 결과 창
     [SerializeField] Result_Window result_window;
 
     [Space(10)]
+    // 3성 제한 관련 UI 모음
     [SerializeField] Three_Star_Limit three_star_limit;
 
     [Space(10)]
+    // 화면 왼쪽 아군 타워
     [SerializeField] Unit friendly_tower;
+    // 화면 오른쪽 적군 타워
     [SerializeField] Unit enemy_tower;
 
     [Space(10)]
+    // 인게임 현재 코스트 슬라이더
     [SerializeField] Slider guage_slider;
+    // 인게임 현재 코스트 텍스트
     [SerializeField] Text guage_text;
 
     [Space(10)]
+    // 7개 아군 카드 UI
     [SerializeField] List<GameObject> card_units;
 
     [Space(10)]
@@ -146,7 +161,6 @@ public class Ingame : MonoBehaviour
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
             result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
-            result_window.button_text.text = is_game_clear ? "다음\n스테이지" : $"{StageInfo.theme_number} - {StageInfo.stage_number}\n재시작";
 
             foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())
             {
@@ -174,11 +188,11 @@ public class Ingame : MonoBehaviour
                 Image[] star_images = result_window.stars_parent.GetComponentsInChildren<Image>();
                 for (int i = 0; i < current_star_count; i++)
                 {
-                    star_images[i].color = Color.yellow;
+                    star_images[i].sprite = star_sprite;
                 }
             }
 
-            result_window.button_text.GetComponentInParent<Button>().onClick.AddListener(
+            result_window.next_button.onClick.AddListener(
                 () =>
                 {
                     ButtonActions.Instance.ChangeScene("E - 01 DeckView");
@@ -233,10 +247,6 @@ public class Ingame : MonoBehaviour
     {
         Time.timeScale = value;
     }
-    /// <summary>
-    /// �Ʊ� ���� �����ϴ� �Լ�
-    /// </summary>
-    /// <param name="index">���� ��ư(Card)�� index</param>
     public void SpawnBread(int index)
     {
         Unit unit = DeckManager.Select[index];
@@ -253,7 +263,6 @@ public class Ingame : MonoBehaviour
     {
         while (true)
         {
-            // wave_data�� wave_information���� ��� �ִ� ���� ������ ����̸� �̿��Ͽ� ���̺� ����
             foreach (var data in wave_data.wave_information)
             {
                 if (data.unit != null)
@@ -269,10 +278,8 @@ public class Ingame : MonoBehaviour
     {
         while (true)
         {
-            // ���� �������� ���� �� �ö��� �� (Lerp�� ���� �� �������� ���� ��Ȯ�� �ö��� ���ϱ� ����)
             if (target_guage - current_guage <= 0.05f)
             {
-                // ��Ȯ�� ������ ���� �� target_guage ����
                 current_guage = Mathf.Round(current_guage);
                 if (current_guage < 10)
                     target_guage = current_guage + 1;
