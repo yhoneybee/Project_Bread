@@ -2,11 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// stage_name : �������� �̸�
-/// theme_name : �׸� �̸�
-/// stage_dificulty : �������� ���̵� (1 ~ 3)
-/// </summary>
+
 public class StageInfo
 {
     public static string stage_name { get; set; }

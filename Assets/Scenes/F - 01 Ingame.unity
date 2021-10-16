@@ -2684,7 +2684,6 @@ MonoBehaviour:
     Count: 0
     Desc: 
     DValue: 0
-    FlipX: 0
   Stat:
     AD: 0
     HP: 10
@@ -4662,7 +4661,7 @@ MonoBehaviour:
   RewardContent: {fileID: 1223114084}
   coin_sprite: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   jem_sprite: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
-  image_devide_value: 4
+  image_devide_value: 7
 --- !u!1 &1017934954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,7 +5519,6 @@ MonoBehaviour:
     Count: 0
     Desc: 
     DValue: 0
-    FlipX: 0
   Stat:
     AD: 0
     HP: 10

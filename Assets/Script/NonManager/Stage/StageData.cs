@@ -12,7 +12,7 @@ public class StageData : ScriptableObject
     public RewardInformation reward_information;
     public Sprite[] rewards_sprite;
     [Space(15)]
-    public int star_count = 0; // ȹ���� �� ����
+    public int star_count = 0;
     public bool is_startable;
 }
 
@@ -39,10 +39,7 @@ public struct RewardInformation
         public Unit unit;
     }
 
-    // ó������ Ŭ�������� �� ����
     public Reward_Information first_clear;
-    // 3�� �� ȹ���Ͽ��� �� ����
     public Reward_Information three_star_clear;
-    // �⺻ Ŭ���� ����
     public Reward_Information basic_clear;
 }

@@ -50,5 +50,6 @@ public class CameraManager : MonoBehaviour
             camera.transform.position = Vector3.Lerp(camera.transform.position, target_position, Time.deltaTime * move_speed);
             distance = Vector2.Distance(camera.transform.position, target_position);
         }
+        camera.transform.position = target_position;
     }
 }

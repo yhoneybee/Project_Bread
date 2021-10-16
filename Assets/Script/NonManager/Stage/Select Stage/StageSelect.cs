@@ -6,7 +6,7 @@ using TMPro;
 public class StageSelect : MonoBehaviour
 {
     [System.Serializable]
-    struct LimitPostiions // ī�޶� ��ġ ���� ���� ��� ����ü
+    struct LimitPostiions
     {
         public Transform limit_x_left;
         public Transform limit_x_right;
@@ -23,25 +23,26 @@ public class StageSelect : MonoBehaviour
         public Sprite three_star;
     }
 
-    /// <summary> ī�޶� �̵� ��ġ ���� ���� ��� ����ü </summary>///
+    // 카메라 위치 제한 Transform 담아둔 구조체
     [SerializeField] LimitPostiions limits;
-    /// <summary> ���� �غ� â </summary>///
+
+    // 게임 준비 창
     [SerializeField] GameObject ReadyWindow;
-    [SerializeField] Image[] enemies_image;
-    [SerializeField] Image[] rewards_image;
 
-    /// <summary> �� 10�� �������� ������Ʈ�� </summary>///
-    [SerializeField] StageObject[] stage_objects;
-    /// <summary> ����(0~9) �ؽ�Ʈ Sprite </summary>///
-    [SerializeField] Sprite[] text_number_sprites;
-    /// <summary> 스테이지 클리어 여부에 관련된 각각의 Sprite들 </summary>///
-    [SerializeField] StageSprites stage_sprites;
-    [Space(15)]
-
-    /// <summary> �������� ���� â���� �������� �̸� �ؽ�Ʈ </summary>///
+    // ReadyWindow의 stage name Text
     [SerializeField] TextMeshProUGUI stage_name_text;
-    /// <summary> �������� ���� â���� �׸� �̸� �ؽ�Ʈ </summary>///
+
+    // ReadyWindow의 theme name Text
     [SerializeField] TextMeshProUGUI theme_name_text;
+
+    // 배경에 배치되어 있는 각 Stage Object들
+    [SerializeField] StageObject[] stage_objects;
+
+    // 숫자 Text Sprite들
+    [SerializeField] Sprite[] text_number_sprites;
+
+    // 스테이지 클리어 여부에 관련된 각각의 Sprite들
+    [SerializeField] StageSprites stage_sprites;
 
     RaycastHit2D[] hits;
 
@@ -76,7 +77,6 @@ public class StageSelect : MonoBehaviour
 
             hits = Physics2D.RaycastAll(mouse_position, Vector3.forward, 10);
 
-            // �浹�� ������Ʈ�� ���� �� �˻�
             if (hits.Length > 0)
             {
                 if (hits[hits.Length - 1].transform.CompareTag("Stage Sprite"))
@@ -93,30 +93,24 @@ public class StageSelect : MonoBehaviour
         }
     }
     /// <summary>
-    /// ī�޶� ������ ����� �����鼭 ��ǥ ��ġ�� �̵���Ű�� �Լ�
+    /// 카메라가 범위 내에서 움직일 수 있도록 이동시켜주는 함수
     /// </summary>
-    /// <param name="target_position">��ǥ ��ġ</param>
+    /// <param name="target_position">카메라를 이동시킬 위치</param>
     void CameraMove(Vector2 target_position)
     {
         Vector2 cam_move_position = target_position;
 
-        // limits�� ī�޶� ��ġ �� �� ����
         if (cam_move_position.x < limits.limit_x_left.position.x) cam_move_position = new Vector2(limits.limit_x_left.position.x, cam_move_position.y);
         else if (cam_move_position.x > limits.limit_x_right.position.x) cam_move_position = new Vector2(limits.limit_x_right.position.x, cam_move_position.y);
 
         if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
         else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
 
-        // â�� ���� ���� ���� ��� ī�޶� �̵�
         if (!ReadyWindow.activeSelf)
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
     }
-    /// <summary>
-    ///  Stage ����â ��� �������� �̸��� �׸� �̸��� �������ְ� Ready Window�� ����ִ� �Լ�
-    /// </summary>
     void OnReadyWindow()
     {
-        // �������� ��ȣ ���� �ִ� ������Ʈ
         Transform stage_number_transform = hits[0].transform.GetComponent<StageObject>().number_object_transform;
         SpriteRenderer[] number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
 
@@ -138,15 +132,9 @@ public class StageSelect : MonoBehaviour
         for (int i = 0; i < enemies_sprite.Length; i++)
             if (enemies_sprite[i])
             {
-                enemies_image[i].sprite = enemies_sprite[i];
-                enemies_image[i].SetNativeSize();
-                enemies_image[i].GetComponent<RectTransform>().sizeDelta /= 5;
             }
 
         Sprite[] rewards_sprite = StageManager.Instance.GetRewardsSprite();
 
-        for (int i = 0; i < rewards_sprite.Length; i++)
-            if (rewards_sprite[i])
-                rewards_image[i].sprite = rewards_sprite[i];
     }
 }

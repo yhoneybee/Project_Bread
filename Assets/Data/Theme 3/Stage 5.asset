@@ -18,7 +18,7 @@ MonoBehaviour:
       delay: 2
     - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
       delay: 2
-    - unit: {fileID: -4232341719775709330, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
       delay: 2
     - unit: {fileID: 0}
       delay: 2
@@ -28,17 +28,19 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
   reward_information:
     first_clear:
-      coin: 0
-      jem: 0
+      coin: 7
+      jem: 6
       unit: {fileID: 0}
     three_star_clear:
-      coin: 0
-      jem: 0
+      coin: 9
+      jem: 8
       unit: {fileID: 0}
     basic_clear:
-      coin: 0
-      jem: 0
+      coin: 3
+      jem: 2
       unit: {fileID: 0}
-  rewards_sprite: []
+  rewards_sprite:
+  - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
+  - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
   star_count: 0
   is_startable: 0
