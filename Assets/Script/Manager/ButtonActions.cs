@@ -31,21 +31,15 @@ public class ButtonActions : MonoBehaviour
         Instance = this;
     }
 
-    public bool CheckReEntering(string name)
-    {
-        string scene = SceneManager.GetActiveScene().name;
-        return name == scene;
-    }
+    public bool CheckReEntering(string name) => name == SceneManager.GetActiveScene().name;
     public void GoHome()
     {
         SceneManager.LoadScene("B - Main");
     }
     public void ChangeScene(string name)
     {
-        if (name == "E - 01 DeckView" || (name == "C - 03 DeckSelect" && !GameManager.Instance.EnteredDeckView))
-        {
-            GameManager.Instance.EnteredDeckView = !GameManager.Instance.EnteredDeckView;
-        }
+        if (CheckReEntering("E - 01 DeckView")) GameManager.Instance.EnteredDeckView = true;
+        else if (CheckReEntering("D - 01 StageSelect")) GameManager.Instance.EnteredDeckView = false;
 
         if (GameManager.Instance.EnteredDeckView && name == "B - Main")
         {
