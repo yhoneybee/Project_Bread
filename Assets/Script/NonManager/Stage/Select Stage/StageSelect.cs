@@ -29,17 +29,22 @@ public class StageSelect : MonoBehaviour
     // 게임 준비 창
     [SerializeField] GameObject ReadyWindow;
 
-    // ReadyWindow의 stage name Text
-    [SerializeField] TextMeshProUGUI stage_name_text;
-
-    // ReadyWindow의 theme name Text
-    [SerializeField] TextMeshProUGUI theme_name_text;
-
     // 배경에 배치되어 있는 각 Stage Object들
     [SerializeField] StageObject[] stage_objects;
 
     // 숫자 Text Sprite들
-    [SerializeField] Sprite[] text_number_sprites;
+    [SerializeField] Sprite[] font_1_text;
+    [SerializeField] Sprite[] font_2_text;
+
+    // Ready Window의 테마(시나리오) 텍스트 Sprite
+    [SerializeField] Sprite[] theme_name_sprites;
+
+    // Ready Window의 Theme Number 이미지
+    [SerializeField] Image theme_number_image;
+    [SerializeField] Image[] stage_number_image = new Image[2];
+
+    // Ready Window의 테마(시나리오) 텍스트 이미지
+    [SerializeField] Image theme_name_image;
 
     // 스테이지 클리어 여부에 관련된 각각의 Sprite들
     [SerializeField] StageSprites stage_sprites;
@@ -60,12 +65,14 @@ public class StageSelect : MonoBehaviour
             stage_objects[i].SetObjectSprite(stage_objects[i].is_startable ? stage_sprite[StageManager.Instance.GetStage(i).star_count] : stage_sprites.not_startable);
 
             // 10의 자리 이하라면 해당 스테이지 번호를, 이상이라면 1 넣어줌
-            stage_text_sprites[0] = i < 9 ? text_number_sprites[i + 1] : text_number_sprites[1];
+            stage_text_sprites[0] = i < 9 ? font_1_text[i + 1] : font_1_text[1];
             // 10의 자리 이하라면 null을, 이상이라면 0을 넣어줌 (스테이지 번호는 최대 10이기 때문에..)
-            stage_text_sprites[1] = i < 9 ? null : text_number_sprites[0];
+            stage_text_sprites[1] = i < 9 ? null : font_1_text[0];
 
-            stage_objects[i].SetTexts(text_number_sprites[StageInfo.theme_number], stage_text_sprites);
+            stage_objects[i].SetTexts(font_1_text[StageInfo.theme_number], stage_text_sprites);
         }
+
+        theme_name_image.sprite = theme_name_sprites[StageInfo.theme_number - 1];
     }
     void Update()
     {
@@ -111,30 +118,22 @@ public class StageSelect : MonoBehaviour
     }
     void OnReadyWindow()
     {
-        Transform stage_number_transform = hits[0].transform.GetComponent<StageObject>().number_object_transform;
-        SpriteRenderer[] number_images = stage_number_transform.GetComponentsInChildren<SpriteRenderer>();
-
-        string stage_number = "";
-        foreach (var image in number_images)
-        {
-            if (image != null)
-                stage_number += image.sprite.name;
-        }
-        StageInfo.stage_number = System.Convert.ToInt32(stage_number);
+        StageInfo.stage_number = hits[0].transform.GetComponent<StageObject>().stage_number;
 
         ReadyWindow.SetActive(true);
 
-        theme_name_text.text = StageInfo.theme_name;
-        stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
+        theme_number_image.sprite = font_2_text[StageInfo.theme_number];
 
-        Sprite[] enemies_sprite = StageManager.Instance.GetEnemiesSprite();
-
-        for (int i = 0; i < enemies_sprite.Length; i++)
-            if (enemies_sprite[i])
-            {
-            }
-
-        Sprite[] rewards_sprite = StageManager.Instance.GetRewardsSprite();
-
+        if (StageInfo.stage_number >= 10)
+        {
+            stage_number_image[1].gameObject.SetActive(true);
+            stage_number_image[0].sprite = font_2_text[1];
+            stage_number_image[1].sprite = font_2_text[0];
+        }
+        else
+        {
+            stage_number_image[1].gameObject.SetActive(false);
+            stage_number_image[0].sprite = font_2_text[StageInfo.stage_number];
+        }
     }
 }

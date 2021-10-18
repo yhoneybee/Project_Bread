@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageObject : MonoBehaviour
 {
-    public Transform number_object_transform;
+    public int stage_number;
 
     [SerializeField] SpriteRenderer theme_number_image;
     [SerializeField] SpriteRenderer[] stage_number_image;
