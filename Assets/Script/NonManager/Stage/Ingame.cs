@@ -10,10 +10,12 @@ public class Ingame : MonoBehaviour
     struct Result_Window
     {
         public GameObject result_window;
-        public TextMeshProUGUI title_text;
+        public Image result_text_image;
         public GameObject reward_window;
         public Button next_button;
         public RectTransform stars_parent;
+
+        public Sprite[] result_text_sprites;
     }
     [System.Serializable]
     struct Three_Star_Limit
@@ -23,10 +25,17 @@ public class Ingame : MonoBehaviour
         public Image[] stars;
     }
 
-    // 화면 왼쪽 상단 스테이지 이름
-    [SerializeField] TextMeshProUGUI stage_name_text;
+    [SerializeField] Sprite[] theme_name_sprites;
+
+    [SerializeField] Sprite[] font_2_text;
+
+
+    // 화면 왼쪽 상단 테마 번호
+    [SerializeField] Image theme_number_image;
+    // 화면 왼쪽 상단 스테이지 번호
+    [SerializeField] Image[] stage_number_images;
     // 화면 왼쪽 상단 테마 이름
-    [SerializeField] TextMeshProUGUI theme_name_text;
+    [SerializeField] Image theme_name_image;
 
     [Space(10)]
     // 인게임 배경 오브젝트들
@@ -83,8 +92,27 @@ public class Ingame : MonoBehaviour
     bool is_game_over = false;
     void Start()
     {
-        stage_name_text.text = $"{StageInfo.theme_number} - {StageInfo.stage_number}";
-        theme_name_text.text = StageInfo.theme_name;
+        if (StageInfo.stage_number >= 10)
+        {
+            stage_number_images[1].gameObject.SetActive(true);
+
+            stage_number_images[0].sprite = font_2_text[1];
+
+            stage_number_images[1].sprite = font_2_text[0];
+            stage_number_images[1].SetNativeSize();
+            stage_number_images[1].GetComponent<RectTransform>().sizeDelta /= 1.5f;
+        }
+        else
+        {
+            stage_number_images[1].gameObject.SetActive(false);
+            stage_number_images[0].sprite = font_2_text[StageInfo.stage_number];
+        }
+        stage_number_images[0].SetNativeSize();
+        stage_number_images[0].GetComponent<RectTransform>().sizeDelta /= 1.5f;
+
+        theme_name_image.sprite = theme_name_sprites[StageInfo.theme_number - 1];
+        theme_name_image.SetNativeSize();
+        theme_name_image.GetComponent<RectTransform>().sizeDelta /= 2;
 
         backgrounds[StageInfo.theme_number - 1].SetActive(true);
         platforms[StageInfo.theme_number - 1].SetActive(true);
@@ -160,7 +188,10 @@ public class Ingame : MonoBehaviour
 
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
-            result_window.title_text.text = is_game_clear ? "게임 클리어!" : "게임 오버..";
+            Image result_text_image = result_window.result_text_image;
+            result_text_image.sprite = result_window.result_text_sprites[is_game_clear ? 0 : 1];
+            result_text_image.SetNativeSize();
+            result_text_image.GetComponent<RectTransform>().sizeDelta /= 2;
 
             foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())
             {

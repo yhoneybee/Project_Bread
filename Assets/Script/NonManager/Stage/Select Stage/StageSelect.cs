@@ -124,6 +124,7 @@ public class StageSelect : MonoBehaviour
 
         theme_number_image.sprite = font_2_text[StageInfo.theme_number];
 
+        // stage number가 10의 자리로 인한 두개 이미지 사용
         if (StageInfo.stage_number >= 10)
         {
             stage_number_image[1].gameObject.SetActive(true);
