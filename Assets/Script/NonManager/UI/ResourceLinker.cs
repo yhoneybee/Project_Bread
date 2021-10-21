@@ -6,6 +6,7 @@ using TMPro;
 
 public class ResourceLinker : MonoBehaviour
 {
+    public TextMeshProUGUI NameText;
     public TextMeshProUGUI CoinText;
     public Button AddCoinBtn;
     public TextMeshProUGUI JemText;
@@ -13,8 +14,10 @@ public class ResourceLinker : MonoBehaviour
     public TextMeshProUGUI SteminaText;
     public Button AddSteminaBtn;
 
-    private void Start()
+    private void Update()
     {
+        NameText.text = $"Lv.{GameManager.Instance.player_level} yhoneybee";
+
         CoinText.text = $"{GameManager.Instance.Coin}";
         JemText.text = $"{GameManager.Instance.Jem}";
         SteminaText.text = $"{GameManager.Instance.Stemina} / {GameManager.Instance.MaxStemina}";
