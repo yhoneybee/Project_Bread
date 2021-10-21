@@ -283,25 +283,15 @@ public abstract class Unit : MonoBehaviour
         yield return null;
     }
 
-    float angle = 0;
-    bool up;
+    float sin_value = 0;
     public virtual void Moving()
     {
-        if (angle <= -90)
-            up = true;
-        else if (angle >= 90)
-            up = false;
-
-        // ������� �ø����� ���Ʒ� ���� �о���
-        angle += Time.deltaTime * (up ? 1000 : -1000);
+        sin_value += 3;
 
         dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
 
-        // Sin �Լ��� �̿��� �� �Ʒ� ������ ����
         transform.Translate(dir.x *
-            Stat.MS *
-            Time.deltaTime *
-            new Vector2(1, Mathf.Sin(angle * Mathf.PI / 180)));
+            new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime);
     }
 
     public virtual void OnAttack(Unit taken)

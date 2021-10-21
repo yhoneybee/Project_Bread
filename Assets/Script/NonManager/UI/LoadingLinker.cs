@@ -29,7 +29,7 @@ public class LoadingLinker : MonoBehaviour
         }
     }
 
-    int speed = 1;
+    int loadSpeed = 1;
 
     private void Start()
     {
@@ -37,12 +37,12 @@ public class LoadingLinker : MonoBehaviour
     }
     private void Update()
     {
-        LoadingPersent += Time.deltaTime * speed;
+        LoadingPersent += Time.deltaTime * loadSpeed;
 
-        sin_value += 0.5f;
+        sin_value += Time.deltaTime * 50;
 
-        Logo.position += new Vector3(0, 0.005f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
+        Logo.position += new Vector3(0, 0.001f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
     }
 
-    public void SpeedMulti() => speed *= 5;
+    public void SpeedMulti() => loadSpeed *= 5;
 }
