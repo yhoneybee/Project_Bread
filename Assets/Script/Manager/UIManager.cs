@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
     public List<UnitView> UnitViews;
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
-    public List<RectTransform> ProductsParents;
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
     public UILinker Except;
@@ -95,10 +94,6 @@ public class UIManager : MonoBehaviour
         else if (ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo"))
         {
             AnimState = AnimState.IDLE;
-        }
-        else if (ButtonActions.Instance.CheckReEntering("C - 05 CashShop"))
-        {
-
         }
     }
     private void Update()

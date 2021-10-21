@@ -21,16 +21,6 @@ public class StageInfoLinker : MonoBehaviour
 
     [SerializeField] Sprite coin_sprite = null;
     [SerializeField] Sprite jem_sprite = null;
-    [SerializeField] List<Sprite> Nums = new List<Sprite>();
-    [SerializeField] List<Sprite> ThemeNames = new List<Sprite>();
-
-    [SerializeField] List<Image> Stars = new List<Image>();
-    [SerializeField] Image Where;
-    [SerializeField] Image Theme;
-    [SerializeField] Image StageTen;
-    [SerializeField] Image StageOne;
-
-    [SerializeField] SwitchSprite StarSpirtes;
 
     [SerializeField] float image_devide_value;
 
@@ -39,26 +29,6 @@ public class StageInfoLinker : MonoBehaviour
     private void Start()
     {
         SetRewards();
-
-        if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
-        {
-            var stage_data = StageManager.Instance.GetStage(StageInfo.stage_number - 1);
-
-            for (int i = 0; i < 3; i++)
-            {
-                if (stage_data.star_count > i) Stars[i].sprite = StarSpirtes.ASprite;
-                else Stars[i].sprite = StarSpirtes.BSprite;
-            }
-
-            Where.sprite = ThemeNames[StageInfo.theme_number - 1];
-
-            Theme.sprite = Nums[StageInfo.theme_number - 1];
-
-            int dev = StageInfo.stage_number / 10;
-            StageTen.sprite = Nums[dev == 0 ? 9 : dev - 1];
-            int mod = StageInfo.stage_number % 10;
-            StageOne.sprite = Nums[mod == 0 ? 9 : mod - 1];
-        }
     }
 
     public void SetRewards(bool first = true, bool three_star = true)
