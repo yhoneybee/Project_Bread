@@ -78,14 +78,17 @@ public class LevelRewardLinker : MonoBehaviour
             gg = GetComponentsInChildren<GridLayoutGroup>()[i + 1];
             reward = level_rewards[i];
 
-            gg.transform.GetChild(0).GetComponent<Image>().sprite = coin_sprite;
+            gg.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = coin_sprite;
             gg.transform.GetChild(0).gameObject.SetActive(reward_list[i].Item1 != 0);
+            gg.transform.GetChild(0).GetComponentInChildren<TMPro.TextMeshProUGUI>().text = reward_list[i].Item1.ToString();
 
-            gg.transform.GetChild(1).GetComponent<Image>().sprite = jem_sprite;
+            gg.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = jem_sprite;
             gg.transform.GetChild(1).gameObject.SetActive(reward_list[i].Item2 != 0);
+            gg.transform.GetChild(1).GetComponentInChildren<TMPro.TextMeshProUGUI>().text = reward_list[i].Item2.ToString();
 
-            gg.transform.GetChild(2).GetComponent<Image>().sprite = stemina_sprite;
+            gg.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = stemina_sprite;
             gg.transform.GetChild(2).gameObject.SetActive(reward_list[i].Item3 != 0);
+            gg.transform.GetChild(2).GetComponentInChildren<TMPro.TextMeshProUGUI>().text = reward_list[i].Item3.ToString();
 
 
             switch (level_reward_data.reward_case[i])
