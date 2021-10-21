@@ -23,6 +23,10 @@ public class LevelRewardLinker : MonoBehaviour
     [SerializeField] Sprite take_reward_sprite;
     [SerializeField] Sprite already_taked_reward_sprite;
 
+    [SerializeField] Sprite coin_sprite;
+    [SerializeField] Sprite jem_sprite;
+    [SerializeField] Sprite stemina_sprite;
+
     [SerializeField] LevelReward[] level_rewards;
 
     // Coin, Jem, Stemina
@@ -46,21 +50,9 @@ public class LevelRewardLinker : MonoBehaviour
     }
     private void Start()
     {
-        SetRewards();
     }
     void Update()
     {
-    }
-    void SetRewards()
-    {
-        System.Tuple<int, int, int> reward;
-
-        for (int i = 0; i < level_rewards.Length; i++)
-        {
-            reward = reward_list[i];
-            // AddListener ÀÎµ¦½º ¹ö±× °íÃÄ¾ßµÊ; ÁøÂ¥ °Ì³ª•¾Ä¡³é
-            level_rewards[i].button.onClick.AddListener(() => { TakeReward(reward.Item1, reward.Item2, reward.Item3, i); });
-        }
     }
     void CheckRewardsInfo()
     {
@@ -78,10 +70,23 @@ public class LevelRewardLinker : MonoBehaviour
     }
     void SetInterface()
     {
+        GridLayoutGroup gg;
         LevelReward reward;
+
         for (int i = 0; i < level_rewards.Length; i++)
         {
+            gg = GetComponentsInChildren<GridLayoutGroup>()[i + 1];
             reward = level_rewards[i];
+
+            gg.transform.GetChild(0).GetComponent<Image>().sprite = coin_sprite;
+            gg.transform.GetChild(0).gameObject.SetActive(reward_list[i].Item1 != 0);
+
+            gg.transform.GetChild(1).GetComponent<Image>().sprite = jem_sprite;
+            gg.transform.GetChild(1).gameObject.SetActive(reward_list[i].Item2 != 0);
+
+            gg.transform.GetChild(2).GetComponent<Image>().sprite = stemina_sprite;
+            gg.transform.GetChild(2).gameObject.SetActive(reward_list[i].Item3 != 0);
+
 
             switch (level_reward_data.reward_case[i])
             {
@@ -103,11 +108,12 @@ public class LevelRewardLinker : MonoBehaviour
             }
         }
     }
-    void TakeReward(int coin, int jem, int stemina, int reward_index)
+
+    public void TakeReward(int reward_index)
     {
-        GameManager.Instance.Coin += coin;
-        GameManager.Instance.Jem += jem;
-        GameManager.Instance.Stemina += stemina;
+        GameManager.Instance.Coin += reward_list[reward_index].Item1;
+        GameManager.Instance.Jem += reward_list[reward_index].Item2;
+        GameManager.Instance.Stemina += reward_list[reward_index].Item3;
 
         level_reward_data.reward_case[reward_index] = RewardCase.IS_TAKED;
 
