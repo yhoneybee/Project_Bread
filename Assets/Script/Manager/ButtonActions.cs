@@ -171,18 +171,6 @@ public class ButtonActions : MonoBehaviour
         // 데일리 보상 받는 코드
         StartCoroutine(EGetClose());
     }
-    public void RubyProductsActive(Toggle toggle)
-    {
-        UIManager.Instance.ProductsParents[0].gameObject.SetActive(toggle.isOn);
-    }
-    public void CoinProductsActive(Toggle toggle)
-    {
-        UIManager.Instance.ProductsParents[1].gameObject.SetActive(toggle.isOn);
-    }
-    public void OvenProductsActive(Toggle toggle)
-    {
-        UIManager.Instance.ProductsParents[2].gameObject.SetActive(toggle.isOn);
-    }
     IEnumerator EGetClose()
     {
         var get = UIManager.Instance.DailyUI.Get;
