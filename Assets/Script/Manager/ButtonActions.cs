@@ -148,59 +148,9 @@ public class ButtonActions : MonoBehaviour
     {
         StartCoroutine(EAppearAndHideForPivot(RT));
     }
-    public void GetDailyReward()
-    {
-        if (!fail_open && !fail_close)
-        {
-            if (GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time > System.DateTime.Now)
-            {
-                print("아직 하루가 지나지 않았습니다.");
-                StopAllCoroutines();
-                StartCoroutine(EFailText());
-            }
-            else
-            {
-                print("보상을 받고 시간을 갱신합니다");
-                GameManager.Instance.Daily.Date = System.DateTime.Now;
-                StartCoroutine(EGetOpen());
-            }
-        }
-    }
-    public void GetDaily()
-    {
-        // 데일리 보상 받는 코드
-        StartCoroutine(EGetClose());
-    }
     public void RubyProducts(Toggle toggle) => UIManager.Instance.ProductParents[0].gameObject.SetActive(toggle.isOn);
     public void CoinProducts(Toggle toggle) => UIManager.Instance.ProductParents[1].gameObject.SetActive(toggle.isOn);
     public void OvenProducts(Toggle toggle) => UIManager.Instance.ProductParents[2].gameObject.SetActive(toggle.isOn);
-    IEnumerator EGetClose()
-    {
-        var get = UIManager.Instance.DailyUI.Get;
-        // 데일리 Icon 적용
-        fail_close = true;
-        yield return StartCoroutine(GameManager.Instance.EHideUI(get.GetComponent<Image>(), UIManager.Instance.DailyUI.GetRewardText, UIManager.Instance.DailyUI.GetRewardIcon, UIManager.Instance.DailyUI.RewardBtnText));
-        get.gameObject.SetActive(false);
-        fail_open = false;
-        fail_close = false;
-        yield return null;
-    }
-    IEnumerator EGetOpen()
-    {
-        var get = UIManager.Instance.DailyUI.Get;
-        get.gameObject.SetActive(true);
-        fail_open = true;
-        yield return StartCoroutine(GameManager.Instance.EAppearUI(get.GetComponent<Image>(), UIManager.Instance.DailyUI.GetRewardText, UIManager.Instance.DailyUI.GetRewardIcon, UIManager.Instance.DailyUI.RewardBtnText));
-        yield return null;
-    }
-    IEnumerator EFailText()
-    {
-        var fail = UIManager.Instance.DailyUI.Fail;
-        fail.gameObject.SetActive(true);
-        yield return StartCoroutine(GameManager.Instance.EAppearUI(fail));
-        yield return StartCoroutine(GameManager.Instance.EHideUI(fail));
-        fail.gameObject.SetActive(false);
-    }
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
         var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();
