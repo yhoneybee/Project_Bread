@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviour
     public List<UnitView> UnitViews;
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
+    public List<RectTransform> ProductParents;
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
     public UILinker Except;
