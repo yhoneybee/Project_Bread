@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public static Unit SelectUnit;
     public static int SelectSlotIdx;
 
+    public int player_level = 1;
     public int Coin = 0;
     public int Jem = 0;
     public int Stemina = 0;
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
         {
             Coin += 50;
             Jem += 50;
+            player_level += 10;
         }
     }
 
