@@ -16,7 +16,8 @@ public class ResourceLinker : MonoBehaviour
 
     private void Update()
     {
-        NameText.text = $"Lv.{GameManager.Instance.player_level} yhoneybee";
+        if (NameText)
+            NameText.text = $"Lv.{GameManager.Instance.player_level} yhoneybee";
 
         CoinText.text = $"{GameManager.Instance.Coin}";
         JemText.text = $"{GameManager.Instance.Jem}";

@@ -6,6 +6,14 @@ TextureImporter:
       213: 7453067920663880900
     second: "\uC7A5\uAC11 _ \uC18C\uBAA8 \uC544\uC774\uCF58(\uD639\uC2DC\uBAB0\uB77C\uC11C
       \uB5A8\uC5B4\uB728\uB824\uB1A8\uC2B5\uB2C8\uB2E4)_0"
+  - first:
+      213: -9076403937031007355
+    second: "\uC7A5\uAC11 _ \uC18C\uBAA8 \uC544\uC774\uCF58(\uD639\uC2DC\uBAB0\uB77C\uC11C
+      \uB5A8\uC5B4\uB728\uB824\uB1A8\uC2B5\uB2C8\uB2E4)_1"
+  - first:
+      213: 2589289213980252166
+    second: "\uC7A5\uAC11 _ \uC18C\uBAA8 \uC544\uC774\uCF58(\uD639\uC2DC\uBAB0\uB77C\uC11C
+      \uB5A8\uC5B4\uB728\uB824\uB1A8\uC2B5\uB2C8\uB2E4)_2"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,6 +132,50 @@ TextureImporter:
       bones: []
       spriteID: 4c4a70a29cd9e6760800000000000000
       internalID: 7453067920663880900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uC7A5\uAC11 _ \uC18C\uBAA8 \uC544\uC774\uCF58(\uD639\uC2DC\uBAB0\uB77C\uC11C
+        \uB5A8\uC5B4\uB728\uB824\uB1A8\uC2B5\uB2C8\uB2E4)_1"
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 82
+        width: 67
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5835f4745b22a0280800000000000000
+      internalID: -9076403937031007355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uC7A5\uAC11 _ \uC18C\uBAA8 \uC544\uC774\uCF58(\uD639\uC2DC\uBAB0\uB77C\uC11C
+        \uB5A8\uC5B4\uB728\uB824\uB1A8\uC2B5\uB2C8\uB2E4)_2"
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 26
+        width: 100
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6081b0c42d00fe320800000000000000
+      internalID: 2589289213980252166
       vertices: []
       indices: 
       edges: []
