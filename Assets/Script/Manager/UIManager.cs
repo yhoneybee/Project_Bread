@@ -7,12 +7,8 @@ using TMPro;
 [System.Serializable]
 public struct DailyUI
 {
-    public RectTransform Get;
-    public TextMeshProUGUI GetRewardText;
-    public Image GetRewardIcon;
-    public Button GetRewardBtn;
-    public TextMeshProUGUI RewardBtnText;
-    public TextMeshProUGUI Fail;
+    public RectTransform Daily;
+    public List<DailyRewardLinker> LinkerList;
 }
 [System.Serializable]
 public struct SwitchSprite

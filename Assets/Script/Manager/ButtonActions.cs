@@ -151,6 +151,10 @@ public class ButtonActions : MonoBehaviour
     public void RubyProducts(Toggle toggle) => UIManager.Instance.ProductParents[0].gameObject.SetActive(toggle.isOn);
     public void CoinProducts(Toggle toggle) => UIManager.Instance.ProductParents[1].gameObject.SetActive(toggle.isOn);
     public void OvenProducts(Toggle toggle) => UIManager.Instance.ProductParents[2].gameObject.SetActive(toggle.isOn);
+    public void SetActiveDailyUI(bool value)
+    {
+        UIManager.Instance.DailyUI.Daily.gameObject.SetActive(value);
+    }
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
         var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();
