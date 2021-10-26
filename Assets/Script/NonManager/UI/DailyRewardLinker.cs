@@ -29,5 +29,10 @@ public class DailyRewardLinker : MonoBehaviour
     {
         isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()];
         Get.onClick.AddListener(() => { if (!isGet) isGet = true; });
+        var img = Icon.GetComponent<Image>();
+        img.SetNativeSize();
+        var glg = transform.parent.GetComponent<GridLayoutGroup>();
+        var div = (glg.cellSize.y - 10) / Icon.sizeDelta.y;
+        Icon.sizeDelta *= div;
     }
 }

@@ -155,6 +155,10 @@ public class ButtonActions : MonoBehaviour
     {
         UIManager.Instance.DailyUI.Daily.gameObject.SetActive(value);
     }
+    public void GetDailyReward()
+    {
+
+    }
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
         var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();
