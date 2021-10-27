@@ -20,14 +20,14 @@ public class DailyRewardLinker : MonoBehaviour
         {
             is_get = value;
             Already.gameObject.SetActive(is_get);
-            GameManager.Instance.Gets[transform.GetSiblingIndex()] = is_get;
+            //GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten = is_get;
         }
     }
 
 
     private void Start()
     {
-        isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()];
+        //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
         Get.onClick.AddListener(() => { if (!isGet) isGet = true; });
         var img = Icon.GetComponent<Image>();
         img.SetNativeSize();

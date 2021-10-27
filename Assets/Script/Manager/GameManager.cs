@@ -9,14 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
 
-    public List<bool> Gets { get; private set; } = new List<bool>()
-    {
-        false,false,false,false,false,false,false,
-        false,false,false,false,false,false,false,
-        false,false,false,false,false,false,false,
-        false,false,false,false,false,false,false,
-    };
-
     public List<List<Unit>> Decks { get; private set; } = new List<List<Unit>>()
     {
         new List<Unit>(){ null,null,null,null,null,null,null, },

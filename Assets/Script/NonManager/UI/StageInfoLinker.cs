@@ -11,7 +11,8 @@ public class StageInfoLinker : MonoBehaviour
     {
         Coin,
         Jem,
-        Unit
+        Unit,
+        Stemina,
     }
 
     [SerializeField] GameObject ClearPrefab;
