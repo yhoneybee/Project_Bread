@@ -5,9 +5,19 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
+[Serializable]
+public struct DailyReward
+{
+    public StageInfoLinker.Reward_Kind kind;
+    public int value;
+    public bool gotten;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
+
+    public List<DailyReward> DailyRewards = new List<DailyReward>();
 
     public List<List<Unit>> Decks { get; private set; } = new List<List<Unit>>()
     {
@@ -65,6 +75,35 @@ public class GameManager : MonoBehaviour
         {
             DateTimers[i].Date = DateTime.Now;
             DateTimers[i].Time = new TimeSpan(0, 30 * (i + 1), 0);
+        }
+
+        for (int i = 1; i <= 28; i++)
+        {
+            int div = i / 7;
+            switch (div)
+            {
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+            }
+        }
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (SaveManager.Instance.IsFile($"Deck_{i}"))
+            {
+                var load = Decks[i];
+                SaveManager.Load(ref load, $"Deck_{i}");
+            }
+            else
+            {
+                SaveManager.Save(Decks[i], $"Deck_{i}");
+            }
         }
     }
     private void Update()

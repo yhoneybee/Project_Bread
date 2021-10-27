@@ -54,7 +54,9 @@ public class SaveManager : MonoBehaviour
         //}
     }
 
-    public static void Save<T>(IEnumerable<T> save_target, string file = "")
+    public bool IsFile(string file_name) => File.Exists(file_name);
+
+    public static void Save<T>(IEnumerable<T> save_target, string file)
     {
         var datas = save_target.Cast<T>();
 
@@ -72,18 +74,18 @@ public class SaveManager : MonoBehaviour
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="load_target"></param>
-    public void Load<T>(ref List<T> load_target)
+    public static void Load<T>(ref List<T> load_target, string file)
     {
-        Text_file_name = typeof(T).Name;
-        if (!File.Exists(Text_file_name)) { DefaultSetting("Obsolete"); return; }
+        Instance.Text_file_name = file;
+        if (!File.Exists(Instance.Text_file_name)) { Instance.DefaultSetting("Obsolete"); return; }
 
-        string code = File.ReadAllText(Text_file_name);
+        string code = File.ReadAllText(Instance.Text_file_name);
         byte[] bytes = Convert.FromBase64String(code);
         string json = System.Text.Encoding.UTF8.GetString(bytes);
 
         load_target = JsonUtility.FromJson<Serialization<T>>(json).target;
 
-        print($"LOAD FROM : {Text_file_name}");
+        print($"LOAD FROM : {Instance.Text_file_name}");
     }
 
     /// <summary>
