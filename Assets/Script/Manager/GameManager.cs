@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 using TMPro;
 
 [Serializable]
@@ -77,32 +78,49 @@ public class GameManager : MonoBehaviour
             DateTimers[i].Time = new TimeSpan(0, 30 * (i + 1), 0);
         }
 
-        for (int i = 1; i <= 28; i++)
+        if (SaveManager.Instance.IsFile($"DailyRewards"))
         {
-            int div = i / 7;
-            switch (div)
+            SaveManager.Load(ref DailyRewards, "DailyRewards");
+        }
+        else
+        {
+            for (int i = 0; i < 28; i++)
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
+                int div = (i + 1) / 7;
+                switch (div)
+                {
+                    case 0:
+                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Stemina, value = 1 });
+                        break;
+                    case 1:
+                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Jem, value = 2 });
+                        break;
+                    case 2:
+                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Coin, value = 3 });
+                        break;
+                    case 3:
+                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Jem, value = 4 });
+                        break;
+                }
             }
+            SaveManager.Save(DailyRewards, "DailyRewards");
         }
 
         for (int i = 0; i < 9; i++)
         {
             if (SaveManager.Instance.IsFile($"Deck_{i}"))
             {
-                var load = Decks[i];
-                SaveManager.Load(ref load, $"Deck_{i}");
+                var loads = SaveManager.Load<string>($"Deck_{i}");
+
+                for (int j = 0; j < loads.Count(); j++)
+                {
+                    var find = UnitManager.Instance.Units.Find((o) => loads.ElementAt(j) == o.Info.Name);
+                    if (find != null) Decks[i][j] = find;
+                }
             }
             else
             {
-                SaveManager.Save(Decks[i], $"Deck_{i}");
+                SaveManager.Save(Decks[i].Select((o) => { if (o != null) { return o.Info.Name; } return "___"; }), $"Deck_{i}");
             }
         }
     }
@@ -144,5 +162,13 @@ public class GameManager : MonoBehaviour
         }
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);
         yield return null;
+    }
+
+    private void OnApplicationQuit()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            SaveManager.Save(Decks[i].Select((o) => { if (o != null) { return o.Info.Name; } return "___"; }), $"Deck_{i}");
+        }
     }
 }

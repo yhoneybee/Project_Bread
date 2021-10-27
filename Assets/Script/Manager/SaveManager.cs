@@ -54,7 +54,7 @@ public class SaveManager : MonoBehaviour
         //}
     }
 
-    public bool IsFile(string file_name) => File.Exists(file_name);
+    public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.txt");
 
     public static void Save<T>(IEnumerable<T> save_target, string file)
     {
@@ -66,6 +66,7 @@ public class SaveManager : MonoBehaviour
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
         string code = Convert.ToBase64String(bytes);
         File.WriteAllText(Instance.Text_file_name, code);
+        File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
         print($"SAVE TO : {Instance.Text_file_name}");
     }
 
