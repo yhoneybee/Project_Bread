@@ -27,7 +27,7 @@ public class Ingame : MonoBehaviour
 
     [SerializeField] Sprite[] theme_name_sprites;
 
-    [SerializeField] Sprite[] font_2_text;
+    public Sprite[] font_2_text;
 
 
     // 화면 왼쪽 상단 테마 번호

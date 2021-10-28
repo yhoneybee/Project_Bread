@@ -167,12 +167,16 @@ public abstract class Unit : MonoBehaviour
 
     Vector2 dir;
 
+    Ingame ingame;
+
     protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
         SR = GetComponent<SpriteRenderer>();
         SR.sprite = Info.Icon;
         if (Anim == null) Anim = GetComponent<Anim>();
+
+        ingame = FindObjectOfType<Ingame>();
     }
     protected virtual void Update()
     {
@@ -333,6 +337,7 @@ public abstract class Unit : MonoBehaviour
     IEnumerator TextAnimation(float damage)
     {
         GameObject textObject = Instantiate(text_object, canvas.transform);
+        textObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = ingame.font_2_text[(int)damage];
         textObject.transform.localPosition = new Vector2(UnityEngine.Random.Range(-200, 200), 300);
         textObject.GetComponentInChildren<UnityEngine.UI.Text>().text = "- " + damage.ToString();
 
