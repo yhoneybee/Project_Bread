@@ -75,12 +75,19 @@ public class GameManager : MonoBehaviour
     {
         if (SaveManager.Instance.IsFile($"DateTimers"))
         {
-            SaveManager.Load(ref DateTimers, "DateTimers");
+            var dates = SaveManager.Load<string>("DateTimers_Date");
+            var times = SaveManager.Load<string>("DateTimers_Date");
+            for (int i = 0; i < 3; i++)
+            {
+                DateTimers[i].Date = DateTime.Parse(dates.ElementAt(i));
+                DateTimers[i].Time = TimeSpan.Parse(times.ElementAt(i));
+            }
         }
         else
         {
             for (int i = 0; i < 3; i++) DateTimers.Add(new DateTimer { Date = DateTime.Now, Time = new TimeSpan(0, 30 * (i + 1), 0) });
-            SaveManager.Save(DateTimers, "DateTimers");
+            SaveManager.Save(DateTimers.Select((o) => o.Date.ToString()), "DateTimers_Date");
+            SaveManager.Save(DateTimers.Select((o) => o.Time.ToString()), "DateTimers_Time");
         }
 
         if (SaveManager.Instance.IsFile($"DailyRewards"))
