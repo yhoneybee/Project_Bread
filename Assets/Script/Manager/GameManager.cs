@@ -7,7 +7,7 @@ using System.Linq;
 using TMPro;
 
 [Serializable]
-public struct DailyReward
+public class DailyReward
 {
     public StageInfoLinker.Reward_Kind kind;
     public int value;
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public int Coin = 0;
     public int Jem = 0;
     public int Stemina = 0;
-    public int MaxStemina = 0;
+    public int MaxStemina = 20;
     public int UnBoxingCount = 11;
 
     public bool EnteredDeckView = false;
@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < 28; i++)
             {
-                int div = (i + 1) / 7;
+                int div = i / 7;
                 switch (div)
                 {
                     case 0:

@@ -981,6 +981,11 @@ MonoBehaviour:
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
   AnimImg: {fileID: 0}
+  IconSprites:
+  - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
+  - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
+  - {fileID: 0}
+  - {fileID: 7453067920663880900, guid: c2ac9335182a69044823c99eb66523c2, type: 3}
   ArrowSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}

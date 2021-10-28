@@ -1268,8 +1268,8 @@ MonoBehaviour:
   player_level: 1
   Coin: 0
   Jem: 0
-  Stemina: 0
-  MaxStemina: 0
+  Stemina: 20
+  MaxStemina: 20
   UnBoxingCount: 11
   EnteredDeckView: 0
 --- !u!4 &1952391301

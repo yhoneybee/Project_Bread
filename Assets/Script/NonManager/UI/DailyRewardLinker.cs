@@ -12,6 +12,8 @@ public class DailyRewardLinker : MonoBehaviour
     public RectTransform Already;
     public Button Get;
 
+    DailyReward DailyReward;
+
     private bool is_get;
     public bool isGet
     {
@@ -21,15 +23,50 @@ public class DailyRewardLinker : MonoBehaviour
             is_get = value;
             Already.gameObject.SetActive(is_get);
             //GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten = is_get;
+            DailyReward.gotten = is_get;
         }
     }
 
 
     private void Start()
     {
+        DailyReward = GameManager.Instance.DailyRewards[transform.GetSiblingIndex()];
         //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
-        Get.onClick.AddListener(() => { if (!isGet) isGet = true; });
+        isGet = DailyReward.gotten;
+        Get.onClick.AddListener(() => 
+        { 
+            if (!isGet)
+            {
+                isGet = true;
+
+                switch (DailyReward.kind)
+                {
+                    case StageInfoLinker.Reward_Kind.Coin:
+                        GameManager.Instance.Coin += DailyReward.value;
+                        break;
+                    case StageInfoLinker.Reward_Kind.Jem:
+                        GameManager.Instance.Jem += DailyReward.value;
+                        break;
+                    case StageInfoLinker.Reward_Kind.Unit:
+                        // NONE
+                        break;
+                    case StageInfoLinker.Reward_Kind.Stemina:
+                        GameManager.Instance.Stemina += DailyReward.value;
+                        break;
+                }
+            }
+        });
         var img = Icon.GetComponent<Image>();
+
+        img.sprite = DailyReward.kind switch
+        {
+            StageInfoLinker.Reward_Kind.Coin => UIManager.Instance.IconSprites[0],
+            StageInfoLinker.Reward_Kind.Jem => UIManager.Instance.IconSprites[1],
+            StageInfoLinker.Reward_Kind.Unit => null,
+            StageInfoLinker.Reward_Kind.Stemina => UIManager.Instance.IconSprites[3],
+            _ => null,
+        };
+
         img.SetNativeSize();
         var glg = transform.parent.GetComponent<GridLayoutGroup>();
         var div = (glg.cellSize.y - 10) / Icon.sizeDelta.y;

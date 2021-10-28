@@ -46,6 +46,8 @@ public class UIManager : MonoBehaviour
     public GameObject SquadPrefab;
     public Image AnimImg;
 
+    public Sprite[] IconSprites = new Sprite[4];
+
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
 
