@@ -61,9 +61,10 @@ public class GameManager : MonoBehaviour
 
     public readonly int theme_count = 3;
 
-    public DateTimer[] DateTimers = new DateTimer[3];
+    public List<DateTimer> DateTimers = new List<DateTimer>();
 
     public DateTimer Daily = new DateTimer { Time = new TimeSpan(24, 0, 0) };
+    public int daily_days = 0;
 
     private void Awake()
     {
@@ -72,10 +73,14 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        for (int i = 0; i < 3; i++)
+        if (SaveManager.Instance.IsFile($"DateTimers"))
         {
-            DateTimers[i].Date = DateTime.Now;
-            DateTimers[i].Time = new TimeSpan(0, 30 * (i + 1), 0);
+            SaveManager.Load(ref DateTimers, "DateTimers");
+        }
+        else
+        {
+            for (int i = 0; i < 3; i++) DateTimers.Add(new DateTimer { Date = DateTime.Now, Time = new TimeSpan(0, 30 * (i + 1), 0) });
+            SaveManager.Save(DateTimers, "DateTimers");
         }
 
         if (SaveManager.Instance.IsFile($"DailyRewards"))
