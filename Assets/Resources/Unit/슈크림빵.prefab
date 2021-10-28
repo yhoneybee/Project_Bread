@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
-    Rank: 2
+    Rank: 0
     Name: "\uC288\uD06C\uB9BC\uBE75"
     Icon: {fileID: 21300000, guid: e221665a4b78b22418bb92cf32b16cf9, type: 3}
     Id: 0
@@ -257,8 +257,8 @@ MonoBehaviour:
     DValue: 4
   Stat:
     AD: 1
-    HP: 2
-    MaxHP: 2
+    HP: 5
+    MaxHP: 5
     MS: 2
     AR: 1
     AS: 1
@@ -273,8 +273,6 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0
-  canvas: {fileID: 7157515001927662613}
-  text_object: {fileID: 2159533052665545994, guid: e791a232ac3f6fe4fbc1f0c0a37b7c53, type: 3}
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0
