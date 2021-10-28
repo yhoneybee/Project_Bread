@@ -156,7 +156,6 @@ MonoBehaviour:
     Count: 1
     Desc: "\"\uB0B4 \uD06C\uB85C\uC640\uC0C1 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 3
-    FlipX: 0
   Stat:
     AD: 1
     HP: 999
@@ -176,7 +175,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   Invincibility: 0
   canvas: {fileID: 8336555370041945777}
-  text_object: {fileID: 3997540009024140822, guid: 47d2b3066fad45747afc1dd630822ab7, type: 3}
+  text_object: {fileID: 2159533052665545994, guid: e791a232ac3f6fe4fbc1f0c0a37b7c53, type: 3}
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0

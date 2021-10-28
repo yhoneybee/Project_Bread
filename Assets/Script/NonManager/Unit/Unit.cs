@@ -155,11 +155,6 @@ public abstract class Unit : MonoBehaviour
 
     public bool Invincibility = false;
 
-    [SerializeField] Canvas canvas;
-
-    [SerializeField] GameObject text_object;
-    protected List<GameObject> texts = new List<GameObject>();
-
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
@@ -191,12 +186,6 @@ public abstract class Unit : MonoBehaviour
 
         if (Stat.HP <= 0)
         {
-            foreach (var text in texts)
-            {
-                Destroy(text);
-            }
-            texts.Clear();
-
             SR.color = Color.white;
             UnitManager.Instance.ReturnUnit(this, null);
         }
@@ -213,6 +202,7 @@ public abstract class Unit : MonoBehaviour
                     if (is_attack_able)
                     {
                         OnAttack(unit);
+                        ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
                     }
@@ -314,7 +304,6 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual IEnumerator AttackedEffect(float damage)
     {
-        StartCoroutine(TextAnimation(damage));
         if (!SR) yield break;
 
         SR.color = Color.red;
@@ -334,29 +323,6 @@ public abstract class Unit : MonoBehaviour
             }
         }
     }
-    IEnumerator TextAnimation(float damage)
-    {
-        GameObject textObject = Instantiate(text_object, canvas.transform);
-        textObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = ingame.font_2_text[(int)damage];
-        textObject.transform.localPosition = new Vector2(UnityEngine.Random.Range(-200, 200), 300);
-        textObject.GetComponentInChildren<UnityEngine.UI.Text>().text = "- " + damage.ToString();
-
-        texts.Add(textObject);
-
-        while (true)
-        {
-            textObject.transform.Translate(Vector2.up / 7);
-            yield return new WaitForSeconds(0.01f);
-
-            if (textObject.transform.localPosition.y >= 1000)
-            {
-                Destroy(textObject);
-                texts.Remove(textObject);
-                break;
-            }
-        }
-    }
-
     public abstract void OnAnimChanged();
     public abstract void OnEndFrameAnim();
 }

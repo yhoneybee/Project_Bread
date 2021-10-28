@@ -74,6 +74,9 @@ public class Ingame : MonoBehaviour
     [Space(10)]
     [SerializeField] StageInfoLinker stage_linker;
 
+    // 유닛 피격 시 뜨는 텍스트 오브젝트 프리팹
+    [SerializeField] GameObject text_object_prefab;
+
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
@@ -319,6 +322,24 @@ public class Ingame : MonoBehaviour
             current_guage = Mathf.Lerp(current_guage, target_guage, 0.2f);
 
             yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    public IEnumerator DamageTextAnimation(Vector2 position, float damage)
+    {
+        GameObject textObject = Instantiate(text_object_prefab, position, Quaternion.identity);
+        textObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = font_2_text[(int)damage];
+
+        while (true)
+        {
+            textObject.transform.Translate(Vector2.up / 7);
+            yield return new WaitForSeconds(0.01f);
+
+            if (textObject.transform.position.y >= transform.position.y + 10)
+            {
+                Destroy(textObject);
+                yield break;
+            }
         }
     }
 }

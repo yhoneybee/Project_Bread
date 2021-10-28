@@ -14,7 +14,7 @@ public class Tower : Unit
 
         float random_x, random_y;
 
-        // �¾��� �� Ÿ�� ��鸮�� �κ�
+        // 타워 흔들리는 연출
         for (int i = 0; i < 20; i++)
         {
             random_x = Random.Range(-0.1f, 0.1f);
@@ -42,10 +42,6 @@ public class Tower : Unit
     {
         if (Stat.HP <= 0)
         {
-            foreach (var text in texts)
-            {
-                Destroy(text);
-            }
             Destroy(gameObject);
         }
 
