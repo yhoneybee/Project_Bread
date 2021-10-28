@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public struct DateTimer
+[Serializable]
+public class DateTimer
 {
     public DateTime Date;
     public TimeSpan Time;

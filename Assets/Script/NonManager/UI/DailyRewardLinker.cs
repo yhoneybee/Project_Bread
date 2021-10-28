@@ -31,12 +31,17 @@ public class DailyRewardLinker : MonoBehaviour
     private void Start()
     {
         DailyReward = GameManager.Instance.DailyRewards[transform.GetSiblingIndex()];
+        var text = Count.GetComponent<TextMeshProUGUI>();
+        text.text = $"{DailyReward.value}";
         //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
         isGet = DailyReward.gotten;
-        Get.onClick.AddListener(() => 
-        { 
-            if (!isGet)
+        Get.onClick.AddListener(() =>
+        {
+            if (transform.GetSiblingIndex() == GameManager.Instance.daily_days && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
             {
+                GameManager.Instance.Daily.Date = System.DateTime.Now;
+                ++GameManager.Instance.daily_days;
+
                 isGet = true;
 
                 switch (DailyReward.kind)
