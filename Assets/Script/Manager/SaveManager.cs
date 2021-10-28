@@ -8,14 +8,13 @@ using System.Linq;
 [Serializable]
 public class Serialization<T>
 {
-    public Serialization(List<T> target) => this.target = target;
+    public Serialization(List<T> targets) => target = targets;
     public List<T> target;
 }
 
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance = null;
-    public List<Tuple<Type, string>> SaveDataInfos;
     string file_path;
     public string Text_file_name
     {
@@ -69,11 +68,14 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(Instance.Text_file_name, code);
         File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
 
-        var find = Instance.SaveDataInfos.Find((o) => o.Item2 == file);
-        if (find != null) Instance.SaveDataInfos.Add(new Tuple<Type, string>(typeof(T), file));
-
         print($"SAVE TO : {Instance.Text_file_name}");
     }
+
+    public static void SaveUnits(IEnumerable<Unit> save_units, string file) => Save(save_units.Select((o) =>
+    {
+        if (o != null) return o.Info.Name;
+        return "___";
+    }), file);
 
     /// <summary>
     /// 그냥 List의 정보 그대로 불러올때 사용하는 함수
@@ -83,7 +85,7 @@ public class SaveManager : MonoBehaviour
     public static void Load<T>(ref List<T> load_target, string file)
     {
         Instance.Text_file_name = file;
-        if (!File.Exists(Instance.Text_file_name)) { Instance.DefaultSetting("Obsolete"); return; }
+        if (!File.Exists(Instance.Text_file_name)) { return; }
 
         string code = File.ReadAllText(Instance.Text_file_name);
         byte[] bytes = Convert.FromBase64String(code);
@@ -92,6 +94,16 @@ public class SaveManager : MonoBehaviour
         load_target = JsonUtility.FromJson<Serialization<T>>(json).target;
 
         print($"LOAD FROM : {Instance.Text_file_name}");
+    }
+
+    public static void LoadUnits(ref List<Unit> load_units, string file)
+    {
+        var loads = Load<string>(file);
+        for (int i = 0; i < loads.Count(); i++)
+        {
+            var find = UnitManager.Instance.Units.Find((o) => loads.ElementAt(i) == o.Info.Name);
+            if (find != null) load_units[i] = find;
+        }
     }
 
     /// <summary>
@@ -103,7 +115,7 @@ public class SaveManager : MonoBehaviour
     public static IEnumerable<T> Load<T>(string file = "")
     {
         Instance.Text_file_name = file;
-        if (!File.Exists(Instance.Text_file_name)) { Instance.DefaultSetting(file); return null; }
+        if (!File.Exists(Instance.Text_file_name)) { return null; }
 
         string code = File.ReadAllText(Instance.Text_file_name);
         byte[] bytes = Convert.FromBase64String(code);
@@ -116,6 +128,5 @@ public class SaveManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-
     }
 }

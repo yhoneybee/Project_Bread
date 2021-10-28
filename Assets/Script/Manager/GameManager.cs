@@ -122,17 +122,12 @@ public class GameManager : MonoBehaviour
         {
             if (SaveManager.Instance.IsFile($"Deck_{i}"))
             {
-                var loads = SaveManager.Load<string>($"Deck_{i}");
-
-                for (int j = 0; j < loads.Count(); j++)
-                {
-                    var find = UnitManager.Instance.Units.Find((o) => loads.ElementAt(j) == o.Info.Name);
-                    if (find != null) Decks[i][j] = find;
-                }
+                var load = Decks[i];
+                SaveManager.LoadUnits(ref load, $"Deck_{i}");
             }
             else
             {
-                SaveManager.Save(Decks[i].Select((o) => { if (o != null) { return o.Info.Name; } return "___"; }), $"Deck_{i}");
+                SaveManager.SaveUnits(Decks[i], $"Deck_{i}");
             }
         }
     }
