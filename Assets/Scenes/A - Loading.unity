@@ -1247,6 +1247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15ea9f1591a6334bb030adfa143f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DailyRewards: []
   Items:
   - {fileID: 5586806061641731155, guid: 58c715f084a8cb747a7941623787784b, type: 3}
   - {fileID: 5339225504236965770, guid: bb2f5a5c153aabf4fb8e0dd0304b0312, type: 3}
@@ -1264,10 +1265,11 @@ MonoBehaviour:
   - {fileID: 6917443943168017846, guid: fdaa135601908dd449a7a33d76118be2, type: 3}
   - {fileID: 916560030384291169, guid: e093f9704d799f24c94175c7aaac2a81, type: 3}
   - {fileID: 3600416196861177426, guid: f1f31661336a90d41bae2d80e0b9f601, type: 3}
+  player_level: 1
   Coin: 0
   Jem: 0
-  Stemina: 0
-  MaxStemina: 0
+  Stemina: 20
+  MaxStemina: 20
   UnBoxingCount: 11
   EnteredDeckView: 0
 --- !u!4 &1952391301
