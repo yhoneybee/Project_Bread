@@ -15,6 +15,7 @@ public class Serialization<T>
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance = null;
+    public List<Tuple<Type, string>> SaveDataInfos;
     string file_path;
     public string Text_file_name
     {
@@ -67,6 +68,10 @@ public class SaveManager : MonoBehaviour
         string code = Convert.ToBase64String(bytes);
         File.WriteAllText(Instance.Text_file_name, code);
         File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
+
+        var find = Instance.SaveDataInfos.Find((o) => o.Item2 == file);
+        if (find != null) Instance.SaveDataInfos.Add(new Tuple<Type, string>(typeof(T), file));
+
         print($"SAVE TO : {Instance.Text_file_name}");
     }
 
@@ -107,5 +112,10 @@ public class SaveManager : MonoBehaviour
         print($"LOAD FROM : {Instance.Text_file_name}");
 
         return JsonUtility.FromJson<Serialization<T>>(json).target;
+    }
+
+    private void OnApplicationQuit()
+    {
+
     }
 }

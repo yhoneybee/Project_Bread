@@ -175,12 +175,4 @@ public class GameManager : MonoBehaviour
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);
         yield return null;
     }
-
-    private void OnApplicationQuit()
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            SaveManager.Save(Decks[i].Select((o) => { if (o != null) { return o.Info.Name; } return "___"; }), $"Deck_{i}");
-        }
-    }
 }
