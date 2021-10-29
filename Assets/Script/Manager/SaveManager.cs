@@ -15,15 +15,6 @@ public class Serialization<T>
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance = null;
-    string file_path;
-    public string Text_file_name
-    {
-        get { return file_path; }
-        set
-        {
-            file_path = $"{Application.persistentDataPath}/{value}.txt";
-        }
-    }
 
     private void Awake()
     {
@@ -35,47 +26,34 @@ public class SaveManager : MonoBehaviour
     {
     }
 
-    void DefaultSetting(string file)
-    {
-        //switch (file)
-        //{
-        //    case "BreadData":
-        //        foreach (var item in GameManager.Instance.All_Units)
-        //            item.Data.Count = 0;
-
-        //        Save(GameManager.Instance.All_Units.Select(o => o.Data), "BreadData");
-        //        var load = Load<BreadData>("BreadData");
-        //        for (int i = 0; i < load.Count(); i++)
-        //            GameManager.Instance.All_Units[i].Data = load.ElementAt(i);
-        //        break;
-        //    case string s when s.Contains("Deck"):
-
-        //        break;
-        //}
-    }
+    public string GetFilePath(string file) => $"{Application.persistentDataPath}/{file}.txt";
 
     public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.txt");
 
     public static void Save<T>(IEnumerable<T> save_target, string file)
     {
+        string path = Instance.GetFilePath(file);
+
         var datas = save_target.Cast<T>();
 
         string json = JsonUtility.ToJson(new Serialization<T>(datas.ToList()));
 
-        Instance.Text_file_name = file;
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
         string code = Convert.ToBase64String(bytes);
-        File.WriteAllText(Instance.Text_file_name, code);
+        File.WriteAllText(path, code);
         File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
 
-        print($"SAVE TO : {Instance.Text_file_name}");
+        print($"SAVE TO : {path}");
     }
 
-    public static void SaveUnits(IEnumerable<Unit> save_units, string file) => Save(save_units.Select((o) =>
+    public static void SaveUnits(IEnumerable<Unit> save_units, string file) => GameManager.Instance.onAutoSave += () =>
     {
-        if (o != null) return o.Info.Name;
-        return "___";
-    }), file);
+        Save(save_units.Select((o) =>
+        {
+            if (o != null) return o.Info.Name;
+            return "___";
+        }).ToList(), file);
+    };
 
     /// <summary>
     /// 그냥 List의 정보 그대로 불러올때 사용하는 함수
@@ -84,16 +62,17 @@ public class SaveManager : MonoBehaviour
     /// <param name="load_target"></param>
     public static void Load<T>(ref List<T> load_target, string file)
     {
-        Instance.Text_file_name = file;
-        if (!File.Exists(Instance.Text_file_name)) { return; }
+        string path = Instance.GetFilePath(file);
 
-        string code = File.ReadAllText(Instance.Text_file_name);
+        if (!File.Exists(path)) { return; }
+
+        string code = File.ReadAllText(path);
         byte[] bytes = Convert.FromBase64String(code);
         string json = System.Text.Encoding.UTF8.GetString(bytes);
 
         load_target = JsonUtility.FromJson<Serialization<T>>(json).target;
 
-        print($"LOAD FROM : {Instance.Text_file_name}");
+        print($"LOAD FROM : {path}");
     }
 
     public static void LoadUnits(ref List<Unit> load_units, string file)
@@ -114,19 +93,16 @@ public class SaveManager : MonoBehaviour
     /// <returns></returns>
     public static IEnumerable<T> Load<T>(string file = "")
     {
-        Instance.Text_file_name = file;
-        if (!File.Exists(Instance.Text_file_name)) { return null; }
+        string path = Instance.GetFilePath(file);
 
-        string code = File.ReadAllText(Instance.Text_file_name);
+        if (!File.Exists(path)) { return null; }
+
+        string code = File.ReadAllText(path);
         byte[] bytes = Convert.FromBase64String(code);
         string json = System.Text.Encoding.UTF8.GetString(bytes);
 
-        print($"LOAD FROM : {Instance.Text_file_name}");
+        print($"LOAD FROM : {path}");
 
         return JsonUtility.FromJson<Serialization<T>>(json).target;
-    }
-
-    private void OnApplicationQuit()
-    {
     }
 }

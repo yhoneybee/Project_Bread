@@ -31,8 +31,8 @@ public class StageManager : MonoBehaviour
             {
                 rewards[stage] = all_themes[theme].stages[stage].reward_information;
             }
-            SaveManager.Save(rewards, $"{theme}_Theme_Reward");
-
+            
+            GameManager.Instance.onAutoSave += () => { SaveManager.Save(rewards, $"{theme}_Theme_Reward"); };
         }
     }
 

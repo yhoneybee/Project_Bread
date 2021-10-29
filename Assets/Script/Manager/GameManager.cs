@@ -18,6 +18,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
 
+    public delegate void OnAutoSave();
+    OnAutoSave on_auto_save = () => { print("AUTO SAVING..."); };
+
+    public event OnAutoSave onAutoSave
+    {
+        add { on_auto_save += value; value(); }
+        remove { on_auto_save -= value; }
+    }
+
+
     public List<DailyReward> DailyRewards = new List<DailyReward>();
 
     public List<List<Unit>> Decks { get; private set; } = new List<List<Unit>>()
@@ -73,6 +83,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        StartCoroutine(EAutoSave());
+
         if (SaveManager.Instance.IsFile($"DateTimers"))
         {
             var dates = SaveManager.Load<string>("DateTimers_Date");
@@ -86,9 +98,10 @@ public class GameManager : MonoBehaviour
         else
         {
             for (int i = 0; i < 3; i++) DateTimers.Add(new DateTimer { Date = DateTime.Now, Time = new TimeSpan(0, 30 * (i + 1), 0) });
-            SaveManager.Save(DateTimers.Select((o) => o.Date.ToString()), "DateTimers_Date");
-            SaveManager.Save(DateTimers.Select((o) => o.Time.ToString()), "DateTimers_Time");
         }
+
+        onAutoSave += () => { SaveManager.Save(DateTimers.Select((o) => o.Date.ToString()), "DateTimers_Date"); };
+        onAutoSave += () => { SaveManager.Save(DateTimers.Select((o) => o.Time.ToString()), "DateTimers_Time"); };
 
         if (SaveManager.Instance.IsFile($"DailyRewards"))
         {
@@ -115,8 +128,8 @@ public class GameManager : MonoBehaviour
                         break;
                 }
             }
-            SaveManager.Save(DailyRewards, "DailyRewards");
         }
+        onAutoSave += () => { SaveManager.Save(DailyRewards, "DailyRewards"); };
 
         for (int i = 0; i < 9; i++)
         {
@@ -125,10 +138,7 @@ public class GameManager : MonoBehaviour
                 var load = Decks[i];
                 SaveManager.LoadUnits(ref load, $"Deck_{i}");
             }
-            else
-            {
-                SaveManager.SaveUnits(Decks[i], $"Deck_{i}");
-            }
+            SaveManager.SaveUnits(Decks[i], $"Deck_{i}");
         }
     }
     private void Update()
@@ -146,6 +156,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator EAutoSave()
+    {
+        var wait = new WaitForSeconds(10);
+        while (true)
+        {
+            on_auto_save();
+            yield return wait;
+        }
+    }
     public IEnumerator EAppearUI(params Graphic[] graphics)
     {
         var wait = new WaitForSeconds(0.001f);
@@ -169,5 +188,10 @@ public class GameManager : MonoBehaviour
         }
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);
         yield return null;
+    }
+
+    private void OnApplicationQuit()
+    {
+        on_auto_save();
     }
 }
