@@ -154,7 +154,7 @@ MonoBehaviour:
     Cost: 1
     Count: 50
     Desc: "\"\uB0B4 \uB808\uBAAC\uD0C0\uB974\uD2B8 \uB9DB \uC880 \uBCFC\uB798?\""
-    DValue: 3
+    DValue: 3.5
   Stat:
     AD: 1
     HP: 5
