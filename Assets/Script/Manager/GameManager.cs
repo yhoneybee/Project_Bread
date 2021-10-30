@@ -74,7 +74,17 @@ public class GameManager : MonoBehaviour
     public List<DateTimer> DateTimers = new List<DateTimer>();
 
     public DateTimer Daily = new DateTimer { Time = new TimeSpan(24, 0, 0) };
-    public int daily_days = 0;
+
+    private int daily_days = 0;
+    public int DailyDays
+    {
+        get { return daily_days; }
+        set 
+        {
+            daily_days = value;
+            daily_days %= 28;
+        }
+    }
 
     private void Awake()
     {
