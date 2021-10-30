@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
-    Rank: 3
+    Rank: 2
     Name: "\uB538\uAE30\uCF00\uC775"
     Icon: {fileID: 21300000, guid: 55dfbef37e001e54da1826149cc2ee3f, type: 3}
     Id: 0
