@@ -37,10 +37,10 @@ public class DailyRewardLinker : MonoBehaviour
         isGet = DailyReward.gotten;
         Get.onClick.AddListener(() =>
         {
-            if (transform.GetSiblingIndex() == GameManager.Instance.daily_days && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
+            if (transform.GetSiblingIndex() == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
             {
                 GameManager.Instance.Daily.Date = System.DateTime.Now;
-                ++GameManager.Instance.daily_days;
+                ++GameManager.Instance.DailyDays;
 
                 isGet = true;
 
