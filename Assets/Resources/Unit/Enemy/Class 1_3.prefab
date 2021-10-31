@@ -277,7 +277,7 @@ MonoBehaviour:
     MaxHP: 3
     MS: 1
     AR: 0.75
-    AS: 0.75
+    AS: 1
     LS: 0
     Proportionality:
       MaxHP: 0

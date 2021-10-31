@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uB9C8\uCE74\uB871"
+  m_Name: "\uCD08\uCF54\uC18C\uB77C\uBE75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 28a6519b495def942888e5eaf1900dca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea40d03879777394fbc4df1c5d2bff90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.82, y: 1.41}
+  m_Size: {x: 6.27, y: 4.38}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0060369372, y: -0.0014362335}
+  m_Offset: {x: 0.04681778, y: -0.021826506}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.82, y: 1.41}
-    newSize: {x: 1.82, y: 1.41}
+    oldSize: {x: 4.73, y: 4.18}
+    newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9789672, y: 2.1935148}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -147,21 +147,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: "\uB9C8\uCE74\uB871"
-    Icon: {fileID: 21300000, guid: 28a6519b495def942888e5eaf1900dca, type: 3}
+    Name: "\uCD08\uCF54\uC18C\uB77C\uBE75"
+    Icon: {fileID: 21300000, guid: ea40d03879777394fbc4df1c5d2bff90, type: 3}
     Id: 0
     Level: 1
-    Cost: 1
+    Cost: 4
     Count: 1
-    Desc: "\"\uB0B4 \uB9C8\uCE74\uB871 \uB9DB \uC880 \uBCFC\uB798?\""
-    DValue: 2
+    Desc: "\"\uB0B4 \uCD08\uCF54\uC18C\uB77C\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
+    DValue: 3
   Stat:
-    AD: 1
-    HP: 5
-    MaxHP: 5
-    MS: 2
+    AD: 2
+    HP: 2
+    MaxHP: 2
+    MS: 1.75
     AR: 1
-    AS: 1
+    AS: 1.25
     LS: 0
     Proportionality:
       MaxHP: 0

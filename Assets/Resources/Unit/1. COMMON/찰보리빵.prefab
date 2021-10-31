@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uB9D8\uBAA8\uC2A4\uBE75"
+  m_Name: "\uCC30\uBCF4\uB9AC\uBE75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 7df3880a014ec924fba9776bcbce6057, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f48b19e39f8cfaa44bd8e19781c65cf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,14 +103,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5, y: 2.06}
+    oldSize: {x: 2.56, y: 2.46}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.7, y: 2.3}
+  m_Size: {x: 2.7, y: 2.5}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -147,21 +147,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: "\uB9D8\uBAA8\uC2A4\uBE75"
-    Icon: {fileID: 21300000, guid: 7df3880a014ec924fba9776bcbce6057, type: 3}
+    Name: "\uCC30\uBCF4\uB9AC\uBE75"
+    Icon: {fileID: 21300000, guid: f48b19e39f8cfaa44bd8e19781c65cf6, type: 3}
     Id: 0
     Level: 1
-    Cost: 1
+    Cost: 3
     Count: 1
-    Desc: "\"\uB0B4 \uB9D8\uBAA8\uC2A4\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
+    Desc: "\"\uB0B4 \uCC30\uBCF4\uB9AC\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 2.5
   Stat:
     AD: 1
-    HP: 5
-    MaxHP: 5
-    MS: 2
+    HP: 3
+    MaxHP: 3
+    MS: 1
     AR: 1
-    AS: 1
+    AS: 0.75
     LS: 0
     Proportionality:
       MaxHP: 0
