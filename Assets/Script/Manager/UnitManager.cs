@@ -12,7 +12,12 @@ public class UnitManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Units.AddRange(Resources.LoadAll<Unit>("Unit"));
+
+        string[] paths = { "1. COMMON", "2. RARE", "3. EPIC", "4. LEGEND" };
+
+        for (int i = 0; i < paths.Length; i++)
+            Units.AddRange(Resources.LoadAll<Unit>("Unit/" + paths[i]));
+
         Units.AddRange(Resources.LoadAll<Unit>("Unit/Enemy"));
         DontDestroyOnLoad(gameObject);
     }
