@@ -13,16 +13,17 @@ public class UnitManager : MonoBehaviour
     {
         Instance = this;
 
+        DontDestroyOnLoad(gameObject);
+    }
+    private void Start()
+    {
         string[] paths = { "1. COMMON", "2. RARE", "3. EPIC", "4. LEGEND" };
 
         for (int i = 0; i < paths.Length; i++)
             Units.AddRange(Resources.LoadAll<Unit>("Unit/" + paths[i]));
 
-        Units.AddRange(Resources.LoadAll<Unit>("Unit/Enemy"));
-        DontDestroyOnLoad(gameObject);
-    }
-    private void Start()
-    {
+        for (int i = 0; i < GameManager.Instance.theme_count; i++)
+            Units.AddRange(Resources.LoadAll<Unit>($"Unit/Enemy/Theme {i + 1}"));
     }
 
     public Unit GetUnit(string name, Vector2 pos)

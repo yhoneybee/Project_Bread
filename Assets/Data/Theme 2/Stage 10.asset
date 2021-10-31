@@ -13,17 +13,93 @@ MonoBehaviour:
   m_Name: Stage 10
   m_EditorClassIdentifier: 
   wave_information:
-    wave_information:
-    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
-      delay: 2
+  - wave_information:
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
     - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
-      delay: 2
-    - unit: {fileID: 0}
-      delay: 2
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
     - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
       delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
+    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 6d657aa185727e045ba46aaf4ab9484e, type: 3}
+      delay: 1
   enemies_sprite:
   - {fileID: 21300000, guid: 6db71149c5c401148990f7b5a45bafd8, type: 3}
+  - {fileID: 21300000, guid: 071909f9cdb735e4ca276a2e6c4ea966, type: 3}
   - {fileID: 21300000, guid: 071909f9cdb735e4ca276a2e6c4ea966, type: 3}
   - {fileID: 21300000, guid: 92cd1d612051b8c4782c9af57073af72, type: 3}
   reward_information:
@@ -44,4 +120,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
   star_count: 0
   is_startable: 0
-  tower_hp: 450
+  tower_hp: 500

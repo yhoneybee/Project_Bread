@@ -70,6 +70,6 @@ MonoBehaviour:
   rewards_sprite:
   - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
-  star_count: 3
-  is_startable: 1
-  tower_hp: 250
+  star_count: 0
+  is_startable: 0
+  tower_hp: 300

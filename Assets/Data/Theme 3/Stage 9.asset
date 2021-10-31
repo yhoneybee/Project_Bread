@@ -13,18 +13,86 @@ MonoBehaviour:
   m_Name: Stage 9
   m_EditorClassIdentifier: 
   wave_information:
-    wave_information:
-    - unit: {fileID: 6664179484959452544, guid: a4e220e186b53684fa9e7063debea203, type: 3}
-      delay: 2
+  - wave_information:
     - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: b4fe0337dd42af24aa7ee27b51215f7f, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
       delay: 2
     - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
       delay: 2
-    - unit: {fileID: 0}
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
       delay: 2
+    - unit: {fileID: 7446942901188129963, guid: 9efac350e5ba8ec4e88730d1d9300e6b, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: f0e94bd47d656534c8d51b37d68f145f, type: 3}
+      delay: 2
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: f0e94bd47d656534c8d51b37d68f145f, type: 3}
+      delay: 2
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
+    - unit: {fileID: 7446942901188129963, guid: f0e94bd47d656534c8d51b37d68f145f, type: 3}
+      delay: 2
+    - unit: {fileID: -3368003319894793519, guid: 4e69dea0ee0d1044a83e052eda3bc16d, type: 3}
+      delay: 1
   enemies_sprite:
-  - {fileID: 21300000, guid: 71782afff50d2b34092aaa444f596328, type: 3}
   - {fileID: 21300000, guid: b164c92cc5222af4a96e5b3a8c1d70f3, type: 3}
+  - {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
+  - {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
   - {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
   reward_information:
     first_clear:

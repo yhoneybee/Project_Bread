@@ -13,19 +13,47 @@ MonoBehaviour:
   m_Name: Stage 4
   m_EditorClassIdentifier: 
   wave_information:
-    wave_information:
+  - wave_information:
     - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
       delay: 2
-    - unit: {fileID: 7808870912321379900, guid: f770105234162d048b3129ae3c23084d, type: 3}
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
       delay: 2
-    - unit: {fileID: 0}
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
       delay: 2
-    - unit: {fileID: 3098808460831834953, guid: 13a0b9cc73501fa4485021412e6fe2b7, type: 3}
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
       delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: 7628712235981451280, guid: f405cd48a9ae1bc479b048820e5edeb4, type: 3}
+      delay: 2
+    - unit: {fileID: 7628712235981451280, guid: 9ff784c2c1777154dbb72bae324d8f1d, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
   enemies_sprite:
   - {fileID: 21300000, guid: 6db71149c5c401148990f7b5a45bafd8, type: 3}
-  - {fileID: 21300000, guid: 071909f9cdb735e4ca276a2e6c4ea966, type: 3}
-  - {fileID: 21300000, guid: 92cd1d612051b8c4782c9af57073af72, type: 3}
+  - {fileID: 21300000, guid: 6db71149c5c401148990f7b5a45bafd8, type: 3}
   reward_information:
     first_clear:
       coin: 7
