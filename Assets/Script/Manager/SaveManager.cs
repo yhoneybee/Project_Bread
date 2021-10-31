@@ -56,7 +56,7 @@ public class SaveManager : MonoBehaviour
     };
 
     /// <summary>
-    /// ±×³É ListÀÇ Á¤º¸ ±×´ë·Î ºÒ·¯¿Ã¶§ »ç¿ëÇÏ´Â ÇÔ¼ö
+    /// ï¿½×³ï¿½ Listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Ã¶ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="load_target"></param>
@@ -86,7 +86,7 @@ public class SaveManager : MonoBehaviour
     }
 
     /// <summary>
-    /// List¾È¿¡ ¸â¹ö¿¡ Á¢±ÙÇÒ °æ¿ì ºÒ·¯¿À´Â List¸¦ returnÇÏ¿© µû·Î ´ëÀÔÇØÁà¾ß ÇÏ´Â ÇÔ¼ö
+    /// Listï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ Listï¿½ï¿½ returnï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="file"></param>
