@@ -80,7 +80,7 @@ public class Ingame : MonoBehaviour
     private List<Image> image_blinds = new List<Image>();
     private List<Text> image_cost_texts = new List<Text>();
 
-    private WaveInformation wave_data;
+    private List<WaveInformation> wave_data;
 
     Coroutine EnemySpawn = null;
     Coroutine GuageChange = null;
@@ -297,14 +297,18 @@ public class Ingame : MonoBehaviour
     {
         while (true)
         {
-            foreach (var data in wave_data.wave_information)
+            for (int i = 0; i < wave_data.Count; i++)
             {
-                if (data.unit != null)
+                foreach (var data in wave_data[i].wave_information)
                 {
-                    Unit enemy = UnitManager.Instance.GetUnit(data.unit.Info.Name, enemy_tower.transform.position);
-                    enemy.transform.SetParent(enemy_tower.transform);
+                    if (data.unit != null)
+                    {
+                        Unit enemy = UnitManager.Instance.GetUnit(data.unit.Info.Name, enemy_tower.transform.position);
+                        enemy.transform.SetParent(enemy_tower.transform);
+                    }
+                    yield return new WaitForSeconds(data.delay);
                 }
-                yield return new WaitForSeconds(data.delay);
+                yield return new WaitForSeconds(1f);
             }
         }
     }

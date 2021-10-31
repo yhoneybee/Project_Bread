@@ -44,3 +44,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
   star_count: 0
   is_startable: 0
+  tower_hp: 450

@@ -39,7 +39,7 @@ public class StageManager : MonoBehaviour
     public StageData GetStage(int theme, int stage) => all_themes[theme].stages[stage];
     public StageData GetStage(int stage) => GetStage(StageInfo.theme_number - 1, stage);
     public StageData GetStage() => GetStage(StageInfo.stage_number - 1);
-    public WaveInformation GetWaveData() => GetStage().wave_information;
+    public List<WaveInformation> GetWaveData() => GetStage().wave_information;
     public RewardInformation GetReward() => GetStage().reward_information;
     public Sprite[] GetEnemiesSprite() => GetStage().enemies_sprite;
     public Sprite[] GetRewardsSprite() => GetStage().rewards_sprite;

@@ -13,19 +13,47 @@ MonoBehaviour:
   m_Name: Stage 4
   m_EditorClassIdentifier: 
   wave_information:
-    wave_information:
+  - wave_information:
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 2
+      delay: 1
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
       delay: 2
-    - unit: {fileID: 7184538617974196193, guid: bf6e9ff92e050b24d96486df51b96eb4, type: 3}
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
       delay: 2
-    - unit: {fileID: 0}
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
       delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+  - wave_information:
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
+    - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
+      delay: 2
+    - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
+      delay: 1
   enemies_sprite:
   - {fileID: 21300000, guid: 694672819b3716845a84749ce75961ce, type: 3}
   - {fileID: 21300000, guid: ebabe1dbdf2d83947bab5915ea48b751, type: 3}
-  - {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
   reward_information:
     first_clear:
       coin: 7
@@ -42,5 +70,6 @@ MonoBehaviour:
   rewards_sprite:
   - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
-  star_count: 0
-  is_startable: 0
+  star_count: 3
+  is_startable: 1
+  tower_hp: 250

@@ -1,0 +1,35 @@
+- 테마 1 -
+stage 1 : 250
+stage 2 : 250
+stage 3 : 250
+stage 4 : 300
+stage 5 : 300
+stage 6 : 300
+stage 7 : 300
+stage 8 : 325
+stage 9 : 325
+stage 10 : 350
+
+- 테마 2 -
+stage 1 : 350
+stage 2 : 350
+stage 3 : 350
+stage 4 : 375
+stage 5 : 375
+stage 6 : 400
+stage 7 : 400
+stage 8 : 425
+stage 9 : 425
+stage 10 : 450
+
+- 테마 3-
+stage 1 : 450
+stage 2 : 450
+stage 3 : 450
+stage 4 : 475
+stage 5 : 475
+stage 6 : 500
+stage 7 : 500
+stage 8 : 525
+stage 9 : 525
+stage 10 : 550

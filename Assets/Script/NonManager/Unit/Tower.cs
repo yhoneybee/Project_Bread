@@ -36,6 +36,7 @@ public class Tower : Unit
 
     protected override void Start()
     {
+        Stat.HP = StageManager.Instance.GetStage().tower_hp;
     }
 
     protected override void Update()

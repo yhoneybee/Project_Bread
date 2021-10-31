@@ -6,7 +6,7 @@ using System;
 [CreateAssetMenu(fileName = "StageData", menuName = "Datas/StageData")]
 public class StageData : ScriptableObject
 {
-    public WaveInformation wave_information;
+    public List<WaveInformation> wave_information;
     public Sprite[] enemies_sprite;
     [Space(15)]
     public RewardInformation reward_information;
@@ -14,6 +14,8 @@ public class StageData : ScriptableObject
     [Space(15)]
     public int star_count = 0;
     public bool is_startable;
+    [Space(15)]
+    public float tower_hp;
 }
 
 [Serializable]
