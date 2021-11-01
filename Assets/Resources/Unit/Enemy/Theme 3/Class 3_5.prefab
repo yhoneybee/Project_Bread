@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.67599964, a: 1}
+  m_Sprite: {fileID: 21300000, guid: cc0e87d44acf7fb4b83db9e4e113fdb1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.72, y: 5.59}
+    oldSize: {x: 7.78, y: 8.42}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,7 +146,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: cc0e87d44acf7fb4b83db9e4e113fdb1, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 0d72333a284d52243b75ec95a68f5927, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 8903e1fc4df76c5419bce2e5ecfd8423, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: b7ff9dbbec413bf4a92b7730339f0ef7, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: bce3b7e453da3a740a3ac5a2be6dde62, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 27e6511cfb7d5954db27da521bbf10bd, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: acd6467600268ac4dae90b108d3cb3cf, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 8f0850eade600b74dad22d14bf732d6a, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 377b03d59e8fc6145954ee450df1b605, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 3605b143a70bc39438e69a570bc3a1a7, type: 3}
+    Frame: 0.05
   Hit: []
   Attack: []
 --- !u!114 &7446942901188129963
@@ -164,7 +184,7 @@ MonoBehaviour:
   Info:
     Rank: 0
     Name: 
-    Icon: {fileID: 21300000, guid: 1f8c4258533e4814b8b2869fb40ae10d, type: 3}
+    Icon: {fileID: 21300000, guid: cc0e87d44acf7fb4b83db9e4e113fdb1, type: 3}
     Id: 0
     Level: 0
     Cost: 0

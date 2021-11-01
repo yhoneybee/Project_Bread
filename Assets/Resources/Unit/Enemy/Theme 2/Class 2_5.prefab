@@ -146,7 +146,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: ccaf0fe8bb5308843b4b3ecde29dbaa7, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 670f5625c5e4f434d914033dcd16770f, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 1776cf049e97b7b4b9e7a9e1fd62fee2, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 2f5414486cfa57042ac44622b02bca1e, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: e40fc9fead4544e479dafb120ee6edaa, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 6ecc6c661deb4104e89922928663a31e, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: a6b63cfdfc4c52249912aa562569abee, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: ee4e2cfac34a5894f87945288f621261, type: 3}
+    Frame: 0.05
   Hit: []
   Attack: []
 --- !u!114 &3098808460831834953

@@ -175,7 +175,12 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (is_walk_able) Moving();
+        if (is_walk_able)
+        {
+            Moving();
+            AnimState = AnimState.WALK;
+        }
+        else AnimState = AnimState.IDLE;
 
         if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
 
@@ -202,8 +207,10 @@ public abstract class Unit : MonoBehaviour
                     if (is_attack_able)
                     {
                         OnAttack(unit);
+                        AnimState = AnimState.ATTACK;
                         ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
+                        unit.AnimState = AnimState.HIT;
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
                     }
                     break;
@@ -266,7 +273,11 @@ public abstract class Unit : MonoBehaviour
     {
         if (SF.Count == 0) return;
         if (SR) SR.sprite = SF[AnimIndex].Sprite;
-        if (time >= SF[AnimIndex].Frame) ++AnimIndex;
+        if (time >= SF[AnimIndex].Frame)
+        {
+            ++AnimIndex;
+            time = 0;
+        }
     }
 
     IEnumerator ASDelay()
