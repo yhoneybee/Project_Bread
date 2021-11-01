@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66354965aa9fcbd44929c71cda21deed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
   MonoOwner: {fileID: 0}
-  Icon: {fileID: 0}
+  Icon: {fileID: 6512107280370149855, guid: c21f54feec3525d4caf1a0d2d7ebb788, type: 3}
   Stat:
     AD: 0
     HP: 0
