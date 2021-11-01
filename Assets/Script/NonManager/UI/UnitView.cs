@@ -27,7 +27,10 @@ public class UnitView : MonoBehaviour
                 UILinker.Icon.color = Color.white;
                 UILinker.Icon.sprite = show.Info.Icon;
 
-                UIManager.Instance.FixSizeToRatio(UILinker.Icon, GetComponent<RectTransform>().sizeDelta.x - 100);
+                if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+                    UIManager.Instance.FixSizeToRatio(UILinker.Icon, GetComponent<RectTransform>().sizeDelta.x - 20);
+                else
+                    UIManager.Instance.FixSizeToRatio(UILinker.Icon, GetComponent<RectTransform>().sizeDelta.x - 100);
             }
             if (UILinker.LevelText)
             {
@@ -42,11 +45,12 @@ public class UnitView : MonoBehaviour
             {
                 if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
                     UILinker.Icon.color = Color.clear;
+                else
+                    UILinker.Icon.GetComponent<RectTransform>().sizeDelta = UILinker.IconRestore.sizeDelta;
                 UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
             }
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(false);
 
-            UILinker.Icon.GetComponent<RectTransform>().sizeDelta = UILinker.IconRestore.sizeDelta;
         }
     }
 }

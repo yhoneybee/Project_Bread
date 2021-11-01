@@ -38,13 +38,13 @@ public class DeckManager : MonoBehaviour
             UIManager.Instance.UnitViews[i].Show = Select[i];
         }
 
-        if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
-        {
-            foreach (var view in UIManager.Instance.UnitViews)
-            {
-                if (view && view.Show)
-                    view.UILinker.Icon.GetComponent<RectTransform>().sizeDelta /= view.Show.Info.DValue;
-            }
-        }
+        //if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+        //{
+        //    foreach (var view in UIManager.Instance.UnitViews)
+        //    {
+        //        if (view && view.Show)
+        //            view.UILinker.Icon.GetComponent<RectTransform>().sizeDelta /= view.Show.Info.DValue;
+        //    }
+        //}
     }
 }
