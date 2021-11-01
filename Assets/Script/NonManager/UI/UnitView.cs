@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitView : MonoBehaviour
 {
-    private Unit show;
+    [SerializeField] private Unit show;
     public Unit Show
     {
         get { return show; }
@@ -26,6 +26,8 @@ public class UnitView : MonoBehaviour
             {
                 UILinker.Icon.color = Color.white;
                 UILinker.Icon.sprite = show.Info.Icon;
+
+                UIManager.Instance.FixSizeToRatio(UILinker.Icon, GetComponent<RectTransform>().sizeDelta.x - 100);
             }
             if (UILinker.LevelText)
             {
@@ -43,6 +45,8 @@ public class UnitView : MonoBehaviour
                 UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
             }
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(false);
+
+            UILinker.Icon.GetComponent<RectTransform>().sizeDelta = UILinker.IconRestore.sizeDelta;
         }
     }
 }

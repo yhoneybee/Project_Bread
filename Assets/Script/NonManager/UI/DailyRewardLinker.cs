@@ -72,9 +72,8 @@ public class DailyRewardLinker : MonoBehaviour
             _ => null,
         };
 
-        img.SetNativeSize();
         var glg = transform.parent.GetComponent<GridLayoutGroup>();
-        var div = (glg.cellSize.y - 10) / Icon.sizeDelta.y;
-        Icon.sizeDelta *= div;
+
+        UIManager.Instance.FixSizeToRatio(img, glg.cellSize.y - 10);
     }
 }

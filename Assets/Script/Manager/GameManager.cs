@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EAutoSave()
     {
-        var wait = new WaitForSeconds(10);
+        var wait = new WaitForSeconds(60);
         while (true)
         {
             on_auto_save();

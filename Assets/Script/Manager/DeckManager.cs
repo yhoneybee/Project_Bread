@@ -35,9 +35,7 @@ public class DeckManager : MonoBehaviour
     {
         for (int i = 0; i < MaxUnits; i++)
         {
-            var view = UIManager.Instance.UnitViews[i];
-            var unit = Select[i];
-            view.Show = unit;
+            UIManager.Instance.UnitViews[i].Show = Select[i];
         }
 
         if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))

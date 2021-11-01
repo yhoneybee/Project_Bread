@@ -9,6 +9,7 @@ public class UILinker : MonoBehaviour
     public UnitView Viewer;
 
     public Image Icon;
+    public RectTransform IconRestore;
 
     public Button IconBtn;
     public Button InfoBtn;

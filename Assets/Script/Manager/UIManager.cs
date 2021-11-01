@@ -85,7 +85,8 @@ public class UIManager : MonoBehaviour
             if (select_unit && Except)
             {
                 Except.gameObject.SetActive(true);
-                Except.Icon.sprite = select_unit.Info.Icon;
+                Except.Viewer.Show = select_unit;
+                //Except.Icon.sprite = select_unit.Info.Icon;
                 var find = AllUnits.Find((o) => { return o.Show == select_unit; });
                 if (find) find.gameObject.SetActive(false);
             }
@@ -140,5 +141,44 @@ public class UIManager : MonoBehaviour
         if (SF.Count == 0) return;
         if (AnimImg) AnimImg.sprite = SF[AnimIndex].Sprite;
         if (time >= SF[AnimIndex].Frame) ++AnimIndex;
+    }
+    void FixSizeToRatioForXAxis(Image fix, float to_x_size, float a_min_x = 0.5f, float a_min_y = 0.5f, float a_max_x = 0.5f, float a_max_y = 0.5f)
+    {
+        var fixRTf = fix.GetComponent<RectTransform>();
+
+        fix.SetNativeSize();
+
+        fixRTf.anchorMax = new Vector2(a_max_x, a_max_y);
+        fixRTf.anchorMin = new Vector2(a_min_x, a_min_y);
+
+        float div = to_x_size / fixRTf.sizeDelta.x;
+        fixRTf.sizeDelta *= div;
+    }
+    void FixSizeToRatioForYAxis(Image fix, float to_y_size, float a_min_x = 0.5f, float a_min_y = 0.5f, float a_max_x = 0.5f, float a_max_y = 0.5f)
+    {
+        var fixRTf = fix.GetComponent<RectTransform>();
+
+        fix.SetNativeSize();
+
+        fixRTf.anchorMax = new Vector2(a_max_x, a_max_y);
+        fixRTf.anchorMin = new Vector2(a_min_x, a_min_y);
+
+        float div = to_y_size / fixRTf.sizeDelta.y;
+        fixRTf.sizeDelta *= div;
+    }
+    public void FixSizeToRatio(Image fix, float to_size, float a_min_x = 0.5f, float a_min_y = 0.5f, float a_max_x = 0.5f, float a_max_y = 0.5f)
+    {
+        var fixRTf = fix.GetComponent<RectTransform>();
+
+        fix.SetNativeSize();
+
+        if (fixRTf.sizeDelta.x > fixRTf.sizeDelta.y)
+        {
+            FixSizeToRatioForXAxis(fix, to_size, a_min_x, a_min_y, a_max_x, a_max_y);
+        }
+        else
+        {
+            FixSizeToRatioForYAxis(fix, to_size, a_min_x, a_min_y, a_max_x, a_max_y);
+        }
     }
 }
