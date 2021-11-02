@@ -125,7 +125,7 @@ public class Ingame : MonoBehaviour
         wave_data = StageManager.Instance.GetWaveData();
 
         EnemySpawn = StartCoroutine(SpawnEnemies());
-        GuageChange = StartCoroutine(Guage_Change());
+        //GuageChange = StartCoroutine(Guage_Change());
 
         InvokeRepeating(nameof(CountUp), 0, 1);
     }
@@ -137,6 +137,14 @@ public class Ingame : MonoBehaviour
 
         guage_slider.value = current_guage / 10;
         guage_text.text = ((int)current_guage).ToString();
+
+        if (target_guage - current_guage <= 0.05f)
+        {
+            current_guage = Mathf.Round(current_guage);
+            if (current_guage < 10)
+                target_guage = current_guage + 1;
+        }
+        current_guage += Time.deltaTime / 2;// = Mathf.Lerp(current_guage, target_guage, 0.2f);
 
         Set_Three_Star_Limit_UIs();
     }
@@ -321,7 +329,7 @@ public class Ingame : MonoBehaviour
                 current_guage = Mathf.Round(current_guage);
                 if (current_guage < 10)
                     target_guage = current_guage + 1;
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(4f);
             }
             current_guage = Mathf.Lerp(current_guage, target_guage, 0.2f);
 
