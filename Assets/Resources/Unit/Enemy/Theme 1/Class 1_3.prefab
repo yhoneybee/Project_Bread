@@ -188,12 +188,12 @@ MonoBehaviour:
     Desc: 
     DValue: 0
   Stat:
-    AD: 2
-    HP: 3
-    MaxHP: 3
-    MS: 1
+    AD: 10
+    HP: 40
+    MaxHP: 40
+    MS: 0.75
     AR: 0.75
-    AS: 1
+    AS: 0.3
     LS: 0
     Proportionality:
       MaxHP: 0
