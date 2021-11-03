@@ -25,9 +25,23 @@ public class StageTitleLinker : MonoBehaviour
 
         ThemeNum.sprite = Nums[StageInfo.theme_number - 1];
         int ten = StageInfo.stage_number / 10;
-        NumTen.sprite = Nums[ten == 0 ? 9 : ten - 1];
         int one = StageInfo.stage_number % 10;
-        NumOne.sprite = Nums[one == 0 ? 9 : one - 1];
+
+        int ten_idx = ten == 0 ? 9 : ten - 1;
+        int one_idx = one == 0 ? 9 : one - 1;
+
+        NumOne.gameObject.SetActive(true);
+
+        if (ten_idx == 9)
+        {
+            NumTen.sprite = Nums[one_idx];
+            NumOne.gameObject.SetActive(false);
+        }
+        else
+        {
+            NumTen.sprite = Nums[ten_idx];
+            NumOne.sprite = Nums[one_idx];
+        }
 
         for (int i = 0; i < 3; i++)
         {

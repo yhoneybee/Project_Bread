@@ -52,6 +52,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < 3; i++) Timer[i] = BubbleMessage[i].GetComponentInChildren<TextMeshProUGUI>();
         Skip.onClick.AddListener(() =>
         {
+            ps.Stop();
             StartCoroutine(EColoringUI(Lower, Color.clear, 10));
             StartCoroutine(EColoringUI(Upper, Color.clear, 10));
             StartCoroutine(ESkipAndShowAllResult());
@@ -118,6 +119,8 @@ public class ShopManager : MonoBehaviour
     IEnumerator EUnBoxing()
     {
         yield return StartCoroutine(EColoringUI(Fade, Color.black * 0.6588235f, 3));
+
+        Fade.raycastTarget = true;
 
         Skip.gameObject.SetActive(true);
 
@@ -235,6 +238,8 @@ public class ShopManager : MonoBehaviour
             Destroy(objs[i]);
 
         yield return StartCoroutine(EColoringUI(Fade, Color.clear, 3));
+
+        Fade.raycastTarget = false;
 
         ResetUnboxing();
         SpawnUnits.Clear();
