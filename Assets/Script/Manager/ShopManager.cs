@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.Linq;
 
 [Serializable]
 public class DateTimer
 {
     public DateTime Date;
     public TimeSpan Time;
+}
+
+[Serializable]
+public struct UpperLowerSprite
+{
+    public Sprite Upper;
+    public Sprite Lower;
 }
 
 public class ShopManager : MonoBehaviour
@@ -21,22 +29,17 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
 
-    [SerializeField] GameObject Unboxing;
-    [SerializeField] RectTransform Box;
-    [SerializeField] ParticleSystem RankParticle;
-    [SerializeField] TextMeshProUGUI RewardCount;
-    [SerializeField] RectTransform Card;
-    [SerializeField] Button NextReward;
-    [SerializeField] Image ShowUnitInCard;
-    [SerializeField] RectTransform ShowAll;
-    [SerializeField] GameObject ShowAllPrefab;
+    [SerializeField] Image Fade;
+    [SerializeField] ParticleSystem ps;
+    [SerializeField] RectTransform AllResultParent;
+    [SerializeField] GameObject ResultPrefab;
+    [SerializeField] Button Skip;
+    [SerializeField] Image Upper;
+    [SerializeField] Image Lower;
+
+    [SerializeField] List<UpperLowerSprite> UpperLowers;
 
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
-
-    Coroutine CUnBoxing;
-    Coroutine CSkipUnBoxing;
-
-    Button SkipBtn;
 
     readonly string FREE_SAPWN = "무료뽑기 까지\n";
 
@@ -47,17 +50,12 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         for (int i = 0; i < 3; i++) Timer[i] = BubbleMessage[i].GetComponentInChildren<TextMeshProUGUI>();
-
-        SkipBtn = Unboxing.transform.Find("Skip").GetComponent<Button>();
-        SkipBtn.onClick.AddListener(() =>
+        Skip.onClick.AddListener(() =>
         {
-            if (CUnBoxing != null)
-            {
-                StopAllCoroutines();
-                if (CSkipUnBoxing != null) StopCoroutine(CSkipUnBoxing);
-                CSkipUnBoxing = StartCoroutine(ESkipUnboxing());
-                SkipBtn.gameObject.SetActive(false);
-            }
+            StartCoroutine(EColoringUI(Lower, Color.clear, 10));
+            StartCoroutine(EColoringUI(Upper, Color.clear, 10));
+            StartCoroutine(ESkipAndShowAllResult());
+            Skip.gameObject.SetActive(false);
         });
     }
     private void Update()
@@ -101,234 +99,158 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < count; i++)
             SpawnUnits.Add(legends[UnityEngine.Random.Range(0, legends.Count)]);
     }
-    public void UnBoxing()
+
+    public void Unboxing()
     {
-        CUnBoxing = StartCoroutine(EUnboxing());
+        StartCoroutine(EUnBoxing());
     }
 
-    IEnumerator ESkipUnboxing()
+    public void ResetUnboxing()
     {
-        yield return StartCoroutine(EBoxMove(false));
+        StopAllCoroutines();
 
-        yield return StartCoroutine(EShowAllResult());
-
-        Image img = Unboxing.GetComponent<Image>();
-        Color color = img.color;
-
-        var wait = new WaitForSeconds(0.001f);
-
-        while (img.color.a > 0.05f)
-        {
-            img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
-            if (img.color.a < 0.3f) Unboxing.gameObject.SetActive(false);
-            yield return wait;
-        }
-        img.color = color;
-
-        SpawnUnits.Clear();
+        Fade.color = Color.clear;
+        Skip.gameObject.SetActive(false);
+        Lower.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -124);
+        Upper.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 95);
     }
-    IEnumerator EUnboxing()
+
+    IEnumerator EUnBoxing()
     {
-        Unboxing.gameObject.SetActive(true);
+        yield return StartCoroutine(EColoringUI(Fade, Color.black * 0.6588235f, 3));
+
+        Skip.gameObject.SetActive(true);
+
+        var ps_main = ps.main;
+
+        ps.Stop();
+
+        // 상자 스프라이트 바꿔줘야함 일단 기본
+
+        // 상자 투명 -> 불 투명
+        StartCoroutine(EColoringUI(Lower, Color.white, 3));
+        yield return StartCoroutine(EColoringUI(Upper, Color.white, 3));
+
+        // 상자 뚜껑 열리기
+        var upper_pos = Upper.GetComponent<RectTransform>();
+        yield return StartCoroutine(EMovingUI(Upper, (Screen.height / 2 + upper_pos.sizeDelta.y) * Vector2.up, 5000));
 
         for (int i = SpawnUnits.Count - 1; i >= 0; i--)
         {
-            RewardCount.text = $"{i + 1}";
-
-            var particle_module = RankParticle.main;
-
+            print($"IDX : {i}");
             switch (SpawnUnits[i].Info.Rank)
             {
                 case Rank.COMMON:
-                    particle_module.startColor = Color.white;
+                    ps_main.startColor = Color.white;
                     break;
                 case Rank.RARE:
-                    particle_module.startColor = new Color(0, 1, 0.9023998f, 1);
+                    ps_main.startColor = new Color(0, 1, 0.9023998f, 1);
                     break;
                 case Rank.EPIC:
-                    particle_module.startColor = new Color(0.7924528f, 0.4223923f, 0.6858099f, 1);
+                    ps_main.startColor = new Color(0.7924528f, 0.4223923f, 0.6858099f, 1);
                     break;
                 case Rank.LEGEND:
-                    particle_module.startColor = new Color(0.9617409f, 0.9716981f, 0.2704254f, 1);
+                    ps_main.startColor = new Color(0.9617409f, 0.9716981f, 0.2704254f, 1);
                     break;
             }
 
-            RankParticle.Play();
+            ps.Play();
 
-            SkipBtn.gameObject.SetActive(true);
+            yield return StartCoroutine(EClick());
 
-            yield return StartCoroutine(EWaitClick());
+            ps.Stop();
 
-            RankParticle.Stop();
-
-            yield return StartCoroutine(EHideRewardCountText());
-
-            SkipBtn.gameObject.SetActive(false);
-
-            yield return StartCoroutine(EBoxMove());
-
-            yield return StartCoroutine(EHideCard(false));
-
-            yield return StartCoroutine(EDrawing());
-
-            yield return StartCoroutine(EHideCard());
-
-            yield return StartCoroutine(EShowResult(SpawnUnits[i]));
-
-            yield return StartCoroutine(EBoxMove(false));
-
-            RewardCount.text = $"{i}";
-
-            if (i == 0)
-            {
-                yield return StartCoroutine(EShowAllResult());
-
-                Image img = Unboxing.GetComponent<Image>();
-                Color color = img.color;
-
-                var wait = new WaitForSeconds(0.001f);
-
-                while (img.color.a > 0.05f)
-                {
-                    img.color = Color.Lerp(img.color, Color.clear, Time.deltaTime * 3);
-                    if (img.color.a < 0.3f) Unboxing.gameObject.SetActive(false);
-                    yield return wait;
-                }
-                img.color = color;
-            }
-            else yield return StartCoroutine(EHideRewardCountText(false));
+            // 나온 카드 보여주기
         }
 
+        Skip.gameObject.SetActive(false);
+
+        // 상자 불 투명 -> 투명
+        StartCoroutine(EColoringUI(Lower, Color.clear, 3));
+        yield return StartCoroutine(EColoringUI(Upper, Color.clear, 3));
+
+        yield return StartCoroutine(ESkipAndShowAllResult());
+
+        yield return null;
+    }
+
+    IEnumerator EMovingUI<T>(T ui, Vector2 change_pos, float move_speed, bool isLerp = false)
+    where T : Graphic
+    {
+        var wait = new WaitForSeconds(0.0001f);
+        var uiRTf = ui.GetComponent<RectTransform>();
+
+        while (Vector2.Distance(uiRTf.anchoredPosition, change_pos) > 0.1f)
+        {
+            if (isLerp) uiRTf.anchoredPosition = Vector2.Lerp(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
+            else uiRTf.anchoredPosition = Vector2.MoveTowards(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
+            yield return wait;
+        }
+        uiRTf.anchoredPosition = change_pos;
+
+        yield return null;
+    }
+
+    IEnumerator EColoringUI<T>(T ui, Color change_color, float change_speed)
+    where T : Graphic
+    {
+        var wait = new WaitForSeconds(0.0001f);
+
+        while (Mathf.Abs(ui.color.r - change_color.r) +
+            Mathf.Abs(ui.color.g - change_color.g) +
+            Mathf.Abs(ui.color.b - change_color.b) +
+            Mathf.Abs(ui.color.a - change_color.a) > 0.005f)
+        {
+            ui.color = Color.Lerp(ui.color, change_color, Time.deltaTime * change_speed);
+            yield return wait;
+        }
+        ui.color = change_color;
+
+        yield return null;
+    }
+
+    IEnumerator ESkipAndShowAllResult()
+    {
+        var wait = new WaitForSeconds(0.5f);
+
+        List<GameObject> objs = new List<GameObject>();
+
+        for (int i = SpawnUnits.Count - 1; i >= 0; i--)
+        {
+            // 등급에 따라 뒤에서 빛나오게 하기
+            GameObject obj = Instantiate(ResultPrefab, AllResultParent, false);
+            Image img = obj.transform.GetChild(0).GetComponent<Image>();
+            var GLG = AllResultParent.GetComponent<GridLayoutGroup>();
+            img.sprite = SpawnUnits[i].Info.Icon;
+            UIManager.Instance.FixSizeToRatio(img, GLG.cellSize.x - 20);
+
+            objs.Add(obj);
+
+            yield return wait;
+        }
+
+        yield return StartCoroutine(EClick());
+
+        for (int i = 0; i < objs.Count; i++)
+            Destroy(objs[i]);
+
+        yield return StartCoroutine(EColoringUI(Fade, Color.clear, 3));
+
+        ResetUnboxing();
         SpawnUnits.Clear();
 
         yield return null;
     }
-    IEnumerator EWaitClick()
+
+    IEnumerator EClick()
     {
         var wait = new WaitForSeconds(0.001f);
+
         while (true)
         {
-            if (Input.GetMouseButton(0)) yield break;
+            if (Input.GetMouseButtonDown(0)) break;
             yield return wait;
         }
-    }
-    IEnumerator EHideRewardCountText(bool hide = true)
-    {
-        if (hide) yield return StartCoroutine(GameManager.Instance.EHideUI(RewardCount));
-        else yield return StartCoroutine(GameManager.Instance.EAppearUI(RewardCount));
         yield return null;
-    }
-    IEnumerator EBoxMove(bool down = true)
-    {
-        var wait = new WaitForSeconds(0.001f);
-        Vector2 move_to = Vector2.zero;
-        if (down)
-        {
-            move_to = new Vector2(0, Screen.height / 2 * -1 + (Box.sizeDelta.y / 2));
-            while (Box.anchoredPosition.y > move_to.y + 0.05f)
-            {
-                Box.anchoredPosition = Vector2.Lerp(Box.anchoredPosition, move_to, Time.deltaTime * 3);
-                yield return wait;
-            }
-        }
-        else
-        {
-            while (Box.anchoredPosition.y < move_to.y - 0.05f)
-            {
-                Box.anchoredPosition = Vector2.Lerp(Box.anchoredPosition, move_to, Time.deltaTime * 3);
-                yield return wait;
-            }
-        }
-
-        Box.anchoredPosition = move_to;
-
-        yield return null;
-    }
-    IEnumerator EHideCard(bool hide = true)
-    {
-        var wait = new WaitForSeconds(0.001f);
-        var img = Card.GetComponent<Image>();
-        if (hide) yield return StartCoroutine(GameManager.Instance.EHideUI(img));
-        else yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
-        yield return null;
-    }
-    IEnumerator EDrawing()
-    {
-        var wait = new WaitForSeconds(0.001f);
-
-        float rotate_force = 0;
-        Vector2 card_pos = Card.anchoredPosition;
-        Vector2 card_size = Card.sizeDelta;
-
-        while (Card.anchoredPosition.y < Screen.height / 2 - Card.sizeDelta.y)
-        {
-            rotate_force += Time.deltaTime;
-            Card.anchoredPosition = Vector2.MoveTowards(Card.anchoredPosition, Vector2.up * ((Screen.height / 2) - (Card.sizeDelta.y / 2)), 500 * Time.deltaTime);
-            Card.Rotate(Vector2.up * (rotate_force + 3));
-            Card.sizeDelta = Vector2.Lerp(Card.sizeDelta, Vector2.zero, Time.deltaTime);
-            yield return wait;
-        }
-
-        Card.anchoredPosition = card_pos;
-        Card.sizeDelta = card_size;
-
-        yield return null;
-    }
-    IEnumerator EShowResult(Unit unit)
-    {
-        var wait = new WaitForSeconds(0.001f);
-
-        var rectTf = ShowUnitInCard.GetComponent<RectTransform>();
-
-        Vector2 pos = rectTf.anchoredPosition;
-
-        while (rectTf.anchoredPosition.y > 0.05f)
-        {
-            rectTf.anchoredPosition = Vector2.Lerp(rectTf.anchoredPosition, Vector2.right * rectTf.anchoredPosition, Time.deltaTime * 3);
-            yield return wait;
-        }
-
-        yield return StartCoroutine(EWaitClick());
-
-        var img = rectTf.GetChild(0).GetComponent<Image>();
-
-        img.sprite = unit.Info.Icon;
-
-        yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
-
-        yield return StartCoroutine(EWaitClick());
-
-        yield return StartCoroutine(GameManager.Instance.EHideUI(img, ShowUnitInCard));
-
-        rectTf.anchoredPosition = pos;
-        ShowUnitInCard.color = Color.white;
-    }
-    IEnumerator EShowAllResult()
-    {
-        var wait = new WaitForSeconds(0.001f);
-        var img = ShowAll.GetComponent<Image>();
-
-        ShowAll.gameObject.SetActive(true);
-
-        yield return StartCoroutine(GameManager.Instance.EAppearUI(img));
-
-        List<GameObject> objs = new List<GameObject>();
-
-        foreach (var unit in SpawnUnits)
-        {
-            var obj = Instantiate(ShowAllPrefab, ShowAll, false);
-            var icon = obj.transform.GetChild(0).GetComponent<Image>();
-            icon.sprite = unit.Info.Icon;
-            objs.Add(obj);
-            unit.Info.Count++;
-            yield return new WaitForSeconds(0.5f);
-        }
-
-        yield return StartCoroutine(EWaitClick());
-
-        ShowAll.gameObject.SetActive(false);
-
-        for (int i = 0; i < objs.Count; i++)
-            Destroy(objs[i]);
     }
 }

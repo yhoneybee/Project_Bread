@@ -106,7 +106,7 @@ public class ButtonActions : MonoBehaviour
                 break;
         }
 
-        ShopManager.Instance.UnBoxing();
+        ShopManager.Instance.Unboxing();
     }
     public void UnBoxingTen(int rank)
     {
@@ -142,7 +142,7 @@ public class ButtonActions : MonoBehaviour
         ShopManager.Instance.AddRare(good);
         ShopManager.Instance.AddEpic(great);
 
-        ShopManager.Instance.UnBoxing();
+        ShopManager.Instance.Unboxing();
     }
     public void AppearAndHideForPivot(RectTransform RT)
     {

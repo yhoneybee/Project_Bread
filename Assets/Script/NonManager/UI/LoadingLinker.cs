@@ -25,7 +25,7 @@ public class LoadingLinker : MonoBehaviour
                 ButtonActions.Instance.ChangeScene("B - Main");
             }
             LoadingBar.value = loading_persent;
-            Persent.text = $"{loading_persent}%";
+            Persent.text = $"{(int)loading_persent}%";
         }
     }
 
