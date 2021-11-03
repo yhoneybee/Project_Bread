@@ -72,6 +72,10 @@ public class Ingame : MonoBehaviour
     // 인게임 현재 코스트 텍스트
     [SerializeField] Text guage_text;
 
+    // 카드 대기 시간 시각화할 Slider 배열
+    [Space(10)]
+    [SerializeField] Slider[] card_wait_slider;
+
     [Space(10)]
     // 7개 아군 카드 UI
     [SerializeField] List<GameObject> card_units;
@@ -193,6 +197,7 @@ public class Ingame : MonoBehaviour
     }
 
     bool[] size_animation_played = { false, false, false, false, false, false, false };
+    float[] current_time = { 0, 0, 0, 0, 0, 0, 0 };
     /// <summary>
     /// 현재 Cost에 따른 카드 구매 가능 여부를 보여주는 함수. 360도로 돌며 Fade 처리
     /// </summary>
@@ -204,18 +209,37 @@ public class Ingame : MonoBehaviour
             deck_index = card_units.IndexOf(card_unit);
             if (DeckManager.Select[deck_index])
             {
-                image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
-                image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
-
-                if (!size_animation_played[deck_index] && image_blinds[deck_index].fillAmount == 0)
+                if (is_spawned[deck_index])
                 {
-                    StartCoroutine(SizeAnimation(image_blinds[deck_index].rectTransform.parent,
-                        Vector2.one,
-                        Vector2.one * 1.2f));
-                    size_animation_played[deck_index] = true;
+                    if (current_time[deck_index] == 0)
+                        current_time[deck_index] = Time.time;
+
+                    image_blinds[deck_index].fillAmount = 1;
+
+                    card_wait_slider[deck_index].value =
+                        (Time.time - current_time[deck_index]) / 5;
                 }
-                else if (image_blinds[deck_index].fillAmount != 0) size_animation_played[deck_index] = false;
+                else
+                    image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
+
+                if (Time.time - current_time[deck_index] >= 5)
+                {
+                    current_time[deck_index] = 0;
+                    is_spawned[deck_index] = false;
+                    card_wait_slider[deck_index].gameObject.SetActive(false);
+                }
             }
+
+            image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
+
+            if (!size_animation_played[deck_index] && image_blinds[deck_index].fillAmount == 0)
+            {
+                StartCoroutine(SizeAnimation(image_blinds[deck_index].rectTransform.parent,
+                    Vector2.one,
+                    Vector2.one * 1.2f));
+                size_animation_played[deck_index] = true;
+            }
+            else if (image_blinds[deck_index].fillAmount != 0) size_animation_played[deck_index] = false;
         }
     }
 
@@ -332,6 +356,9 @@ public class Ingame : MonoBehaviour
     {
         Time.timeScale = value;
     }
+
+    // spawn 됐을 때 true, 5초 뒤 false로 바뀜
+    bool[] is_spawned = { false, false, false, false, false, false, false };
     public void SpawnBread(int index)
     {
         Unit unit = DeckManager.Select[index];
@@ -339,6 +366,9 @@ public class Ingame : MonoBehaviour
         if (current_guage < unit.Info.Cost) return;
         target_guage -= unit.Info.Cost;
         current_guage -= unit.Info.Cost;
+
+        is_spawned[index] = true;
+        card_wait_slider[index].gameObject.SetActive(true);
 
         Unit bread = UnitManager.Instance.GetUnit(unit.Info.Name, friendly_tower.transform.position);
         bread.transform.SetParent(friendly_tower.transform);

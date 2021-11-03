@@ -186,6 +186,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: 9c9e5d17909b2cb4bad70695251cbac5, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 7290e7b96e28f2f48b50f7f54708891b, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: d04f9a053cffdf84da8ea28f2012affd, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 3b377719bad23c5409b42dba39fe46aa, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: fad47de8cef09b34f86353477e98161f, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 7f4e35480ebe81e4ba5d69fa36ec7d2a, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 856be6877bd48da4ea91b5b21f17720f, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 2dd2911645279bb4195456e1ebe7cd72, type: 3}
+    Frame: 0.5
   Hit: []
   Attack: []
