@@ -2787,6 +2787,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name_text: {fileID: 1118266226}
   level_text: {fileID: 2009806522}
+  RankIcon: {fileID: 1758389628}
+  RankSprites:
+  - {fileID: 21300000, guid: 07072ac844ed5ae4489244aaf087165a, type: 3}
+  - {fileID: 21300000, guid: cc1e9b2ee170a054ab99373115895cd4, type: 3}
+  - {fileID: 21300000, guid: 1429ce7ee071c924a8d69ac32a7c349d, type: 3}
+  - {fileID: 21300000, guid: caf7332d10dd5ec47ae75d3523c569cf, type: 3}
   upgrade_cost: 1
   card_count: 1
 --- !u!1 &1102601927
@@ -2821,12 +2827,18 @@ MonoBehaviour:
   UnitViews: []
   TeamBtnLocks: []
   AllUnits: []
+  ProductParents: []
   TeamBtnLock: {fileID: 0}
   UnitNullSprite: {fileID: 0}
   Except: {fileID: 0}
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
   AnimImg: {fileID: 559321616}
+  IconSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ArrowSwitchSprite:
     ASprite: {fileID: 21300000, guid: 559002e5b9664e641940fb9679b1f8b0, type: 3}
     BSprite: {fileID: 21300000, guid: 506a939a928d7e943960f2f64d0994ce, type: 3}
@@ -2834,12 +2846,8 @@ MonoBehaviour:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
   DailyUI:
-    Get: {fileID: 0}
-    GetRewardText: {fileID: 0}
-    GetRewardIcon: {fileID: 0}
-    GetRewardBtn: {fileID: 0}
-    RewardBtnText: {fileID: 0}
-    Fail: {fileID: 0}
+    Daily: {fileID: 0}
+    LinkerList: []
 --- !u!4 &1102601929
 Transform:
   m_ObjectHideFlags: 0

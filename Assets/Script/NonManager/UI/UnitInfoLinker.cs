@@ -8,6 +8,8 @@ public class UnitInfoLinker : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI name_text;
     [SerializeField] TextMeshProUGUI level_text;
+    [SerializeField] Image RankIcon;
+    [SerializeField] List<Sprite> RankSprites = new List<Sprite>();
 
     public int upgrade_cost;
     public int card_count;
@@ -15,6 +17,7 @@ public class UnitInfoLinker : MonoBehaviour
     void Start()
     {
         SetText();
+        RankIcon.sprite = RankSprites[(int)GameManager.SelectUnit.Info.Rank];
     }
 
     void Update()
