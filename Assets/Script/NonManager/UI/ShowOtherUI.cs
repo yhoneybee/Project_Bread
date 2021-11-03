@@ -43,12 +43,17 @@ public class ShowOtherUI : MonoBehaviour
 
     IEnumerator EAppear()
     {
+        List<Vector2> move_tos = new List<Vector2>()
+        {
+            new Vector2(0,0),
+        };
         for (int i = 0; i < OtherUIs.Count; i++)
         {
             var otherUI = OtherUIs[i];
             otherUI.gameObject.SetActive(true);
 
-            Vector2 move_to = (spacing + otherUI.sizeDelta.x) * (i + 1) * (appear_right ? Vector2.right : Vector2.left);
+            Vector2 move_to = move_tos[i] + (spacing + otherUI.sizeDelta.x) * (appear_right ? Vector2.right : Vector2.left);
+            move_tos.Add(move_to);
 
             if (appear_right)
             {
@@ -83,6 +88,7 @@ public class ShowOtherUI : MonoBehaviour
             var otherUI = OtherUIs[i];
 
             Vector2 move_to = otherUI.anchoredPosition + (spacing + otherUI.sizeDelta.x) * (i + 1) * (appear_right ? Vector2.left : Vector2.right);
+            print($"H : {move_to}");
 
             if (appear_right)
             {

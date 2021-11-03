@@ -244,27 +244,15 @@ public abstract class Unit : MonoBehaviour
         {
             case AnimState.IDLE:
                 Animation(Anim.Idle);
-                if (AnimIndex == Anim.Idle.Count)
-                {
-                    AnimIndex = 0;
-                    OnEndFrameAnim();
-                }
                 break;
             case AnimState.WALK:
                 Animation(Anim.Walk);
-                if (AnimIndex == Anim.Walk.Count)
-                {
-                    AnimIndex = 0;
-                    OnEndFrameAnim();
-                }
                 break;
             case AnimState.HIT:
                 Animation(Anim.Hit);
                 if (AnimIndex == Anim.Hit.Count)
                 {
                     AnimState = AnimState.IDLE;
-                    AnimIndex = 0;
-                    OnEndFrameAnim();
                 }
                 break;
             case AnimState.ATTACK:
@@ -272,8 +260,6 @@ public abstract class Unit : MonoBehaviour
                 if (AnimIndex == Anim.Attack.Count)
                 {
                     AnimState = AnimState.IDLE;
-                    AnimIndex = 0;
-                    OnEndFrameAnim();
                 }
                 break;
         }
@@ -286,6 +272,11 @@ public abstract class Unit : MonoBehaviour
         {
             ++AnimIndex;
             time = 0;
+        }
+        if (AnimIndex == SF.Count)
+        {
+            AnimIndex = 0;
+            OnEndFrameAnim();
         }
     }
 
