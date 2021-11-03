@@ -157,8 +157,12 @@ public class Ingame : MonoBehaviour
                 StartCoroutine(SizeAnimation(guage_text.rectTransform, Vector2.one, Vector2.one * 1.2f));
             }
         }
-        // 게이지 올라가는 속도 (1초 / guage_speed)
-        current_guage += Time.deltaTime / guage_speed;
+
+        if (!is_game_clear && !is_game_over)
+        {
+            // 게이지 올라가는 속도 (1초 / guage_speed)
+            current_guage += Time.deltaTime / guage_speed;
+        }
 
         Set_Three_Star_Limit_UIs();
     }
@@ -363,7 +367,7 @@ public class Ingame : MonoBehaviour
     {
         Unit unit = DeckManager.Select[index];
 
-        if (current_guage < unit.Info.Cost) return;
+        if (current_guage < unit.Info.Cost || is_spawned[index]) return;
         target_guage -= unit.Info.Cost;
         current_guage -= unit.Info.Cost;
 
