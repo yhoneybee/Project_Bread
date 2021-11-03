@@ -13,7 +13,7 @@ public class Ingame : MonoBehaviour
         public Image result_text_image;
         public GameObject reward_window;
         public Button next_button;
-        public Image button_text_image => 
+        public Image button_text_image =>
             next_button.transform.GetChild(0).GetComponent<Image>();
         public RectTransform stars_parent;
 
@@ -148,7 +148,10 @@ public class Ingame : MonoBehaviour
         {
             current_guage = Mathf.Round(current_guage);
             if (current_guage < 10)
+            {
                 target_guage = current_guage + 1;
+                StartCoroutine(SizeAnimation(guage_text.rectTransform, Vector2.one, Vector2.one * 1.2f));
+            }
         }
         // 게이지 올라가는 속도 (1초 / guage_speed)
         current_guage += Time.deltaTime / guage_speed;
@@ -206,7 +209,7 @@ public class Ingame : MonoBehaviour
 
                 if (!size_animation_played[deck_index] && image_blinds[deck_index].fillAmount == 0)
                 {
-                    StartCoroutine(SizeAnimation(DeckManager.Select[deck_index].transform,
+                    StartCoroutine(SizeAnimation(image_blinds[deck_index].rectTransform.parent,
                         Vector2.one,
                         Vector2.one * 1.2f));
                     size_animation_played[deck_index] = true;
@@ -238,7 +241,7 @@ public class Ingame : MonoBehaviour
             result_text_image.sprite = result_window.result_text_sprites[is_game_clear ? 0 : 1];
             result_text_image.SetNativeSize();
             result_text_image.GetComponent<RectTransform>().sizeDelta /= 2;
-            result_window.button_text_image.sprite = 
+            result_window.button_text_image.sprite =
                 is_game_clear ? result_window.next_text_sprite : result_window.retry_text_sprite;
 
             // 진 팀의 유닛들을 반복하는 foreach문
@@ -381,12 +384,12 @@ public class Ingame : MonoBehaviour
         while (Vector2.Distance(tr.localScale, target_scale) > 0.001f)
         {
             tr.localScale = Vector2.Lerp(tr.localScale, target_scale, 0.5f);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.005f);
         }
 
         while (Vector2.Distance(tr.localScale, base_scale) > 0.001f)
         {
-            tr.localScale = Vector2.Lerp(tr.localScale, base_scale, 0.5f);
+            tr.localScale = Vector2.Lerp(tr.localScale, base_scale, 0.3f);
             yield return new WaitForSeconds(0.05f);
         }
     }

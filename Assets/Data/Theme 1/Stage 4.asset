@@ -15,42 +15,42 @@ MonoBehaviour:
   wave_information:
   - wave_information:
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
   - wave_information:
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
     - unit: {fileID: -887803090252092013, guid: 0915b6563d3e749418fbf2f1cb2a0a3f, type: 3}
-      delay: 2
+      delay: 4
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 1
+      delay: 3
   enemies_sprite:
   - {fileID: 21300000, guid: 694672819b3716845a84749ce75961ce, type: 3}
   - {fileID: 21300000, guid: ebabe1dbdf2d83947bab5915ea48b751, type: 3}
@@ -71,5 +71,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
   star_count: 0
-  is_startable: 0
+  is_startable: 1
   tower_hp: 300
