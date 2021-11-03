@@ -13,7 +13,12 @@ public class Ingame : MonoBehaviour
         public Image result_text_image;
         public GameObject reward_window;
         public Button next_button;
+        public Image button_text_image => 
+            next_button.transform.GetChild(0).GetComponent<Image>();
         public RectTransform stars_parent;
+
+        public Sprite next_text_sprite;
+        public Sprite retry_text_sprite;
 
         public Sprite[] result_text_sprites;
     }
@@ -233,6 +238,8 @@ public class Ingame : MonoBehaviour
             result_text_image.sprite = result_window.result_text_sprites[is_game_clear ? 0 : 1];
             result_text_image.SetNativeSize();
             result_text_image.GetComponent<RectTransform>().sizeDelta /= 2;
+            result_window.button_text_image.sprite = 
+                is_game_clear ? result_window.next_text_sprite : result_window.retry_text_sprite;
 
             // 진 팀의 유닛들을 반복하는 foreach문
             foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())

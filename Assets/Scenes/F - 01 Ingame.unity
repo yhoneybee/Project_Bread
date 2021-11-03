@@ -11611,6 +11611,8 @@ MonoBehaviour:
     reward_window: {fileID: 898297548}
     next_button: {fileID: 44790814}
     stars_parent: {fileID: 2014258225}
+    next_text_sprite: {fileID: 21300000, guid: 5ac80d96328af3c40945c79091c3ebc0, type: 3}
+    retry_text_sprite: {fileID: 21300000, guid: f0b54d614cb722b4ba4005b649d44165, type: 3}
     result_text_sprites:
     - {fileID: 21300000, guid: 13211061b99f3364683f3b698ebc41f0, type: 3}
     - {fileID: 21300000, guid: dbc9baed818437d48a258fc0163eab91, type: 3}

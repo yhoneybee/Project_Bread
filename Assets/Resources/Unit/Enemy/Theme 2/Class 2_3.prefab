@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: 
+    Name: "\uBB34\uB2F9\uBC8C\uB808"
     Icon: {fileID: 21300000, guid: 071909f9cdb735e4ca276a2e6c4ea966, type: 3}
     Id: 0
     Level: 0

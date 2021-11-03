@@ -158,11 +158,11 @@ MonoBehaviour:
   - Sprite: {fileID: 21300000, guid: a998f6736efec0b468992d7f48f941e0, type: 3}
     Frame: 0.05
   - Sprite: {fileID: 21300000, guid: 47f51ac291d6b00478dce3dad9af6142, type: 3}
-    Frame: 0.5
+    Frame: 0.05
   - Sprite: {fileID: 21300000, guid: 50997ce47ea2b2c488a122ae7d4b2a17, type: 3}
     Frame: 0.05
   - Sprite: {fileID: 21300000, guid: d5cfff0762ad7d24fbf5ac92626f56db, type: 3}
-    Frame: 0.05
+    Frame: 0.5
   Hit: []
   Attack: []
 --- !u!114 &-887803090252092013
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: 
+    Name: "\uD3EC\uD06C"
     Icon: {fileID: 21300000, guid: ebabe1dbdf2d83947bab5915ea48b751, type: 3}
     Id: 0
     Level: 0

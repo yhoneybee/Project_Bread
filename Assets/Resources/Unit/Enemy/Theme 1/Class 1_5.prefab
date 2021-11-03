@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: 
+    Name: "\uC7C1\uBC18"
     Icon: {fileID: 21300000, guid: 18d70790c0ed3224eb405d071d47fb13, type: 3}
     Id: 0
     Level: 0
