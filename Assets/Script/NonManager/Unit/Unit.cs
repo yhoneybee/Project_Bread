@@ -149,6 +149,8 @@ public abstract class Unit : MonoBehaviour
     public Anim Anim;
 
     SpriteRenderer SR;
+    Rigidbody2D rigid;
+    BoxCollider2D coll;
 
     public bool WalkAble => is_walk_able;
     public bool AttakAble => is_walk_able;
@@ -167,8 +169,15 @@ public abstract class Unit : MonoBehaviour
     protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
+
         SR = GetComponent<SpriteRenderer>();
+        rigid = GetComponent<Rigidbody2D>();
+        coll = GetComponent<BoxCollider2D>();
+
+        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
+
         SR.sprite = Info.Icon;
+
         if (Anim == null) Anim = GetComponent<Anim>();
 
         ingame = FindObjectOfType<Ingame>();
@@ -186,8 +195,8 @@ public abstract class Unit : MonoBehaviour
 
         Animator();
 
-        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR, 1 << LayerMask.NameToLayer("Unit"));
-        Debug.DrawRay(transform.position, dir * Stat.AR, Color.yellow);
+        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit")); ;
+        Debug.DrawRay(transform.position, dir * (coll.size.x / 2) + dir * Stat.AR, Color.yellow);
 
         if (Stat.HP <= 0)
         {
@@ -208,7 +217,7 @@ public abstract class Unit : MonoBehaviour
                     {
                         OnAttack(unit);
                         AnimState = AnimState.ATTACK;
-                        //ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
+                        ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
                         unit.AnimState = AnimState.HIT;
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
@@ -291,9 +300,7 @@ public abstract class Unit : MonoBehaviour
     float sin_value = 0;
     public virtual void Moving()
     {
-        sin_value += 3;
-
-        dir = UnitType == UnitType.FRIEND ? Vector2.right : Vector2.left;
+        sin_value += 5;
 
         transform.Translate(dir.x *
             new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime);

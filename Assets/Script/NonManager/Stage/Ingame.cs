@@ -125,10 +125,10 @@ public class Ingame : MonoBehaviour
         wave_data = StageManager.Instance.GetWaveData();
 
         EnemySpawn = StartCoroutine(SpawnEnemies());
-        //GuageChange = StartCoroutine(Guage_Change());
 
         InvokeRepeating(nameof(CountUp), 0, 1);
     }
+    float guage_speed = 2;
     void Update()
     {
         Check_Game_End();
@@ -138,16 +138,22 @@ public class Ingame : MonoBehaviour
         guage_slider.value = current_guage / 10;
         guage_text.text = ((int)current_guage).ToString();
 
-        if (target_guage - current_guage <= 0.05f)
+        // 게이지가 올라갔을 때 목표 게이지 설정
+        if (target_guage - current_guage <= 0.01f)
         {
             current_guage = Mathf.Round(current_guage);
             if (current_guage < 10)
                 target_guage = current_guage + 1;
         }
-        current_guage += Time.deltaTime / 2;// = Mathf.Lerp(current_guage, target_guage, 0.2f);
+        // 게이지 올라가는 속도 (1초 / guage_speed)
+        current_guage += Time.deltaTime / guage_speed;
 
         Set_Three_Star_Limit_UIs();
     }
+
+    /// <summary>
+    /// 인게임 빵 카드들 비율 맞추기 위한 함수
+    /// </summary>
     void SetUIsSize()
     {
         int card_index;
@@ -159,6 +165,8 @@ public class Ingame : MonoBehaviour
             {
                 card_image = card_unit.transform.GetChild(1).GetComponent<Image>();
                 card_image.sprite = DeckManager.Select[card_index].Info.Icon;
+
+                // 이미지 크기로 설정 후 해당 유닛의 DValue로 나눠서 일정한 비율을 맞춤
                 card_image.SetNativeSize();
                 card_image.GetComponent<RectTransform>().sizeDelta /= DeckManager.Select[card_index].Info.DValue;
             }
@@ -167,10 +175,19 @@ public class Ingame : MonoBehaviour
             image_cost_texts.Add(card_unit.GetComponentInChildren<Text>());
         }
     }
+
+    /// <summary>
+    /// 클리어 별 갯수 여부를 위한 카운트 증가 함수
+    /// </summary>
     void CountUp()
     {
         game_count++;
     }
+
+    bool[] size_animation_played = { false, false, false, false, false, false, false };
+    /// <summary>
+    /// 현재 Cost에 따른 카드 구매 가능 여부를 보여주는 함수. 360도로 돌며 Fade 처리
+    /// </summary>
     void Set_Unit_Interfaces()
     {
         int deck_index;
@@ -181,9 +198,22 @@ public class Ingame : MonoBehaviour
             {
                 image_blinds[deck_index].fillAmount = 1 - current_guage / DeckManager.Select[deck_index].Info.Cost;
                 image_cost_texts[deck_index].text = DeckManager.Select[deck_index].Info.Cost.ToString();
+
+                if (!size_animation_played[deck_index] && image_blinds[deck_index].fillAmount == 0)
+                {
+                    StartCoroutine(SizeAnimation(DeckManager.Select[deck_index].transform,
+                        Vector2.one,
+                        Vector2.one * 1.2f));
+                    size_animation_played[deck_index] = true;
+                }
+                else if (image_blinds[deck_index].fillAmount != 0) size_animation_played[deck_index] = false;
             }
         }
     }
+
+    /// <summary>
+    /// 게임 끝났는지 확인하는 함수
+    /// </summary>
     void Check_Game_End()
     {
         if (result_window.result_window.activeSelf) return;
@@ -193,17 +223,18 @@ public class Ingame : MonoBehaviour
         if (is_game_clear || is_game_over)
         {
             StopCoroutine(EnemySpawn);
-            StopCoroutine(GuageChange);
 
             CancelInvoke(nameof(CountUp));
 
             result_window.result_window.SetActive(true);
             result_window.reward_window.SetActive(is_game_clear);
+            // 게임 클리어! or 게임 오버 텍스트 이미지
             Image result_text_image = result_window.result_text_image;
             result_text_image.sprite = result_window.result_text_sprites[is_game_clear ? 0 : 1];
             result_text_image.SetNativeSize();
             result_text_image.GetComponent<RectTransform>().sizeDelta /= 2;
 
+            // 진 팀의 유닛들을 반복하는 foreach문
             foreach (var unit in (is_game_clear ? enemy_tower : friendly_tower).transform.GetComponentsInChildren<Unit>())
             {
                 Destroy(unit);
@@ -214,6 +245,8 @@ public class Ingame : MonoBehaviour
                 result_window.stars_parent.gameObject.SetActive(true);
 
                 bool is_first_clear = StageManager.Instance.GetStage().star_count == 0;
+
+                // 첫 3성 클리어일 경우 true
                 bool is_three_star_clear = current_star_count == 3 && StageManager.Instance.GetStage().star_count < 3;
 
                 stage_linker.SetRewards(is_first_clear, is_three_star_clear);
@@ -336,11 +369,55 @@ public class Ingame : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
     }
+    IEnumerator SizeAnimation(Transform tr, Vector2 base_scale, Vector2 target_scale)
+    {
+        while (Vector2.Distance(tr.localScale, target_scale) > 0.001f)
+        {
+            tr.localScale = Vector2.Lerp(tr.localScale, target_scale, 0.5f);
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        while (Vector2.Distance(tr.localScale, base_scale) > 0.001f)
+        {
+            tr.localScale = Vector2.Lerp(tr.localScale, base_scale, 0.5f);
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
 
     public IEnumerator DamageTextAnimation(Vector2 position, float damage)
     {
         GameObject textObject = Instantiate(text_object_prefab, position, Quaternion.identity);
-        textObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = font_2_text[(int)damage];
+        Transform[] object_childs =
+         {
+            textObject.transform.GetChild(0), // 10의 자리
+            textObject.transform.GetChild(1), // 1의 자리
+            textObject.transform.GetChild(2), // 소수점 아래 첫 번째 자리
+            textObject.transform.GetChild(3), // 붙임표 (-)
+            textObject.transform.GetChild(4) // 소수점 (.)
+        };
+        SpriteRenderer count_ten = object_childs[0].GetComponent<SpriteRenderer>();
+        SpriteRenderer count_one = object_childs[1].GetComponent<SpriteRenderer>();
+        SpriteRenderer count_decimal = object_childs[2].GetComponent<SpriteRenderer>();
+
+        int ten = (int)(damage / 10);
+        int one = (int)(damage - ten * 10);
+        int dec = (int)((damage - ten * 10 - one) * 10);
+
+        count_ten.sprite = font_2_text[ten];
+        if (ten == 0)
+        {
+            Destroy(count_ten.gameObject);
+            object_childs[3].localPosition = new Vector2(-0.88f, object_childs[3].localPosition.y);
+        }
+
+        count_one.sprite = font_2_text[one];
+
+        count_decimal.sprite = font_2_text[dec];
+        if (dec == 0)
+        {
+            Destroy(count_decimal.gameObject);
+            Destroy(object_childs[4].gameObject);
+        }
 
         while (true)
         {

@@ -15,15 +15,15 @@ MonoBehaviour:
   wave_information:
   - wave_information:
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 3
+      delay: 5
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 3
+      delay: 5
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 3
+      delay: 5
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 3
+      delay: 5
     - unit: {fileID: 381018342713721760, guid: ab7bc046b6d897641acfd52c75821440, type: 3}
-      delay: 3
+      delay: 5
   enemies_sprite:
   - {fileID: 21300000, guid: 694672819b3716845a84749ce75961ce, type: 3}
   reward_information:
@@ -42,6 +42,6 @@ MonoBehaviour:
   rewards_sprite:
   - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
-  star_count: 0
+  star_count: 1
   is_startable: 1
   tower_hp: 250
