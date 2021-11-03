@@ -148,9 +148,18 @@ public class ButtonActions : MonoBehaviour
     {
         StartCoroutine(EAppearAndHideForPivot(RT));
     }
-    public void RubyProducts(Toggle toggle) => UIManager.Instance.ProductParents[0].gameObject.SetActive(toggle.isOn);
-    public void CoinProducts(Toggle toggle) => UIManager.Instance.ProductParents[1].gameObject.SetActive(toggle.isOn);
-    public void OvenProducts(Toggle toggle) => UIManager.Instance.ProductParents[2].gameObject.SetActive(toggle.isOn);
+    public void RubyProducts(Toggle toggle)
+    {
+        UIManager.Instance.ProductParents[0].gameObject.SetActive(toggle.isOn);
+    }
+    public void CoinProducts(Toggle toggle)
+    {
+        UIManager.Instance.ProductParents[1].gameObject.SetActive(toggle.isOn);
+    }
+    public void OvenProducts(Toggle toggle)
+    {
+        UIManager.Instance.ProductParents[2].gameObject.SetActive(toggle.isOn);
+    }
     public void SetActiveDailyUI(bool value)
     {
         UIManager.Instance.DailyUI.Daily.gameObject.SetActive(value);
