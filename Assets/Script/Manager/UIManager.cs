@@ -91,14 +91,34 @@ public class UIManager : MonoBehaviour
                 if (find) find.gameObject.SetActive(false);
             }
         }
-        else if (ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo"))
+        else if (ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo") || ButtonActions.Instance.CheckReEntering("B - Main"))
         {
             AnimState = AnimState.IDLE;
         }
     }
     private void Update()
     {
-        Animator();
+        if (ButtonActions.Instance.CheckReEntering("B - Main"))
+        {
+            if (GameManager.Select[0])
+            {
+                if (GameManager.Select[0].Anim)
+                {
+                    AnimImg.gameObject.SetActive(true);
+                    Animation(GameManager.Select[0].Anim.Idle);
+                }
+                else
+                {
+                    AnimImg.sprite = GameManager.Select[0].Info.Icon;
+                }
+            }
+            else
+            {
+                AnimImg.gameObject.SetActive(false);
+            }
+        }
+        else
+            Animator();
     }
 
     public void Animator()
@@ -110,29 +130,15 @@ public class UIManager : MonoBehaviour
         {
             case AnimState.IDLE:
                 Animation(GameManager.SelectUnit.Anim.Idle);
-                if (AnimIndex == GameManager.SelectUnit.Anim.Idle.Count)
-                    AnimIndex = 0;
                 break;
             case AnimState.WALK:
                 Animation(GameManager.SelectUnit.Anim.Walk);
-                if (AnimIndex == GameManager.SelectUnit.Anim.Walk.Count)
-                    AnimIndex = 0;
                 break;
             case AnimState.HIT:
                 Animation(GameManager.SelectUnit.Anim.Hit);
-                if (AnimIndex == GameManager.SelectUnit.Anim.Hit.Count)
-                {
-                    AnimState = AnimState.IDLE;
-                    AnimIndex = 0;
-                }
                 break;
             case AnimState.ATTACK:
                 Animation(GameManager.SelectUnit.Anim.Attack);
-                if (AnimIndex == GameManager.SelectUnit.Anim.Attack.Count)
-                {
-                    AnimState = AnimState.IDLE;
-                    AnimIndex = 0;
-                }
                 break;
         }
     }
@@ -140,7 +146,12 @@ public class UIManager : MonoBehaviour
     {
         if (SF.Count == 0) return;
         if (AnimImg) AnimImg.sprite = SF[AnimIndex].Sprite;
-        if (time >= SF[AnimIndex].Frame) ++AnimIndex;
+        if (time >= SF[AnimIndex].Frame)
+        {
+            ++AnimIndex;
+            time = 0;
+        }
+        if (AnimIndex == SF.Count) AnimIndex = 0;
     }
     void FixSizeToRatioForXAxis(Image fix, float to_x_size, float a_min_x = 0.5f, float a_min_y = 0.5f, float a_max_x = 0.5f, float a_max_y = 0.5f)
     {
