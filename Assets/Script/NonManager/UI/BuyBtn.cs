@@ -38,11 +38,15 @@ public class BuyBtn : MonoBehaviour
             }
             else if (JemCost > 0)
             {
-                if (CoinCost <= GameManager.Instance.Jem)
+                if (JemCost <= GameManager.Instance.Jem)
                 {
                     GameManager.Instance.Jem -= JemCost;
                     buy = true;
                 }
+            }
+            else if (MoneyCost > 0)
+            {
+                buy = true;
             }
             if (buy)
             {
