@@ -171,7 +171,7 @@ MonoBehaviour:
       AD: 0
   UnitType: 0
   Items: []
-  Anim: {fileID: 0}
+  Anim: {fileID: 4763405268191549936}
   Invincibility: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:

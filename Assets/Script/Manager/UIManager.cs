@@ -93,7 +93,7 @@ public class UIManager : MonoBehaviour
         }
         else if (ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo") || ButtonActions.Instance.CheckReEntering("B - Main"))
         {
-            AnimState = AnimState.IDLE;
+            AnimState = AnimState.WALK;
         }
     }
     private void Update()
@@ -105,7 +105,8 @@ public class UIManager : MonoBehaviour
                 if (GameManager.Select[0].Anim)
                 {
                     AnimImg.gameObject.SetActive(true);
-                    Animation(GameManager.Select[0].Anim.Idle);
+                    time += Time.deltaTime;
+                    Animation(GameManager.Select[0].Anim.Walk);
                 }
                 else
                 {
