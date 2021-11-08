@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uD06C\uB85C\uC640\uC0C1"
+  m_Name: "\uAE68\uCC30\uBE75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2e7c0d3feedb1da41a951b436cf555c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac96c7b9c7b059f41964b47572d75088, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04681778, y: -0.021826506}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.35, y: 2.55}
+    oldSize: {x: 3.42, y: 2.76}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.5, y: 2.6}
+  m_Size: {x: 3.557517, y: 2.94}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -147,18 +147,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 1
-    Name: "\uD06C\uB85C\uC640\uC0C1"
-    Icon: {fileID: 21300000, guid: 2e7c0d3feedb1da41a951b436cf555c7, type: 3}
+    Name: "\uAE68\uCC30\uBE75"
+    Icon: {fileID: 21300000, guid: ac96c7b9c7b059f41964b47572d75088, type: 3}
     Id: 0
     Level: 1
     Cost: 1
     Count: 1
-    Desc: "\"\uB0B4 \uD06C\uB85C\uC640\uC0C1 \uB9DB \uC880 \uBCFC\uB798?\""
-    DValue: 3
+    Desc: "\"\uB0B4 \uAE68\uCC30\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
+    DValue: 2.5
   Stat:
     AD: 1
-    HP: 5
-    MaxHP: 5
+    HP: 2250
+    MaxHP: 2250
     MS: 2
     AR: 1
     AS: 1
@@ -186,20 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk:
-  - Sprite: {fileID: 21300000, guid: 7a46216e206468c4a9c618d1d2857698, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: d91ad4e8626ef794f8924a11b31b0508, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 88367431c6fec0144b90d2cf34700e16, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 0ee64dcc2e0a1a945bab1388e312b0a5, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 4e818abfadf26d447a4acede14f21347, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 393dafeebe1234c418685a141040827f, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: d4c857b2158691a409a4e380c81e025a, type: 3}
-    Frame: 0.5
+  Walk: []
   Hit: []
   Attack: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uCE58\uC988\uCF00\uC774\uD06C"
+  m_Name: "\uBCA0\uC774\uAE00"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 13c69b29a1711f643877747812ec0479, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06f1d75e827d0ba4a8554a4cd32043ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04681778, y: -0.021826506}
+  m_Offset: {x: -0.0007599592, y: 0.018954277}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.07, y: 1.91}
+    oldSize: {x: 2.65, y: 2.48}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 2}
+  m_Size: {x: 2.6935008, y: 2.560543}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -146,19 +146,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
-    Rank: 2
-    Name: "\uCE58\uC988\uCF00\uC774\uD06C"
-    Icon: {fileID: 21300000, guid: 13c69b29a1711f643877747812ec0479, type: 3}
+    Rank: 0
+    Name: "\uBCA0\uC774\uAE00"
+    Icon: {fileID: 21300000, guid: 06f1d75e827d0ba4a8554a4cd32043ae, type: 3}
     Id: 0
     Level: 1
     Cost: 1
     Count: 1
-    Desc: "\"\uB0B4 \uCE58\uC988\uCF00\uC774\uD06C \uB9DB \uC880 \uBCFC\uB798?\""
+    Desc: "\"\uB0B4 \uBCA0\uC774\uAE00 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 2.5
   Stat:
     AD: 1
-    HP: 5
-    MaxHP: 5
+    HP: 1300
+    MaxHP: 1300
     MS: 2
     AR: 1
     AS: 1
@@ -186,6 +186,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: 8bca20bb4222e5c4c83a95cb85fb930b, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 38c4c7f111eeed54c902005520e4e3c6, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: ce341f82c9d87c04596ca5a15f6cb01b, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 808783baf7d21b74c820ce7072b1ceb0, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: cd8fb20493e52b8479596bdbdfc63cdb, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 78c3b019caa05b54991e2e58011b25ae, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 833524fd0add50245b4e5eaaf6c3dd42, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 2653d427891084f49b44926e973e2537, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 9f77a2eecef25f443800566cc08964ec, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 35aec33232f72e84cbd649d163580702, type: 3}
+    Frame: 0.5
   Hit: []
   Attack: []

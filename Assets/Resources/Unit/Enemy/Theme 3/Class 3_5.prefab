@@ -193,8 +193,8 @@ MonoBehaviour:
     DValue: 0
   Stat:
     AD: 40
-    HP: 80
-    MaxHP: 80
+    HP: 4000
+    MaxHP: 4000
     MS: 1
     AR: 3
     AS: 0.5

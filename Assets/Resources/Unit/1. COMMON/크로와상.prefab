@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uACF5\uAC08\uBE75"
+  m_Name: "\uD06C\uB85C\uC640\uC0C1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6651597669138648231}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0003898, y: 1.0003898, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cfbd7bf07dedcb04ca5059d349bae518, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e7c0d3feedb1da41a951b436cf555c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,14 +103,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.98, y: 3.22}
+    oldSize: {x: 4.35, y: 2.55}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3.5}
+  m_Size: {x: 4.5, y: 2.6}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -147,21 +147,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: "\uACF5\uAC08\uBE75"
-    Icon: {fileID: 21300000, guid: cfbd7bf07dedcb04ca5059d349bae518, type: 3}
+    Name: "\uD06C\uB85C\uC640\uC0C1"
+    Icon: {fileID: 21300000, guid: 2e7c0d3feedb1da41a951b436cf555c7, type: 3}
     Id: 0
     Level: 1
-    Cost: 3
+    Cost: 1
     Count: 1
-    Desc: "\"\uB0B4 \uACF5\uAC08\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
+    Desc: "\"\uB0B4 \uD06C\uB85C\uC640\uC0C1 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 3
   Stat:
-    AD: 12.5
-    HP: 20
-    MaxHP: 20
+    AD: 1
+    HP: 1850
+    MaxHP: 1850
     MS: 2
     AR: 1
-    AS: 1.25
+    AS: 1
     LS: 0
     Proportionality:
       MaxHP: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
       AD: 0
   UnitType: 0
   Items: []
-  Anim: {fileID: 4763405268191549936}
+  Anim: {fileID: 0}
   Invincibility: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -186,6 +186,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: 7a46216e206468c4a9c618d1d2857698, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: d91ad4e8626ef794f8924a11b31b0508, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 88367431c6fec0144b90d2cf34700e16, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 0ee64dcc2e0a1a945bab1388e312b0a5, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 4e818abfadf26d447a4acede14f21347, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 393dafeebe1234c418685a141040827f, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: d4c857b2158691a409a4e380c81e025a, type: 3}
+    Frame: 0.5
   Hit: []
   Attack: []

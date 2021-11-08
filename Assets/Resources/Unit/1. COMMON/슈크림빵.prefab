@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   m_Layer: 6
-  m_Name: "\uD504\uB808\uCCBC"
+  m_Name: "\uC288\uD06C\uB9BC\uBE75"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 89247db7d8d59b846b028d73d9eb8c42, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e221665a4b78b22418bb92cf32b16cf9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.27, y: 4.38}
+  m_Size: {x: 4.97, y: 3.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,18 +99,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0031633377, y: -0.00040590763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.07, y: 2.82}
-    newSize: {x: 6.27, y: 4.38}
+    oldSize: {x: 4.97, y: 3.71}
+    newSize: {x: 4.97, y: 3.71}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 4.9713326, y: 3.821038}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -146,19 +146,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Info:
-    Rank: 1
-    Name: "\uD504\uB808\uCCBC"
-    Icon: {fileID: 21300000, guid: 89247db7d8d59b846b028d73d9eb8c42, type: 3}
+    Rank: 0
+    Name: "\uC288\uD06C\uB9BC\uBE75"
+    Icon: {fileID: 21300000, guid: e221665a4b78b22418bb92cf32b16cf9, type: 3}
     Id: 0
     Level: 1
     Cost: 1
     Count: 1
-    Desc: "\"\uB0B4 \uD504\uB808\uCCBC \uB9DB \uC880 \uBCFC\uB798?\""
-    DValue: 2.5
+    Desc: "\"\uB0B4 \uC288\uD06C\uB9BC\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
+    DValue: 4
   Stat:
     AD: 1
-    HP: 5
-    MaxHP: 5
+    HP: 1850
+    MaxHP: 1850
     MS: 2
     AR: 1
     AS: 1
@@ -186,6 +186,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk: []
+  Walk:
+  - Sprite: {fileID: 21300000, guid: 56ac685b79a0f37489cf2efd11965f7b, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: d1e0d2a6862cbc44fa95c42ff88d1dbb, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: db3c26b6b8e3514428572ead8eb81a64, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 57cc61036cef8574498cda541a49779c, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: ce05bc37493a8c64daa8624726de7d13, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 4c5240bc51bec7f40b289b14b0175d3e, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: ff566e30c8081c54eb044dbf3a46ddf2, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 9c1abd4c6e41cc9469b604cd9026dd67, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 4d095ea87089703429e0e58ddc051bf3, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: 9c4c1474c00acb34a9ef447f67112c30, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: d3be6502fb59a5641a2df566efde2796, type: 3}
+    Frame: 0.5
   Hit: []
   Attack: []
