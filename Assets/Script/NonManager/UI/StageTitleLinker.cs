@@ -16,14 +16,12 @@ public class StageTitleLinker : MonoBehaviour
     public Image[] Stars = new Image[3];
     public SwitchSprite StarSprite;
 
-    public Sprite[] Nums = new Sprite[10];
-
     private void Start()
     {
         var data = StageManager.Instance.GetStage();
         ThemeText.sprite = ThemeTexts[StageInfo.theme_number - 1];
 
-        ThemeNum.sprite = Nums[StageInfo.theme_number - 1];
+        ThemeNum.sprite = UIManager.Instance.Nums[StageInfo.theme_number - 1];
         int ten = StageInfo.stage_number / 10;
         int one = StageInfo.stage_number % 10;
 
@@ -34,13 +32,13 @@ public class StageTitleLinker : MonoBehaviour
 
         if (ten_idx == 9)
         {
-            NumTen.sprite = Nums[one_idx];
+            NumTen.sprite = UIManager.Instance.Nums[one_idx];
             NumOne.gameObject.SetActive(false);
         }
         else
         {
-            NumTen.sprite = Nums[ten_idx];
-            NumOne.sprite = Nums[one_idx];
+            NumTen.sprite = UIManager.Instance.Nums[ten_idx];
+            NumOne.sprite = UIManager.Instance.Nums[one_idx];
         }
 
         for (int i = 0; i < 3; i++)

@@ -23,21 +23,37 @@ public class ButtonActions : MonoBehaviour
 {
     public static ButtonActions Instance { get; private set; } = null;
 
-    bool fail_open = false;
-    bool fail_close = false;
-
     private void Awake()
     {
         Instance = this;
     }
 
     public bool CheckReEntering(string name) => name == SceneManager.GetActiveScene().name;
+
     public void GoHome()
     {
         SceneManager.LoadScene("B - Main");
     }
+
     public void ChangeScene(string name)
     {
+        StopAllCoroutines();
+        UIManager.Instance.Fade.color = Color.clear;
+        StartCoroutine(EChangeScene(name));
+    }
+
+    IEnumerator EChangeScene(string name)
+    {
+        var fade_img = UIManager.Instance.Fade;
+        var wait = new WaitForSeconds(0.001f);
+
+        while (fade_img.color.a < 0.95)
+        {
+            fade_img.color = Color.Lerp(fade_img.color, Color.black, Time.deltaTime * 3);
+            yield return wait;
+        }
+        fade_img.color = Color.black;
+
         if (CheckReEntering("E - 01 DeckView")) GameManager.Instance.EnteredDeckView = true;
         else if (CheckReEntering("D - 01 StageSelect")) GameManager.Instance.EnteredDeckView = false;
 
@@ -45,11 +61,14 @@ public class ButtonActions : MonoBehaviour
         {
             GameManager.Instance.EnteredDeckView = false;
             ChangeScene("E - 01 DeckView");
-            return;
+            yield break;
         }
 
         SceneManager.LoadScene(name);
+
+        yield return null;
     }
+
     public void SetThemeNumber(int theme_number)
     {
         string[] theme_names = { "밝은 오븐", "넓은 등판", "음침한 숲", "???", "업데이트 예정" };
@@ -57,19 +76,23 @@ public class ButtonActions : MonoBehaviour
         StageInfo.theme_number = theme_number;
         StageInfo.theme_name = theme_names[theme_number - 1];
     }
+
     public void ChangeDeck(int index)
     {
         GameManager.Instance.Index = index;
     }
+
     public void ExceptUnit()
     {
         GameManager.Select[GameManager.SelectSlotIdx] = null;
         ChangeScene("C - 03 DeckSelect");
     }
+
     public void ChangeAnimState(int index)
     {
         UIManager.Instance.AnimState = (AnimState)index;
     }
+
     public void DoForPersent(params DoActionForPersent[] persent_actions)
     {
         int persent = Random.Range(1, 101);
@@ -79,6 +102,7 @@ public class ButtonActions : MonoBehaviour
                 persent_actions[i].Action();
         }
     }
+
     public void UnBoxingOne(int rank)
     {
         switch (rank)
@@ -108,6 +132,7 @@ public class ButtonActions : MonoBehaviour
 
         ShopManager.Instance.Unboxing();
     }
+
     public void UnBoxingTen(int rank)
     {
         int persent_max = GameManager.Instance.UnBoxingCount + 1;
@@ -144,30 +169,37 @@ public class ButtonActions : MonoBehaviour
 
         ShopManager.Instance.Unboxing();
     }
+
     public void AppearAndHideForPivot(RectTransform RT)
     {
         StartCoroutine(EAppearAndHideForPivot(RT));
     }
+
     public void RubyProducts(Toggle toggle)
     {
         UIManager.Instance.ProductParents[0].gameObject.SetActive(toggle.isOn);
     }
+
     public void CoinProducts(Toggle toggle)
     {
         UIManager.Instance.ProductParents[1].gameObject.SetActive(toggle.isOn);
     }
+
     public void OvenProducts(Toggle toggle)
     {
         UIManager.Instance.ProductParents[2].gameObject.SetActive(toggle.isOn);
     }
+
     public void SetActiveDailyUI(bool value)
     {
         UIManager.Instance.DailyUI.Daily.gameObject.SetActive(value);
     }
+
     public void GetDailyReward()
     {
 
     }
+
     IEnumerator EAppearAndHideForPivot(RectTransform RT)
     {
         var arrow = RT.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image>();

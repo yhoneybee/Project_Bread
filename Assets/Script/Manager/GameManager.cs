@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     public int DailyDays
     {
         get { return daily_days; }
-        set 
+        set
         {
             daily_days = value;
             daily_days %= 28;

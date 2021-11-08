@@ -39,9 +39,11 @@ public class UIManager : MonoBehaviour
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
     public List<RectTransform> ProductParents;
+    public Sprite[] Nums = new Sprite[10];
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
     public UILinker Except;
+    public Image Fade;
     public RectTransform Content;
     public GameObject SquadPrefab;
     public Image AnimImg;
@@ -62,6 +64,12 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        if (!ButtonActions.Instance.CheckReEntering("A - Loading"))
+        {
+            Fade.color = Color.black;
+            StartCoroutine(GameManager.Instance.EHideUI(Fade));
+        }
+
         if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
         {
             var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND; });
