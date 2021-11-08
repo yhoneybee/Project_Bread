@@ -21,11 +21,17 @@ public class LoadingLinker : MonoBehaviour
             loading_persent = value;
             if (loading_persent >= 100)
             {
-                loading_persent = 100;
+                LoadingBar.value = loading_persent;
+                Persent.text = $"{(int)loading_persent}%";
+
+                loading_persent = -9999999;
                 ButtonActions.Instance.ChangeScene("B - Main");
             }
-            LoadingBar.value = loading_persent;
-            Persent.text = $"{(int)loading_persent}%";
+            else if (loading_persent > 0)
+            {
+                LoadingBar.value = loading_persent;
+                Persent.text = $"{(int)loading_persent}%";
+            }
         }
     }
 
