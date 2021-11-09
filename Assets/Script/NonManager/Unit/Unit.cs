@@ -152,6 +152,8 @@ public abstract class Unit : MonoBehaviour
     Rigidbody2D rigid;
     BoxCollider2D coll;
 
+    public int Need => (Info.Level + 9) * Info.Level;
+
     public bool WalkAble => is_walk_able;
     public bool AttakAble => is_walk_able;
 

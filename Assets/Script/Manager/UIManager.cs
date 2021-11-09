@@ -62,6 +62,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
     }
+
     private void Start()
     {
         if (!ButtonActions.Instance.CheckReEntering("A - Loading"))

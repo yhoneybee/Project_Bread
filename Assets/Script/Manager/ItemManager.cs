@@ -32,6 +32,9 @@ public class ItemManager : MonoBehaviour
     [SerializeField] Image SelectUnitImg;
     [SerializeField] InfoView InfoView;
     [SerializeField] ItemSlot[] ItemSlots = new ItemSlot[2];
+    [SerializeField] RectTransform Window;
+    [SerializeField] Button CloseWindow;
+    [SerializeField] Button[] OpenWindow = new Button[2];
 
     static Item Select;
 
@@ -42,6 +45,9 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
+        CloseWindow.onClick.AddListener(() => { Window.gameObject.SetActive(false); });
+        foreach (var item in OpenWindow) item.onClick.AddListener(() => { Window.gameObject.SetActive(true); });
+
         SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
         SelectUnitImg.SetNativeSize();
         if (ButtonActions.Instance.CheckReEntering("D - 03 UnitItemInfo"))
