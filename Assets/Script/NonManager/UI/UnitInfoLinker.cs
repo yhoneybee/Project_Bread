@@ -9,6 +9,7 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] TextMeshProUGUI name_text;
     [SerializeField] TextMeshProUGUI level_text;
     [SerializeField] Image RankIcon;
+    [SerializeField] Slider ExpSlider;
     [SerializeField] List<Sprite> RankSprites = new List<Sprite>();
     [SerializeField] List<RectTransform> Values = new List<RectTransform>();
 
@@ -20,11 +21,12 @@ public class UnitInfoLinker : MonoBehaviour
         SetText();
         RankIcon.sprite = RankSprites[(int)GameManager.SelectUnit.Info.Rank];
         SetStatValue();
+        ExpSlider.maxValue = GameManager.SelectUnit.Need;
     }
 
     void Update()
     {
-
+        ExpSlider.value = GameManager.SelectUnit.Info.Count;
     }
 
     void SetText()
