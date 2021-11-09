@@ -156,7 +156,7 @@ MonoBehaviour:
     Desc: "\"\uB0B4 \uBA54\uB860\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 2.4
   Stat:
-    AD: 10
+    AD: 155
     HP: 1750
     MaxHP: 1750
     MS: 0.5
