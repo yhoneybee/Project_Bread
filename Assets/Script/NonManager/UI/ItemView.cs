@@ -16,10 +16,18 @@ public class ItemView : MonoBehaviour
             if (item && item.Icon)
             {
                 Img.color = Color.white;
+                Btn.enabled = true;
+                if (!item.gotten)
+                {
+                    Img.color = Color.grey;
+                    Btn.enabled = false;
+                }
                 Img.sprite = item.Icon;
             }
             else
                 Img.color = Color.clear;
+
+            UIManager.Instance.FixSizeToRatio(Img, ItemManager.Instance.ItemContent.GetComponent<GridLayoutGroup>().cellSize.x);
         }
     }
     public Image Img;

@@ -27,8 +27,9 @@ public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance { get; private set; } = null;
 
+    public RectTransform ItemContent;
+
     [SerializeField] ItemView ItemViewPrefab;
-    [SerializeField] RectTransform ItemContent;
     [SerializeField] Image SelectUnitImg;
     [SerializeField] InfoView InfoView;
     [SerializeField] ItemSlot[] ItemSlots = new ItemSlot[2];

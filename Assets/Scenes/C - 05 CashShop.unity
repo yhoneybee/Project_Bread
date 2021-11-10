@@ -861,11 +861,13 @@ MonoBehaviour:
   - {fileID: 0}
   TeamBtnLock: {fileID: 0}
   UnitNullSprite: {fileID: 0}
+  spIcon: []
   Except: {fileID: 0}
   Fade: {fileID: 1580069687}
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
   AnimImg: {fileID: 0}
+  ChoiceUnboxing: {fileID: 0}
   IconSprites:
   - {fileID: 0}
   - {fileID: 0}

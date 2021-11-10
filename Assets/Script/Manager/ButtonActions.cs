@@ -130,7 +130,8 @@ public class ButtonActions : MonoBehaviour
                 break;
         }
 
-        ShopManager.Instance.Unboxing();
+        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(true);
+        //ShopManager.Instance.Unboxing();
     }
 
     public void UnBoxingTen(int rank)
@@ -167,12 +168,40 @@ public class ButtonActions : MonoBehaviour
         ShopManager.Instance.AddRare(good);
         ShopManager.Instance.AddEpic(great);
 
-        ShopManager.Instance.Unboxing();
+        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(true);
+        //ShopManager.Instance.Unboxing();
     }
 
     public void AppearAndHideForPivot(RectTransform RT)
     {
         StartCoroutine(EAppearAndHideForPivot(RT));
+    }
+
+    public void GameStart()
+    {
+        if (GameManager.Instance.Stemina >= 3)
+        {
+            GameManager.Instance.Stemina -= 3;
+            ChangeScene("F - 01 Ingame");
+        }
+        else
+        {
+            // TODO : 플레이 못함
+            StopAllCoroutines();
+            UIManager.Instance.txtNoStemina.color = Color.clear;
+            StartCoroutine(ENoStemina());
+        }
+    }
+
+    IEnumerator ENoStemina()
+    {
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(UIManager.Instance.txtNoStemina, Color.white, 3));
+
+        yield return new WaitForSeconds(1);
+
+        StartCoroutine(UIManager.Instance.EColoringUI(UIManager.Instance.txtNoStemina, Color.clear, 3));
+
+        yield return null;
     }
 
     public void RubyProducts(Toggle toggle)

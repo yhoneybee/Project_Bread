@@ -411,11 +411,13 @@ MonoBehaviour:
   - {fileID: 0}
   TeamBtnLock: {fileID: 21300000, guid: 408d2f00a5b823f4d833007771a8b77e, type: 3}
   UnitNullSprite: {fileID: 21300000, guid: 22d4b35aa3b7ecc4fb5151e647598d96, type: 3}
+  spIcon: []
   Except: {fileID: 0}
   Fade: {fileID: 901731342}
   Content: {fileID: 0}
   SquadPrefab: {fileID: 0}
   AnimImg: {fileID: 0}
+  ChoiceUnboxing: {fileID: 0}
   IconSprites:
   - {fileID: 0}
   - {fileID: 0}
@@ -2061,7 +2063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 433617684816659785, guid: d8f3bc1912ed7b84fa4354b99a2f6b28, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -403
+      value: -367
       objectReference: {fileID: 0}
     - target: {fileID: 433617684816659785, guid: d8f3bc1912ed7b84fa4354b99a2f6b28, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2449,7 +2451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6224697820478215590, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 246.22
+      value: 210.04
       objectReference: {fileID: 0}
     - target: {fileID: 6224697820478215590, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2485,11 +2487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6224697820478215590, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -808
+      value: -766
       objectReference: {fileID: 0}
     - target: {fileID: 6224697820478215590, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -92.44
+      value: -97.42999
       objectReference: {fileID: 0}
     - target: {fileID: 6224697820478215590, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2598,6 +2600,14 @@ PrefabInstance:
     - target: {fileID: 6224697821619762379, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224697821641794685, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
+      propertyPath: m_CellSize.x
+      value: 197.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224697821641794685, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
+      propertyPath: m_CellSize.y
+      value: 105.192
       objectReference: {fileID: 0}
     - target: {fileID: 6224697821773479845, guid: c65b459a92d151442b3a442142eeddf1, type: 3}
       propertyPath: m_AnchorMax.y
