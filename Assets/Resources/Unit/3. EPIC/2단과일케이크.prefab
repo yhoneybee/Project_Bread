@@ -157,8 +157,8 @@ MonoBehaviour:
     DValue: 3
   Stat:
     AD: 650
-    HP: 5
-    MaxHP: 6
+    HP: 3560
+    MaxHP: 3560
     MS: 7
     AR: 8
     AS: 6

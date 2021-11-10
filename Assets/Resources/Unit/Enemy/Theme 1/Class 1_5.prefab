@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 18d70790c0ed3224eb405d071d47fb13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,14 +103,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.78, y: 8.42}
+    oldSize: {x: 4.74, y: 5.89}
     newSize: {x: 6.27, y: 4.38}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 3.5}
+  m_Size: {x: 5.038991, y: 6.1377935}
   m_EdgeRadius: 0
 --- !u!50 &5201215683900690122
 Rigidbody2D:
@@ -147,18 +147,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Idle: []
   Walk:
-  - Sprite: {fileID: 21300000, guid: 18d70790c0ed3224eb405d071d47fb13, type: 3}
+  - Sprite: {fileID: 21300000, guid: ad8325849a319ec4abee1ded1afe1454, type: 3}
     Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 1a73a869ffc9e02418eedac943feb2af, type: 3}
+  - Sprite: {fileID: 21300000, guid: 7c270cbc409d8a74e813af5335cfb941, type: 3}
     Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 30730d94110a3aa43bbb8956376c6804, type: 3}
+  - Sprite: {fileID: 21300000, guid: bb572f80d939be74a8868932221e83d8, type: 3}
     Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 9d58295a1ca1a9a4eb595aebb94f19ad, type: 3}
+  - Sprite: {fileID: 21300000, guid: a9db0192c111e42448816360d4db962a, type: 3}
     Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 9b6e2d89540e0c6459d6da9713a644e1, type: 3}
+  - Sprite: {fileID: 21300000, guid: f51edd630c2e7df4a95d6b2e5cbc60b2, type: 3}
     Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: bf3f4f5a951a4e7489823a49251c924a, type: 3}
+  - Sprite: {fileID: 21300000, guid: e1d04222b2f3ff04fb93331fedd977da, type: 3}
     Frame: 0.5
+  - Sprite: {fileID: 21300000, guid: 5683548aad50dee499cc12edd77a9d53, type: 3}
+    Frame: 0.05
+  - Sprite: {fileID: 21300000, guid: e8c776b209de6404fb0b94a00de79742, type: 3}
+    Frame: 0.05
   Hit: []
   Attack: []
 --- !u!114 &7184538617974196193
@@ -175,8 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Info:
     Rank: 0
-    Name: "\uC7C1\uBC18"
-    Icon: {fileID: 21300000, guid: 18d70790c0ed3224eb405d071d47fb13, type: 3}
+    Name: "\uC7A5\uAC11"
+    Icon: {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
     Id: 0
     Level: 0
     Cost: 0
@@ -184,12 +188,12 @@ MonoBehaviour:
     Desc: 
     DValue: 0
   Stat:
-    AD: 15
-    HP: 1700
-    MaxHP: 1700
-    MS: 1.25
+    AD: 125
+    HP: 2500
+    MaxHP: 2500
+    MS: 0.75
     AR: 0.75
-    AS: 0.5
+    AS: 0.3
     LS: 0
     Proportionality:
       MaxHP: 0
