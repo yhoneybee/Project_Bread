@@ -19,8 +19,8 @@ public class ResourceLinker : MonoBehaviour
         if (NameText)
             NameText.text = $"Lv.{GameManager.Instance.player_level} yhoneybee";
 
-        CoinText.text = $"{GameManager.Instance.Coin}";
-        JemText.text = $"{GameManager.Instance.Jem}";
+        CoinText.text = $"{GameManager.Instance.Coin:#,0}";
+        JemText.text = $"{GameManager.Instance.Jem:#,0}";
         SteminaText.text = $"{GameManager.Instance.Stemina} / {GameManager.Instance.MaxStemina}";
     }
 }

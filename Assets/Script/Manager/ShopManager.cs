@@ -32,6 +32,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Image Fade;
     [SerializeField] ParticleSystem ps;
     [SerializeField] RectTransform AllResultParent;
+    [SerializeField] RectTransform ShowCard;
     [SerializeField] GameObject ResultPrefab;
     [SerializeField] Button Skip;
     [SerializeField] Image Upper;
@@ -52,9 +53,9 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < 3; i++) Timer[i] = BubbleMessage[i].GetComponentInChildren<TextMeshProUGUI>();
         Skip.onClick.AddListener(() =>
         {
-            ps.Stop();
-            StartCoroutine(EColoringUI(Lower, Color.clear, 10));
-            StartCoroutine(EColoringUI(Upper, Color.clear, 10));
+            StopAllCoroutines();
+            StartCoroutine(UIManager.Instance.EColoringUI(Lower, Color.clear, 10));
+            StartCoroutine(UIManager.Instance.EColoringUI(Upper, Color.clear, 10));
             StartCoroutine(ESkipAndShowAllResult());
             Skip.gameObject.SetActive(false);
         });
@@ -101,24 +102,35 @@ public class ShopManager : MonoBehaviour
             SpawnUnits.Add(legends[UnityEngine.Random.Range(0, legends.Count)]);
     }
 
+    public void UnboxCancel()
+    {
+        SpawnUnits.Clear();
+        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(false);
+    }
+
     public void Unboxing()
     {
+        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(false);
+        GameManager.Instance.Coin -= SpawnBtnLinker.Coin;
+        GameManager.Instance.Jem -= SpawnBtnLinker.Jem;
         StartCoroutine(EUnBoxing());
     }
 
     public void ResetUnboxing()
     {
+        ps.Stop();
         StopAllCoroutines();
 
         Fade.color = Color.clear;
         Skip.gameObject.SetActive(false);
+        Lower.color = Upper.color = Color.clear;
         Lower.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -124);
         Upper.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 95);
     }
 
     IEnumerator EUnBoxing()
     {
-        yield return StartCoroutine(EColoringUI(Fade, Color.black * 0.6588235f, 3));
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(Fade, Color.black * 0.6588235f, 3));
 
         Fade.raycastTarget = true;
 
@@ -131,8 +143,8 @@ public class ShopManager : MonoBehaviour
         // 상자 스프라이트 바꿔줘야함 일단 기본
 
         // 상자 투명 -> 불 투명
-        StartCoroutine(EColoringUI(Lower, Color.white, 3));
-        yield return StartCoroutine(EColoringUI(Upper, Color.white, 3));
+        StartCoroutine(UIManager.Instance.EColoringUI(Lower, Color.white, 3));
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(Upper, Color.white, 3));
 
         // 상자 뚜껑 열리기
         var upper_pos = Upper.GetComponent<RectTransform>();
@@ -163,14 +175,22 @@ public class ShopManager : MonoBehaviour
 
             ps.Stop();
 
-            // 나온 카드 보여주기
+            // 나온 카드 보여주기 SpawnUnits[i]
+            var imgShow = ShowCard.GetChild(0).GetComponent<Image>();
+            imgShow.sprite = SpawnUnits[i].Info.Icon;
+            UIManager.Instance.FixSizeToRatio(imgShow, ShowCard.sizeDelta.x - 20);
+            ShowCard.gameObject.SetActive(true);
+
+            yield return StartCoroutine(EClick());
+
+            ShowCard.gameObject.SetActive(false);
         }
 
         Skip.gameObject.SetActive(false);
 
         // 상자 불 투명 -> 투명
-        StartCoroutine(EColoringUI(Lower, Color.clear, 3));
-        yield return StartCoroutine(EColoringUI(Upper, Color.clear, 3));
+        StartCoroutine(UIManager.Instance.EColoringUI(Lower, Color.clear, 3));
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(Upper, Color.clear, 3));
 
         yield return StartCoroutine(ESkipAndShowAllResult());
 
@@ -194,27 +214,11 @@ public class ShopManager : MonoBehaviour
         yield return null;
     }
 
-    IEnumerator EColoringUI<T>(T ui, Color change_color, float change_speed)
-    where T : Graphic
-    {
-        var wait = new WaitForSeconds(0.0001f);
-
-        while (Mathf.Abs(ui.color.r - change_color.r) +
-            Mathf.Abs(ui.color.g - change_color.g) +
-            Mathf.Abs(ui.color.b - change_color.b) +
-            Mathf.Abs(ui.color.a - change_color.a) > 0.005f)
-        {
-            ui.color = Color.Lerp(ui.color, change_color, Time.deltaTime * change_speed);
-            yield return wait;
-        }
-        ui.color = change_color;
-
-        yield return null;
-    }
-
     IEnumerator ESkipAndShowAllResult()
     {
-        var wait = new WaitForSeconds(0.5f);
+        ps.Stop();
+
+        var wait = new WaitForSeconds(0.1f);
 
         List<GameObject> objs = new List<GameObject>();
 
@@ -226,6 +230,7 @@ public class ShopManager : MonoBehaviour
             var GLG = AllResultParent.GetComponent<GridLayoutGroup>();
             img.sprite = SpawnUnits[i].Info.Icon;
             UIManager.Instance.FixSizeToRatio(img, GLG.cellSize.x - 20);
+            SpawnUnits[i].Info.Count++;
 
             objs.Add(obj);
 
@@ -237,7 +242,7 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < objs.Count; i++)
             Destroy(objs[i]);
 
-        yield return StartCoroutine(EColoringUI(Fade, Color.clear, 3));
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(Fade, Color.clear, 3));
 
         Fade.raycastTarget = false;
 

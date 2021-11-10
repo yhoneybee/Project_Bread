@@ -171,7 +171,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -223,6 +223,8 @@ MonoBehaviour:
   Image: {fileID: 6224697820222118665}
   Button: {fileID: 6224697820222118664}
   Sprite: {fileID: 21300000, guid: af9a12cd93c231245b6786335b52a353, type: 3}
+  OverSprite: {fileID: 21300000, guid: b4993a4c47cb0c341b151228fff40895, type: 3}
+  index: 9
 --- !u!1 &6224697820272609377
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +321,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -371,6 +373,8 @@ MonoBehaviour:
   Image: {fileID: 6224697820272609380}
   Button: {fileID: 6224697820272609383}
   Sprite: {fileID: 21300000, guid: 59958437db84ec74f9416961fec85105, type: 3}
+  OverSprite: {fileID: 21300000, guid: 7c3c9259cdd73fb4aade558d5bb922cf, type: 3}
+  index: 6
 --- !u!1 &6224697820478215585
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +579,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -627,6 +631,8 @@ MonoBehaviour:
   Image: {fileID: 6224697820593811953}
   Button: {fileID: 6224697820593811952}
   Sprite: {fileID: 21300000, guid: 9b6229965a8e2404081a0d0688093782, type: 3}
+  OverSprite: {fileID: 21300000, guid: 377f9acf80618e44cb368744f6a6703f, type: 3}
+  index: 5
 --- !u!1 &6224697820734963032
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +819,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -865,6 +871,8 @@ MonoBehaviour:
   Image: {fileID: 6224697820908076317}
   Button: {fileID: 6224697820908076316}
   Sprite: {fileID: 21300000, guid: f0608bf7e41925b44801159e9f4d1e2e, type: 3}
+  OverSprite: {fileID: 21300000, guid: 7ebeb3cb4537638439dc1d914a8d8f0e, type: 3}
+  index: 4
 --- !u!1 &6224697821126943081
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +1005,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1049,6 +1057,8 @@ MonoBehaviour:
   Image: {fileID: 6224697821619762377}
   Button: {fileID: 6224697821619762376}
   Sprite: {fileID: 21300000, guid: 523903b1cad31c249bc67679c7dcc12c, type: 3}
+  OverSprite: {fileID: 21300000, guid: 51822a2d53600da4cbf406a57a700a38, type: 3}
+  index: 3
 --- !u!1 &6224697821641794687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1224,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1266,6 +1276,8 @@ MonoBehaviour:
   Image: {fileID: 6224697821773479867}
   Button: {fileID: 6224697821773479866}
   Sprite: {fileID: 21300000, guid: c2274eac7b53f904e864bb31c5b855f4, type: 3}
+  OverSprite: {fileID: 21300000, guid: 969f850d978c27442ba180b4670c372c, type: 3}
+  index: 8
 --- !u!1 &6224697821882267837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,7 +1374,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1414,6 +1426,8 @@ MonoBehaviour:
   Image: {fileID: 6224697821882267824}
   Button: {fileID: 6224697821882267827}
   Sprite: {fileID: 21300000, guid: e19bd6a925e323d4e9d101bf4f45af08, type: 3}
+  OverSprite: {fileID: 21300000, guid: 719a3c0ef931ab149bbd16e8d7b98509, type: 3}
+  index: 2
 --- !u!1 &6224697821983101370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1524,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1562,6 +1576,8 @@ MonoBehaviour:
   Image: {fileID: 6224697821983101369}
   Button: {fileID: 6224697821983101368}
   Sprite: {fileID: 21300000, guid: e73e404e5021515438a37a022140a936, type: 3}
+  OverSprite: {fileID: 21300000, guid: 5a243a1bca6be7c409df9b282d99d978, type: 3}
+  index: 7
 --- !u!1 &6224697822058401575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1800,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1836,3 +1852,5 @@ MonoBehaviour:
   Image: {fileID: 6224697822187215323}
   Button: {fileID: 6224697822187215322}
   Sprite: {fileID: 21300000, guid: 54d2ae16ebc83914588fb792f9a2553c, type: 3}
+  OverSprite: {fileID: 21300000, guid: d7de0d70ece2bef46974954e46dad35c, type: 3}
+  index: 1

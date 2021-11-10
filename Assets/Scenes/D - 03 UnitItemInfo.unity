@@ -1192,8 +1192,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -501.38, y: -17.929932}
-  m_SizeDelta: {x: 917.24, y: -98.26001}
+  m_AnchoredPosition: {x: -424.76, y: -22.200012}
+  m_SizeDelta: {x: 764, y: -106.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504161227
 MonoBehaviour:
@@ -1345,8 +1345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -460.17, y: 23.309998}
-  m_SizeDelta: {x: 860.47, y: -135.76}
+  m_AnchoredPosition: {x: -385.36, y: 23.309998}
+  m_SizeDelta: {x: 710.86, y: -135.76}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &572351063
 MonoBehaviour:
@@ -1563,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0.000029052055}
   m_SizeDelta: {x: 0, y: 795.82}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &610707951
@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_CellSize: {x: 150, y: 150}
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
-  m_ConstraintCount: 5
+  m_ConstraintCount: 4
 --- !u!1 &638897589
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,8 +2412,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 20, y: 25}
-  m_SizeDelta: {x: 136.24, y: 50}
+  m_AnchoredPosition: {x: 20, y: 24.3}
+  m_SizeDelta: {x: 125.55, y: 60.94}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1232049500
 MonoBehaviour:
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1869696447}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9999978
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2876,8 +2876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0218694045c84874189f245fa8ac932c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemViewPrefab: {fileID: 5618481694764114900, guid: 7a1ff0ba96025c44e85ad53db306e6fb, type: 3}
   ItemContent: {fileID: 610707950}
+  ItemViewPrefab: {fileID: 5618481694764114900, guid: 7a1ff0ba96025c44e85ad53db306e6fb, type: 3}
   SelectUnitImg: {fileID: 747901965}
   InfoView:
     Parent: {fileID: 1961394542}

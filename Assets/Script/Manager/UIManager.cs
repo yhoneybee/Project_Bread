@@ -42,11 +42,14 @@ public class UIManager : MonoBehaviour
     public Sprite[] Nums = new Sprite[10];
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
+    public Sprite[] spIcon;
     public UILinker Except;
     public Image Fade;
     public RectTransform Content;
     public GameObject SquadPrefab;
     public Image AnimImg;
+    public RectTransform ChoiceUnboxing;
+    public TextMeshProUGUI txtNoStemina;
 
     public Sprite[] IconSprites = new Sprite[4];
 
@@ -201,5 +204,23 @@ public class UIManager : MonoBehaviour
         {
             FixSizeToRatioForYAxis(fix, to_size, a_min_x, a_min_y, a_max_x, a_max_y);
         }
+    }
+
+    public IEnumerator EColoringUI<T>(T ui, Color change_color, float change_speed)
+        where T : Graphic
+    {
+        var wait = new WaitForSeconds(0.0001f);
+
+        while (Mathf.Abs(ui.color.r - change_color.r) +
+            Mathf.Abs(ui.color.g - change_color.g) +
+            Mathf.Abs(ui.color.b - change_color.b) +
+            Mathf.Abs(ui.color.a - change_color.a) > 0.005f)
+        {
+            ui.color = Color.Lerp(ui.color, change_color, Time.deltaTime * change_speed);
+            yield return wait;
+        }
+        ui.color = change_color;
+
+        yield return null;
     }
 }

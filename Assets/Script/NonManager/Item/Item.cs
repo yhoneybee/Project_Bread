@@ -28,8 +28,9 @@ public abstract class Item : MonoBehaviour
     public Sprite Icon;
     public Stat Stat;
     public string Name;
-    [Multiline(5)]
+    [TextArea(3,5)]
     public string Desc;
+    public bool gotten;
 
     public abstract void Ingame();
     public abstract void Equip();

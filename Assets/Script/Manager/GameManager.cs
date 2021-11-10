@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     public int player_level = 1;
     public int Coin = 0;
     public int Jem = 0;
-    public int Stemina = 0;
+    public int Stemina = 20;
     public int MaxStemina = 20;
     public int UnBoxingCount = 11;
 
@@ -94,6 +94,18 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(EAutoSave());
+
+        var resource = SaveManager.Load<int>("ResourceData");
+
+        if (resource != null)
+        {
+            Coin = resource.ElementAt(0);
+            Jem = resource.ElementAt(1);
+            Stemina = resource.ElementAt(2);
+            MaxStemina = resource.ElementAt(3);
+        }
+
+        onAutoSave += () => { SaveManager.Save(new List<int>() { Coin, Jem, Stemina, MaxStemina }, "ResourceData"); };
 
         if (SaveManager.Instance.IsFile($"DateTimers"))
         {
