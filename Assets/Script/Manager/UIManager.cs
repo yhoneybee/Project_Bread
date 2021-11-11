@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
 
         if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
         {
-            var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND; });
+            var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND && o.Info.Gotten; });
             Content.sizeDelta = new Vector2 { x = Content.sizeDelta.x, y = friends.Count / 5 * (375.1f + 58) };
             for (int i = 0; i < friends.Count; i++)
             {

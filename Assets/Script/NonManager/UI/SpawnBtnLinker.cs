@@ -64,6 +64,10 @@ public class SpawnBtnLinker : MonoBehaviour
             if (isUnboxing)
             {
                 ShopManager.Instance.txtCost[1].gameObject.SetActive(false);
+
+                ShopManager.Instance.Upper.sprite = ShopManager.Instance.UpperLowers[rank_value].Upper;
+                ShopManager.Instance.Lower.sprite = ShopManager.Instance.UpperLowers[rank_value].Lower;
+
                 switch (eSpawnCount)
                 {
                     case eSPAWN_COUNT.TEN:

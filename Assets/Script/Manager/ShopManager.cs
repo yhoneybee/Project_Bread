@@ -30,6 +30,9 @@ public class ShopManager : MonoBehaviour
     public RectTransform BuyWindow;
     public Image imgResourceIcon;
     public Button btnBuy;
+    public Image Upper;
+    public Image Lower;
+    public List<UpperLowerSprite> UpperLowers;
 
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
@@ -39,10 +42,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] RectTransform ShowCard;
     [SerializeField] GameObject ResultPrefab;
     [SerializeField] Button Skip;
-    [SerializeField] Image Upper;
-    [SerializeField] Image Lower;
 
-    [SerializeField] List<UpperLowerSprite> UpperLowers;
 
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
 
