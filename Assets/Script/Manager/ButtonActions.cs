@@ -130,7 +130,7 @@ public class ButtonActions : MonoBehaviour
                 break;
         }
 
-        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(true);
+        ShopManager.Instance.BuyWindow.gameObject.SetActive(true);
         //ShopManager.Instance.Unboxing();
     }
 
@@ -168,7 +168,7 @@ public class ButtonActions : MonoBehaviour
         ShopManager.Instance.AddRare(good);
         ShopManager.Instance.AddEpic(great);
 
-        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(true);
+        ShopManager.Instance.BuyWindow.gameObject.SetActive(true);
         //ShopManager.Instance.Unboxing();
     }
 

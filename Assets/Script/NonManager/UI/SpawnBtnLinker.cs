@@ -53,8 +53,17 @@ public class SpawnBtnLinker : MonoBehaviour
                     break;
             }
 
+            foreach (var txt in ShopManager.Instance.txtCost)
+            {
+                txt.text = $"{value:#,0}";
+                txt.gameObject.SetActive(true);
+            }
+
+            ShopManager.Instance.imgResourceIcon.sprite = imgIcon.sprite;
+
             if (isUnboxing)
             {
+                ShopManager.Instance.txtCost[1].gameObject.SetActive(false);
                 switch (eSpawnCount)
                 {
                     case eSPAWN_COUNT.TEN:
@@ -64,10 +73,22 @@ public class SpawnBtnLinker : MonoBehaviour
                         ButtonActions.Instance.UnBoxingOne(rank_value);
                         break;
                 }
+                ShopManager.Instance.btnBuy.onClick.RemoveAllListeners();
+                ShopManager.Instance.btnBuy.onClick.AddListener(() =>
+                {
+                    ShopManager.Instance.Unboxing();
+                });
             }
             else
             {
+                ShopManager.Instance.BuyWindow.gameObject.SetActive(true);
                 // TODO : µ·¾øÀ½ ¶ç¿ì±â
+                ShopManager.Instance.btnBuy.onClick.RemoveAllListeners();
+                ShopManager.Instance.btnBuy.onClick.AddListener(() =>
+                {
+                    ShopManager.Instance.BuyWindow.gameObject.SetActive(false);
+                    ShopManager.Instance.DontBuyWindow.gameObject.SetActive(true);
+                });
             }
         });
     }

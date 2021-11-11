@@ -25,10 +25,14 @@ public class ShopManager : MonoBehaviour
     public static ShopManager Instance { get; private set; } = null;
 
     public List<Unit> SpawnUnits = new List<Unit>();
+    public TextMeshProUGUI[] txtCost;
+    public RectTransform DontBuyWindow;
+    public RectTransform BuyWindow;
+    public Image imgResourceIcon;
+    public Button btnBuy;
 
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
-
     [SerializeField] Image Fade;
     [SerializeField] ParticleSystem ps;
     [SerializeField] RectTransform AllResultParent;
@@ -54,6 +58,7 @@ public class ShopManager : MonoBehaviour
         Skip.onClick.AddListener(() =>
         {
             StopAllCoroutines();
+            ShowCard.gameObject.SetActive(false);
             StartCoroutine(UIManager.Instance.EColoringUI(Lower, Color.clear, 10));
             StartCoroutine(UIManager.Instance.EColoringUI(Upper, Color.clear, 10));
             StartCoroutine(ESkipAndShowAllResult());
@@ -105,12 +110,12 @@ public class ShopManager : MonoBehaviour
     public void UnboxCancel()
     {
         SpawnUnits.Clear();
-        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(false);
+        BuyWindow.gameObject.SetActive(false);
     }
 
     public void Unboxing()
     {
-        UIManager.Instance.ChoiceUnboxing.gameObject.SetActive(false);
+        BuyWindow.gameObject.SetActive(false);
         GameManager.Instance.Coin -= SpawnBtnLinker.Coin;
         GameManager.Instance.Jem -= SpawnBtnLinker.Jem;
         StartCoroutine(EUnBoxing());

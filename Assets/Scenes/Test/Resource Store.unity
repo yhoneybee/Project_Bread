@@ -6479,6 +6479,7 @@ MonoBehaviour:
   Fade: {fileID: 2114928611}
   ps: {fileID: 294855565}
   AllResultParent: {fileID: 1844800550}
+  ShowCard: {fileID: 0}
   ResultPrefab: {fileID: 6621088378180924992, guid: 5ff23ee855a19384ca1a193664333725, type: 3}
   Skip: {fileID: 1378677547}
   Upper: {fileID: 1322572230}

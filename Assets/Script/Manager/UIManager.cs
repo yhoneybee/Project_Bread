@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviour
     public RectTransform Content;
     public GameObject SquadPrefab;
     public Image AnimImg;
-    public RectTransform ChoiceUnboxing;
     public TextMeshProUGUI txtNoStemina;
 
     public Sprite[] IconSprites = new Sprite[4];
