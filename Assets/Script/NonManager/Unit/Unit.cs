@@ -55,6 +55,8 @@ public struct Info
     public string Desc;
     /// <summary> Image Devide Value </summary>///
     public float DValue;
+    /// <summary> this Unit was get? </summary>///
+    public bool Gotten => Count > 0 || Level > 1;
 }
 
 [Serializable]
@@ -142,25 +144,15 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    public Info Info
-    {
-        get { return info; }
-        set
-        {
-            info = value;
-            gotten = info.Count > 0 || info.Level > 1;
-        }
-    }
+    public Info Info;
     public Stat Stat;
     public UnitType UnitType;
     public List<Item> Items = new List<Item>();
     public Anim Anim;
-    public bool gotten;
 
     SpriteRenderer SR;
     Rigidbody2D rigid;
     BoxCollider2D coll;
-    Info info;
 
     public int Need => (Info.Level + 9) * Info.Level;
 
