@@ -421,10 +421,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2e837de7a8ba545b8cb325aec75fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reward: 0
+  Icon: {fileID: 5276017030993790688}
+  CostType: 0
   value: 0
   txtReward: {fileID: 5276017030693118901}
   imgIcon: {fileID: 5276017031730332666}
+  eSpawnCount: 0
+  rank_value: 0
 --- !u!1 &5276017031925404104
 GameObject:
   m_ObjectHideFlags: 0

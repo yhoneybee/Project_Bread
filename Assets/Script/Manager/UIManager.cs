@@ -49,6 +49,8 @@ public class UIManager : MonoBehaviour
     public GameObject SquadPrefab;
     public Image AnimImg;
     public TextMeshProUGUI txtNoStemina;
+    public Button btnIcon;
+    public RectTransform rtrnIconSelect;
 
     public Sprite[] IconSprites = new Sprite[4];
 
@@ -67,12 +69,15 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        btnIcon.onClick.AddListener(() => 
+        {
+            rtrnIconSelect.gameObject.SetActive(true);
+        });
         if (!ButtonActions.Instance.CheckReEntering("A - Loading"))
         {
             Fade.color = Color.black;
             StartCoroutine(GameManager.Instance.EHideUI(Fade));
         }
-
         if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
         {
             var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND && o.Info.Gotten; });
@@ -219,6 +224,23 @@ public class UIManager : MonoBehaviour
             yield return wait;
         }
         ui.color = change_color;
+
+        yield return null;
+    }
+
+    public IEnumerator EMovingUI<T>(T ui, Vector2 change_pos, float move_speed, bool isLerp = false)
+        where T : Graphic
+    {
+        var wait = new WaitForSeconds(0.0001f);
+        var uiRTf = ui.GetComponent<RectTransform>();
+
+        while (Vector2.Distance(uiRTf.anchoredPosition, change_pos) > 0.1f)
+        {
+            if (isLerp) uiRTf.anchoredPosition = Vector2.Lerp(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
+            else uiRTf.anchoredPosition = Vector2.MoveTowards(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
+            yield return wait;
+        }
+        uiRTf.anchoredPosition = change_pos;
 
         yield return null;
     }

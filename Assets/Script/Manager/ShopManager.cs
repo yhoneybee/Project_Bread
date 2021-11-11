@@ -153,7 +153,7 @@ public class ShopManager : MonoBehaviour
 
         // »óÀÚ ¶Ñ²± ¿­¸®±â
         var upper_pos = Upper.GetComponent<RectTransform>();
-        yield return StartCoroutine(EMovingUI(Upper, (Screen.height / 2 + upper_pos.sizeDelta.y) * Vector2.up, 5000));
+        yield return StartCoroutine(UIManager.Instance.EMovingUI(Upper, (Screen.height / 2 + upper_pos.sizeDelta.y) * Vector2.up, 5000));
 
         for (int i = SpawnUnits.Count - 1; i >= 0; i--)
         {
@@ -198,23 +198,6 @@ public class ShopManager : MonoBehaviour
         yield return StartCoroutine(UIManager.Instance.EColoringUI(Upper, Color.clear, 3));
 
         yield return StartCoroutine(ESkipAndShowAllResult());
-
-        yield return null;
-    }
-
-    IEnumerator EMovingUI<T>(T ui, Vector2 change_pos, float move_speed, bool isLerp = false)
-    where T : Graphic
-    {
-        var wait = new WaitForSeconds(0.0001f);
-        var uiRTf = ui.GetComponent<RectTransform>();
-
-        while (Vector2.Distance(uiRTf.anchoredPosition, change_pos) > 0.1f)
-        {
-            if (isLerp) uiRTf.anchoredPosition = Vector2.Lerp(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
-            else uiRTf.anchoredPosition = Vector2.MoveTowards(uiRTf.anchoredPosition, change_pos, Time.deltaTime * move_speed);
-            yield return wait;
-        }
-        uiRTf.anchoredPosition = change_pos;
 
         yield return null;
     }
