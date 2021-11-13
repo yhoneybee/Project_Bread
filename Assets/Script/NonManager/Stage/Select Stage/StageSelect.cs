@@ -36,6 +36,9 @@ public class StageSelect : MonoBehaviour
     [SerializeField] Sprite[] font_1_text;
     [SerializeField] Sprite[] font_2_text;
 
+    // 왼쪽 상단 테마 이름 이미지
+    [SerializeField] Image theme_name_txt_image;
+
     // Ready Window의 테마(시나리오) 텍스트 Sprite
     [SerializeField] Sprite[] theme_name_sprites;
 
@@ -72,7 +75,7 @@ public class StageSelect : MonoBehaviour
             stage_objects[i].SetTexts(font_1_text[StageInfo.theme_number], stage_text_sprites);
         }
 
-        theme_name_image.sprite = theme_name_sprites[StageInfo.theme_number - 1];
+        theme_name_txt_image.sprite = theme_name_image.sprite = theme_name_sprites[StageInfo.theme_number - 1];
     }
     void Update()
     {
