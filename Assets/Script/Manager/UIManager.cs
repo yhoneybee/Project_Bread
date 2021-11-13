@@ -69,10 +69,13 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        btnIcon.onClick.AddListener(() => 
+        if (btnIcon)
         {
-            rtrnIconSelect.gameObject.SetActive(true);
-        });
+            btnIcon.onClick.AddListener(() =>
+            {
+                if (rtrnIconSelect) rtrnIconSelect.gameObject.SetActive(true);
+            });
+        }
         if (!ButtonActions.Instance.CheckReEntering("A - Loading"))
         {
             Fade.color = Color.black;
