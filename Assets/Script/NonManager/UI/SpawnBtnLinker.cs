@@ -67,6 +67,11 @@ public class SpawnBtnLinker : MonoBehaviour
 
                 ShopManager.Instance.Upper.sprite = ShopManager.Instance.UpperLowers[rank_value].Upper;
                 ShopManager.Instance.Lower.sprite = ShopManager.Instance.UpperLowers[rank_value].Lower;
+                ShopManager.Instance.imgDropBox.sprite = ShopManager.Instance.imgBuyBox.sprite = ShopManager.Instance.BoxSprites[rank_value];
+                UIManager.Instance.FixSizeToRatio(ShopManager.Instance.imgBuyBox, 300);
+                UIManager.Instance.FixSizeToRatio(ShopManager.Instance.imgDropBox, 400);
+
+                StartCoroutine(UIManager.Instance.EMovingUI(ShopManager.Instance.imgDropBox, new Vector2(-600, -260), 3000));
 
                 switch (eSpawnCount)
                 {
@@ -80,6 +85,7 @@ public class SpawnBtnLinker : MonoBehaviour
                 ShopManager.Instance.btnBuy.onClick.RemoveAllListeners();
                 ShopManager.Instance.btnBuy.onClick.AddListener(() =>
                 {
+                    ShopManager.Instance.imgDropBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-600, 1000);
                     ShopManager.Instance.Unboxing();
                 });
             }

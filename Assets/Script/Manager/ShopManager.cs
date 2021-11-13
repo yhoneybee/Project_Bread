@@ -32,7 +32,10 @@ public class ShopManager : MonoBehaviour
     public Button btnBuy;
     public Image Upper;
     public Image Lower;
+    public Image imgBuyBox;
+    public Image imgDropBox;
     public List<UpperLowerSprite> UpperLowers;
+    public List<Sprite> BoxSprites;
 
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
@@ -109,8 +112,10 @@ public class ShopManager : MonoBehaviour
 
     public void UnboxCancel()
     {
+        StopAllCoroutines();
         SpawnUnits.Clear();
         BuyWindow.gameObject.SetActive(false);
+        imgDropBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-600, 1000);
     }
 
     public void Unboxing()
