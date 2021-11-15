@@ -186,28 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk:
-  - Sprite: {fileID: 21300000, guid: 5251a2f2c438b8f4bbe0283ad4a12cc5, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 2266e0f4f3e946743a0496aba90cc83d, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 774974eefb8665e4abee45935c6850b7, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: f72c389dbe770a542ace172104034ebb, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 8e585a08a73dbf04dacb73275897736f, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 961c1e2ea347a5948828ef46824213a8, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: f873ddc8e58df31498d655a6c359f6f4, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 1093cce75502729438fb07a9bf4037e8, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 457ecce2aab427f4aa243e85b8e6b151, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 0a7dbb58fcb8d0449847210351fc5ba9, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 419fe444c2321dd43ac984ed2d33386a, type: 3}
-    Frame: 0.5
+  Walk: []
   Hit: []
   Attack: []
