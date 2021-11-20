@@ -17,7 +17,7 @@ public class TeamBtnLock : MonoBehaviour
     {
         if (!locked)
         {
-            if (index == GameManager.Instance.Index) Image.sprite = OverSprite;
+            if (index - 1 == GameManager.Instance.Index) Image.sprite = OverSprite;
             else Image.sprite = Sprite;
         }
     }

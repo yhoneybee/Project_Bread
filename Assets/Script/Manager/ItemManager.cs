@@ -45,13 +45,16 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        CloseWindow.onClick.AddListener(() => { InfoView.Parent.gameObject.SetActive(false); });
-
         SelectUnitImg.sprite = GameManager.SelectUnit.Info.Icon;
         SelectUnitImg.SetNativeSize();
         if (ButtonActions.Instance.CheckReEntering("D - 03 UnitItemInfo"))
         {
             InfoView.Close.onClick.AddListener(() => InfoView.Parent.gameObject.SetActive(false));
+
+            CloseWindow.onClick.AddListener(() =>
+            {
+                InfoView.Parent.gameObject.SetActive(false);
+            });
 
             InfoView.Release.onClick.AddListener(() =>
             {

@@ -8,4 +8,5 @@ public class Anim : MonoBehaviour
     public List<SpriteFrame> Walk;
     public List<SpriteFrame> Hit;
     public List<SpriteFrame> Attack;
+    public List<SpriteFrame> Die;
 }

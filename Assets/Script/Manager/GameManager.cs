@@ -209,6 +209,7 @@ public class GameManager : MonoBehaviour
             yield return wait;
         }
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);
+        UIManager.Instance.Fade.raycastTarget = false;
         yield return null;
     }
 

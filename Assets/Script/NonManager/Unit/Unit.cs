@@ -18,6 +18,7 @@ public enum AnimState
     WALK,
     HIT,
     ATTACK,
+    DIE,
 }
 
 public enum UnitType
@@ -205,7 +206,7 @@ public abstract class Unit : MonoBehaviour
         if (Stat.HP <= 0)
         {
             SR.color = Color.white;
-            UnitManager.Instance.ReturnUnit(this, null);
+            AnimState = AnimState.DIE;
         }
 
         if (hits.Length > 1)
@@ -264,6 +265,13 @@ public abstract class Unit : MonoBehaviour
                 if (AnimIndex == Anim.Attack.Count)
                 {
                     AnimState = AnimState.IDLE;
+                }
+                break;
+            case AnimState.DIE:
+                Animation(Anim.Die);
+                if (AnimIndex == Anim.Die.Count)
+                {
+                    UnitManager.Instance.ReturnUnit(this, null);
                 }
                 break;
         }

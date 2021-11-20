@@ -35,11 +35,13 @@ public class ButtonActions : MonoBehaviour
         SceneManager.LoadScene("B - Main");
     }
 
+    private Coroutine CChangeScene;
     public void ChangeScene(string name)
     {
-        StopAllCoroutines();
-        UIManager.Instance.Fade.color = Color.clear;
-        StartCoroutine(EChangeScene(name));
+        //StopAllCoroutines();
+        //UIManager.Instance.Fade.color = Color.clear;
+        if (CChangeScene == null)
+            CChangeScene = StartCoroutine(EChangeScene(name));
     }
 
     IEnumerator EChangeScene(string name)

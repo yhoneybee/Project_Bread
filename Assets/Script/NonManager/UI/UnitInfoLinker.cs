@@ -12,9 +12,15 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] Slider ExpSlider;
     [SerializeField] List<Sprite> RankSprites = new List<Sprite>();
     [SerializeField] List<RectTransform> Values = new List<RectTransform>();
+    [SerializeField] ScrollRect srtUnit;
+    [SerializeField] Image[] imgDots;
+    [SerializeField] Button[] btnLeftRight;
 
     public int upgrade_cost;
     public int card_count;
+
+    private float srtUnitPrevValue;
+    private float srtUnitValue;
 
     void Start()
     {
@@ -22,11 +28,47 @@ public class UnitInfoLinker : MonoBehaviour
         RankIcon.sprite = RankSprites[(int)GameManager.SelectUnit.Info.Rank];
         SetStatValue();
         ExpSlider.maxValue = GameManager.SelectUnit.Need;
+
+        btnLeftRight[0].onClick.AddListener(() => 
+        {
+            srtUnit.horizontalScrollbar.value = 0;
+        });
+
+        btnLeftRight[1].onClick.AddListener(() =>
+        {
+            srtUnit.horizontalScrollbar.value = 1;
+        });
     }
 
     void Update()
     {
         ExpSlider.value = GameManager.SelectUnit.Info.Count;
+    }
+
+    private void FixedUpdate()
+    {
+        srtUnitPrevValue = srtUnitValue;
+        srtUnitValue = srtUnit.horizontalScrollbar.value;
+
+        if (Mathf.Abs(srtUnitPrevValue - srtUnitValue) <= 0.05f)
+        {
+            if (srtUnitValue > 0.5f)
+            {
+                srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 1, Time.deltaTime * 3);
+                imgDots[1].color = Color.white;
+                imgDots[0].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
+                btnLeftRight[0].gameObject.SetActive(true);
+                btnLeftRight[1].gameObject.SetActive(false);
+            }
+            else
+            {
+                srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 0, Time.deltaTime * 3);
+                imgDots[0].color = Color.white;
+                imgDots[1].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
+                btnLeftRight[1].gameObject.SetActive(true);
+                btnLeftRight[0].gameObject.SetActive(false);
+            }
+        }
     }
 
     void SetText()
@@ -51,23 +93,29 @@ public class UnitInfoLinker : MonoBehaviour
         var one_img = Values[index].GetChild(0).GetComponent<Image>();
         var ten_img = Values[index].GetChild(1).GetComponent<Image>();
         var hundred_img = Values[index].GetChild(2).GetComponent<Image>();
+        var thousand_img = Values[index].GetChild(3).GetComponent<Image>();
 
         int one = (value % 10);
         int ten = (value % 100) / 10;
-        int hundred = value / 100;
+        int hundred = (value % 1000) / 100;
+        int thousand = (value % 10000) / 1000;
 
         int one_idx = one == 0 ? 9 : one - 1;
         int ten_idx = ten == 0 ? 9 : ten - 1;
         int hundred_idx = hundred == 0 ? 9 : hundred - 1;
+        int thousand_idx = thousand == 0 ? 9 : thousand - 1;
 
         one_img.gameObject.SetActive(true);
         ten_img.gameObject.SetActive(true);
         hundred_img.gameObject.SetActive(true);
+        thousand_img.gameObject.SetActive(true);
 
         one_img.sprite = UIManager.Instance.Nums[one_idx];
         ten_img.sprite = UIManager.Instance.Nums[ten_idx];
         hundred_img.sprite = UIManager.Instance.Nums[hundred_idx];
+        thousand_img.sprite = UIManager.Instance.Nums[thousand_idx];
 
+        if (thousand_idx == 9) thousand_img.gameObject.SetActive(false);
         if (hundred_idx == 9) hundred_img.gameObject.SetActive(false);
         if (ten_idx == 9) ten_img.gameObject.SetActive(false);
     }

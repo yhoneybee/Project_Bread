@@ -79,6 +79,7 @@ public class UIManager : MonoBehaviour
         if (!ButtonActions.Instance.CheckReEntering("A - Loading"))
         {
             Fade.color = Color.black;
+            Fade.raycastTarget = true;
             StartCoroutine(GameManager.Instance.EHideUI(Fade));
         }
         if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
