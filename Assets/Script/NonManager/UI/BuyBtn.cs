@@ -9,6 +9,9 @@ public class BuyBtn : MonoBehaviour
     public Button Button;
     public TextMeshProUGUI CostText;
     public TextMeshProUGUI GetText;
+    public Image CostIcon;
+    public Sprite CoinSprite;
+    public Sprite JemSprite;
     public int JemCost;
     public int CoinCost;
     public int MoneyCost;
@@ -18,13 +21,13 @@ public class BuyBtn : MonoBehaviour
 
     private void Start()
     {
-        if (CoinCost > 0) CostText.text = $"{CoinCost:#,0} COIN";
-        else if (JemCost > 0) CostText.text = $"{JemCost:#,0} JEM";
-        else if (MoneyCost > 0) CostText.text = $"{MoneyCost:#,0} WON";
+        if (CoinCost > 0) { CostText.text = $"{CoinCost:#,0}"; CostIcon.sprite = CoinSprite; CostIcon.SetNativeSize(); CostIcon.rectTransform.sizeDelta /= 7; }
+        else if (JemCost > 0) { CostText.text = $"{JemCost:#,0}"; CostIcon.sprite = JemSprite; CostIcon.SetNativeSize(); CostIcon.rectTransform.sizeDelta /= 10; }
+        else if (MoneyCost > 0) { CostText.text = $"\\ {MoneyCost:#,0}"; Destroy(CostIcon.gameObject); };
 
-        if (GetJemCost > 0) GetText.text = $"{GetJemCost:#,0}개 구매하기";
-        else if (GetCoinCost > 0) GetText.text = $"{GetCoinCost:#,0}개 구매하기";
-        else if (GetOvenCost > 0) GetText.text = $"{GetOvenCost:#,0}개 구매하기";
+        if (GetJemCost > 0) GetText.text = $"{GetJemCost:#,0}개";
+        else if (GetCoinCost > 0) GetText.text = $"{GetCoinCost:#,0}개";
+        else if (GetOvenCost > 0) GetText.text = $"{GetOvenCost:#,0}개";
 
         Button.onClick.AddListener(() =>
         {
