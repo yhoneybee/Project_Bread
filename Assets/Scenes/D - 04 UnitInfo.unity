@@ -652,7 +652,7 @@ RectTransform:
   - {fileID: 710298599}
   - {fileID: 171373233}
   m_Father: {fileID: 316772601}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1938,8 +1938,8 @@ RectTransform:
   - {fileID: 627493850}
   - {fileID: 1544429294}
   - {fileID: 883729293}
-  - {fileID: 1875595269}
   - {fileID: 131667659}
+  - {fileID: 1875595269}
   - {fileID: 1766047668}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -5021,7 +5021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -67.8, y: 0.07}
+  m_AnchoredPosition: {x: -70.455, y: 0.000019252}
   m_SizeDelta: {x: 83.09, y: 83.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &840608473
@@ -5757,7 +5757,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1090523047}
         m_TargetAssemblyTypeName: UnitInfoLinker, Assembly-CSharp
         m_MethodName: Upgrade_Unit
         m_Mode: 1
@@ -6327,6 +6327,9 @@ MonoBehaviour:
   btnLeftRight:
   - {fileID: 2101421269}
   - {fileID: 710298600}
+  btnUpgrade: {fileID: 171373234}
+  txtUpgrade: {fileID: 1382199030}
+  imgIcon: {fileID: 840608473}
   upgrade_cost: 1
   card_count: 1
 --- !u!1 &1102601927
@@ -7808,8 +7811,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.1, y: 0}
-  m_SizeDelta: {x: 123.78, y: 50}
+  m_AnchoredPosition: {x: 33.36, y: 0}
+  m_SizeDelta: {x: 141.79, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1382199030
 MonoBehaviour:
@@ -7831,7 +7834,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1,000
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
   m_sharedMaterial: {fileID: -1216415376583700202, guid: a95b7d2da45967b4892b3cfe154acf5a, type: 2}
@@ -7858,14 +7861,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 42.35
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10263,7 +10266,7 @@ RectTransform:
   - {fileID: 1180184875}
   - {fileID: 1242402556}
   m_Father: {fileID: 316772601}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

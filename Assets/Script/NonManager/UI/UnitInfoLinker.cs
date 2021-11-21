@@ -15,6 +15,9 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] ScrollRect srtUnit;
     [SerializeField] Image[] imgDots;
     [SerializeField] Button[] btnLeftRight;
+    [SerializeField] Button btnUpgrade;
+    [SerializeField] TextMeshProUGUI txtUpgrade;
+    [SerializeField] Image imgIcon;
 
     public int upgrade_cost;
     public int card_count;
@@ -29,7 +32,7 @@ public class UnitInfoLinker : MonoBehaviour
         SetStatValue();
         ExpSlider.maxValue = GameManager.SelectUnit.Need;
 
-        btnLeftRight[0].onClick.AddListener(() => 
+        btnLeftRight[0].onClick.AddListener(() =>
         {
             srtUnit.horizontalScrollbar.value = 0;
         });
@@ -38,6 +41,8 @@ public class UnitInfoLinker : MonoBehaviour
         {
             srtUnit.horizontalScrollbar.value = 1;
         });
+
+        SetTextColor();
     }
 
     void Update()
@@ -129,6 +134,23 @@ public class UnitInfoLinker : MonoBehaviour
             GameManager.SelectUnit.Info.Count -= card_count;
 
             SetText();
+
+            SetTextColor();
+        }
+    }
+
+    private void SetTextColor()
+    {
+        imgIcon.color = txtUpgrade.color = btnUpgrade.targetGraphic.color = new Color(0.509434f, 0.509434f, 0.509434f, 1);
+
+        if (GameManager.SelectUnit.Info.Count >= card_count && GameManager.Instance.Coin < upgrade_cost)
+        {
+            imgIcon.color = btnUpgrade.targetGraphic.color = Color.white;
+            txtUpgrade.color = Color.red;
+        }
+        else if (GameManager.Instance.Coin >= upgrade_cost && GameManager.SelectUnit.Info.Count >= card_count)
+        {
+            imgIcon.color = txtUpgrade.color = btnUpgrade.targetGraphic.color = Color.white;
         }
     }
 }

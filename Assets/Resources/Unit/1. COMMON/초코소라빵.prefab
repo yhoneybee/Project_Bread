@@ -209,3 +209,4 @@ MonoBehaviour:
     Frame: 0.5
   Hit: []
   Attack: []
+  Die: []
