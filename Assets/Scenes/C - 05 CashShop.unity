@@ -224,11 +224,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetOvenCost
-      value: 25
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -879,11 +879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
-      value: 6400
+      value: 110000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetJemCost
-      value: 300
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -993,11 +993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetCoinCost
-      value: 30000
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -1388,11 +1388,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 150
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetOvenCost
-      value: 75
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -1652,11 +1652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 200
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetCoinCost
-      value: 150000
+      value: 10000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -2080,11 +2080,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
-      value: 2400
+      value: 5100
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetJemCost
-      value: 65
+      value: 2500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -2228,11 +2228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
-      value: 3400
+      value: 10500
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetJemCost
-      value: 100
+      value: 6200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -2973,11 +2973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
-      value: 5400
+      value: 54300
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetJemCost
-      value: 150
+      value: 44000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -3751,7 +3751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetOvenCost
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -3962,7 +3962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetCoinCost
-      value: 3000
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -4072,11 +4072,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 150
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetCoinCost
-      value: 100000
+      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -4411,11 +4411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetOvenCost
-      value: 50
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -4525,11 +4525,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
-      value: 100
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetCoinCost
-      value: 65000
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
@@ -4639,7 +4639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: GetJemCost
-      value: 30
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
