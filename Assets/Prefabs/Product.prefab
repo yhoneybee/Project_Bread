@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 1720465134581900698}
   - component: {fileID: 1720465134581900697}
   m_Layer: 0
-  m_Name: Cost
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,18 +497,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b7a4f682b4c7ad49b5dafe195946241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 6354545356800885303}
-  CostText: {fileID: 6064844774136451871}
-  GetText: {fileID: 1720465134581900697}
-  CostIcon: {fileID: 6494582009734210435}
-  CoinSprite: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
-  JemSprite: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
-  JemCost: 0
-  CoinCost: 0
-  MoneyCost: 0
-  GetJemCost: 0
-  GetCoinCost: 0
-  GetOvenCost: 0
+  price_image: {fileID: 6494582009734210435}
+  buy_button: {fileID: 6354545356800885303}
+  price_text: {fileID: 6064844774136451871}
+  amount_text: {fileID: 1720465134581900697}
+  product_amount: 0
+  product_price: 0
+  product_type: 0
+  price_type: 0
 --- !u!1 &5915089903895321865
 GameObject:
   m_ObjectHideFlags: 0
