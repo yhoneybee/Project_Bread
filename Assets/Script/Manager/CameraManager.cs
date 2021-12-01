@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 카메라 연출과 관련된 클래스
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance { get; private set; } = null;
@@ -28,6 +29,11 @@ public class CameraManager : MonoBehaviour
     {
         this.camera = camera;
     }
+    /// <summary>
+    /// Vector2.Lerp를 통 해 카메라를 이동시키는 함수
+    /// </summary>
+    /// <param name="position">카메라를 이동시킬 위치</param>
+    /// <param name="speed">카메라 이동 시속도</param>
     public void MoveCamera(Vector3 position, float speed)
     {
         target_position = position;
