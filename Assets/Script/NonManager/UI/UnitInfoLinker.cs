@@ -56,7 +56,9 @@ public class UnitInfoLinker : MonoBehaviour
         srtUnitPrevValue = srtUnitValue;
         srtUnitValue = srtUnit.horizontalScrollbar.value;
 
-        if (!Input.GetMouseButton(0) && Input.touchCount == 1 && !zoom.IsHover)
+        srtUnit.enabled = !zoom.IsHover;
+
+        if (!zoom.IsHover)
         {
             if (Mathf.Abs(srtUnitValue - srtUnitPrevValue) <= 0.05f)
             {
