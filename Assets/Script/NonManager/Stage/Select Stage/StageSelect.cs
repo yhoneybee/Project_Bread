@@ -53,6 +53,7 @@ public class StageSelect : MonoBehaviour
     [SerializeField] StageSprites stage_sprites;
 
     RaycastHit2D[] hits;
+    Vector3 mouse_position => Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
     void Start()
     {
@@ -77,15 +78,14 @@ public class StageSelect : MonoBehaviour
 
         theme_name_txt_image.sprite = theme_name_image.sprite = theme_name_sprites[StageInfo.theme_number - 1];
     }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouse_position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mouse_down_position = mouse_position;
 
-            CameraMove(mouse_position);
-
-            hits = Physics2D.RaycastAll(mouse_position, Vector3.forward, 10);
+            hits = Physics2D.RaycastAll(mouse_down_position, Vector3.forward, 10);
 
             if (hits.Length > 0)
             {
@@ -99,6 +99,7 @@ public class StageSelect : MonoBehaviour
             else
             {
                 ReadyWindow.SetActive(false);
+                CameraMove(mouse_down_position);
             }
         }
     }
@@ -117,7 +118,9 @@ public class StageSelect : MonoBehaviour
         else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
 
         if (!ReadyWindow.activeSelf)
+        {
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
+        }
     }
     void OnReadyWindow()
     {
