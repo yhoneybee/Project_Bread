@@ -19,6 +19,8 @@ public class Collection : MonoBehaviour
     [SerializeField] Image rank_image;
     [Header("카드 우측 상단 등급 텍스트")]
     [SerializeField] TextMeshProUGUI text;
+    [Header("미획득 시 가려지도록 할 이미지")]
+    [SerializeField] Image fade_image;
     void Start()
     {
         image = GetComponent<Image>();
@@ -34,7 +36,7 @@ public class Collection : MonoBehaviour
     /// </summary>
     /// <param name="linker">현재 씬의 Collection Linker</param>
     /// <param name="unit">해당 Collection에 맞는 Unit</param>
-    public void SetCollection(CollectionLinker linker, Unit unit)
+    public void SetCollection(CollectionLinker linker, Unit unit, bool is_got)
     {
         image.sprite = unit.Info.Icon;
         image.SetNativeSize();
@@ -60,6 +62,8 @@ public class Collection : MonoBehaviour
         rank_image.sprite = rank_sprite;
         rank_image.SetNativeSize();
         rank_image.rectTransform.sizeDelta /= 10;
+
+        fade_image.enabled = !is_got;
     }
 
     /// <summary>
@@ -67,10 +71,12 @@ public class Collection : MonoBehaviour
     /// </summary>
     /// <param name="linker">현재 씬의 Collection Linker</param>
     /// <param name="item">해당 Collection에 맞는 Item</param>
-    public void SetCollection(CollectionLinker linker, Item item)
+    public void SetCollection(CollectionLinker linker, Item item, bool is_got)
     {
         image.sprite = item.Icon;
         image.SetNativeSize();
         image.rectTransform.sizeDelta /= 2;
+
+        fade_image.enabled = !is_got;
     }
 }
