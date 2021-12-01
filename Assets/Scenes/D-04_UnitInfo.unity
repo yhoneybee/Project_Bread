@@ -3140,6 +3140,7 @@ GameObject:
   - component: {fileID: 510470294}
   - component: {fileID: 510470293}
   - component: {fileID: 510470295}
+  - component: {fileID: 510470296}
   m_Layer: 5
   m_Name: Animation Cell
   m_TagString: Untagged
@@ -3218,6 +3219,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
+--- !u!114 &510470296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510470291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3bfaf9d36c29a7448526782fa17faf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &543239870
 GameObject:
   m_ObjectHideFlags: 0
@@ -11208,8 +11221,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 414831502}
   m_HandleRect: {fileID: 414831501}
   m_Direction: 0
-  m_Value: 0.99999994
-  m_Size: 0.5000467
+  m_Value: 0.9999997
+  m_Size: 0.50004655
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

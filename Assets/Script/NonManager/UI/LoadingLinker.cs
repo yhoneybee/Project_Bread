@@ -25,7 +25,7 @@ public class LoadingLinker : MonoBehaviour
                 Persent.text = $"{(int)loading_persent}%";
 
                 loading_persent = -9999999;
-                ButtonActions.Instance.ChangeScene("B - Main");
+                ButtonActions.Instance.ChangeScene("B-Main");
             }
             else if (loading_persent > 0)
             {

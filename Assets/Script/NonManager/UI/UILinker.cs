@@ -25,20 +25,20 @@ public class UILinker : MonoBehaviour
         if (IconBtn)
             IconBtn.onClick.AddListener(() =>
             {
-                if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
+                if (ButtonActions.Instance.CheckReEntering("D-02_UnitSelect"))
                 {
                     DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
-                    ButtonActions.Instance.ChangeScene("C - 03 DeckSelect");
+                    ButtonActions.Instance.ChangeScene("C-03_DeckSelect");
                 }
                 else if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
                 {
-                    ButtonActions.Instance.ChangeScene("C - 03 DeckSelect");
+                    ButtonActions.Instance.ChangeScene("C-03_DeckSelect");
                 }
                 else
                 {
                     GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                     GameManager.SelectUnit = Viewer.Show;
-                    ButtonActions.Instance.ChangeScene("D - 02 UnitSelect");
+                    ButtonActions.Instance.ChangeScene("D-02_UnitSelect");
                 }
             });
         if (InfoBtn)
@@ -46,7 +46,7 @@ public class UILinker : MonoBehaviour
             {
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 GameManager.SelectUnit = Viewer.Show;
-                ButtonActions.Instance.ChangeScene("D - 04 UnitInfo");
+                ButtonActions.Instance.ChangeScene("D-04_UnitInfo");
             });
         foreach (var btn in Buttons)
         {
@@ -54,7 +54,7 @@ public class UILinker : MonoBehaviour
             {
                 GameManager.SelectSlotIdx = UIManager.Instance.UnitViews.IndexOf(Viewer);
                 GameManager.SelectUnit = Viewer.Show;
-                ButtonActions.Instance.ChangeScene("D - 03 UnitItemInfo");
+                ButtonActions.Instance.ChangeScene("D-03_UnitItemInfo");
             });
         }
     }

@@ -186,26 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk:
-  - Sprite: {fileID: 21300000, guid: 7842c5868be45b9458135121572bd9be, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 875e32897c4d3c84da3a6ce53a57c5e2, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: c73013e7cbfdd4241ba3f94b3e7e3c87, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: ad40afa03f35c354bb0a2aa229580e8a, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 634ea675dbe121b43b3b0e72fa3d0a0a, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 5d0dbbef813c9f2418919d4bb09642d7, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 0ab03561afc23b844aa6bf174203a1be, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: c501cab274cc22a48ba1ed459991d1c7, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 51e20ee7204f32b488749877fb6b95a5, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: e07fb89a1dc76f349803ea976d40b638, type: 3}
-    Frame: 0.5
+  Walk: []
   Hit: []
   Attack: []
+  Die: []
