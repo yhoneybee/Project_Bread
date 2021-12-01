@@ -15,7 +15,6 @@ public class 메모장 : MonoBehaviour
     //
     /*
     대호
-    - Stage Select 씬에서 Stage Info 창에 테마 이름이랑 스테이지 이름 띄우기
     */
     //
 }
