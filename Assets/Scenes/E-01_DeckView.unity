@@ -3740,7 +3740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: D - 01 StageSelect
+      value: D-01_StageSelect
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4579,7 +4579,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 778078078}
   m_Direction: 2
   m_Value: 0.99999225
-  m_Size: 0.8472689
+  m_Size: 0.84726894
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
