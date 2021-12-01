@@ -18,6 +18,7 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] Button btnUpgrade;
     [SerializeField] TextMeshProUGUI txtUpgrade;
     [SerializeField] Image imgIcon;
+    [SerializeField] Zoom zoom;
 
     public int upgrade_cost;
     public int card_count;
@@ -55,7 +56,7 @@ public class UnitInfoLinker : MonoBehaviour
         srtUnitPrevValue = srtUnitValue;
         srtUnitValue = srtUnit.horizontalScrollbar.value;
 
-        if (!Input.GetMouseButton(0))
+        if (!Input.GetMouseButton(0) && Input.touchCount == 1 && !zoom.IsHover)
         {
             if (Mathf.Abs(srtUnitValue - srtUnitPrevValue) <= 0.05f)
             {

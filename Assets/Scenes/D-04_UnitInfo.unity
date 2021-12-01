@@ -3231,6 +3231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bfaf9d36c29a7448526782fa17faf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgZooming: {fileID: 1034725426}
 --- !u!1 &543239870
 GameObject:
   m_ObjectHideFlags: 0
@@ -6343,6 +6344,7 @@ MonoBehaviour:
   btnUpgrade: {fileID: 171373234}
   txtUpgrade: {fileID: 1382199030}
   imgIcon: {fileID: 840608473}
+  zoom: {fileID: 510470296}
   upgrade_cost: 1
   card_count: 1
 --- !u!1 &1102601927
@@ -11221,8 +11223,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 414831502}
   m_HandleRect: {fileID: 414831501}
   m_Direction: 0
-  m_Value: 0.9999997
-  m_Size: 0.50004655
+  m_Value: 0.99999994
+  m_Size: 0.5000467
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
