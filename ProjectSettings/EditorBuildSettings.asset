@@ -6,54 +6,51 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/A - Loading.unity
+    path: Assets/Scenes/A-Loading.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/B - Main.unity
+    path: Assets/Scenes/B-Main.unity
     guid: 940f6958c40cbeb489355cfea71d8f6a
   - enabled: 1
-    path: Assets/Scenes/C - 01 ThemeSelect.unity
+    path: Assets/Scenes/C-01_ThemeSelect.unity
     guid: 1819fb268d74bd44f84cc0885b289192
   - enabled: 1
-    path: Assets/Scenes/C - 02 Daily.unity
+    path: Assets/Scenes/C-02_Daily.unity
     guid: 07036d021ad85e345b426bbe87d74989
   - enabled: 1
-    path: Assets/Scenes/C - 03 DeckSelect.unity
+    path: Assets/Scenes/C-03_DeckSelect.unity
     guid: b10a3fb8461037242b8986e3236af9ed
   - enabled: 1
-    path: Assets/Scenes/C - 04 SpawnShop.unity
+    path: Assets/Scenes/C-04_SpawnShop.unity
     guid: 6348a19ff54fc3f42906ae800ee5ce6a
   - enabled: 1
-    path: Assets/Scenes/C - 05 CashShop.unity
+    path: Assets/Scenes/C-05_CashShop.unity
     guid: b34cd1405e266444f87619ec965cf826
   - enabled: 1
-    path: Assets/Scenes/C - 06 EventPackage.unity
+    path: Assets/Scenes/C-06_EventPackage.unity
     guid: 99cc0b401d0816349b90c1265d02b8e2
   - enabled: 1
-    path: Assets/Scenes/C - 07 LevelReward.unity
-    guid: 5c7d91876a0fa754892d8635715e0895
-  - enabled: 1
-    path: Assets/Scenes/C - 07 Achievement.unity
+    path: Assets/Scenes/C-07_Achievement.unity
     guid: 737e2fe847700a84fb9467c08b1094a3
   - enabled: 1
-    path: Assets/Scenes/C - 08 Collection.unity
+    path: Assets/Scenes/C-08_Collection.unity
     guid: d398819185ae53c49a9a85c0c8516f3c
   - enabled: 1
-    path: Assets/Scenes/D - 01 StageSelect.unity
+    path: Assets/Scenes/D-01_StageSelect.unity
     guid: bdda67cf9e521654f9e41782c8f88eb9
   - enabled: 1
-    path: Assets/Scenes/D - 02 UnitSelect.unity
+    path: Assets/Scenes/D-02_UnitSelect.unity
     guid: d10b72367b8176c40936b29b9f57d762
   - enabled: 1
-    path: Assets/Scenes/D - 03 UnitItemInfo.unity
+    path: Assets/Scenes/D-03_UnitItemInfo.unity
     guid: ac01b4f9330cb2d4092eba38d0ded43c
   - enabled: 1
-    path: Assets/Scenes/D - 04 UnitInfo.unity
+    path: Assets/Scenes/D-04_UnitInfo.unity
     guid: 70a76f7aa8c87dc49b3dda0f665877b6
   - enabled: 1
-    path: Assets/Scenes/E - 01 DeckView.unity
+    path: Assets/Scenes/E-01_DeckView.unity
     guid: 3702ec65f624c974ba840d28bef644a0
   - enabled: 1
-    path: Assets/Scenes/F - 01 Ingame.unity
+    path: Assets/Scenes/F-01_Ingame.unity
     guid: de68c49eef6ace3489d4d0f9609cb4b4
   m_configObjects: {}

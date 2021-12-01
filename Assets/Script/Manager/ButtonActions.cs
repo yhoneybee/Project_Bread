@@ -56,13 +56,13 @@ public class ButtonActions : MonoBehaviour
         }
         fade_img.color = Color.black;
 
-        if (CheckReEntering("E - 01 DeckView")) GameManager.Instance.EnteredDeckView = true;
-        else if (CheckReEntering("D - 01 StageSelect")) GameManager.Instance.EnteredDeckView = false;
+        if (CheckReEntering("E-01_DeckView")) GameManager.Instance.EnteredDeckView = true;
+        else if (CheckReEntering("D-01_StageSelect")) GameManager.Instance.EnteredDeckView = false;
 
-        if (GameManager.Instance.EnteredDeckView && name == "B - Main")
+        if (GameManager.Instance.EnteredDeckView && name == "B-Main")
         {
             GameManager.Instance.EnteredDeckView = false;
-            ChangeScene("E - 01 DeckView");
+            ChangeScene("E-01_DeckView");
             yield break;
         }
 
@@ -87,7 +87,7 @@ public class ButtonActions : MonoBehaviour
     public void ExceptUnit()
     {
         GameManager.Select[GameManager.SelectSlotIdx] = null;
-        ChangeScene("C - 03 DeckSelect");
+        ChangeScene("C-03_DeckSelect");
     }
 
     public void ChangeAnimState(int index)
@@ -184,7 +184,7 @@ public class ButtonActions : MonoBehaviour
         if (GameManager.Instance.Stemina >= 3)
         {
             GameManager.Instance.Stemina -= 3;
-            ChangeScene("F - 01 Ingame");
+            ChangeScene("F-01_Ingame");
         }
         else
         {

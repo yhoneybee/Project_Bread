@@ -186,34 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Idle: []
-  Walk:
-  - Sprite: {fileID: 21300000, guid: 133d6596a00e47048a321dd044e304b9, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: fc4de03b02a99494995adbc4ec1916aa, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: a8b4566c226fa074cbf8ade83b3ee2cb, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: fb50031a50bc8e34e8cea9399cfb3bb7, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: d8e5b42ddd91d894291a54b76f99b4a9, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 906ad9761f8de3f41b037f20179b73ea, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: c8cdab8640c04874291a141cf1adb5cd, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 7795f5b48adc4ef4a8af843eb00cdbe3, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 01e4a3ca4265c39459e15c49f2a7e0b1, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: c05df39bbcd09194f9d7003a9f1df3f1, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: b2789ac4aef554242a5d42e9d65a5a31, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 22fcfc16256c5e54cb57e3b22d60a1f3, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 16af7868b90a10a47b043694ce610246, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 064e9ec6b5a4cbd4cac581cc8c2ba29c, type: 3}
-    Frame: 0.5
+  Walk: []
   Hit: []
   Attack: []
+  Die: []

@@ -308,7 +308,7 @@ public class Ingame : MonoBehaviour
             result_window.next_button.onClick.AddListener(
                 () =>
                 {
-                    ButtonActions.Instance.ChangeScene("E - 01 DeckView");
+                    ButtonActions.Instance.ChangeScene("E-01_DeckView");
                 });
         }
     }

@@ -38,7 +38,7 @@ public class SelectTheme : MonoBehaviour
                 }
                 else
                 {
-                    ButtonActions.Instance.ChangeScene("D - 01 StageSelect");
+                    ButtonActions.Instance.ChangeScene("D-01_StageSelect");
                 }
         }
     }

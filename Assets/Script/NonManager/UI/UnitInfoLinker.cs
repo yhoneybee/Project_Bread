@@ -55,23 +55,26 @@ public class UnitInfoLinker : MonoBehaviour
         srtUnitPrevValue = srtUnitValue;
         srtUnitValue = srtUnit.horizontalScrollbar.value;
 
-        if (Mathf.Abs(srtUnitPrevValue - srtUnitValue) <= 0.05f)
+        if (!Input.GetMouseButton(0))
         {
-            if (srtUnitValue > 0.5f)
+            if (Mathf.Abs(srtUnitValue - srtUnitPrevValue) <= 0.05f)
             {
-                srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 1, Time.deltaTime * 3);
-                imgDots[1].color = Color.white;
-                imgDots[0].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
-                btnLeftRight[0].gameObject.SetActive(true);
-                btnLeftRight[1].gameObject.SetActive(false);
-            }
-            else
-            {
-                srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 0, Time.deltaTime * 3);
-                imgDots[0].color = Color.white;
-                imgDots[1].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
-                btnLeftRight[1].gameObject.SetActive(true);
-                btnLeftRight[0].gameObject.SetActive(false);
+                if (srtUnitValue > 0.5f)
+                {
+                    srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 1, Time.deltaTime * 3);
+                    imgDots[1].color = Color.white;
+                    imgDots[0].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
+                    btnLeftRight[0].gameObject.SetActive(true);
+                    btnLeftRight[1].gameObject.SetActive(false);
+                }
+                else
+                {
+                    srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 0, Time.deltaTime * 3);
+                    imgDots[0].color = Color.white;
+                    imgDots[1].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
+                    btnLeftRight[1].gameObject.SetActive(true);
+                    btnLeftRight[0].gameObject.SetActive(false);
+                }
             }
         }
     }
