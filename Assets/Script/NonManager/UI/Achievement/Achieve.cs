@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Achieve : MonoBehaviour
 {
+
     void Start()
     {
-
     }
 
     void Update()
