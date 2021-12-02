@@ -35,6 +35,8 @@ public class CollectionLinker : MonoBehaviour
 
     GameObject current_showing_collection;
 
+    float[] percents = new float[3];
+
     void GetContents()
     {
         RectTransform content = (RectTransform)(bread_collection.GetChild(0).GetChild(0).transform);
@@ -117,21 +119,16 @@ public class CollectionLinker : MonoBehaviour
             }
             else
             {
-                is_got = GameManager.Instance.Items.Find((o) => { return o.Name == ((Item)(show_object[i])).Name; }) != null;
+                is_got = target_object.ToList<Object>().Find((o) => { return ((Item)(o)).Name == ((Item)(show_object[i])).Name; }) != null;
                 collection.SetCollection(this, (Item)(show_object[i]), is_got);
             }
         }
-    }
 
-    /// <summary>
-    /// 화면의 달성률 텍스트와 슬라이더 값 설정해주는 함수
-    /// </summary>
-    /// <param name="collection_index">설정할 Collection의 인덱스</param>
-    void SetPercentInformations(int collection_index)
-    {
-        float got_obj_length = new Object[3][] { got_breads, got_items, got_enemys }[collection_index].Length;
-        percent_text.text = $"{got_obj_length}% 수집";
-        percent_slider.value = got_obj_length / UnitManager.Instance.Units.Count;
+        int got_obj_length = new Object[3][] { got_breads, got_items, got_enemys }[content_index].Length;
+        int[] devide_value = new int[3] { breads.Count, GameManager.Instance.Items.Count, enemies.Count };
+        float percent = got_obj_length / (float)devide_value[content_index];
+
+        percents[content_index] = percent;
     }
 
     void Start()
@@ -140,6 +137,9 @@ public class CollectionLinker : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
             SetContentsSize(i);
+
+        percent_text.text = $"{percents[0] * 100}% 수집";
+        percent_slider.value = percents[0];
 
         current_showing_collection = bread_collection.gameObject;
     }
@@ -160,5 +160,9 @@ public class CollectionLinker : MonoBehaviour
         target_collection.SetActive(true);
 
         current_showing_collection = target_collection;
+
+        // 화면의 달성률 텍스트와 슬라이더 값 설정
+        percent_text.text = $"{percents[content_index] * 100}% 수집";
+        percent_slider.value = percents[content_index];
     }
 }
