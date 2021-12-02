@@ -14,6 +14,10 @@ public class CollectionLinker : MonoBehaviour
     [SerializeField] RectTransform item_collection;
     [SerializeField] RectTransform enemy_collection;
 
+    [SerializeField] Button bread_button;
+    [SerializeField] Button item_button;
+    [SerializeField] Button enemy_button;
+
     //[SerializeField]
     public Unit[] got_breads;
     //[SerializeField]
@@ -34,6 +38,9 @@ public class CollectionLinker : MonoBehaviour
     RectTransform enemy_content;
 
     GameObject current_showing_collection;
+    Button current_active_button;
+
+    float[] percents = new float[3];
 
     void GetContents()
     {
@@ -117,21 +124,16 @@ public class CollectionLinker : MonoBehaviour
             }
             else
             {
-                is_got = GameManager.Instance.Items.Find((o) => { return o.Name == ((Item)(show_object[i])).Name; }) != null;
+                is_got = target_object.ToList<Object>().Find((o) => { return ((Item)(o)).Name == ((Item)(show_object[i])).Name; }) != null;
                 collection.SetCollection(this, (Item)(show_object[i]), is_got);
             }
         }
-    }
 
-    /// <summary>
-    /// 화면의 달성률 텍스트와 슬라이더 값 설정해주는 함수
-    /// </summary>
-    /// <param name="collection_index">설정할 Collection의 인덱스</param>
-    void SetPercentInformations(int collection_index)
-    {
-        float got_obj_length = new Object[3][] { got_breads, got_items, got_enemys }[collection_index].Length;
-        percent_text.text = $"{got_obj_length}% 수집";
-        percent_slider.value = got_obj_length / UnitManager.Instance.Units.Count;
+        int got_obj_length = new Object[3][] { got_breads, got_items, got_enemys }[content_index].Length;
+        int[] devide_value = new int[3] { breads.Count, GameManager.Instance.Items.Count, enemies.Count };
+        float percent = got_obj_length / (float)devide_value[content_index];
+
+        percents[content_index] = percent;
     }
 
     void Start()
@@ -141,7 +143,11 @@ public class CollectionLinker : MonoBehaviour
         for (int i = 0; i < 3; i++)
             SetContentsSize(i);
 
+        percent_text.text = $"{percents[0] * 100}% 수집";
+        percent_slider.value = percents[0];
+
         current_showing_collection = bread_collection.gameObject;
+        current_active_button = bread_button;
     }
 
     void Update()
@@ -155,10 +161,24 @@ public class CollectionLinker : MonoBehaviour
     public void ShowCollection(int content_index)
     {
         GameObject target_collection = new RectTransform[3] { bread_collection, item_collection, enemy_collection }[content_index].gameObject;
+        Button target_button = new Button[3] { bread_button, item_button, enemy_button }[content_index];
 
         current_showing_collection.SetActive(false);
         target_collection.SetActive(true);
 
+        current_active_button.image.color = new Color(0.5f, 0.5f, 0.5f);
+        current_active_button.transform.GetChild(0).
+            GetComponent<TextMeshProUGUI>().color = new Color(0.5f, 0.5f, 0.5f);
+
+        target_button.image.color = Color.white;
+        target_button.transform.GetChild(0).
+            GetComponent<TextMeshProUGUI>().color = Color.white;
+
         current_showing_collection = target_collection;
+        current_active_button = target_button;
+
+        // 화면의 달성률 텍스트와 슬라이더 값 설정
+        percent_text.text = $"{percents[content_index] * 100}% 수집";
+        percent_slider.value = percents[content_index];
     }
 }
