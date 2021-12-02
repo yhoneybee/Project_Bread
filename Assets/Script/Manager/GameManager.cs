@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
     public static int SelectSlotIdx;
 
     public int player_level = 1;
+    public int player_exp = 0;
+    public int need_exp = 100;
     public int Coin = 0;
     public int Jem = 0;
     public int Stemina = 20;

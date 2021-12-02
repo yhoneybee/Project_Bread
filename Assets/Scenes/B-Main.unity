@@ -899,9 +899,17 @@ PrefabInstance:
       value: Resources
       objectReference: {fileID: 0}
     - target: {fileID: 821863813426353299, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
+      propertyPath: ExpText
+      value: 
+      objectReference: {fileID: 1029860241}
+    - target: {fileID: 821863813426353299, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: NameText
       value: 
       objectReference: {fileID: 325110834}
+    - target: {fileID: 821863813426353299, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
+      propertyPath: ExpSlider
+      value: 
+      objectReference: {fileID: 1610459915}
     - target: {fileID: 821863814465759117, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
