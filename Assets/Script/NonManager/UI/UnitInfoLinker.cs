@@ -10,7 +10,7 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] TextMeshProUGUI level_text;
     [SerializeField] Image RankIcon;
     [SerializeField] Slider ExpSlider;
-    [SerializeField] List<Sprite> RankSprites = new List<Sprite>();
+    [SerializeField] List<UnityEngine.Sprite> RankSprites = new List<UnityEngine.Sprite>();
     [SerializeField] List<RectTransform> Values = new List<RectTransform>();
     [SerializeField] ScrollRect srtUnit;
     [SerializeField] Image[] imgDots;

@@ -17,10 +17,10 @@ public class Ingame : MonoBehaviour
             next_button.transform.GetChild(0).GetComponent<Image>();
         public RectTransform stars_parent;
 
-        public Sprite next_text_sprite;
-        public Sprite retry_text_sprite;
+        public UnityEngine.Sprite next_text_sprite;
+        public UnityEngine.Sprite retry_text_sprite;
 
-        public Sprite[] result_text_sprites;
+        public UnityEngine.Sprite[] result_text_sprites;
     }
     [System.Serializable]
     struct Three_Star_Limit
@@ -30,9 +30,9 @@ public class Ingame : MonoBehaviour
         public Image[] stars;
     }
 
-    [SerializeField] Sprite[] theme_name_sprites;
+    [SerializeField] UnityEngine.Sprite[] theme_name_sprites;
 
-    public Sprite[] font_2_text;
+    public UnityEngine.Sprite[] font_2_text;
 
 
     // 화면 왼쪽 상단 테마 번호
@@ -50,7 +50,7 @@ public class Ingame : MonoBehaviour
 
     [Space(10)]
     // UI에 띄울 획득한 별 Sprite
-    [SerializeField] Sprite star_sprite;
+    [SerializeField] UnityEngine.Sprite star_sprite;
 
     [Space(10)]
     // 게임 끝나면 나오는 결과 창

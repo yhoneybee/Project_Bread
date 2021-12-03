@@ -14,8 +14,8 @@ public struct DailyUI
 [System.Serializable]
 public struct SwitchSprite
 {
-    public Sprite ASprite;
-    public Sprite BSprite;
+    public UnityEngine.Sprite ASprite;
+    public UnityEngine.Sprite BSprite;
 }
 
 public class UIManager : MonoBehaviour
@@ -40,10 +40,10 @@ public class UIManager : MonoBehaviour
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
     public List<RectTransform> ProductParents;
-    public Sprite[] Nums = new Sprite[10];
-    public Sprite TeamBtnLock;
-    public Sprite UnitNullSprite;
-    public Sprite[] spIcon;
+    public UnityEngine.Sprite[] Nums = new UnityEngine.Sprite[10];
+    public UnityEngine.Sprite TeamBtnLock;
+    public UnityEngine.Sprite UnitNullSprite;
+    public UnityEngine.Sprite[] spIcon;
     public UILinker Except;
     public Image Fade;
     public RectTransform Content;
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     public Button btnIcon;
     public RectTransform rtrnIconSelect;
 
-    public Sprite[] IconSprites = new Sprite[4];
+    public UnityEngine.Sprite[] IconSprites = new UnityEngine.Sprite[4];
 
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
@@ -77,13 +77,13 @@ public class UIManager : MonoBehaviour
                 if (rtrnIconSelect) rtrnIconSelect.gameObject.SetActive(true);
             });
         }
-        if (!ButtonActions.Instance.CheckReEntering("A - Loading"))
+        if (!ButtonActions.Instance.CheckReEntering("A-Loading"))
         {
             Fade.color = Color.black;
             Fade.raycastTarget = true;
             StartCoroutine(GameManager.Instance.EHideUI(Fade));
         }
-        if (ButtonActions.Instance.CheckReEntering("D - 02 UnitSelect"))
+        if (ButtonActions.Instance.CheckReEntering("D-02_UnitSelect"))
         {
             var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND && o.Info.Gotten; });
             Content.sizeDelta = new Vector2 { x = Content.sizeDelta.x, y = friends.Count / 5 * (375.1f + 58) };
@@ -112,14 +112,14 @@ public class UIManager : MonoBehaviour
                 if (find) find.gameObject.SetActive(false);
             }
         }
-        else if (ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo") || ButtonActions.Instance.CheckReEntering("B - Main"))
+        else if (ButtonActions.Instance.CheckReEntering("D-04_UnitInfo") || ButtonActions.Instance.CheckReEntering("B-Main"))
         {
             AnimState = AnimState.WALK;
         }
     }
     private void Update()
     {
-        if (ButtonActions.Instance.CheckReEntering("B - Main"))
+        if (ButtonActions.Instance.CheckReEntering("B-Main"))
         {
             if (GameManager.Select[0])
             {
@@ -136,7 +136,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                AnimImg.gameObject.SetActive(false);
+                //AnimImg.gameObject.SetActive(false);
             }
         }
         else
@@ -145,14 +145,11 @@ public class UIManager : MonoBehaviour
 
     public void Animator()
     {
-        if (!ButtonActions.Instance.CheckReEntering("D - 04 UnitInfo") || !GameManager.SelectUnit.Anim) return;
+        if (!ButtonActions.Instance.CheckReEntering("D-04_UnitInfo") || !GameManager.SelectUnit.Anim) return;
         time += Time.deltaTime;
 
         switch (AnimState)
         {
-            case AnimState.IDLE:
-                Animation(GameManager.SelectUnit.Anim.Idle);
-                break;
             case AnimState.WALK:
                 Animation(GameManager.SelectUnit.Anim.Walk);
                 break;
@@ -164,12 +161,12 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
-    void Animation(List<SpriteFrame> SF)
+    void Animation(List<Sprite> SF)
     {
         AnimImg.gameObject.SetActive(SF.Count != 0);
         if (SF.Count == 0) return;
-        if (AnimImg) AnimImg.sprite = SF[AnimIndex].Sprite;
-        if (time >= SF[AnimIndex].Frame)
+        if (AnimImg) AnimImg.sprite = SF[AnimIndex];
+        if (time >= /*SF[AnimIndex].Frame*/0.01f)
         {
             ++AnimIndex;
             time = 0;

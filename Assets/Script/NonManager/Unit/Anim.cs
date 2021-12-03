@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Anim : MonoBehaviour
 {
-    public List<SpriteFrame> Idle;
-    public List<SpriteFrame> Walk;
-    public List<SpriteFrame> Hit;
-    public List<SpriteFrame> Attack;
-    public List<SpriteFrame> Die;
+    public List<Sprite> Walk;
+    public List<Sprite> Hit;
+    public List<Sprite> Attack;
+    public List<Sprite> Die;
 }

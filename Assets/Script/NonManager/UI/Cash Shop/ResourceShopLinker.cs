@@ -20,7 +20,7 @@ public class ResourceShopLinker : MonoBehaviour
 {
     [SerializeField] BuyButton[] buy_buttons;
 
-    public Sprite[] icon_sprites =
+    public UnityEngine.Sprite[] icon_sprites =
     {
          null, // Coin Sprite
          null, // Jem Sprite

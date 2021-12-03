@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Zoom : MonoBehaviour, IPointerEnterHandler
+public class Zoom : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public bool IsHover
     {
@@ -18,7 +18,12 @@ public class Zoom : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!isHover) isHover = true;
+        if (Input.GetMouseButton(0) && !isHover) isHover = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (isHover) isHover = false;
     }
 
     private void Start()
@@ -30,6 +35,9 @@ public class Zoom : MonoBehaviour, IPointerEnterHandler
 
     private void Update()
     {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        imgZooming.GetComponent<RectTransform>().sizeDelta += Vector2.one * scroll * 100;
+#if false
         if (isHover && Input.touchCount > 1 && Input.GetTouch(0).deltaPosition != Vector2.zero && Input.GetTouch(1).deltaPosition != Vector2.zero)
         {
             for (int i = 0; i < v2Touchs.Count; i++)
@@ -57,5 +65,6 @@ public class Zoom : MonoBehaviour, IPointerEnterHandler
         {
             v2Touchs[1] = Input.GetTouch(1).position;
         }
+#endif
     }
 }

@@ -7,8 +7,8 @@ public class TeamBtnLock : MonoBehaviour
 {
     public Image Image;
     public Button Button;
-    public Sprite Sprite;
-    public Sprite OverSprite;
+    public UnityEngine.Sprite Sprite;
+    public UnityEngine.Sprite OverSprite;
     public int index;
 
     bool locked;

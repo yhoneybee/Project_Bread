@@ -16,11 +16,11 @@ public class StageSelect : MonoBehaviour
     [System.Serializable]
     struct StageSprites
     {
-        public Sprite not_startable;
-        public Sprite startable;
-        public Sprite one_star;
-        public Sprite two_star;
-        public Sprite three_star;
+        public UnityEngine.Sprite not_startable;
+        public UnityEngine.Sprite startable;
+        public UnityEngine.Sprite one_star;
+        public UnityEngine.Sprite two_star;
+        public UnityEngine.Sprite three_star;
     }
 
     // 카메라 위치 제한 Transform 담아둔 구조체
@@ -33,14 +33,14 @@ public class StageSelect : MonoBehaviour
     [SerializeField] StageObject[] stage_objects;
 
     // 숫자 Text Sprite들
-    [SerializeField] Sprite[] font_1_text;
-    [SerializeField] Sprite[] font_2_text;
+    [SerializeField] UnityEngine.Sprite[] font_1_text;
+    [SerializeField] UnityEngine.Sprite[] font_2_text;
 
     // 왼쪽 상단 테마 이름 이미지
     [SerializeField] Image theme_name_txt_image;
 
     // Ready Window의 테마(시나리오) 텍스트 Sprite
-    [SerializeField] Sprite[] theme_name_sprites;
+    [SerializeField] UnityEngine.Sprite[] theme_name_sprites;
 
     // Ready Window의 Theme Number 이미지
     [SerializeField] Image theme_number_image;
@@ -58,9 +58,9 @@ public class StageSelect : MonoBehaviour
     void Start()
     {
         // stage sprite 임시로 담아두는 배열
-        Sprite[] stage_sprite = { stage_sprites.startable, stage_sprites.one_star, stage_sprites.two_star, stage_sprites.three_star };
+        UnityEngine.Sprite[] stage_sprite = { stage_sprites.startable, stage_sprites.one_star, stage_sprites.two_star, stage_sprites.three_star };
         // stage number text sprite 임시로 담아수는 배열
-        Sprite[] stage_text_sprites = { null, null };
+        UnityEngine.Sprite[] stage_text_sprites = { null, null };
 
         for (int i = 0; i < stage_objects.Length; i++)
         {

@@ -7,7 +7,7 @@ using TMPro;
 public class StageTitleLinker : MonoBehaviour
 {
     public Image ThemeText;
-    public Sprite[] ThemeTexts = new Sprite[3];
+    public UnityEngine.Sprite[] ThemeTexts = new UnityEngine.Sprite[3];
 
     public Image ThemeNum;
     public Image NumTen;

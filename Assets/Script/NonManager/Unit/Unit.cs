@@ -14,7 +14,7 @@ public enum Rank
 
 public enum AnimState
 {
-    IDLE,
+    //IDLE,
     WALK,
     HIT,
     ATTACK,
@@ -43,7 +43,7 @@ public struct Info
     ///<summary>Unit Name</summary>///
     public string Name;
     ///<summary>Unit UI Icon</summary>///
-    public Sprite Icon;
+    public UnityEngine.Sprite Icon;
     ///<summary>Unit Identity</summary>///
     public int Id;
     ///<summary>Unit Level</summary>///
@@ -116,12 +116,12 @@ public struct Proportionality
     }
 }
 
-[Serializable]
-public struct SpriteFrame
-{
-    public Sprite Sprite;
-    public float Frame;
-}
+//[Serializable]
+//public struct Sprite
+//{
+//    public UnityEngine.Sprite Sprite;
+//    public float Frame;
+//}
 #endregion
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -194,7 +194,7 @@ public abstract class Unit : MonoBehaviour
             Moving();
             AnimState = AnimState.WALK;
         }
-        else AnimState = AnimState.IDLE;
+        else AnimState = AnimState.WALK;
 
         if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
 
@@ -247,9 +247,6 @@ public abstract class Unit : MonoBehaviour
 
         switch (AnimState)
         {
-            case AnimState.IDLE:
-                Animation(Anim.Idle);
-                break;
             case AnimState.WALK:
                 Animation(Anim.Walk);
                 break;
@@ -257,14 +254,14 @@ public abstract class Unit : MonoBehaviour
                 Animation(Anim.Hit);
                 if (AnimIndex == Anim.Hit.Count)
                 {
-                    AnimState = AnimState.IDLE;
+                    AnimState = AnimState.WALK;
                 }
                 break;
             case AnimState.ATTACK:
                 Animation(Anim.Attack);
                 if (AnimIndex == Anim.Attack.Count)
                 {
-                    AnimState = AnimState.IDLE;
+                    AnimState = AnimState.WALK;
                 }
                 break;
             case AnimState.DIE:
@@ -276,11 +273,11 @@ public abstract class Unit : MonoBehaviour
                 break;
         }
     }
-    void Animation(List<SpriteFrame> SF)
+    void Animation(List<Sprite> SF)
     {
         if (SF.Count == 0) return;
-        if (SR) SR.sprite = SF[AnimIndex].Sprite;
-        if (time >= SF[AnimIndex].Frame)
+        if (SR) SR.sprite = SF[AnimIndex];
+        if (time >= 0.01f)
         {
             ++AnimIndex;
             time = 0;
