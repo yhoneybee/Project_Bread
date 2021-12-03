@@ -21,8 +21,8 @@ public class AchievementLinker : MonoBehaviour
     {
         public Button button;
         public Image button_image;
-        public Sprite basic_sprite;
-        public Sprite select_sprite;
+        public UnityEngine.Sprite basic_sprite;
+        public UnityEngine.Sprite select_sprite;
         public int button_index;
     }
     [SerializeField] BasicButton[] side_buttons;

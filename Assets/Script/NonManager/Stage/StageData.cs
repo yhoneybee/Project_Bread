@@ -7,10 +7,10 @@ using System;
 public class StageData : ScriptableObject
 {
     public List<WaveInformation> wave_information;
-    public Sprite[] enemies_sprite;
+    public UnityEngine.Sprite[] enemies_sprite;
     [Space(15)]
     public RewardInformation reward_information;
-    public Sprite[] rewards_sprite;
+    public UnityEngine.Sprite[] rewards_sprite;
     [Space(15)]
     public int star_count = 0;
     public bool is_startable;

@@ -57,7 +57,7 @@ public class Collection : MonoBehaviour
         Rank rank = unit.Info.Rank;
         text.text = rank.ToString();
 
-        Sprite rank_sprite = new Sprite[4] { linker.common_icon, linker.rare_icon, linker.epic_icon, linker.legend_icon }[(int)(rank)];
+        UnityEngine.Sprite rank_sprite = new UnityEngine.Sprite[4] { linker.common_icon, linker.rare_icon, linker.epic_icon, linker.legend_icon }[(int)(rank)];
 
         rank_image.sprite = rank_sprite;
         rank_image.SetNativeSize();

@@ -16,8 +16,8 @@ public class DateTimer
 [Serializable]
 public struct UpperLowerSprite
 {
-    public Sprite Upper;
-    public Sprite Lower;
+    public UnityEngine.Sprite Upper;
+    public UnityEngine.Sprite Lower;
 }
 
 public class ShopManager : MonoBehaviour
@@ -35,7 +35,7 @@ public class ShopManager : MonoBehaviour
     public Image imgBuyBox;
     public Image imgDropBox;
     public List<UpperLowerSprite> UpperLowers;
-    public List<Sprite> BoxSprites;
+    public List<UnityEngine.Sprite> BoxSprites;
 
     [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];

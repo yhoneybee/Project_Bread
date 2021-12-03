@@ -20,12 +20,12 @@ public class LevelRewardLinker : MonoBehaviour
         public int reward_index;
     }
 
-    [SerializeField] Sprite take_reward_sprite;
-    [SerializeField] Sprite already_taked_reward_sprite;
+    [SerializeField] UnityEngine.Sprite take_reward_sprite;
+    [SerializeField] UnityEngine.Sprite already_taked_reward_sprite;
 
-    [SerializeField] Sprite coin_sprite;
-    [SerializeField] Sprite jem_sprite;
-    [SerializeField] Sprite stemina_sprite;
+    [SerializeField] UnityEngine.Sprite coin_sprite;
+    [SerializeField] UnityEngine.Sprite jem_sprite;
+    [SerializeField] UnityEngine.Sprite stemina_sprite;
 
     [SerializeField] LevelReward[] level_rewards;
 

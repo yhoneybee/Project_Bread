@@ -21,7 +21,7 @@ public class StageObject : MonoBehaviour
     /// 본인의 Stage Sprite를 바꿔주는 함수
     /// </summary>
     /// <param name="sprite">매개 변수로 받은 sprite로 본인 Stage Sprite를 바꿔줌</param>
-    public void SetObjectSprite(Sprite sprite)
+    public void SetObjectSprite(UnityEngine.Sprite sprite)
         => renderer.sprite = sprite;
 
     /// <summary>
@@ -29,7 +29,7 @@ public class StageObject : MonoBehaviour
     /// </summary>
     /// <param name="theme">theme text object의 이미지</param>
     /// <param name="stage">stage text object의 이미지 (1~2의 크기)</param>
-    public void SetTexts(Sprite theme, Sprite[] stage)
+    public void SetTexts(UnityEngine.Sprite theme, UnityEngine.Sprite[] stage)
     {
         theme_number_image.sprite = theme;
 

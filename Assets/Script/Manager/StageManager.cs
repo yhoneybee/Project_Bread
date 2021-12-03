@@ -41,6 +41,6 @@ public class StageManager : MonoBehaviour
     public StageData GetStage() => GetStage(StageInfo.stage_number - 1);
     public List<WaveInformation> GetWaveData() => GetStage().wave_information;
     public RewardInformation GetReward() => GetStage().reward_information;
-    public Sprite[] GetEnemiesSprite() => GetStage().enemies_sprite;
-    public Sprite[] GetRewardsSprite() => GetStage().rewards_sprite;
+    public UnityEngine.Sprite[] GetEnemiesSprite() => GetStage().enemies_sprite;
+    public UnityEngine.Sprite[] GetRewardsSprite() => GetStage().rewards_sprite;
 }

@@ -185,8 +185,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Idle: []
-  Walk: []
-  Hit: []
+  Walk:
+  - {fileID: 21300000, guid: d16acf875032cc34099d21f205c6076c, type: 3}
+  - {fileID: 21300000, guid: 01af452c7af5c4f4cb916753c4747557, type: 3}
+  - {fileID: 21300000, guid: bca1ca88a943eee46b97d817be4882f4, type: 3}
+  - {fileID: 21300000, guid: 5eee89065f5b2c84b9afb83b7ffdcb0e, type: 3}
+  - {fileID: 21300000, guid: f95962b545fa6e248bf585688c5b9f87, type: 3}
+  - {fileID: 21300000, guid: e993c192ee3c1d44aa7989fe3aa5d851, type: 3}
+  - {fileID: 21300000, guid: e9642b93082ed5a4196b22b79c1c2fb2, type: 3}
+  - {fileID: 21300000, guid: c7014c7becd83314d810fb5a5d99b50f, type: 3}
+  - {fileID: 21300000, guid: 8256e2af272afd74eb259b98b4e774c0, type: 3}
+  Hit:
+  - {fileID: 21300000, guid: f7b64a49f40daa147b94661fec4dd600, type: 3}
   Attack: []
-  Die: []
+  Die:
+  - {fileID: 21300000, guid: 2668430dca00e2e4ab31acdf1f6e9e0f, type: 3}
+  - {fileID: 21300000, guid: ae1f1ee2d1430a74ea2c307a769e2772, type: 3}
+  - {fileID: 21300000, guid: 417f502aaa1a4bd4a809ea6c12967f1e, type: 3}
+  - {fileID: 21300000, guid: abefe3d73d2b6354ab9f03a806c6f160, type: 3}
+  - {fileID: 21300000, guid: 7c7067452dacb174f9a3aefbf1e457de, type: 3}
+  - {fileID: 21300000, guid: d4e83f0292682934fbe1a14ece8ef609, type: 3}
+  - {fileID: 21300000, guid: 641f92bdd11697a49822a535614de36e, type: 3}
+  - {fileID: 21300000, guid: 1ea5a71c47a392848b79e459903c65ef, type: 3}
+  - {fileID: 21300000, guid: 7f01614cc258c624885cfb282c60d6e7, type: 3}
+  - {fileID: 21300000, guid: 4b2e0995f0daa8f42a9697ef0cbb2da5, type: 3}
+  - {fileID: 21300000, guid: 56e7241321eb1664b9314db1efafe5c6, type: 3}
+  - {fileID: 21300000, guid: 7568ad7d5a2760a49973aadf52c0d7b1, type: 3}
