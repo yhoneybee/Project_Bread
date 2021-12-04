@@ -21,6 +21,8 @@ public class Collection : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [Header("미획득 시 가려지도록 할 이미지")]
     [SerializeField] Image fade_image;
+    [Header("카드 하단 이름 텍스트")]
+    [SerializeField] TextMeshProUGUI name_text;
     void Start()
     {
         image = GetComponent<Image>();
@@ -57,13 +59,15 @@ public class Collection : MonoBehaviour
         Rank rank = unit.Info.Rank;
         text.text = rank.ToString();
 
-        UnityEngine.Sprite rank_sprite = new UnityEngine.Sprite[4] { linker.common_icon, linker.rare_icon, linker.epic_icon, linker.legend_icon }[(int)(rank)];
+        Sprite rank_sprite = new Sprite[4] { linker.common_icon, linker.rare_icon, linker.epic_icon, linker.legend_icon }[(int)(rank)];
 
         rank_image.sprite = rank_sprite;
         rank_image.SetNativeSize();
         rank_image.rectTransform.sizeDelta /= 10;
 
         fade_image.enabled = !is_got;
+
+        name_text.text = unit.Info.Name;
     }
 
     /// <summary>
@@ -78,5 +82,7 @@ public class Collection : MonoBehaviour
         image.rectTransform.sizeDelta /= 2;
 
         fade_image.enabled = !is_got;
+
+        name_text.text = item.Name;
     }
 }
