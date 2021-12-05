@@ -51,7 +51,7 @@ public class StageInfoLinker : MonoBehaviour
             MobContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left));
         }
         var RewardGLG = RewardContent.GetComponent<GridLayoutGroup>();
-        if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+        if (ButtonActions.Instance.CheckReEntering("E-01_DeckView"))
             RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, RewardContent.sizeDelta.y + (((RewardGLG.cellSize.y + RewardGLG.spacing.y) * (RewardContent.childCount / 6)) + RewardGLG.padding.top));
         else
             RewardContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, RewardContent.sizeDelta.x + (((RewardGLG.cellSize.x + RewardGLG.spacing.x) * RewardContent.childCount) + RewardGLG.padding.left));
@@ -76,12 +76,7 @@ public class StageInfoLinker : MonoBehaviour
             RectTransform rt = obj.GetComponent<RectTransform>();
             Image image = obj.GetComponentsInChildren<Image>()[1];
             image.sprite = jem_sprite;
-            image.SetNativeSize();
-            var childRTf = image.GetComponent<RectTransform>();
-            childRTf.sizeDelta /= image_devide_value;
-            childRTf.pivot = Vector2.one * 0.5f;
-            childRTf.anchorMax = Vector2.one * 0.5f;
-            childRTf.anchorMin = Vector2.one * 0.5f;
+            UIManager.Instance.FixSizeToRatio(image, RewardContent.GetComponent<GridLayoutGroup>().cellSize.x);
 
             obj.GetComponentInChildren<TextMeshProUGUI>().text = $"{clear.jem}";
 

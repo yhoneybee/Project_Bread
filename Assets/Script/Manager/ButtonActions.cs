@@ -32,7 +32,7 @@ public class ButtonActions : MonoBehaviour
 
     public void GoHome()
     {
-        SceneManager.LoadScene("B - Main");
+        SceneManager.LoadScene("B-Main");
     }
 
     private Coroutine CChangeScene;

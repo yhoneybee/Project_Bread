@@ -145,30 +145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Idle: []
   Walk:
-  - Sprite: {fileID: 21300000, guid: cc0e87d44acf7fb4b83db9e4e113fdb1, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 0d72333a284d52243b75ec95a68f5927, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 8903e1fc4df76c5419bce2e5ecfd8423, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: b7ff9dbbec413bf4a92b7730339f0ef7, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: bce3b7e453da3a740a3ac5a2be6dde62, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 27e6511cfb7d5954db27da521bbf10bd, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: acd6467600268ac4dae90b108d3cb3cf, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 8f0850eade600b74dad22d14bf732d6a, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 377b03d59e8fc6145954ee450df1b605, type: 3}
-    Frame: 0.05
-  - Sprite: {fileID: 21300000, guid: 3605b143a70bc39438e69a570bc3a1a7, type: 3}
-    Frame: 0.05
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   Hit: []
   Attack: []
+  Die: []
 --- !u!114 &7446942901188129963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +199,4 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0
+  deltaSpeed: 1

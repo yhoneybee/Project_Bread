@@ -30,7 +30,7 @@ public class UILinker : MonoBehaviour
                     DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
                     ButtonActions.Instance.ChangeScene("C-03_DeckSelect");
                 }
-                else if (ButtonActions.Instance.CheckReEntering("E - 01 DeckView"))
+                else if (ButtonActions.Instance.CheckReEntering("E-01_DeckView"))
                 {
                     ButtonActions.Instance.ChangeScene("C-03_DeckSelect");
                 }

@@ -60,7 +60,20 @@ public class GameManager : MonoBehaviour
     public static Unit SelectUnit;
     public static int SelectSlotIdx;
 
-    public int player_level = 1;
+    private int playerLevel = 1;
+    public int PlayerLevel
+    {
+        get => playerLevel;
+        set
+        {
+            playerLevel = value;
+            // TODO : 1레벨당 추가 효과
+            if (playerLevel % 10 == 0)
+            {
+                // TODO : 10레벨 추가 효과, 아마 문서로 정리되야 할듯
+            }
+        }
+    }
     public int player_exp = 0;
     public int need_exp = 100;
     public int Coin = 0;
@@ -73,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public readonly int theme_count = 3;
 
-    public List<DateTimer> DateTimers = new List<DateTimer>();
+    public List<DateTimer> DateTimers = new List<DateTimer>(3);
 
     public DateTimer Daily = new DateTimer { Time = new TimeSpan(24, 0, 0) };
 
@@ -109,12 +122,13 @@ public class GameManager : MonoBehaviour
 
         onAutoSave += () => { SaveManager.Save(new List<int>() { Coin, Jem, Stemina, MaxStemina }, "ResourceData"); };
 
-        if (SaveManager.Instance.IsFile($"DateTimers"))
+        if (SaveManager.Instance.IsFile($"DateTimers_Date"))
         {
             var dates = SaveManager.Load<string>("DateTimers_Date");
-            var times = SaveManager.Load<string>("DateTimers_Date");
+            var times = SaveManager.Load<string>("DateTimers_Time");
             for (int i = 0; i < 3; i++)
             {
+                DateTimers.Add(new DateTimer());
                 DateTimers[i].Date = DateTime.Parse(dates.ElementAt(i));
                 DateTimers[i].Time = TimeSpan.Parse(times.ElementAt(i));
             }
@@ -176,7 +190,7 @@ public class GameManager : MonoBehaviour
         {
             Coin += 50;
             Jem += 50;
-            player_level += 10;
+            PlayerLevel += 10;
         }
     }
 

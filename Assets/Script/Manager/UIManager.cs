@@ -166,7 +166,7 @@ public class UIManager : MonoBehaviour
         AnimImg.gameObject.SetActive(SF.Count != 0);
         if (SF.Count == 0) return;
         if (AnimImg) AnimImg.sprite = SF[AnimIndex];
-        if (time >= /*SF[AnimIndex].Frame*/0.01f)
+        if (time >= /*SF[AnimIndex].Frame*/0.1f)
         {
             ++AnimIndex;
             time = 0;

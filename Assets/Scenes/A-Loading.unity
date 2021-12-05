@@ -1456,7 +1456,8 @@ MonoBehaviour:
   - {fileID: 6917443943168017846, guid: fdaa135601908dd449a7a33d76118be2, type: 3}
   - {fileID: 916560030384291169, guid: e093f9704d799f24c94175c7aaac2a81, type: 3}
   - {fileID: 3600416196861177426, guid: f1f31661336a90d41bae2d80e0b9f601, type: 3}
-  player_level: 1
+  player_exp: 0
+  need_exp: 100
   Coin: 0
   Jem: 0
   Stemina: 20
