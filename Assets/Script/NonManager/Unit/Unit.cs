@@ -136,9 +136,18 @@ public abstract class Unit : MonoBehaviour
         get { return anim_state; }
         set
         {
-            if (anim_state != value)
+            List<Sprite> anim = anim_state switch
+            {
+                AnimState.WALK => Anim.Walk,
+                AnimState.HIT => Anim.Hit,
+                AnimState.ATTACK => Anim.Attack,
+                AnimState.DIE => Anim.Die,
+                _ => null,
+            };
+            if (anim_state != value && (value != AnimState.WALK || AnimIndex >= anim.Count - 1))
             {
                 AnimIndex = 0;
+                print($"{Info.Name} anim was {anim_state} change to {value}");
                 anim_state = value;
                 OnAnimChanged();
             }
@@ -150,6 +159,7 @@ public abstract class Unit : MonoBehaviour
     public UnitType UnitType;
     public List<Item> Items = new List<Item>();
     public Anim Anim;
+    public BaseSkill baseSkill;
 
     SpriteRenderer SR;
     Rigidbody2D rigid;
@@ -162,10 +172,13 @@ public abstract class Unit : MonoBehaviour
 
     public bool Invincibility = false;
 
+    public float deltaSpeed = 1;
+
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
     bool is_attack_able = true;
+    bool isDie = false;
 
     Vector2 dir;
 
@@ -186,28 +199,25 @@ public abstract class Unit : MonoBehaviour
         if (Anim == null) Anim = GetComponent<Anim>();
 
         ingame = FindObjectOfType<Ingame>();
+
+        isDie = false;
     }
     protected virtual void Update()
     {
+        Animator();
+
+        if (isDie) return;
+
         if (is_walk_able)
         {
             Moving();
-            AnimState = AnimState.WALK;
         }
-        else AnimState = AnimState.WALK;
+        AnimState = AnimState.WALK;
 
         if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
 
-        Animator();
-
         var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit")); ;
         Debug.DrawRay(transform.position, dir * (coll.size.x / 2) + dir * Stat.AR, Color.yellow);
-
-        if (Stat.HP <= 0)
-        {
-            SR.color = Color.white;
-            AnimState = AnimState.DIE;
-        }
 
         if (hits.Length > 1)
         {
@@ -222,7 +232,8 @@ public abstract class Unit : MonoBehaviour
                     {
                         OnAttack(unit);
                         AnimState = AnimState.ATTACK;
-                        ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
+                        IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
+                        //ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
                         unit.AnimState = AnimState.HIT;
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
@@ -234,6 +245,13 @@ public abstract class Unit : MonoBehaviour
             }
         }
         else is_walk_able = true;
+
+        if (Stat.HP <= 0 && !isDie)
+        {
+            SR.color = Color.white;
+            AnimState = AnimState.DIE;
+            isDie = true;
+        }
     }
 
     public void Init()
@@ -252,21 +270,13 @@ public abstract class Unit : MonoBehaviour
                 break;
             case AnimState.HIT:
                 Animation(Anim.Hit);
-                if (AnimIndex == Anim.Hit.Count)
-                {
-                    AnimState = AnimState.WALK;
-                }
                 break;
             case AnimState.ATTACK:
                 Animation(Anim.Attack);
-                if (AnimIndex == Anim.Attack.Count)
-                {
-                    AnimState = AnimState.WALK;
-                }
                 break;
             case AnimState.DIE:
                 Animation(Anim.Die);
-                if (AnimIndex == Anim.Die.Count)
+                if (AnimIndex == Anim.Die.Count - 1)
                 {
                     UnitManager.Instance.ReturnUnit(this, null);
                 }
@@ -277,7 +287,7 @@ public abstract class Unit : MonoBehaviour
     {
         if (SF.Count == 0) return;
         if (SR) SR.sprite = SF[AnimIndex];
-        if (time >= 0.01f)
+        if (time >= 0.1f)
         {
             ++AnimIndex;
             time = 0;
@@ -303,7 +313,7 @@ public abstract class Unit : MonoBehaviour
         sin_value += 5;
 
         transform.Translate(dir.x *
-            new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime);
+            new Vector2(1 * Stat.MS, 2 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
     }
 
     public virtual void OnAttack(Unit taken)

@@ -173,6 +173,7 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0
+  deltaSpeed: 1
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +206,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 35ff0bb19c934d24f85dc24b89bb8abc, type: 3}
   - {fileID: 21300000, guid: 71dc911b266610449bb9762d0fca4cb2, type: 3}
   Hit:
+  - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   Attack: []
   Die:

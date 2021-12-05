@@ -173,6 +173,7 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0
+  deltaSpeed: 1
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +186,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Idle: []
-  Walk: []
-  Hit: []
+  Walk:
+  - {fileID: 21300000, guid: f127f78ddad170244b2075f1b9066c75, type: 3}
+  - {fileID: 21300000, guid: 7a5d2b1f72ee0624290fccf739e0de7b, type: 3}
+  - {fileID: 21300000, guid: 99e306055b8a08e42b856f3646828393, type: 3}
+  - {fileID: 21300000, guid: 49e4e127c69d7074ba32ededb787e0fb, type: 3}
+  - {fileID: 21300000, guid: bf5628dd052007b47ac650cd5a58621b, type: 3}
+  - {fileID: 21300000, guid: 84beeafd7d42e9140880b593333e2ed4, type: 3}
+  - {fileID: 21300000, guid: 0ba2074832e73074c93994c708857cf3, type: 3}
+  - {fileID: 21300000, guid: 9bcbc5912c7d8b849b479f318a964eb9, type: 3}
+  - {fileID: 21300000, guid: a99610ab35732c44c83dccc1bc62da0f, type: 3}
+  - {fileID: 21300000, guid: aa21d621005f50c489e666a1b8b3ba74, type: 3}
+  - {fileID: 21300000, guid: 7759f091ad23ef344bf3c7fb36b1fd41, type: 3}
+  - {fileID: 21300000, guid: 78100556c44d48542abc54b4d518fc9f, type: 3}
+  - {fileID: 21300000, guid: abeee038c6d3a42418a6784c1a1e6e9b, type: 3}
+  - {fileID: 21300000, guid: 69605a86e01a80d428fc8c3582e06503, type: 3}
+  - {fileID: 21300000, guid: 23b8600a7ce08504b9a6f5d81573e20a, type: 3}
+  - {fileID: 21300000, guid: 00cac0d367697864d97411c10eda9e8b, type: 3}
+  - {fileID: 21300000, guid: 21ddd0719dde96948831edbd9264ac4c, type: 3}
+  - {fileID: 21300000, guid: 4d755400cf3b83d4a9a5a2ea2d37714e, type: 3}
+  - {fileID: 21300000, guid: 7a816b42d92502b44826dd76b1afebc2, type: 3}
+  - {fileID: 21300000, guid: 57685f080c636f844a4e816bda22f7cd, type: 3}
+  - {fileID: 21300000, guid: 67bbc7f441d439343a726659f7548b07, type: 3}
+  Hit:
+  - {fileID: 21300000, guid: f79f9ceec7fc62f4f8acbc57bbc01954, type: 3}
+  - {fileID: 21300000, guid: f79f9ceec7fc62f4f8acbc57bbc01954, type: 3}
   Attack: []
-  Die: []
+  Die:
+  - {fileID: 21300000, guid: 9ecba39083b2a7240b1254416c2bba1b, type: 3}
+  - {fileID: 21300000, guid: 601c1286a59051a40a781ba24ca91daf, type: 3}
+  - {fileID: 21300000, guid: 93ade473535a1524080e7dd3a45ff429, type: 3}
+  - {fileID: 21300000, guid: 605b078dcdfe3b64f98a8c435c9c86e2, type: 3}
+  - {fileID: 21300000, guid: 30312392a4ab6e34e9cf0e87b2644e8d, type: 3}
+  - {fileID: 21300000, guid: 171ae6b6e4d96b642b6653a0185eaef2, type: 3}
+  - {fileID: 21300000, guid: 9d2560c6a61b5564db35b1794e727cb4, type: 3}
+  - {fileID: 21300000, guid: cfff4a15864603c4e95a3403f7082717, type: 3}
+  - {fileID: 21300000, guid: 56c26f6b2c784bc409e2758a33d1eb94, type: 3}
+  - {fileID: 21300000, guid: 0e646d24e89ee3142becc785ccc1a66a, type: 3}
+  - {fileID: 21300000, guid: 2e922f676fc4d58459720b78489cc1f9, type: 3}
+  - {fileID: 21300000, guid: b72a0d26e3f8c5442898602d04b7cd05, type: 3}
+  - {fileID: 21300000, guid: a67a5d43eb56d334e99771d3e35bdfbb, type: 3}
+  - {fileID: 21300000, guid: 33042041bdd77094eba516108e70cc4e, type: 3}
+  - {fileID: 21300000, guid: f4c3f941ba912d94f849d6c05a36de02, type: 3}
+  - {fileID: 21300000, guid: 446c1c99ce83fcd4a8976380e1a69739, type: 3}
+  - {fileID: 21300000, guid: 463f49b8f1fb29f4b9792cdd2f3834e0, type: 3}
+  - {fileID: 21300000, guid: 0f9cb31abfa30aa4ab138bf286f0e35a, type: 3}
+  - {fileID: 21300000, guid: dd727a84cef13bd40851da3a65c53e22, type: 3}
+  - {fileID: 21300000, guid: 2c9465791302ba5478b053249a6ce25f, type: 3}
+  - {fileID: 21300000, guid: 03a2d2e35d42eee41ac563c793d808a2, type: 3}
+  - {fileID: 21300000, guid: 626fc3efd8e51fe42850ed7effa09afc, type: 3}
+  - {fileID: 21300000, guid: 2d034a8fb401be54bbd5f6ea3dda4ebe, type: 3}
+  - {fileID: 21300000, guid: 8c5a486af85b87a459715edcf2a01496, type: 3}
+  - {fileID: 21300000, guid: 81e8c7de7a2ec444aa6eb8937a70bd27, type: 3}
+  - {fileID: 21300000, guid: 75190e7057178d14dbe0584e3a4d9f47, type: 3}

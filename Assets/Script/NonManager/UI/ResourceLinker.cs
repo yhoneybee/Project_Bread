@@ -20,7 +20,7 @@ public class ResourceLinker : MonoBehaviour
     {
         if (NameText && ExpSlider)
         {
-            NameText.text = $"Lv.{GameManager.Instance.player_level} yhoneybee";
+            NameText.text = $"Lv.{GameManager.Instance.PlayerLevel} yhoneybee";
             ExpSlider.value = GameManager.Instance.player_exp / GameManager.Instance.need_exp;
             ExpText.text = $"{GameManager.Instance.player_exp / GameManager.Instance.need_exp * 100}%";
         }

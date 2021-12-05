@@ -58,11 +58,11 @@ public class LevelRewardLinker : MonoBehaviour
     {
         for (int i = 1; i <= 10; i++)
         {
-            if (GameManager.Instance.player_level >= i * 10 && level_reward_data.reward_case[i - 1] == RewardCase.NONE)
+            if (GameManager.Instance.PlayerLevel >= i * 10 && level_reward_data.reward_case[i - 1] == RewardCase.NONE)
             {
                 level_reward_data.reward_case[i - 1] = RewardCase.TAKEABLE;
             }
-            else if (GameManager.Instance.player_level < i * 10)
+            else if (GameManager.Instance.PlayerLevel < i * 10)
             {
                 level_reward_data.reward_case[i - 1] = RewardCase.NONE;
             }

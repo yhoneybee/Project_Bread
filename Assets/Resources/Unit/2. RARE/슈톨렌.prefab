@@ -173,6 +173,7 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   Invincibility: 0
+  deltaSpeed: 1
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +186,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Idle: []
-  Walk: []
-  Hit: []
+  Walk:
+  - {fileID: 21300000, guid: e00e0f6f16c24cf4e88f0e0ebef39e24, type: 3}
+  - {fileID: 21300000, guid: 0da67de874b1f2843b425836302280cd, type: 3}
+  - {fileID: 21300000, guid: 38eb5e3c97cfa6645bdba4adca62e809, type: 3}
+  - {fileID: 21300000, guid: 38b9909843150f242a43acdb1d93050c, type: 3}
+  - {fileID: 21300000, guid: f866ea6d994c38c48b080d5ec1809498, type: 3}
+  - {fileID: 21300000, guid: 14ac5b28fc205d142976689654efbb63, type: 3}
+  - {fileID: 21300000, guid: 2be14a64b9f3e0647a9c2cad4101887d, type: 3}
+  - {fileID: 21300000, guid: 0262b34818d9fe14887d5b4070f469fe, type: 3}
+  - {fileID: 21300000, guid: 1f0831f34641fe34abfe97e9fee8aaf9, type: 3}
+  Hit:
+  - {fileID: 21300000, guid: bc64903e95ba7cf4197911a250b66fa9, type: 3}
+  - {fileID: 21300000, guid: bc64903e95ba7cf4197911a250b66fa9, type: 3}
   Attack: []
-  Die: []
+  Die:
+  - {fileID: 21300000, guid: 192960c36eb3fe641ac6f23cdf40ff3f, type: 3}
+  - {fileID: 21300000, guid: 76fb95b05410dda4e8dfc1d72a8351db, type: 3}
+  - {fileID: 21300000, guid: 62e0ac58e2ffcb1408b990f784994bed, type: 3}
+  - {fileID: 21300000, guid: 85bc0443f42e6984892e8f9f632ed37a, type: 3}
+  - {fileID: 21300000, guid: 477e81e12ae3d7a4ba2f4533e7f3370b, type: 3}
+  - {fileID: 21300000, guid: 38cec6d393887104cbae7b08e6147d28, type: 3}
+  - {fileID: 21300000, guid: 7c70dbf98732bd145bd4550858fe4e0e, type: 3}
+  - {fileID: 21300000, guid: 1d0a02fbbd7d56c4d9b47790a38c1398, type: 3}
+  - {fileID: 21300000, guid: e0dbe475ae85fc14fbc0a28bc0eba3a0, type: 3}
+  - {fileID: 21300000, guid: c7733200c93633545aecabe331a799ff, type: 3}
+  - {fileID: 21300000, guid: fbaa273af9c63a74982e41fc3061c6e3, type: 3}
+  - {fileID: 21300000, guid: 512af79351fcdec45b4df0dd84318260, type: 3}
+  - {fileID: 21300000, guid: a903d86de5904bd47bba3dbf448bf9f6, type: 3}
+  - {fileID: 21300000, guid: ba830651f5028a445ab6a1d4af84e0fb, type: 3}
+  - {fileID: 21300000, guid: 0f37b612f2fe9b147b8114a8f206e0e9, type: 3}
