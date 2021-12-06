@@ -14,6 +14,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
     private float pressTime;
     private int index;
     private bool down;
+    private bool isSkillSprite;
     private readonly float needPressTime = 0.5f;
 
     private void Start()
@@ -35,6 +36,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             down = false;
             // 움직임이 정지함
             owner.deltaSpeed = owner.deltaSpeed == 1 ? 0 : 1;
+            animator.SetBool("StopUiOpen", owner.deltaSpeed == 0);
         }
     }
 
@@ -49,7 +51,22 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
         down = false;
         if (pressTime <= needPressTime)
         {
+            animator.SetTrigger("SwitchSkill");
             // skill 사용
+        }
+    }
+
+    public void ChangeSkillUI()
+    {
+        isSkillSprite = !isSkillSprite;
+
+        if (isSkillSprite)
+        {
+
+        }
+        else
+        {
+
         }
     }
 }
