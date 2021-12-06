@@ -136,6 +136,7 @@ public abstract class Unit : MonoBehaviour
         get { return anim_state; }
         set
         {
+            if (!Anim) return;
             List<Sprite> anim = anim_state switch
             {
                 AnimState.WALK => Anim.Walk,
@@ -276,7 +277,7 @@ public abstract class Unit : MonoBehaviour
                 break;
             case AnimState.DIE:
                 Animation(Anim.Die);
-                if (AnimIndex == Anim.Die.Count - 1)
+                if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
                 {
                     UnitManager.Instance.ReturnUnit(this, null);
                 }
