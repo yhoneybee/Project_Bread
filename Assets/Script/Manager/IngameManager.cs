@@ -29,7 +29,7 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private ResultWindow resultWindow;
     [SerializeField] private RectTransform rtrnDamageText;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
-    private List<Unit> ingameUnits;
+    [HideInInspector] public List<Unit> ingameUnits;
     private List<WaveInformation> curWaveDatas;
     private Coroutine CSpawnEnemy;
 
