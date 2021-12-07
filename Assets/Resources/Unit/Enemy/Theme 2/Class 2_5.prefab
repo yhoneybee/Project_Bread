@@ -154,7 +154,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Hit: []
+  Hit:
+  - {fileID: 21300000, guid: 3da78f6bd318083449980976ea621108, type: 3}
   Attack: []
   Die: []
 --- !u!114 &3098808460831834953
@@ -196,5 +197,6 @@ MonoBehaviour:
   UnitType: 1
   Items: []
   Anim: {fileID: 0}
+  baseSkill: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1

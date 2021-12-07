@@ -154,7 +154,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  Hit: []
+  Hit:
+  - {fileID: 21300000, guid: 710957e9b5a553a4bab5f9d3b9991675, type: 3}
+  - {fileID: 21300000, guid: 710957e9b5a553a4bab5f9d3b9991675, type: 3}
+  - {fileID: 21300000, guid: 710957e9b5a553a4bab5f9d3b9991675, type: 3}
+  - {fileID: 21300000, guid: 710957e9b5a553a4bab5f9d3b9991675, type: 3}
+  - {fileID: 21300000, guid: 710957e9b5a553a4bab5f9d3b9991675, type: 3}
   Attack: []
   Die: []
 --- !u!114 &7628712235981451280
@@ -196,5 +201,6 @@ MonoBehaviour:
   UnitType: 1
   Items: []
   Anim: {fileID: 0}
+  baseSkill: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1

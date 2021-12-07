@@ -145,16 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Hit: []
+  Walk: []
+  Hit:
+  - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
+  - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
+  - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
+  - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
+  - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
   Attack: []
   Die: []
 --- !u!114 &381018342713721760
@@ -196,5 +193,6 @@ MonoBehaviour:
   UnitType: 1
   Items: []
   Anim: {fileID: -8181068595605420095}
+  baseSkill: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
