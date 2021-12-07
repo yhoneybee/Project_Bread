@@ -79,6 +79,7 @@ public class UnitManager : MonoBehaviour
         if (parent != null)
             unit.transform.SetParent(parent);
         unit.gameObject.SetActive(false);
-        IngameManager.Instance.ingameUnits.Remove(unit);
+        IngameManager.Instance.IngameUnits.Remove(unit);
+        IngameManager.Instance.IngameUnits.Remove(unit);
     }
 }

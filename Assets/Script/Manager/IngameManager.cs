@@ -7,6 +7,11 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
+public struct StarLimit
+{
+    
+}
+[System.Serializable]
 public struct ResultWindow
 {
     public GameObject go;
@@ -15,6 +20,7 @@ public struct ResultWindow
     public Button btnNext;
     public Image imgBtnNextText;
     public RectTransform rtrnStarParent;
+    public Sprite spStar;
     [Header("0: Next, 1: Retry, 2: Clear, 3: Over")] public List<Sprite> spriteTexts;
 }
 
@@ -24,14 +30,28 @@ public class IngameManager : MonoBehaviour
 
     [SerializeField] private Unit ourTower;
     [SerializeField] private Unit theyTower;
+    [SerializeField] private Animator animrTowerDestroy;
     [SerializeField] private List<Tilemap> tmPlatforms;
     [SerializeField] private List<SpriteRenderer> srBgs;
     [SerializeField] private ResultWindow resultWindow;
     [SerializeField] private RectTransform rtrnDamageText;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
-    [HideInInspector] public List<Unit> ingameUnits;
+    [SerializeField] private StageInfoLinker stageInfoLinker;
+    public List<Unit> IngameUnits
+    {
+        get
+        {
+            if (ingameUnits.Count <= 0) TowerDestory(ourTower);
+            return ingameUnits;
+        }
+        set => ingameUnits = value;
+    }
     private List<WaveInformation> curWaveDatas;
     private Coroutine CSpawnEnemy;
+    private List<Unit> ingameUnits;
+    private int currentStarCount;
+    private int starCount;
+    private int fullStarCount;
 
     private void Awake()
     {
@@ -43,14 +63,105 @@ public class IngameManager : MonoBehaviour
         GameStart();
     }
 
+    private void Update()
+    {
+    }
+
     private void GameStart()
     {
+        InvokeRepeating(nameof(CountUp), 0, 1);
+        starCount = 0;
+        currentStarCount = 3;
+        fullStarCount = 120;
         FieldSetting();
         curWaveDatas = StageManager.Instance.GetWaveData();
         CSpawnEnemy = StartCoroutine(ESpawnEnemy());
         ingameUnits = new List<Unit>();
         MyUnitsSpawnAll();
         for (int i = 0; i < ingameUnits.Count; i++) lkIngameUnitBtns[i].owner = ingameUnits[i];
+    }
+
+    private void CountUp() => starCount++;
+
+    private void CheckGameEnd()
+    {
+        if (resultWindow.go.activeSelf) return;
+        bool loss = ourTower.Stat.HP <= 0;
+        bool win = theyTower.Stat.HP <= 0;
+
+        if (!loss && !win) return;
+
+        StopCoroutine(CSpawnEnemy);
+        CancelInvoke(nameof(CountUp));
+
+        resultWindow.go.SetActive(true);
+        resultWindow.goReward.SetActive(win);
+
+        resultWindow.imgResultText.sprite = resultWindow.spriteTexts[win ? 2 : 3];
+        UIManager.Instance.FixSizeToRatio(resultWindow.imgResultText, resultWindow.go.GetComponent<RectTransform>().sizeDelta.x);
+
+        if (!win) return;
+
+        resultWindow.rtrnStarParent.gameObject.SetActive(true);
+
+        bool firstTry = StageManager.Instance.GetStage().star_count == 0;
+        bool fullStarClear = currentStarCount == 3 && StageManager.Instance.GetStage().star_count < 3;
+
+        stageInfoLinker.SetRewards(firstTry, fullStarClear);
+
+        var rewards = stageInfoLinker.GetRewards(firstTry, fullStarClear);
+        GameManager.Instance.Coin += rewards.Item1;
+        GameManager.Instance.Jem += rewards.Item2;
+
+        if (currentStarCount > StageManager.Instance.GetStage().star_count) StageManager.Instance.GetStage().star_count = currentStarCount;
+        StageInfo.stage_number++;
+        StageManager.Instance.GetStage().is_startable = true;
+
+        var imgs = resultWindow.rtrnStarParent.GetComponentsInChildren<Image>();
+        for (int i = 0; i < currentStarCount; i++) imgs[i].sprite = resultWindow.spStar;
+
+        resultWindow.btnNext.onClick.AddListener(() => 
+        {
+            ButtonActions.Instance.ChangeScene("E-01_DeckView");
+        });
+    }
+
+    void SetFullStarLimitUIs()
+    {
+        float value = 1 - starCount / (float)(fullStarCount);
+        //three_star_limit.slider.value = value;
+
+        //int index;
+
+        //switch (three_star_limit.slider.value)
+        //{
+        //    case float f when (f == 0f):
+        //        index = 0;
+        //        current_star_count = 1;
+        //        foreach (var image in three_star_limit.slider.GetComponentsInChildren<Image>())
+        //            if (image.enabled)
+        //                FadeOutImage(image);
+        //        break;
+        //    case float f when (f < 0.33f):
+        //        index = 1;
+        //        current_star_count = 2;
+        //        break;
+        //    default:
+        //        return;
+        //}
+
+        //// 이미지 fade out해야될 경우 해당 이미지를 fade out 처리
+        //if (three_star_limit.stars[index].enabled)
+        //    FadeOutImage(three_star_limit.stars[index]);
+
+        //if (three_star_limit.lines[index].enabled)
+        //    FadeOutImage(three_star_limit.lines[index]);
+    }
+
+    private void FadeOutImage(Image img)
+    {
+        img.color = Color.Lerp(img.color, new Color(img.color.r, img.color.g, img.color.b, 0), 0.1f);
+        img.enabled = img.color.a > 0.01f;
     }
 
     private void FieldSetting()
@@ -77,6 +188,11 @@ public class IngameManager : MonoBehaviour
             unit.transform.localScale *= 2;
             ingameUnits.Add(unit);
         }
+    }
+
+    private void TowerDestory(Unit tower)
+    {
+
     }
 
     public void DamageText(int damage, Vector2 pos)

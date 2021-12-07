@@ -2050,6 +2050,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
+  baseSkill: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 0
   hp_slider: {fileID: 1205840481}
@@ -4907,6 +4908,7 @@ MonoBehaviour:
   UnitType: 1
   Items: []
   Anim: {fileID: 0}
+  baseSkill: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 0
   hp_slider: {fileID: 146612583}
@@ -9498,6 +9500,7 @@ MonoBehaviour:
     btnNext: {fileID: 44790814}
     imgBtnNextText: {fileID: 1793841275}
     rtrnStarParent: {fileID: 2014258225}
+    spStar: {fileID: 21300000, guid: 2b9a817d1fd55cf4aa87c960eb8b75e3, type: 3}
     spriteTexts:
     - {fileID: 21300000, guid: 5ac80d96328af3c40945c79091c3ebc0, type: 3}
     - {fileID: 21300000, guid: f0b54d614cb722b4ba4005b649d44165, type: 3}
@@ -9512,6 +9515,7 @@ MonoBehaviour:
   - {fileID: 1176557989}
   - {fileID: 191536564}
   - {fileID: 2087321719}
+  stageInfoLinker: {fileID: 1009666277}
 --- !u!1 &2118384797
 GameObject:
   m_ObjectHideFlags: 0
