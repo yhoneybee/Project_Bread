@@ -2494,10 +2494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 293649196}
     m_Modifications:
-    - target: {fileID: 5732806271426159286, guid: 1d7b9476951f4964d8cce57e368ffa9e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5732806272963802533, guid: 1d7b9476951f4964d8cce57e368ffa9e, type: 3}
       propertyPath: m_Name
       value: Squad
