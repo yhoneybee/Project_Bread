@@ -9485,6 +9485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ourTower: {fileID: 419333994}
   theyTower: {fileID: 1189597169}
+  animrTowerDestroy: {fileID: 0}
   tmPlatforms:
   - {fileID: 1509123495}
   - {fileID: 1896351532}
@@ -9506,6 +9507,24 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f0b54d614cb722b4ba4005b649d44165, type: 3}
     - {fileID: 21300000, guid: 13211061b99f3364683f3b698ebc41f0, type: 3}
     - {fileID: 21300000, guid: dbc9baed818437d48a258fc0163eab91, type: 3}
+  starLimit:
+    sliderGague: {fileID: 203318592}
+    imgArrLine:
+    - {fileID: 433357494}
+    - {fileID: 2054901316}
+    imgArrStar:
+    - {fileID: 985722600}
+    - {fileID: 1400302745}
+  stageUiInfo:
+    spArrThemeName:
+    - {fileID: 21300000, guid: d35b92d73f440114ca774dd9b244e744, type: 3}
+    - {fileID: 21300000, guid: 42e3e62bcc51be64986de1da82668ad3, type: 3}
+    - {fileID: 21300000, guid: 5fa26e9074c993f46b6e96ff8a50d051, type: 3}
+    imgThemeNum: {fileID: 1397444538}
+    imgArrStageNum:
+    - {fileID: 974032303}
+    - {fileID: 1179536849}
+    imgThemeName: {fileID: 24520997}
   rtrnDamageText: {fileID: 359525754153050898, guid: e791a232ac3f6fe4fbc1f0c0a37b7c53, type: 3}
   lkIngameUnitBtns:
   - {fileID: 2280464141093897978}

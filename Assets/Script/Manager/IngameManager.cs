@@ -7,9 +7,19 @@ using UnityEngine.UI;
 using TMPro;
 
 [System.Serializable]
+public struct StageUiInfo
+{
+    public Sprite[] spArrThemeName;
+    public Image imgThemeNum;
+    public Image[] imgArrStageNum;
+    public Image imgThemeName;
+}
+[System.Serializable]
 public struct StarLimit
 {
-    
+    public Slider sliderGague;
+    public Image[] imgArrLine;
+    public Image[] imgArrStar;
 }
 [System.Serializable]
 public struct ResultWindow
@@ -34,6 +44,8 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private List<Tilemap> tmPlatforms;
     [SerializeField] private List<SpriteRenderer> srBgs;
     [SerializeField] private ResultWindow resultWindow;
+    [SerializeField] private StarLimit starLimit;
+    [SerializeField] private StageUiInfo stageUiInfo;
     [SerializeField] private RectTransform rtrnDamageText;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
     [SerializeField] private StageInfoLinker stageInfoLinker;
@@ -65,6 +77,8 @@ public class IngameManager : MonoBehaviour
 
     private void Update()
     {
+        CheckGameEnd();
+        SetFullStarLimitUIs();
     }
 
     private void GameStart()
@@ -120,7 +134,7 @@ public class IngameManager : MonoBehaviour
         var imgs = resultWindow.rtrnStarParent.GetComponentsInChildren<Image>();
         for (int i = 0; i < currentStarCount; i++) imgs[i].sprite = resultWindow.spStar;
 
-        resultWindow.btnNext.onClick.AddListener(() => 
+        resultWindow.btnNext.onClick.AddListener(() =>
         {
             ButtonActions.Instance.ChangeScene("E-01_DeckView");
         });
@@ -129,33 +143,33 @@ public class IngameManager : MonoBehaviour
     void SetFullStarLimitUIs()
     {
         float value = 1 - starCount / (float)(fullStarCount);
-        //three_star_limit.slider.value = value;
+        starLimit.sliderGague.value = value;
 
-        //int index;
+        int index;
 
-        //switch (three_star_limit.slider.value)
-        //{
-        //    case float f when (f == 0f):
-        //        index = 0;
-        //        current_star_count = 1;
-        //        foreach (var image in three_star_limit.slider.GetComponentsInChildren<Image>())
-        //            if (image.enabled)
-        //                FadeOutImage(image);
-        //        break;
-        //    case float f when (f < 0.33f):
-        //        index = 1;
-        //        current_star_count = 2;
-        //        break;
-        //    default:
-        //        return;
-        //}
+        switch (starLimit.sliderGague.value)
+        {
+            case float f when (f == 0f):
+                index = 0;
+                currentStarCount = 1;
+                foreach (var image in starLimit.sliderGague.GetComponentsInChildren<Image>())
+                    if (image.enabled)
+                        FadeOutImage(image);
+                break;
+            case float f when (f < 0.33f):
+                index = 1;
+                currentStarCount = 2;
+                break;
+            default:
+                return;
+        }
 
-        //// 이미지 fade out해야될 경우 해당 이미지를 fade out 처리
-        //if (three_star_limit.stars[index].enabled)
-        //    FadeOutImage(three_star_limit.stars[index]);
+        // 이미지 fade out해야될 경우 해당 이미지를 fade out 처리
+        if (starLimit.imgArrStar[index].enabled)
+            FadeOutImage(starLimit.imgArrStar[index]);
 
-        //if (three_star_limit.lines[index].enabled)
-        //    FadeOutImage(three_star_limit.lines[index]);
+        if (starLimit.imgArrLine[index].enabled)
+            FadeOutImage(starLimit.imgArrLine[index]);
     }
 
     private void FadeOutImage(Image img)
@@ -192,7 +206,19 @@ public class IngameManager : MonoBehaviour
 
     private void TowerDestory(Unit tower)
     {
+        print("<color=red>BOOM</color>");
+        StartCoroutine(ETowerDestory(tower));
+    }
 
+    IEnumerator ETowerDestory(Unit tower)
+    {
+        while (Vector2.Distance(tower.transform.position, Camera.main.transform.position) > 0.5f)
+        {
+            Camera.main.transform.position = Vector2.Lerp(Camera.main.transform.position, tower.transform.position, Time.deltaTime * 3);
+            if (Camera.main.orthographicSize > 3) Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 3, Time.deltaTime * 3);
+        }
+
+        yield return null;
     }
 
     public void DamageText(int damage, Vector2 pos)
