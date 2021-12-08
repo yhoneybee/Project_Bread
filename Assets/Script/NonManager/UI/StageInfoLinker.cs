@@ -48,7 +48,8 @@ public class StageInfoLinker : MonoBehaviour
             AddWaveDatas();
 
             var MobGLG = MobContent.GetComponent<GridLayoutGroup>();
-            MobContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, MobContent.sizeDelta.x + (((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left));
+            MobContent.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left);
+            print($"{((MobGLG.cellSize.x + MobGLG.spacing.x) * MobContent.childCount) + MobGLG.padding.left}");
         }
         var RewardGLG = RewardContent.GetComponent<GridLayoutGroup>();
         if (ButtonActions.Instance.CheckReEntering("E-01_DeckView"))
