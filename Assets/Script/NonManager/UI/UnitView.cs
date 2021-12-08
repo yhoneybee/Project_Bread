@@ -43,7 +43,7 @@ public class UnitView : MonoBehaviour
                 UILinker.imgRank.gameObject.SetActive(true);
                 UILinker.imgRank.sprite = UIManager.Instance.spRanks[((int)show.Info.Rank)];
                 var rtrnImgRank = UILinker.imgRank.GetComponent<RectTransform>();
-                UIManager.Instance.FixSizeToRatio(UILinker.imgRank, rtrnImgRank.sizeDelta.x);
+                UIManager.Instance.FixSizeToRatio(UILinker.imgRank, 125);
                 rtrnImgRank.anchorMin = Vector2.one;
                 rtrnImgRank.anchorMax = Vector2.one;
                 rtrnImgRank.pivot = Vector2.one;
