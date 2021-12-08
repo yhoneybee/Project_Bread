@@ -995,6 +995,16 @@ MonoBehaviour:
   TeamBtnLocks: []
   AllUnits: []
   ProductParents: []
+  spRanks:
+  - {fileID: 21300000, guid: 9f34d64bc663489478c0f76990d42ec4, type: 3}
+  - {fileID: 21300000, guid: 30b47807d6f8524488a58f1584ddc55a, type: 3}
+  - {fileID: 21300000, guid: d231b2d570146b94ea9dfa175b8d9c95, type: 3}
+  - {fileID: 21300000, guid: 8f67d706babe22e4a84fa3cf78ced1d4, type: 3}
+  spRankBgs:
+  - {fileID: 21300000, guid: 5efa01dabd3a40641b68673082b3f3d3, type: 3}
+  - {fileID: 21300000, guid: dc4a032830c0dd344a92d0f5b4af22fb, type: 3}
+  - {fileID: 21300000, guid: 31447d465fb36164f85b42afc6e5dc55, type: 3}
+  - {fileID: 21300000, guid: 77b08deb97fe6614387f50175eaadc16, type: 3}
   Nums:
   - {fileID: 0}
   - {fileID: 0}
@@ -1087,6 +1097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1517448291}
   Icon: {fileID: 948931678}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
   IconRestore: {fileID: 0}
   IconBtn: {fileID: 0}
   InfoBtn: {fileID: 0}

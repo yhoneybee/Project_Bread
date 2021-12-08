@@ -38,6 +38,21 @@ public class UnitView : MonoBehaviour
                 UILinker.NameText.text = $"{show.Info.Name}";
             }
             else if (UILinker.NameText) UILinker.NameText.text = $"Lv.{show.Info.Level} {show.Info.Name}";
+            if (UILinker.imgRank)
+            {
+                UILinker.imgRank.gameObject.SetActive(true);
+                UILinker.imgRank.sprite = UIManager.Instance.spRanks[((int)show.Info.Rank)];
+                var rtrnImgRank = UILinker.imgRank.GetComponent<RectTransform>();
+                UIManager.Instance.FixSizeToRatio(UILinker.imgRank, rtrnImgRank.sizeDelta.x);
+                rtrnImgRank.anchorMin = Vector2.one;
+                rtrnImgRank.anchorMax = Vector2.one;
+                rtrnImgRank.pivot = Vector2.one;
+            }
+            if (UILinker.imgRankBg)
+            {
+                UILinker.imgRankBg.gameObject.SetActive(true);
+                UILinker.imgRankBg.sprite = UIManager.Instance.spRankBgs[((int)show.Info.Rank)];
+            }
         }
         else
         {
@@ -50,7 +65,14 @@ public class UnitView : MonoBehaviour
                 UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
             }
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(false);
-
+            if (UILinker.imgRank)
+            {
+                UILinker.imgRank.gameObject.SetActive(false);
+            }
+            if (UILinker.imgRankBg)
+            {
+                UILinker.imgRankBg.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -40,6 +40,8 @@ public class UIManager : MonoBehaviour
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
     public List<RectTransform> ProductParents;
+    public List<Sprite> spRanks;
+    public List<Sprite> spRankBgs;
     public Sprite[] Nums = new Sprite[10];
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
