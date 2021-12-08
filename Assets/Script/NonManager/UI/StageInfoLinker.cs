@@ -20,8 +20,8 @@ public class StageInfoLinker : MonoBehaviour
     [SerializeField] RectTransform MobContent;
     [SerializeField] RectTransform RewardContent;
 
-    [SerializeField] UnityEngine.Sprite coin_sprite = null;
-    [SerializeField] UnityEngine.Sprite jem_sprite = null;
+    [SerializeField] Sprite coin_sprite = null;
+    [SerializeField] Sprite jem_sprite = null;
 
     [SerializeField] float image_devide_value;
 

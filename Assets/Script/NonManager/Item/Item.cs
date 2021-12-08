@@ -25,7 +25,7 @@ public abstract class Item : MonoBehaviour
         }
     }
     public MonoBehaviour MonoOwner;
-    public UnityEngine.Sprite Icon;
+    public Sprite Icon;
     public Stat Stat;
     public string Name;
     [TextArea(3,5)]

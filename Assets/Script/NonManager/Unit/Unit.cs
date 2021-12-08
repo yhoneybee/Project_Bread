@@ -43,7 +43,7 @@ public struct Info
     ///<summary>Unit Name</summary>///
     public string Name;
     ///<summary>Unit UI Icon</summary>///
-    public UnityEngine.Sprite Icon;
+    public Sprite Icon;
     ///<summary>Unit Identity</summary>///
     public int Id;
     ///<summary>Unit Level</summary>///
@@ -119,7 +119,7 @@ public struct Proportionality
 //[Serializable]
 //public struct Sprite
 //{
-//    public UnityEngine.Sprite Sprite;
+//    public Sprite Sprite;
 //    public float Frame;
 //}
 #endregion

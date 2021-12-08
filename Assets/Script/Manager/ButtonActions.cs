@@ -51,7 +51,7 @@ public class ButtonActions : MonoBehaviour
 
         while (fade_img.color.a < 0.95)
         {
-            fade_img.color = Color.Lerp(fade_img.color, Color.black, Time.deltaTime * 3);
+            fade_img.color = Color.Lerp(fade_img.color, Color.black, 0.1f);
             yield return wait;
         }
         fade_img.color = Color.black;

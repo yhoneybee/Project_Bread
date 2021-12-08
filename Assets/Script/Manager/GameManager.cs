@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
         while (graphics[0].color.a < 0.95f)
         {
             foreach (var graphic in graphics)
-                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 1), Time.deltaTime * 3);
+                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 1), 0.1f);
             yield return wait;
         }
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 1);
@@ -221,7 +221,7 @@ public class GameManager : MonoBehaviour
         while (graphics[0].color.a > 0.05f)
         {
             foreach (var graphic in graphics)
-                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0), Time.deltaTime * 3);
+                graphic.color = Color.Lerp(graphic.color, new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0), 0.1f);
             yield return wait;
         }
         foreach (var graphic in graphics) graphic.color = new Color(graphic.color.r, graphic.color.g, graphic.color.b, 0);

@@ -25,10 +25,10 @@ public class CollectionLinker : MonoBehaviour
     //[SerializeField]
     public Unit[] got_enemys;
 
-    public UnityEngine.Sprite common_icon;
-    public UnityEngine.Sprite rare_icon;
-    public UnityEngine.Sprite epic_icon;
-    public UnityEngine.Sprite legend_icon;
+    public Sprite common_icon;
+    public Sprite rare_icon;
+    public Sprite epic_icon;
+    public Sprite legend_icon;
 
     [SerializeField] TextMeshProUGUI percent_text;
     [SerializeField] Slider percent_slider;

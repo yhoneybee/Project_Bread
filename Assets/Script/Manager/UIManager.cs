@@ -14,8 +14,8 @@ public struct DailyUI
 [System.Serializable]
 public struct SwitchSprite
 {
-    public UnityEngine.Sprite ASprite;
-    public UnityEngine.Sprite BSprite;
+    public Sprite ASprite;
+    public Sprite BSprite;
 }
 
 public class UIManager : MonoBehaviour
@@ -40,10 +40,10 @@ public class UIManager : MonoBehaviour
     public List<TeamBtnLock> TeamBtnLocks;
     public List<UnitView> AllUnits;
     public List<RectTransform> ProductParents;
-    public UnityEngine.Sprite[] Nums = new UnityEngine.Sprite[10];
-    public UnityEngine.Sprite TeamBtnLock;
-    public UnityEngine.Sprite UnitNullSprite;
-    public UnityEngine.Sprite[] spIcon;
+    public Sprite[] Nums = new Sprite[10];
+    public Sprite TeamBtnLock;
+    public Sprite UnitNullSprite;
+    public Sprite[] spIcon;
     public UILinker Except;
     public Image Fade;
     public RectTransform Content;
@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
     public Button btnIcon;
     public RectTransform rtrnIconSelect;
 
-    public UnityEngine.Sprite[] IconSprites = new UnityEngine.Sprite[4];
+    public Sprite[] IconSprites = new Sprite[4];
 
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
