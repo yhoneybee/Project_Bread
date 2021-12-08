@@ -145,7 +145,7 @@ public abstract class Unit : MonoBehaviour
                 AnimState.DIE => Anim.Die,
                 _ => null,
             };
-            if (anim_state != value && (value != AnimState.WALK || AnimIndex >= anim.Count - 1))
+            if (anim_state != value && (value != AnimState.WALK || AnimIndex >= anim.Count - 1) && anim_state != AnimState.DIE)
             {
                 AnimIndex = 0;
                 print($"{Info.Name} anim was {anim_state} change to {value}");
@@ -183,8 +183,6 @@ public abstract class Unit : MonoBehaviour
 
     Vector2 dir;
 
-    Ingame ingame;
-
     protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
@@ -198,8 +196,6 @@ public abstract class Unit : MonoBehaviour
         SR.sprite = Info.Icon;
 
         if (Anim == null) Anim = GetComponent<Anim>();
-
-        ingame = FindObjectOfType<Ingame>();
 
         isDie = false;
     }
