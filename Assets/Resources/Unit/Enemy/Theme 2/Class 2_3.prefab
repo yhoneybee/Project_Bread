@@ -190,7 +190,7 @@ MonoBehaviour:
     AD: 340
     HP: 2700
     MaxHP: 2700
-    MS: 1.25
+    MS: 3
     AR: 1
     AS: 0.3
     LS: 0

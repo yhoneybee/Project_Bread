@@ -20,6 +20,8 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] Image imgIcon;
     [SerializeField] Zoom zoom;
 
+    Coroutine c_move_panel = null;
+
     public int upgrade_cost;
     public int card_count;
 
@@ -35,12 +37,14 @@ public class UnitInfoLinker : MonoBehaviour
 
         btnLeftRight[0].onClick.AddListener(() =>
         {
-            srtUnit.horizontalScrollbar.value = 0;
+            if (c_move_panel != null) StopCoroutine(c_move_panel);
+            c_move_panel = StartCoroutine(MovePanel(-1));
         });
 
         btnLeftRight[1].onClick.AddListener(() =>
         {
-            srtUnit.horizontalScrollbar.value = 1;
+            if (c_move_panel != null) StopCoroutine(c_move_panel);
+            c_move_panel = StartCoroutine(MovePanel(1));
         });
 
         SetTextColor();
@@ -57,29 +61,6 @@ public class UnitInfoLinker : MonoBehaviour
         srtUnitValue = srtUnit.horizontalScrollbar.value;
 
         srtUnit.enabled = !zoom.IsHover;
-
-        if (!zoom.IsHover)
-        {
-            if (Mathf.Abs(srtUnitValue - srtUnitPrevValue) <= 0.05f)
-            {
-                if (srtUnitValue > 0.5f)
-                {
-                    srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 1, Time.deltaTime * 3);
-                    imgDots[1].color = Color.white;
-                    imgDots[0].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
-                    btnLeftRight[0].gameObject.SetActive(true);
-                    btnLeftRight[1].gameObject.SetActive(false);
-                }
-                else
-                {
-                    srtUnit.horizontalScrollbar.value = Mathf.Lerp(srtUnit.horizontalScrollbar.value, 0, Time.deltaTime * 3);
-                    imgDots[0].color = Color.white;
-                    imgDots[1].color = new Color(0.509804f, 0.509804f, 0.509804f, 1);
-                    btnLeftRight[1].gameObject.SetActive(true);
-                    btnLeftRight[0].gameObject.SetActive(false);
-                }
-            }
-        }
     }
 
     void SetText()
@@ -158,5 +139,30 @@ public class UnitInfoLinker : MonoBehaviour
         {
             imgIcon.color = txtUpgrade.color = btnUpgrade.targetGraphic.color = Color.white;
         }
+    }
+
+    /// <summary>
+    /// 유닛 정보 창 좌우로 이동 시키는 함수
+    /// </summary>
+    /// <param name="direction_x"></param>
+    /// <returns></returns>
+    IEnumerator MovePanel(int direction_x)
+    {
+        int target_value = direction_x == 1 ? 1 : 0;
+
+        while (true)
+        {
+            if (Mathf.Abs(srtUnit.horizontalScrollbar.value - target_value) <= 0.01f)
+            {
+                srtUnit.horizontalScrollbar.value = target_value;
+                break;
+            }
+            srtUnit.horizontalScrollbar.value = Mathf.MoveTowards(srtUnit.horizontalScrollbar.value, target_value, 0.1f);
+            yield return new WaitForSeconds(0.01f);
+        }
+        imgDots[1].color = Color.white;
+        imgDots[0].color = new Color(0.5f, 0.5f, 0.5f);
+        btnLeftRight[target_value].gameObject.SetActive(true);
+        btnLeftRight[1 - target_value].gameObject.SetActive(false);
     }
 }
