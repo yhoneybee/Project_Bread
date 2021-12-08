@@ -2252,6 +2252,7 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   baseSkill: {fileID: 0}
+  isTower: 1
   Invincibility: 0
   deltaSpeed: 0
   hp_slider: {fileID: 1205840481}
@@ -4657,6 +4658,8 @@ MonoBehaviour:
   TeamBtnLocks: []
   AllUnits: []
   ProductParents: []
+  spRanks: []
+  spRankBgs: []
   Nums:
   - {fileID: 2125949696445395195, guid: e73be23140f639c4e9a1babf2c3e3267, type: 3}
   - {fileID: -1035143950857452663, guid: e73be23140f639c4e9a1babf2c3e3267, type: 3}
@@ -5251,6 +5254,7 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   baseSkill: {fileID: 0}
+  isTower: 1
   Invincibility: 0
   deltaSpeed: 0
   hp_slider: {fileID: 146612583}
@@ -5312,7 +5316,7 @@ Animator:
   m_GameObject: {fileID: 1189597166}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7bd51000f0c10fb418035c7409ef9042, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a30d6d36dc2e6c4d8c4c11451cfed89, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

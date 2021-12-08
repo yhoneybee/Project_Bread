@@ -49,6 +49,9 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private RectTransform rtrnDamageText;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
     [SerializeField] private StageInfoLinker stageInfoLinker;
+
+    private Coroutine CTowerDestory;
+
     public List<Unit> IngameUnits
     {
         get
@@ -214,7 +217,7 @@ public class IngameManager : MonoBehaviour
     {
         print("<color=red>BOOM</color>");
         StartCoroutine(ETowerDestory(tower));
-
+        tower.GetComponent<Animator>().SetTrigger("Destroy");
     }
 
     IEnumerator ETowerDestory(Unit tower)
@@ -224,10 +227,11 @@ public class IngameManager : MonoBehaviour
         {
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(tower.transform.position.x, tower.transform.position.y, -10), Time.deltaTime * 3);
             if (Camera.main.orthographicSize > 3) Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 3, Time.deltaTime * 3);
+
             yield return wait;
         }
 
-        yield return null;
+        yield return new WaitForSeconds(1.5f);
     }
 
     public void DamageText(int damage, Vector2 pos)

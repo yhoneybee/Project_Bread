@@ -43,7 +43,7 @@ public class Tower : Unit
     {
         if (Stat.HP <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
 
         hp_slider.value = Stat.HP / Stat.MaxHP;

@@ -161,6 +161,7 @@ public abstract class Unit : MonoBehaviour
     public List<Item> Items = new List<Item>();
     public Anim Anim;
     public BaseSkill baseSkill;
+    public bool isTower;
 
     SpriteRenderer SR;
     Rigidbody2D rigid;
@@ -275,7 +276,8 @@ public abstract class Unit : MonoBehaviour
                 Animation(Anim.Die);
                 if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
                 {
-                    UnitManager.Instance.ReturnUnit(this, null);
+                    if (!isTower)
+                        UnitManager.Instance.ReturnUnit(this, null);
                 }
                 break;
         }
