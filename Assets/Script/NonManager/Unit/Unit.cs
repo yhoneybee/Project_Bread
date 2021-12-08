@@ -307,10 +307,10 @@ public abstract class Unit : MonoBehaviour
     float sin_value = 0;
     public virtual void Moving()
     {
-        sin_value += 5;
+        sin_value += Time.deltaTime * 1000;
 
         transform.Translate(dir.x *
-            new Vector2(1 * Stat.MS, 2 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
+            new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
     }
 
     public virtual void OnAttack(Unit taken)
