@@ -24,13 +24,22 @@ public class StageSelect : MonoBehaviour
     }
 
     // 카메라 위치 제한 Transform 담아둔 구조체
-    [SerializeField] LimitPostiions limits;
+    [SerializeField] LimitPostiions[] limits;
+
+    [SerializeField] Transform[] start_cam_position;
 
     // 게임 준비 창
     [SerializeField] GameObject ReadyWindow;
 
+    [SerializeField] GameObject[] backgrounds;
+
     // 배경에 배치되어 있는 각 Stage Object들
-    [SerializeField] StageObject[] stage_objects;
+    [SerializeField] GameObject[] theme_stage_objects;
+    [SerializeField] StageObject[] theme1_stage_objects;
+    [SerializeField] StageObject[] theme2_stage_objects;
+    [SerializeField] StageObject[] theme3_stage_objects;
+
+    StageObject[] stage_objects;
 
     // 숫자 Text Sprite들
     [SerializeField] Sprite[] font_1_text;
@@ -57,10 +66,17 @@ public class StageSelect : MonoBehaviour
 
     void Start()
     {
+        backgrounds[StageInfo.theme_number - 1].SetActive(true);
+        theme_stage_objects[StageInfo.theme_number - 1].SetActive(true);
+
+        CameraManager.Instance.MoveCamera(start_cam_position[StageInfo.theme_number - 1].position, 10);
+
         // stage sprite 임시로 담아두는 배열
         Sprite[] stage_sprite = { stage_sprites.startable, stage_sprites.one_star, stage_sprites.two_star, stage_sprites.three_star };
         // stage number text sprite 임시로 담아수는 배열
         Sprite[] stage_text_sprites = { null, null };
+
+        stage_objects = new StageObject[3][] { theme1_stage_objects, theme2_stage_objects, theme3_stage_objects }[StageInfo.theme_number - 1];
 
         for (int i = 0; i < stage_objects.Length; i++)
         {
@@ -111,11 +127,17 @@ public class StageSelect : MonoBehaviour
     {
         Vector2 cam_move_position = target_position;
 
-        if (cam_move_position.x < limits.limit_x_left.position.x) cam_move_position = new Vector2(limits.limit_x_left.position.x, cam_move_position.y);
-        else if (cam_move_position.x > limits.limit_x_right.position.x) cam_move_position = new Vector2(limits.limit_x_right.position.x, cam_move_position.y);
+        if (cam_move_position.x < limits[StageInfo.theme_number - 1].limit_x_left.position.x)
+            cam_move_position = new Vector2(limits[StageInfo.theme_number - 1].limit_x_left.position.x, cam_move_position.y);
 
-        if (cam_move_position.y < limits.limit_y_under.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_under.position.y);
-        else if (cam_move_position.y > limits.limit_y_high.position.y) cam_move_position = new Vector2(cam_move_position.x, limits.limit_y_high.position.y);
+        else if (cam_move_position.x > limits[StageInfo.theme_number - 1].limit_x_right.position.x)
+            cam_move_position = new Vector2(limits[StageInfo.theme_number - 1].limit_x_right.position.x, cam_move_position.y);
+
+        if (cam_move_position.y < limits[StageInfo.theme_number - 1].limit_y_under.position.y)
+            cam_move_position = new Vector2(cam_move_position.x, limits[StageInfo.theme_number - 1].limit_y_under.position.y);
+
+        else if (cam_move_position.y > limits[StageInfo.theme_number - 1].limit_y_high.position.y)
+            cam_move_position = new Vector2(cam_move_position.x, limits[StageInfo.theme_number - 1].limit_y_high.position.y);
 
         if (!ReadyWindow.activeSelf)
         {
