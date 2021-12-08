@@ -108,8 +108,8 @@ public class UnitInfoLinker : MonoBehaviour
         thousand_img.sprite = UIManager.Instance.Nums[thousand_idx];
 
         if (thousand_idx == 9) thousand_img.gameObject.SetActive(false);
-        if (hundred_idx == 9) hundred_img.gameObject.SetActive(false);
-        if (ten_idx == 9) ten_img.gameObject.SetActive(false);
+        if (hundred_idx == 9 && thousand_idx == 9) hundred_img.gameObject.SetActive(false);
+        if (ten_idx == 9 && hundred_idx == 9 && thousand_idx == 9) ten_img.gameObject.SetActive(false);
     }
 
     public void Upgrade_Unit()

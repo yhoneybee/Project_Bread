@@ -53,7 +53,11 @@ public class IngameManager : MonoBehaviour
     {
         get
         {
-            if (ingameUnits.Count <= 0) TowerDestory(ourTower);
+            if (ingameUnits.Count <= 0)
+            {
+                ourTower.Stat.HP = 0;
+                TowerDestory(ourTower);
+            }
             return ingameUnits;
         }
         set => ingameUnits = value;
@@ -112,7 +116,7 @@ public class IngameManager : MonoBehaviour
         resultWindow.goReward.SetActive(win);
 
         resultWindow.imgResultText.sprite = resultWindow.spriteTexts[win ? 2 : 3];
-        UIManager.Instance.FixSizeToRatio(resultWindow.imgResultText, resultWindow.go.GetComponent<RectTransform>().sizeDelta.x);
+        UIManager.Instance.FixSizeToRatio(resultWindow.imgResultText, 520);
 
         if (!win) return;
 
@@ -208,14 +212,17 @@ public class IngameManager : MonoBehaviour
     {
         print("<color=red>BOOM</color>");
         StartCoroutine(ETowerDestory(tower));
+
     }
 
     IEnumerator ETowerDestory(Unit tower)
     {
+        var wait = new WaitForSeconds(0.01f);
         while (Vector2.Distance(tower.transform.position, Camera.main.transform.position) > 0.5f)
         {
-            Camera.main.transform.position = Vector2.Lerp(Camera.main.transform.position, tower.transform.position, Time.deltaTime * 3);
+            Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(tower.transform.position.x, tower.transform.position.y, -10), Time.deltaTime * 3);
             if (Camera.main.orthographicSize > 3) Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 3, Time.deltaTime * 3);
+            yield return wait;
         }
 
         yield return null;
