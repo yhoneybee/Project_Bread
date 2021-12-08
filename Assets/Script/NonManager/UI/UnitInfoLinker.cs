@@ -25,8 +25,9 @@ public class UnitInfoLinker : MonoBehaviour
     public int upgrade_cost;
     public int card_count;
 
-    private float srtUnitPrevValue;
-    private float srtUnitValue;
+    int current_panel_index = 0;
+
+    bool is_moving = false;
 
     void Start()
     {
@@ -53,13 +54,26 @@ public class UnitInfoLinker : MonoBehaviour
     void Update()
     {
         ExpSlider.value = GameManager.SelectUnit.Info.Count;
+
+        if (Input.GetMouseButtonUp(0) && !is_moving)
+        {
+            if (current_panel_index == 0)
+            {
+                if (c_move_panel != null) StopCoroutine(c_move_panel);
+                c_move_panel =
+                    StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value >= 0.25f ? 1 : -1));
+            }
+            else
+            {
+                if (c_move_panel != null) StopCoroutine(c_move_panel);
+                c_move_panel =
+                StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value <= 0.75f ? -1 : 1));
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        srtUnitPrevValue = srtUnitValue;
-        srtUnitValue = srtUnit.horizontalScrollbar.value;
-
         srtUnit.enabled = !zoom.IsHover;
     }
 
@@ -148,6 +162,7 @@ public class UnitInfoLinker : MonoBehaviour
     /// <returns></returns>
     IEnumerator MovePanel(int direction_x)
     {
+        is_moving = true;
         int target_value = direction_x == 1 ? 1 : 0;
 
         while (true)
@@ -160,9 +175,13 @@ public class UnitInfoLinker : MonoBehaviour
             srtUnit.horizontalScrollbar.value = Mathf.MoveTowards(srtUnit.horizontalScrollbar.value, target_value, 0.1f);
             yield return new WaitForSeconds(0.01f);
         }
-        imgDots[1].color = Color.white;
-        imgDots[0].color = new Color(0.5f, 0.5f, 0.5f);
-        btnLeftRight[target_value].gameObject.SetActive(true);
-        btnLeftRight[1 - target_value].gameObject.SetActive(false);
+        imgDots[1 - target_value].color = Color.white;
+        imgDots[ target_value].color = new Color(0.5f, 0.5f, 0.5f);
+
+        btnLeftRight[1 - target_value].gameObject.SetActive(true);
+        btnLeftRight[target_value].gameObject.SetActive(false);
+
+        current_panel_index = target_value;
+        is_moving = false;
     }
 }
