@@ -96,7 +96,8 @@ public class UnitInfoLinker : MonoBehaviour
 
     void ShowStatValue(int index, int value)
     {
-        var one_img = Values[index].GetChild(0).GetComponent<Image>();
+        Values[index].GetComponentInChildren<TextMeshProUGUI>().text = value.ToString();
+/*        var one_img = Values[index].GetChild(0).GetComponent<Image>();
         var ten_img = Values[index].GetChild(1).GetComponent<Image>();
         var hundred_img = Values[index].GetChild(2).GetComponent<Image>();
         var thousand_img = Values[index].GetChild(3).GetComponent<Image>();
@@ -123,7 +124,7 @@ public class UnitInfoLinker : MonoBehaviour
 
         if (thousand_idx == 9) thousand_img.gameObject.SetActive(false);
         if (hundred_idx == 9 && thousand_idx == 9) hundred_img.gameObject.SetActive(false);
-        if (ten_idx == 9 && hundred_idx == 9 && thousand_idx == 9) ten_img.gameObject.SetActive(false);
+        if (ten_idx == 9 && hundred_idx == 9 && thousand_idx == 9) ten_img.gameObject.SetActive(false);*/
     }
 
     public void Upgrade_Unit()
