@@ -96,7 +96,8 @@ public class IngameManager : MonoBehaviour
         CSpawnEnemy = StartCoroutine(ESpawnEnemy());
         ingameUnits = new List<Unit>();
         MyUnitsSpawnAll();
-        for (int i = 0; i < ingameUnits.Count; i++) lkIngameUnitBtns[i].owner = ingameUnits[i];
+        for (int i = 0; i < ingameUnits.Count; i++) 
+            lkIngameUnitBtns[i].owner = ingameUnits[i];
     }
 
     private void CountUp() => starCount++;
@@ -202,6 +203,7 @@ public class IngameManager : MonoBehaviour
         if (DeckManager.Select[i])
         {
             var unit = UnitManager.Instance.GetUnit(DeckManager.Select[i].Info.Name, ourTower.transform.position);
+            unit.GetComponent<SpriteRenderer>().sortingOrder = i;
             unit.transform.SetParent(ourTower.transform);
             unit.transform.localScale *= 2;
             ingameUnits.Add(unit);
