@@ -181,7 +181,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 421, y: 791}
@@ -1761,7 +1761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 23}
   m_SizeDelta: {x: 0, y: 891.98}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1474404688
@@ -2581,6 +2581,8 @@ MonoBehaviour:
   TeamBtnLocks: []
   AllUnits: []
   ProductParents: []
+  spRanks: []
+  spRankBgs: []
   Nums:
   - {fileID: 0}
   - {fileID: 0}
