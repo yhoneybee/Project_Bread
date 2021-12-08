@@ -23,18 +23,21 @@ public class ShowOtherUI : MonoBehaviour
         foreach (var ui in OtherUIs) ui.GetComponent<Button>().enabled = false;
     }
 
+    private void Update()
+    {
+        // Button.t
+    }
+
     public void Switch()
     {
         if (isAppeared)
         {
-            Button.enabled = false;
             if (CHide != null) StopCoroutine(CHide);
             CHide = StartCoroutine(EHide());
             isAppeared = false;
         }
         else
         {
-            Button.enabled = false;
             if (CAppear != null) StopCoroutine(CAppear);
             CAppear = StartCoroutine(EAppear());
             isAppeared = true;

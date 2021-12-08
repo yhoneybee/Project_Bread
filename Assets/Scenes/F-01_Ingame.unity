@@ -2138,6 +2138,7 @@ GameObject:
   - component: {fileID: 419333996}
   - component: {fileID: 419333995}
   - component: {fileID: 419333994}
+  - component: {fileID: 419333997}
   m_Layer: 6
   m_Name: Friendly Tower
   m_TagString: Untagged
@@ -2302,6 +2303,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.22, y: 4.77}
   m_EdgeRadius: 0
+--- !u!95 &419333997
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419333991}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7bd51000f0c10fb418035c7409ef9042, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &433357492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,6 +5137,7 @@ GameObject:
   - component: {fileID: 1189597171}
   - component: {fileID: 1189597170}
   - component: {fileID: 1189597169}
+  - component: {fileID: 1189597172}
   m_Layer: 6
   m_Name: Enemy Tower
   m_TagString: Untagged
@@ -5281,6 +5302,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.79, y: 5.86}
   m_EdgeRadius: 0
+--- !u!95 &1189597172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189597166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7bd51000f0c10fb418035c7409ef9042, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1205840479
 GameObject:
   m_ObjectHideFlags: 0
