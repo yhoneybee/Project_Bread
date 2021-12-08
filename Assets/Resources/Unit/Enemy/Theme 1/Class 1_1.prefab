@@ -145,7 +145,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Walk: []
+  Walk:
+  - {fileID: 21300000, guid: a5b5a066944f22b4d940a0b12185ba2e, type: 3}
+  - {fileID: 21300000, guid: edc41cea5cae6f64194d381b787a6042, type: 3}
+  - {fileID: 21300000, guid: 5873c7c764a6c1447bc23ee8ff6654d8, type: 3}
+  - {fileID: 21300000, guid: 37f0d3318ea75354197bb4bf7d9377de, type: 3}
+  - {fileID: 21300000, guid: 320cf194d7b60bc4ba8acac7e243f57b, type: 3}
+  - {fileID: 21300000, guid: a479682140cb7fc4a8a9508dedc3b163, type: 3}
+  - {fileID: 21300000, guid: ee27cfd2e1b18ea4aa49fac14992f640, type: 3}
+  - {fileID: 21300000, guid: 262fae296b6b4d94dbc07c1f011af466, type: 3}
+  - {fileID: 21300000, guid: 611d0dfc5a7412d4d9cbe391303a08eb, type: 3}
+  - {fileID: 21300000, guid: 4cd858ca93e9ed04a80ff01a79ce205d, type: 3}
+  - {fileID: 21300000, guid: 3c27161a1ac298f459698c3164414e10, type: 3}
+  - {fileID: 21300000, guid: 381115848943c7f4394412b0cb7d19b8, type: 3}
   Hit:
   - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}
   - {fileID: 21300000, guid: 06a6bf81940c28b48aca0316ea90baaf, type: 3}

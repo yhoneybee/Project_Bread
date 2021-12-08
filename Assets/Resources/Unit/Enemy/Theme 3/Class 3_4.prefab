@@ -146,16 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Walk:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 883f24b16aec1a845af15af824a8e840, type: 3}
+  - {fileID: 21300000, guid: 88ffeb728e6e90b49875188f660b8b7e, type: 3}
+  - {fileID: 21300000, guid: 2310194d44f105a41b6dda59f3108a72, type: 3}
+  - {fileID: 21300000, guid: 88715f02fd1104f42aeb7563a06ae20c, type: 3}
+  - {fileID: 21300000, guid: 90bb24955f56a3c439ce13f8544f17fc, type: 3}
   Hit:
   - {fileID: 21300000, guid: f5cb4e206e2e52d45aa2ee715afea159, type: 3}
   - {fileID: 21300000, guid: f5cb4e206e2e52d45aa2ee715afea159, type: 3}

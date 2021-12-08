@@ -146,16 +146,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Walk:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: df213e8de223ef840a8a56a3360ac581, type: 3}
+  - {fileID: 21300000, guid: fc5e28558c03c8946a7e543acbc286b2, type: 3}
+  - {fileID: 21300000, guid: 51e997602cebfc148b64562115d65a60, type: 3}
+  - {fileID: 21300000, guid: a315877554ed16b46875cfa50b5994ac, type: 3}
+  - {fileID: 21300000, guid: d0095d115c6bbd8469fcf49b85aebb51, type: 3}
+  - {fileID: 21300000, guid: 9c24f5abf8fc0594eab17d86e8eaec8a, type: 3}
+  - {fileID: 21300000, guid: e5a4669247ee4a34d8c6d7f9cb348041, type: 3}
+  - {fileID: 21300000, guid: f4bad2a8cf2679f4e9c3fac34d1b8054, type: 3}
+  - {fileID: 21300000, guid: 0b57aa95aae34fe4fb4d5c2254a47036, type: 3}
+  - {fileID: 21300000, guid: 031c0eb0ffe912a4380b2621e134ab70, type: 3}
+  - {fileID: 21300000, guid: ba5f887f14a00804aa222502cd24c159, type: 3}
+  - {fileID: 21300000, guid: 8a54bb2e8e568f64eab9e5bb019e5c7b, type: 3}
+  - {fileID: 21300000, guid: 734dbfb30e57bd1499d65f8af280b3f3, type: 3}
+  - {fileID: 21300000, guid: cac96b9dab38b5c46ba67efadfb86db3, type: 3}
+  - {fileID: 21300000, guid: d0203ad4b91a468419f1a1dd51e40ffb, type: 3}
   Hit:
   - {fileID: 21300000, guid: 1fce005a4653dfc43a7854aed62accef, type: 3}
   - {fileID: 21300000, guid: 1fce005a4653dfc43a7854aed62accef, type: 3}
