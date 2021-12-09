@@ -180,7 +180,7 @@ public abstract class Unit : MonoBehaviour
     float time = 0;
     bool is_walk_able = true;
     bool is_attack_able = true;
-    bool isDie = false;
+    [SerializeField] bool isDie = false;
 
     Vector2 dir;
 
@@ -254,6 +254,8 @@ public abstract class Unit : MonoBehaviour
 
     public void Init()
     {
+        anim_state = AnimState.WALK;
+        isDie = false;
         Stat.HP = Stat.MaxHP;
     }
     public void Animator()

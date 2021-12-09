@@ -43,7 +43,7 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(path, code);
         File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
 
-        print($"SAVE TO : {path}");
+        //print($"SAVE TO : {path}");
     }
 
     public static void SaveUnits(IEnumerable<Unit> save_units, string file) => GameManager.Instance.onAutoSave += () =>
@@ -72,7 +72,7 @@ public class SaveManager : MonoBehaviour
 
         load_target = JsonUtility.FromJson<Serialization<T>>(json).target;
 
-        print($"LOAD FROM : {path}");
+        //print($"LOAD FROM : {path}");
     }
 
     public static void LoadUnits(ref List<Unit> load_units, string file)
@@ -101,7 +101,7 @@ public class SaveManager : MonoBehaviour
         byte[] bytes = Convert.FromBase64String(code);
         string json = System.Text.Encoding.UTF8.GetString(bytes);
 
-        print($"LOAD FROM : {path}");
+        //print($"LOAD FROM : {path}");
 
         return JsonUtility.FromJson<Serialization<T>>(json).target;
     }
