@@ -71,6 +71,7 @@ public class IngameManager : MonoBehaviour
     private int currentStarCount;
     private int starCount;
     private int fullStarCount;
+    private bool coroutineEnd;
 
     private void Awake()
     {
@@ -107,7 +108,7 @@ public class IngameManager : MonoBehaviour
 
     private void CheckGameEnd()
     {
-        if (resultWindow.go.activeSelf) return;
+        if (resultWindow.go.activeSelf || !coroutineEnd) return;
         bool loss = ourTower.Stat.HP <= 0;
         bool win = theyTower.Stat.HP <= 0;
 
@@ -222,6 +223,7 @@ public class IngameManager : MonoBehaviour
 
     IEnumerator ETowerDestory(Unit tower)
     {
+        coroutineEnd = false;
         var wait = new WaitForSeconds(0.01f);
         while (Vector2.Distance(tower.transform.position, Camera.main.transform.position) > 0.5f)
         {
@@ -232,6 +234,8 @@ public class IngameManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.5f);
+        coroutineEnd = true;
+        yield return null;
     }
 
     public void DamageText(int damage, Vector2 pos)
