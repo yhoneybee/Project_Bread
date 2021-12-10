@@ -9,6 +9,8 @@ public class IconChange : MonoBehaviour
     public RectTransform rtrnIconsParent;
     public GameObject goOrigin;
     public GameObject goConfirm;
+    public Image before;
+    public Image after;
 
     private Sprite sprite;
 
@@ -24,8 +26,11 @@ public class IconChange : MonoBehaviour
                 UIManager.Instance.FixSizeToRatio(img, rtrnIconsParent.GetComponent<GridLayoutGroup>().cellSize.x);
                 Obj.GetComponent<Button>().onClick.AddListener(() =>
                 {
+                    print("SDFJK");
                     goConfirm.SetActive(true);
                     sprite = img.sprite;
+                    before.sprite = imgIcon.sprite;
+                    after.sprite = sprite;
                 });
             }
         }
@@ -33,7 +38,7 @@ public class IconChange : MonoBehaviour
 
     void Start()
     {
-        goConfirm.transform.GetChild(1).GetComponent<Button>().onClick.AddListener(() => 
+        goConfirm.transform.GetChild(1).GetChild(0).GetComponent<Button>().onClick.AddListener(() => 
         {
             imgIcon.sprite = sprite;
         });

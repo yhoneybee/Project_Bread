@@ -657,6 +657,8 @@ MonoBehaviour:
   TeamBtnLocks: []
   AllUnits: []
   ProductParents: []
+  spRanks: []
+  spRankBgs: []
   Nums:
   - {fileID: 0}
   - {fileID: 0}
