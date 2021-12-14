@@ -68,6 +68,8 @@ public class UnitManager : MonoBehaviour
         unit.transform.position = pos;
         unit.Init();
         unit.gameObject.SetActive(true);
+        if (unit.SR) unit.SR.color = Color.white;
+        else unit.GetComponent<SpriteRenderer>().color = Color.white;
 
         return unit;
     }
