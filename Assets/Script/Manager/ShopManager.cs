@@ -129,7 +129,7 @@ public class ShopManager : MonoBehaviour
     public void ResetUnboxing()
     {
         ps.Stop();
-        StopAllCoroutines();
+        UnboxCancel();
 
         Fade.color = Color.clear;
         Skip.gameObject.SetActive(false);
