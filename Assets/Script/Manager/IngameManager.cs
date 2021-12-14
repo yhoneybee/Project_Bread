@@ -49,6 +49,7 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private RectTransform rtrnDamageText;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
     [SerializeField] private StageInfoLinker stageInfoLinker;
+    [SerializeField] private RectTransform rtrnDeckParent;
 
     private Coroutine CTowerDestory;
 
@@ -72,6 +73,9 @@ public class IngameManager : MonoBehaviour
     private int starCount;
     private int fullStarCount;
     private bool coroutineEnd;
+    private bool isTheyTowerDestroy;
+    private bool win;
+    private bool loss;
 
     private void Awake()
     {
@@ -85,6 +89,13 @@ public class IngameManager : MonoBehaviour
 
     private void Update()
     {
+        loss = ourTower.Stat.HP <= 0;
+        win = theyTower.Stat.HP <= 0;
+        if (win && !isTheyTowerDestroy)
+        {
+            isTheyTowerDestroy = true;
+            TowerDestory(theyTower);
+        }
         CheckGameEnd();
         SetFullStarLimitUIs();
     }
@@ -92,6 +103,11 @@ public class IngameManager : MonoBehaviour
     private void GameStart()
     {
         InvokeRepeating(nameof(CountUp), 0, 1);
+        stageUiInfo.imgThemeNum.sprite = GetNumSprite(StageInfo.theme_number);
+        stageUiInfo.imgThemeName.sprite = stageUiInfo.spArrThemeName[StageInfo.theme_number - 1];
+        stageUiInfo.imgArrStageNum[0].gameObject.SetActive(StageInfo.stage_number >= 10);
+        stageUiInfo.imgArrStageNum[0].sprite = GetNumSprite(StageInfo.stage_number / 10);
+        stageUiInfo.imgArrStageNum[1].sprite = GetNumSprite(StageInfo.stage_number % 10);
         starCount = 0;
         currentStarCount = 3;
         fullStarCount = 120;
@@ -109,8 +125,6 @@ public class IngameManager : MonoBehaviour
     private void CheckGameEnd()
     {
         if (resultWindow.go.activeSelf || !coroutineEnd) return;
-        bool loss = ourTower.Stat.HP <= 0;
-        bool win = theyTower.Stat.HP <= 0;
 
         if (!loss && !win) return;
 
@@ -229,7 +243,7 @@ public class IngameManager : MonoBehaviour
         {
             Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, new Vector3(tower.transform.position.x, tower.transform.position.y, -10), Time.deltaTime * 3);
             if (Camera.main.orthographicSize > 3) Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, 3, Time.deltaTime * 3);
-
+            rtrnDeckParent.position = Vector3.MoveTowards(rtrnDeckParent.position, rtrnDeckParent.position + Vector3.down * 5, 3000);
             yield return wait;
         }
 
@@ -254,8 +268,9 @@ public class IngameManager : MonoBehaviour
         for (int i = 0; i < 7; i++)
         {
             var img = damageText.GetChild(i).GetComponent<SpriteRenderer>();
-            img.gameObject.SetActive(list2[i] != 0);
-            if (list2[i] == 0) damageText.GetChild(8).position = img.transform.position;
+            float pow = Mathf.Pow(10, 7 - i);
+            img.gameObject.SetActive(list2[i] != 0 || pow <= damage);
+            if (list2[i] == 0 && pow > damage) damageText.GetChild(8).position = img.transform.position;
             img.sprite = GetNumSprite(list2[i]);
         }
     }

@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 2407641907756367925}
   - component: {fileID: 4483649546932986082}
   - component: {fileID: 1409339454059262846}
+  - component: {fileID: 1643314114954208950}
   m_Layer: 5
   m_Name: Sound Effect Mute Button
   m_TagString: Untagged
@@ -309,7 +310,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1643314114954208950}
+        m_TargetAssemblyTypeName: BtnToggleSwitchSprite, Assembly-CSharp
+        m_MethodName: ChangeToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!95 &1409339454059262846
 Animator:
@@ -330,6 +343,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1643314114954208950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407641907756367922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843062406aad93544954e696b0fc0b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 2407641907756367925}
+  toggle: {fileID: 4483649546932986082}
+  onSprite: {fileID: 21300000, guid: bd4759f69d41a194ebf98a0737d818a0, type: 3}
+  offSprite: {fileID: 21300000, guid: 275260cc0b33dbf4e9b8e6f4183e0b77, type: 3}
 --- !u!1 &2407641907810699929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,8 +1082,6 @@ MonoBehaviour:
   SFXSlider: {fileID: 2407641909015604611}
   BGMMutes: {fileID: 3216510198512781231}
   BGMSlider: {fileID: 2407641908154635435}
-  sound_icon: {fileID: 21300000, guid: 275260cc0b33dbf4e9b8e6f4183e0b77, type: 3}
-  muted_icon: {fileID: 21300000, guid: bd4759f69d41a194ebf98a0737d818a0, type: 3}
 --- !u!1 &2407641908951189321
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,6 +1692,7 @@ GameObject:
   - component: {fileID: 2407641909577144837}
   - component: {fileID: 3216510198512781231}
   - component: {fileID: 7928523362338589285}
+  - component: {fileID: 8101036179297572273}
   m_Layer: 5
   m_Name: BG Mute Button
   m_TagString: Untagged
@@ -1775,7 +1803,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8101036179297572273}
+        m_TargetAssemblyTypeName: BtnToggleSwitchSprite, Assembly-CSharp
+        m_MethodName: ChangeToggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!95 &7928523362338589285
 Animator:
@@ -1796,3 +1836,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8101036179297572273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2407641909577144834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843062406aad93544954e696b0fc0b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 2407641909577144837}
+  toggle: {fileID: 3216510198512781231}
+  onSprite: {fileID: 21300000, guid: bd4759f69d41a194ebf98a0737d818a0, type: 3}
+  offSprite: {fileID: 21300000, guid: 275260cc0b33dbf4e9b8e6f4183e0b77, type: 3}
