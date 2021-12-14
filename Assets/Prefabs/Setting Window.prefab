@@ -1053,6 +1053,8 @@ MonoBehaviour:
   SFXSlider: {fileID: 2407641909015604611}
   BGMMutes: {fileID: 3216510198512781231}
   BGMSlider: {fileID: 2407641908154635435}
+  sound_icon: {fileID: 21300000, guid: 275260cc0b33dbf4e9b8e6f4183e0b77, type: 3}
+  muted_icon: {fileID: 21300000, guid: bd4759f69d41a194ebf98a0737d818a0, type: 3}
 --- !u!1 &2407641908951189321
 GameObject:
   m_ObjectHideFlags: 0
