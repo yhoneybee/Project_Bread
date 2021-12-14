@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ShowOtherUI : MonoBehaviour
 {
+    [SerializeField] RectTransform rtrnParent;
     [SerializeField] List<RectTransform> OtherUIs = new List<RectTransform>();
     [SerializeField] Button Button = null;
 
@@ -25,7 +26,6 @@ public class ShowOtherUI : MonoBehaviour
 
     private void Update()
     {
-        // Button.t
     }
 
     public void Switch()
@@ -78,7 +78,11 @@ public class ShowOtherUI : MonoBehaviour
             otherUI.anchoredPosition = move_to;
         }
 
-        foreach (var ui in OtherUIs) ui.GetComponent<Button>().enabled = true;
+        foreach (var ui in OtherUIs)
+        {
+            ui.GetComponent<Button>().enabled = true;
+            ui.transform.SetParent(GameObject.Find("Canvas").transform);
+        }
 
         Button.enabled = true;
 
@@ -89,9 +93,8 @@ public class ShowOtherUI : MonoBehaviour
         for (int i = OtherUIs.Count - 1; i >= 0; i--)
         {
             var otherUI = OtherUIs[i];
-
+            otherUI.transform.SetParent(rtrnParent);
             Vector2 move_to = otherUI.anchoredPosition + (spacing + otherUI.sizeDelta.x) * (i + 1) * (appear_right ? Vector2.left : Vector2.right);
-            print($"H : {move_to}");
 
             if (appear_right)
             {
