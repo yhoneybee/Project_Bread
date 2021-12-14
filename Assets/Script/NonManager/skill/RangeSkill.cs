@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RangeSkill : BaseSkill
 {
-    public float range;
     public float durationTime;
-    public override void Cast()
+    
+    public override void Cast(Unit target)
     {
+        goSkill = Instantiate(originSkill);
+        Destroy(goSkill, durationTime);
     }
 }

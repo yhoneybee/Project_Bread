@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class BaseSkill : MonoBehaviour
 {
-    public Unit owner;
+    public GameObject originSkill;
+    public GameObject goSkill;
     public Sprite skillIcon;
     public float coolTime;
 
-    public abstract void Cast();
+    public abstract void Cast(Unit target);
 }
