@@ -148,7 +148,7 @@ public abstract class Unit : MonoBehaviour
             if (anim_state != value && (value != AnimState.WALK || AnimIndex >= anim.Count - 1) && anim_state != AnimState.DIE)
             {
                 AnimIndex = 0;
-                print($"{Info.Name} anim was {anim_state} change to {value}");
+                //print($"{Info.Name} anim was {anim_state} change to {value}");
                 anim_state = value;
                 OnAnimChanged();
             }
