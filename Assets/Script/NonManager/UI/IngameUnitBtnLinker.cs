@@ -49,12 +49,11 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
     public void OnPointerUp(PointerEventData eventData)
     {
         down = false;
-        if (pressTime <= needPressTime)
+        if (pressTime <= needPressTime && owner.baseSkill.IsCoolDown)
         {
-            animator.SetTrigger("SwitchSkill");
             // skill »ç¿ë
-            if (owner.baseSkill.IsCoolDown)
-                owner.baseSkill.Cast(owner);
+            animator.SetTrigger("SwitchSkill");
+            owner.baseSkill.Cast(owner);
         }
     }
 
