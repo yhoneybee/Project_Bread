@@ -8,6 +8,17 @@ public abstract class BaseSkill : MonoBehaviour
     public GameObject goSkill;
     public Sprite skillIcon;
     public float coolTime;
+    public float curCoolTime;
+    public bool IsCoolDown => curCoolTime == 0;
 
-    public abstract void Cast(Unit target);
+    public virtual void Update()
+    {
+        curCoolTime -= Time.deltaTime;
+        if (curCoolTime <= 0) curCoolTime = 0;
+    }
+
+    public virtual void Cast(Unit target)
+    {
+        curCoolTime = coolTime;
+    }
 }

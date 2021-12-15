@@ -7,6 +7,7 @@ public class ShotSkill : BaseSkill
     public int shotCount;
     public override void Cast(Unit target)
     {
+        base.Cast(target);
         for (int i = 0; i < shotCount; i++)
         {
             Instantiate(originSkill);

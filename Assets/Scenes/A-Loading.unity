@@ -692,6 +692,10 @@ MonoBehaviour:
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []

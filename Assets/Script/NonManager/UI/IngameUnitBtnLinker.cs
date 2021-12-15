@@ -53,6 +53,8 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
         {
             animator.SetTrigger("SwitchSkill");
             // skill »ç¿ë
+            if (owner.baseSkill.IsCoolDown)
+                owner.baseSkill.Cast(owner);
         }
     }
 

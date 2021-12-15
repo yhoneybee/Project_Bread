@@ -8,6 +8,7 @@ public class RangeSkill : BaseSkill
     
     public override void Cast(Unit target)
     {
+        base.Cast(target);
         goSkill = Instantiate(originSkill);
         Destroy(goSkill, durationTime);
     }
