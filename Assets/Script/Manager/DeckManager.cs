@@ -20,6 +20,8 @@ public class DeckManager : MonoBehaviour
     {
         List<Unit> nulls = new List<Unit>() { null, null, null, null, null, null, null, };
 
+        LockStartIndex = SaveManager.Load<int>("DeckSlot", true);
+
         DeckApply();
 
         for (int i = 0; i < GameManager.Instance.Decks.Count; i++)
@@ -46,5 +48,14 @@ public class DeckManager : MonoBehaviour
         //            view.UILinker.Icon.GetComponent<RectTransform>().sizeDelta /= view.Show.Info.DValue;
         //    }
         //}
+    }
+
+    public void AddSlot()
+    {
+        LockStartIndex++;
+        GameManager.Instance.onAutoSave += () => 
+        {
+            SaveManager.Save(LockStartIndex, "DeckSlot");
+        };
     }
 }
