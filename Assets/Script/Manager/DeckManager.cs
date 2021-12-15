@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Linq;
 public class DeckManager : MonoBehaviour
 {
     public static DeckManager Instance { get; private set; } = null;
@@ -20,10 +20,14 @@ public class DeckManager : MonoBehaviour
     {
         List<Unit> nulls = new List<Unit>() { null, null, null, null, null, null, null, };
 
-        LockStartIndex = SaveManager.Load<int>("DeckSlot", true);
+        LockStartIndex = SaveManager.Load<int>("DeckSlot").FirstOrDefault();
+        if (LockStartIndex == 0) LockStartIndex = 5;
 
         DeckApply();
+    }
 
+    public void DeckApply()
+    {
         for (int i = 0; i < GameManager.Instance.Decks.Count; i++)
         {
             if (i >= LockStartIndex - 1)
@@ -31,10 +35,7 @@ public class DeckManager : MonoBehaviour
             else
                 UIManager.Instance.TeamBtnLocks[i].UnLock();
         }
-    }
 
-    public void DeckApply()
-    {
         for (int i = 0; i < MaxUnits; i++)
         {
             UIManager.Instance.UnitViews[i].Show = Select[i];
@@ -53,9 +54,10 @@ public class DeckManager : MonoBehaviour
     public void AddSlot()
     {
         LockStartIndex++;
-        GameManager.Instance.onAutoSave += () => 
+        DeckApply();
+        GameManager.Instance.onAutoSave += () =>
         {
-            SaveManager.Save(LockStartIndex, "DeckSlot");
+            SaveManager.Save(new List<int>() { LockStartIndex }, "DeckSlot");
         };
     }
 }

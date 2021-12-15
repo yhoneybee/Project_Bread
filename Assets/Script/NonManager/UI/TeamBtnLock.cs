@@ -13,6 +13,18 @@ public class TeamBtnLock : MonoBehaviour
 
     bool locked;
 
+    private void Start()
+    {
+        Button.onClick.AddListener(() => 
+        {
+            if (locked)
+            {
+                UIManager.Instance.ReleaseUI.go.SetActive(true);
+                UIManager.Instance.ReleaseUI.tmpResource.color = GameManager.Instance.Coin >= 50000 ? Color.white : Color.red;
+            }
+        });
+    }
+
     private void Update()
     {
         if (!locked)
@@ -25,14 +37,11 @@ public class TeamBtnLock : MonoBehaviour
     public void Lock()
     {
         locked = true;
-        Sprite = Image.sprite;
         Image.sprite = UIManager.Instance.TeamBtnLock;
-        Button.enabled = false;
     }
     public void UnLock()
     {
         locked = false;
         Image.sprite = Sprite;
-        Button.enabled = true;
     }
 }

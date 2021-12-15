@@ -30,18 +30,6 @@ public class SaveManager : MonoBehaviour
 
     public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.txt");
 
-    public static void Save<T>(T save_target, string file)
-    {
-        string path = Instance.GetFilePath(file);
-
-        string json = JsonUtility.ToJson(save_target);
-
-        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
-        string code = Convert.ToBase64String(bytes);
-        File.WriteAllText(path, code);
-        File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
-    }
-
     public static void Save<T>(IEnumerable<T> save_target, string file)
     {
         string path = Instance.GetFilePath(file);
@@ -116,18 +104,5 @@ public class SaveManager : MonoBehaviour
         //print($"LOAD FROM : {path}");
 
         return JsonUtility.FromJson<Serialization<T>>(json).target;
-    }
-
-    public static T Load<T>(string file = "", bool _ = true)
-    {
-        string path = Instance.GetFilePath(file);
-
-        if (!File.Exists(path)) { return default(T); }
-
-        string code = File.ReadAllText(path);
-        byte[] bytes = Convert.FromBase64String(code);
-        string json = System.Text.Encoding.UTF8.GetString(bytes);
-
-        return JsonUtility.FromJson<T>(json);
     }
 }

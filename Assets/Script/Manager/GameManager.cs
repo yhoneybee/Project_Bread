@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
         var resource = SaveManager.Load<int>("ResourceData");
 
-        if (resource != null)
+        if (resource != null && resource.Count() > 0)
         {
             Coin = resource.ElementAt(0);
             Jem = resource.ElementAt(1);

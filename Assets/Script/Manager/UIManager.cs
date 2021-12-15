@@ -18,6 +18,14 @@ public struct SwitchSprite
     public Sprite BSprite;
 }
 
+[System.Serializable]
+public struct ReleaseUI
+{
+    public GameObject go;
+    public Button btnYes;
+    public TextMeshProUGUI tmpResource;
+}
+
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; } = null;
@@ -59,7 +67,7 @@ public class UIManager : MonoBehaviour
 
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
-
+    public ReleaseUI ReleaseUI;
     public DailyUI DailyUI;
 
     int AnimIndex = 0;
@@ -72,6 +80,17 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
+        if (ReleaseUI.go)
+        {
+            ReleaseUI.btnYes.onClick.AddListener(() => 
+            {
+                if (GameManager.Instance.Coin >= 50000)
+                {
+                    GameManager.Instance.Coin -= 50000;
+                    DeckManager.Instance.AddSlot();
+                }
+            });
+        }
         if (btnIcon)
         {
             btnIcon.onClick.AddListener(() =>

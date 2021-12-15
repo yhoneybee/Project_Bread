@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Achieve", menuName = "Achieve", order = 1)]
+//[CreateAssetMenu(fileName = "Achieve", menuName = "Datas/Achieve", order = 1)]
 public abstract class Achieve : MonoBehaviour
 {
     [SerializeField] int achieve_id;
