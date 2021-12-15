@@ -148,7 +148,7 @@ public abstract class Unit : MonoBehaviour
             if (anim_state != value && (value != AnimState.WALK || AnimIndex >= anim.Count - 1) && anim_state != AnimState.DIE)
             {
                 AnimIndex = 0;
-                print($"{Info.Name} anim was {anim_state} change to {value}");
+                //print($"{Info.Name} anim was {anim_state} change to {value}");
                 anim_state = value;
                 OnAnimChanged();
             }
@@ -163,7 +163,7 @@ public abstract class Unit : MonoBehaviour
     public BaseSkill baseSkill;
     public bool isTower;
 
-    SpriteRenderer SR;
+    public SpriteRenderer SR { get; private set; }
     Rigidbody2D rigid;
     BoxCollider2D coll;
 
@@ -184,6 +184,9 @@ public abstract class Unit : MonoBehaviour
 
     Vector2 dir;
 
+    ParticleSystem particle_prefab;
+    ParticleSystem walk_particle;
+
     protected virtual void Start()
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
@@ -199,6 +202,9 @@ public abstract class Unit : MonoBehaviour
         if (Anim == null) Anim = GetComponent<Anim>();
 
         isDie = false;
+
+        particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
+        walk_particle = Instantiate(particle_prefab);
     }
     protected virtual void Update()
     {
@@ -315,6 +321,12 @@ public abstract class Unit : MonoBehaviour
 
         transform.Translate(dir.x *
             new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
+
+        if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
+        {
+            walk_particle.transform.position = new Vector2(transform.position.x, -5);
+            walk_particle.Play();
+        }
     }
 
     public virtual void OnAttack(Unit taken)

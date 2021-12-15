@@ -2255,6 +2255,7 @@ MonoBehaviour:
   isTower: 1
   Invincibility: 0
   deltaSpeed: 0
+  isDie: 0
   hp_slider: {fileID: 1205840481}
   hp_text: {fileID: 208372932}
 --- !u!50 &419333995
@@ -5257,6 +5258,7 @@ MonoBehaviour:
   isTower: 1
   Invincibility: 0
   deltaSpeed: 0
+  isDie: 0
   hp_slider: {fileID: 146612583}
   hp_text: {fileID: 1777675435}
 --- !u!50 &1189597170
@@ -10031,6 +10033,7 @@ MonoBehaviour:
   - {fileID: 191536564}
   - {fileID: 2087321719}
   stageInfoLinker: {fileID: 1009666277}
+  rtrnDeckParent: {fileID: 435064556}
 --- !u!1 &2118384797
 GameObject:
   m_ObjectHideFlags: 0

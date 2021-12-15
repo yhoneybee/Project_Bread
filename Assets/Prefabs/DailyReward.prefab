@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1998931977837078824}
   - component: {fileID: 1998931977837078826}
   - component: {fileID: 1998931977837078827}
+  - component: {fileID: 593800622073626903}
   m_Layer: 5
   m_Name: DailyReward
   m_TagString: Untagged
@@ -67,6 +68,25 @@ MonoBehaviour:
   Count: {fileID: 1998931979766374995}
   Already: {fileID: 1998931979243094684}
   Get: {fileID: 1998931978085408112}
+--- !u!95 &593800622073626903
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998931977837078825}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59f0ab7f8a173d04f9bea7b2ee61fa1d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1998931977839636548
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,7 +248,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 9038138610556049163}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
