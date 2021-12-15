@@ -38,6 +38,10 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             owner.deltaSpeed = owner.deltaSpeed == 1 ? 0 : 1;
             animator.SetBool("StopUiOpen", owner.deltaSpeed == 0);
         }
+        if (owner.baseSkill.IsCoolDown && isSkillSprite)
+        {
+            animator.SetTrigger("SwitchSkill");
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -63,11 +67,12 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
         if (isSkillSprite)
         {
-
+            imgIllust.sprite = owner.baseSkill.skillIcon;
         }
         else
         {
-
+            imgIllust.sprite = owner.Info.Icon;
         }
+        UIManager.Instance.FixSizeToRatio(imgIllust, imgIllust.transform.parent.GetComponent<RectTransform>().sizeDelta.x - 20);
     }
 }

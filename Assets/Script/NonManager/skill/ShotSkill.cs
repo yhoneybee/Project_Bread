@@ -10,7 +10,11 @@ public class ShotSkill : BaseSkill
         base.Cast(target);
         for (int i = 0; i < shotCount; i++)
         {
-            Instantiate(originSkill);
+            Instantiate(this);
         }
+    }
+
+    public override void Excute(Collider2D col2D)
+    {
     }
 }

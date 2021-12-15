@@ -13,7 +13,11 @@ public class SpawnSkill : BaseSkill
         for (int i = 0; i < spawnCount; i++)
         {
             int x = i * spacingX;
-            Instantiate(originSkill);
+            Instantiate(this);
         }
+    }
+
+    public override void Excute(Collider2D col2D)
+    {
     }
 }

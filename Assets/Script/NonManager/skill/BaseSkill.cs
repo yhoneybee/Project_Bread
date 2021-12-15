@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class BaseSkill : MonoBehaviour
 {
-    public GameObject originSkill;
-    public GameObject goSkill;
+    public BaseSkill goSkill;
     public Sprite skillIcon;
     public float coolTime;
     public float curCoolTime;
@@ -17,8 +16,15 @@ public abstract class BaseSkill : MonoBehaviour
         if (curCoolTime <= 0) curCoolTime = 0;
     }
 
+    public abstract void Excute(Collider2D col2D);
+
     public virtual void Cast(Unit target)
     {
         curCoolTime = coolTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col2D)
+    {
+        Excute(col2D);
     }
 }

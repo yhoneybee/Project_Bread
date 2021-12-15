@@ -20,7 +20,8 @@ public class DeckManager : MonoBehaviour
     {
         List<Unit> nulls = new List<Unit>() { null, null, null, null, null, null, null, };
 
-        LockStartIndex = SaveManager.Load<int>("DeckSlot").FirstOrDefault();
+        if (SaveManager.Instance.IsFile("DeckSlot"))
+            LockStartIndex = SaveManager.Load<int>("DeckSlot").FirstOrDefault();
         if (LockStartIndex == 0) LockStartIndex = 5;
 
         DeckApply();
