@@ -172,7 +172,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
-  baseSkill: {fileID: 2533900899098439856, guid: 69af573b134c26a4dbab13a0bad5d6ed, type: 3}
+  baseSkill: {fileID: 5746831812690380697, guid: 69af573b134c26a4dbab13a0bad5d6ed, type: 3}
   isTower: 0
   Invincibility: 0
   deltaSpeed: 1

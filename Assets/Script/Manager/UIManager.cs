@@ -153,11 +153,12 @@ public class UIManager : MonoBehaviour
                 else
                 {
                     AnimImg.sprite = GameManager.Select[0].Info.Icon;
+                    FixSizeToRatio(AnimImg, 600);
                 }
             }
             else
             {
-                //AnimImg.gameObject.SetActive(false);
+                AnimImg.gameObject.SetActive(false);
             }
         }
         else
@@ -186,7 +187,11 @@ public class UIManager : MonoBehaviour
     {
         AnimImg.gameObject.SetActive(SF.Count != 0);
         if (SF.Count == 0) return;
-        if (AnimImg) AnimImg.sprite = SF[AnimIndex];
+        if (AnimImg)
+        {
+            AnimImg.sprite = SF[AnimIndex];
+            FixSizeToRatio(AnimImg, 600);
+        }
         if (time >= /*SF[AnimIndex].Frame*/0.1f)
         {
             ++AnimIndex;

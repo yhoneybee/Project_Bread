@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShotSkill : BaseSkill
 {
-    public int shotCount;
     public override void Cast(Unit target)
     {
         base.Cast(target);
@@ -12,9 +11,5 @@ public class ShotSkill : BaseSkill
         {
             Instantiate(this);
         }
-    }
-
-    public override void Excute(Collider2D col2D)
-    {
     }
 }
