@@ -16,6 +16,13 @@ public class ResourceLinker : MonoBehaviour
     public TextMeshProUGUI SteminaText;
     public Button AddSteminaBtn;
 
+    private void Start()
+    {
+        AddCoinBtn.onClick.AddListener(() => { ButtonActions.Instance.ChangeScene("C-05_CashShop"); });
+        AddJemBtn.onClick.AddListener(() => { ButtonActions.Instance.ChangeScene("C-05_CashShop"); });
+        AddSteminaBtn.onClick.AddListener(() => { ButtonActions.Instance.ChangeScene("C-05_CashShop"); });
+    }
+
     private void Update()
     {
         if (NameText && ExpSlider)

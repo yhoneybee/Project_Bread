@@ -140,7 +140,7 @@ public class ShopManager : MonoBehaviour
 
     IEnumerator EUnBoxing()
     {
-        yield return StartCoroutine(UIManager.Instance.EColoringUI(Fade, Color.black * 0.6588235f, 3));
+        yield return StartCoroutine(UIManager.Instance.EColoringUI(Fade, Color.black * 0.6f, 3));
 
         Fade.raycastTarget = true;
 

@@ -8,7 +8,7 @@ public class DropBox : MonoBehaviour
     {
         if (!ShopManager.Instance.BuyWindow.gameObject.activeSelf)
         {
-            ShopManager.Instance.UnboxCancel();
+            ShopManager.Instance.imgDropBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-600, 1000);
         }
     }
 }

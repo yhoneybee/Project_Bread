@@ -913,7 +913,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 821863813178273320, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 821863813178273320, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1045,7 +1045,7 @@ PrefabInstance:
       objectReference: {fileID: 1610459915}
     - target: {fileID: 821863814465759117, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 821863814465759117, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -1077,7 +1077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 821863814538020109, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 821863814538020109, guid: 19bc053e0eda19742bef2ef5ab637eb5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2327,6 +2327,10 @@ MonoBehaviour:
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 2081412787}
     LinkerList:

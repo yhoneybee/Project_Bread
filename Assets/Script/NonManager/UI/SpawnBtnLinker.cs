@@ -28,16 +28,18 @@ public class SpawnBtnLinker : MonoBehaviour
     private void Start()
     {
         imgIcon.sprite = UIManager.Instance.spIcon[((int)CostType)];
-        txtReward.text = $"{value}";
+        txtReward.text = $"{value:#,0}";
 
         button = GetComponent<Button>();
 
         button.onClick.AddListener(() =>
         {
             bool isUnboxing = false;
+            imgIcon.sprite = UIManager.Instance.spIcon[((int)CostType)];
             switch (CostType)
             {
                 case StageInfoLinker.Reward_Kind.Coin:
+
                     if (GameManager.Instance.Coin >= value)
                     {
                         isUnboxing = true;
