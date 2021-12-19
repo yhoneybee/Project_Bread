@@ -34,7 +34,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
         pressTime += Time.deltaTime;
         if (owner.baseSkill)
         {
-            owner.baseSkill.curCoolTime -= Time.deltaTime;
+            owner.baseSkill.Update();
         }
         if (pressTime > needPressTime && down)
         {
@@ -43,7 +43,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             owner.deltaSpeed = owner.deltaSpeed == 1 ? 0 : 1;
             animator.SetBool("StopUiOpen", owner.deltaSpeed == 0);
         }
-        if (owner.baseSkill && owner.baseSkill.IsCoolDown && isSkillCast)
+        if (owner.baseSkill && owner.baseSkill.IsCoolTime && isSkillCast)
         {
             isSkillCast = false;
             animator.SetTrigger("SwitchIcon");
@@ -59,12 +59,12 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
     public void OnPointerUp(PointerEventData eventData)
     {
         down = false;
-        if (pressTime <= needPressTime && owner.baseSkill.IsCoolDown)
+        if (pressTime <= needPressTime && owner.baseSkill.IsCoolTime)
         {
             // skill »ç¿ë
             isSkillCast = true;
             animator.SetTrigger("SwitchSkill");
-            owner.baseSkill.Cast(owner);
+            //owner.baseSkill.Cast(owner);
         }
     }
 
@@ -74,7 +74,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
         if (isSkillSprite)
         {
-            imgIllust.sprite = owner.baseSkill.skillIcon;
+            //imgIllust.sprite = owner.baseSkill.skillIcon;
         }
         else
         {
