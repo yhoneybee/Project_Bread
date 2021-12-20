@@ -4317,7 +4317,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: D - 03 UnitItemInfo
+          m_StringArgument: D-03_UnitItemInfo
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &627493849
@@ -6898,6 +6898,10 @@ MonoBehaviour:
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []

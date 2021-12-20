@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4589283204957968002}
   - component: {fileID: 4589283204957968003}
   m_Layer: 5
-  m_Name: ClearReward
+  m_Name: Icon Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
