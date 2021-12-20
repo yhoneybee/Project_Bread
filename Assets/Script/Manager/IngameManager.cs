@@ -116,7 +116,7 @@ public class IngameManager : MonoBehaviour
         CSpawnEnemy = StartCoroutine(ESpawnEnemy());
         ingameUnits = new List<Unit>();
         MyUnitsSpawnAll();
-        for (int i = 0; i < ingameUnits.Count; i++) 
+        for (int i = 0; i < ingameUnits.Count; i++)
             lkIngameUnitBtns[i].owner = ingameUnits[i];
     }
 
@@ -252,9 +252,25 @@ public class IngameManager : MonoBehaviour
         yield return null;
     }
 
-    public void DamageText(int damage, Vector2 pos)
+    Coroutine damage_text;
+    public IEnumerator DamageText(int damage, Vector2 pos)
     {
-        var damageText = Instantiate(rtrnDamageText, pos, Quaternion.identity);
+        if (damage_text == null)
+        {
+            damage_text = StartCoroutine(_DamageText(damage, pos));
+        }
+        else
+        {
+            yield return damage_text;
+            damage_text = StartCoroutine(_DamageText(damage, pos));
+        }
+    }
+    IEnumerator _DamageText(int damage, Vector2 pos)
+    {
+        yield return null;
+
+        Vector2 spawn_position = pos + Vector2.up;
+        var damageText = Instantiate(rtrnDamageText, spawn_position, Quaternion.identity);
         List<int> list2 = new List<int>()
         {
             (damage % 10000000) / 1000000,
@@ -273,6 +289,9 @@ public class IngameManager : MonoBehaviour
             if (list2[i] == 0 && pow > damage) damageText.GetChild(8).position = img.transform.position;
             img.sprite = GetNumSprite(list2[i]);
         }
+
+        yield return new WaitForSeconds(0.5f);
+        damage_text = null;
     }
 
     private Sprite GetNumSprite(int num) => UIManager.Instance.Nums[num == 0 ? 9 : num - 1];

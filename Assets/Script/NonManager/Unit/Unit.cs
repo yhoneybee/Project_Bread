@@ -236,7 +236,7 @@ public abstract class Unit : MonoBehaviour
                     {
                         OnAttack(unit);
                         AnimState = AnimState.ATTACK;
-                        IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
+                        IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position));
                         //ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
                         unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
                         unit.AnimState = AnimState.HIT;
