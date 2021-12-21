@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
     public Sprite TeamBtnLock;
     public Sprite UnitNullSprite;
     public Sprite[] spIcon;
-    public UILinker Except;
+    public UnitUILinker Except;
     public Image Fade;
     public RectTransform Content;
     public GameObject SquadPrefab;

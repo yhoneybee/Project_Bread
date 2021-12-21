@@ -1584,12 +1584,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 568772692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 568772698}
   Icon: {fileID: 160225479}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 160225478}
   IconBtn: {fileID: 568772696}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -2439,12 +2441,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 795079549}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 795079554}
   Icon: {fileID: 1722582271}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 1722582270}
   IconBtn: {fileID: 795079555}
   InfoBtn: {fileID: 0}
   Buttons:
@@ -2636,12 +2640,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 803800037}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 803800040}
   Icon: {fileID: 466611749}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 466611748}
   IconBtn: {fileID: 803800041}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -2869,12 +2875,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 835599998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 835600001}
   Icon: {fileID: 1700374177}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 1700374176}
   IconBtn: {fileID: 835600002}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -3224,6 +3232,8 @@ MonoBehaviour:
   - {fileID: 1764866045}
   AllUnits: []
   ProductParents: []
+  spRanks: []
+  spRankBgs: []
   Nums:
   - {fileID: 2125949696445395195, guid: e73be23140f639c4e9a1babf2c3e3267, type: 3}
   - {fileID: -1035143950857452663, guid: e73be23140f639c4e9a1babf2c3e3267, type: 3}
@@ -3257,6 +3267,10 @@ MonoBehaviour:
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []
@@ -3919,12 +3933,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1194250337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1194250340}
   Icon: {fileID: 1255537550}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 1255537549}
   IconBtn: {fileID: 1194250341}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -4220,12 +4236,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1296415223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1296415226}
   Icon: {fileID: 1655302983}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 1655302982}
   IconBtn: {fileID: 1296415227}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -5029,12 +5047,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1661989933}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 1661989936}
   Icon: {fileID: 1423879546}
-  IconRestore: {fileID: 0}
+  imgRank: {fileID: 0}
+  imgRankBg: {fileID: 0}
+  IconRestore: {fileID: 1423879545}
   IconBtn: {fileID: 1661989937}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -5258,7 +5278,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1543682658}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9996431
+  m_Size: 0.99998474
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5409,7 +5429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.25482, y: 59}
+  m_AnchoredPosition: {x: -364.2597, y: 59}
   m_SizeDelta: {x: 728, y: 118}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1706304448
