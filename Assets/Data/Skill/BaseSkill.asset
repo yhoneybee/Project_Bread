@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 210b4dd4dfed0f3438fb317084e24acc, type: 3}
   m_Name: BaseSkill
   m_EditorClassIdentifier: 
-  originSkill: {fileID: 0}
   owner: {fileID: 0}
+  skillIcon: {fileID: 0}
+  controller: {fileID: 0}
+  skillObj: {fileID: 0}
+  originSkill: {fileID: 7185768433217135183, guid: af1ca17d4d27703439ee61574a6fa39f, type: 3}
   skillCoolTime: 0
   coolTime: 0
   isCoolTime: 0
-  skillInfo: {fileID: 0}
-  skillIcon: {fileID: 0}
