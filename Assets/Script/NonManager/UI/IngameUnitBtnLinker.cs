@@ -64,7 +64,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             // skill »ç¿ë
             isSkillCast = true;
             animator.SetTrigger("SwitchSkill");
-            //owner.baseSkill.Cast(owner);
+            owner.baseSkill.Cast();
         }
     }
 
@@ -74,7 +74,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
         if (isSkillSprite)
         {
-            //imgIllust.sprite = owner.baseSkill.skillIcon;
+            imgIllust.sprite = owner.baseSkill.skillIcon;
         }
         else
         {

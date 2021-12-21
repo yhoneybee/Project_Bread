@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units: []
+  originSkill: {fileID: 1227823725712576087, guid: af1ca17d4d27703439ee61574a6fa39f, type: 3}
 --- !u!4 &1164915620
 Transform:
   m_ObjectHideFlags: 0
