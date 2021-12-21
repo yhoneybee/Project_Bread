@@ -121,8 +121,8 @@ public class ShopManager : MonoBehaviour
     public void Unboxing()
     {
         BuyWindow.gameObject.SetActive(false);
-        GameManager.Instance.Coin -= SpawnBtnLinker.Coin;
-        GameManager.Instance.Jem -= SpawnBtnLinker.Jem;
+        GameManager.Instance.Coin -= BuyBreadLinker.Coin;
+        GameManager.Instance.Jem -= BuyBreadLinker.Jem;
         StartCoroutine(EUnBoxing());
     }
 
