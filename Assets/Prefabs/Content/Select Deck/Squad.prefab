@@ -626,7 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5732806272963802534}
   - component: {fileID: 8572805661188267068}
-  - component: {fileID: 3532456202266844401}
+  - component: {fileID: 1421798213799931919}
   m_Layer: 5
   m_Name: Squad
   m_TagString: Untagged
@@ -671,8 +671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show: {fileID: 0}
-  UILinker: {fileID: 3532456202266844401}
---- !u!114 &3532456202266844401
+  UILinker: {fileID: 1421798213799931919}
+--- !u!114 &1421798213799931919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -681,20 +681,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5732806272963802533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 8572805661188267068}
   Icon: {fileID: 5732806271745117401}
   imgRank: {fileID: 6316740146527785719}
   imgRankBg: {fileID: 6881052190167514329}
-  IconRestore: {fileID: 5732806272963802534}
+  IconRestore: {fileID: 5732806271745117400}
   IconBtn: {fileID: 7436841461414371938}
   InfoBtn: {fileID: 5732806273019301873}
   Buttons: []
   LevelText: {fileID: 5732806272928993347}
   NameText: {fileID: 5732806272519241389}
-  NullUnActive: {fileID: 5732806271426159286}
+  NullUnActive: {fileID: 0}
 --- !u!1 &5732806273019301879
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 6341108158092225598}
   - component: {fileID: 6316740146527785719}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

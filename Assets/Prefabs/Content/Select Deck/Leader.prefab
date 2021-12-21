@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 433617684816659785}
   - component: {fileID: 433617684816659787}
-  - component: {fileID: 433617684816659786}
+  - component: {fileID: 6130715936212598028}
   m_Layer: 5
   m_Name: Leader
   m_TagString: Untagged
@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   show: {fileID: 0}
-  UILinker: {fileID: 433617684816659786}
---- !u!114 &433617684816659786
+  UILinker: {fileID: 6130715936212598028}
+--- !u!114 &6130715936212598028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,14 +205,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 433617684816659784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b792f724198599d47ae9d23c50a02503, type: 3}
+  m_Script: {fileID: 11500000, guid: 511921403b74a9643951f37cccbfc6c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Viewer: {fileID: 433617684816659787}
   Icon: {fileID: 433617684821804347}
   imgRank: {fileID: 433617684893689823}
   imgRankBg: {fileID: 3314606545599793034}
-  IconRestore: {fileID: 433617685531600461}
+  IconRestore: {fileID: 433617684821804346}
   IconBtn: {fileID: 661075373380537427}
   InfoBtn: {fileID: 433617684491362238}
   Buttons:
@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 433617685885455437}
   LevelText: {fileID: 0}
   NameText: {fileID: 433617685082838204}
-  NullUnActive: {fileID: 433617685553530750}
+  NullUnActive: {fileID: 0}
 --- !u!1 &433617684821804345
 GameObject:
   m_ObjectHideFlags: 0
