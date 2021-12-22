@@ -64,7 +64,7 @@ public class BuyBreadLinker : MonoBehaviour
                     {
                         isUnboxing_one = true;
                         Jem_one = value_one;
-                        ShopManager.Instance.txtElevenCost.color = Color.red;
+                        ShopManager.Instance.txtOneCost.color = Color.white;
                     }
                     else
                     {
@@ -79,10 +79,7 @@ public class BuyBreadLinker : MonoBehaviour
                         ShopManager.Instance.txtElevenCost.color = Color.white;
                     }
                     else
-                    {
                         ShopManager.Instance.txtElevenCost.color = Color.red;
-                        break;
-                    }
                     break;
             }
 
@@ -96,11 +93,18 @@ public class BuyBreadLinker : MonoBehaviour
             foreach (var img in ShopManager.Instance.imgResourceIcon)
             {
                 img.sprite = resourceIcon;
+                img.SetNativeSize();
+                if (CostType == StageInfoLinker.Reward_Kind.Coin)
+                    img.rectTransform.sizeDelta /= 10;
+                else
+                    img.rectTransform.sizeDelta = new Vector2(34, 51);
             }
 
             ShopManager.Instance.imgDropBox.sprite = ShopManager.Instance.imgBuyBox.sprite = ShopManager.Instance.BoxSprites[rank_value];
             UIManager.Instance.FixSizeToRatio(ShopManager.Instance.imgDropBox, 400);
             StartCoroutine(UIManager.Instance.EMovingUI(ShopManager.Instance.imgDropBox, new Vector2(-600, -260), 3000));
+            ShopManager.Instance.rankTexts[0].text = ShopManager.Instance.rankTexts[1].text = new string[3] { "레어 ~ 일반", "에픽 ~ 레어", "레전드 ~ 에픽" }[rank_value];
+
             if (isUnboxing_one || isUnboxing_eleven)
             {
                 ShopManager.Instance.BuyWindow.gameObject.SetActive(true);

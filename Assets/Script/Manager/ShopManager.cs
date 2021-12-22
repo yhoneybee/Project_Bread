@@ -27,6 +27,7 @@ public class ShopManager : MonoBehaviour
     public Dictionary<Unit, int> SpawnUnits = new Dictionary<Unit, int>();
     public TextMeshProUGUI txtOneCost;
     public TextMeshProUGUI txtElevenCost;
+    public TextMeshProUGUI[] rankTexts = new TextMeshProUGUI[2];
     public RectTransform DontBuyWindow;
     public RectTransform BuyWindow;
     public Image[] imgResourceIcon;
