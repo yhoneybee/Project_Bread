@@ -69,6 +69,7 @@ public class IngameManager : MonoBehaviour
     private List<WaveInformation> curWaveDatas;
     private Coroutine CSpawnEnemy;
     private List<Unit> ingameUnits;
+    public List<Unit> ingameEnemies;
     private int currentStarCount;
     private int starCount;
     private int fullStarCount;
@@ -329,6 +330,7 @@ public class IngameManager : MonoBehaviour
                     if (wave.unit)
                     {
                         var enemy = UnitManager.Instance.GetUnit(wave.unit.Info.Name, theyTower.transform.position);
+                        ingameEnemies.Add(enemy);
                         enemy.transform.SetParent(theyTower.transform);
                     }
                     yield return new WaitForSeconds(wave.delay);

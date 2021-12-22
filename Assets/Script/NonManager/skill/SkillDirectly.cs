@@ -13,9 +13,7 @@ public class SkillDirectly : BaseSkill
     public override void Cast()
     {
         base.Cast();
-        betweenAttackDelayDown = betweenAttackDelayTime;
         moveTo = owner.transform.position.x + moveLenght;
-        Invoke(nameof(ResetCount), duraction);
     }
 
     protected override void Update()
@@ -27,12 +25,17 @@ public class SkillDirectly : BaseSkill
             if (betweenAttackDelayDown > 0) betweenAttackDelayDown -= Time.deltaTime;
             else betweenAttackDelayDown = 0;
         }
+        if (duractionDone)
+        {
+            ResetCount();
+            moveTo = owner.transform.position.x;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         var unit = collision.GetComponent<Unit>();
-        if (countDown > 0)
+        if (countDown > 0 && betweenAttackDelayDown == 0)
         {
             countDown--;
             IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText((int)totalDamage, owner.transform.position));
