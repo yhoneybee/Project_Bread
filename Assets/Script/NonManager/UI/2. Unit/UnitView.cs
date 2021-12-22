@@ -63,6 +63,7 @@ public class UnitView : MonoBehaviour
                 else
                     UILinker.Icon.GetComponent<RectTransform>().sizeDelta = UILinker.IconRestore.sizeDelta;
                 UILinker.Icon.sprite = UIManager.Instance.UnitNullSprite;
+
             }
             if (UILinker.NullUnActive) UILinker.NullUnActive.SetActive(false);
             if (UILinker.imgRank)

@@ -688,13 +688,13 @@ MonoBehaviour:
   Icon: {fileID: 5732806271745117401}
   imgRank: {fileID: 6316740146527785719}
   imgRankBg: {fileID: 6881052190167514329}
-  IconRestore: {fileID: 5732806271745117400}
+  IconRestore: {fileID: 5732806272963802534}
   IconBtn: {fileID: 7436841461414371938}
   InfoBtn: {fileID: 5732806273019301873}
   Buttons: []
   LevelText: {fileID: 5732806272928993347}
   NameText: {fileID: 5732806272519241389}
-  NullUnActive: {fileID: 0}
+  NullUnActive: {fileID: 5732806271426159286}
 --- !u!1 &5732806273019301879
 GameObject:
   m_ObjectHideFlags: 0

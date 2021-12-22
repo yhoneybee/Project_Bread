@@ -212,7 +212,7 @@ MonoBehaviour:
   Icon: {fileID: 433617684821804347}
   imgRank: {fileID: 433617684893689823}
   imgRankBg: {fileID: 3314606545599793034}
-  IconRestore: {fileID: 433617684821804346}
+  IconRestore: {fileID: 433617685531600461}
   IconBtn: {fileID: 661075373380537427}
   InfoBtn: {fileID: 433617684491362238}
   Buttons:
@@ -220,7 +220,7 @@ MonoBehaviour:
   - {fileID: 433617685885455437}
   LevelText: {fileID: 0}
   NameText: {fileID: 433617685082838204}
-  NullUnActive: {fileID: 0}
+  NullUnActive: {fileID: 433617685553530750}
 --- !u!1 &433617684821804345
 GameObject:
   m_ObjectHideFlags: 0
