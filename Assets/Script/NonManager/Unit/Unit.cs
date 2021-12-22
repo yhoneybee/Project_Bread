@@ -222,7 +222,7 @@ public abstract class Unit : MonoBehaviour
 
         if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
 
-        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit")); ;
+        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit"));
         Debug.DrawRay(transform.position, dir * (coll.size.x / 2) + dir * Stat.AR, Color.yellow);
 
         if (hits.Length > 1)
@@ -291,6 +291,8 @@ public abstract class Unit : MonoBehaviour
                 {
                     if (!isTower)
                         UnitManager.Instance.ReturnUnit(this, null);
+                    if (UnitType == UnitType.UNFRIEND)
+                        IngameManager.Instance.ingameEnemies.Remove(this);
                 }
                 break;
         }
