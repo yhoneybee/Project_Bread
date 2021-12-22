@@ -157,12 +157,20 @@ public class IngameManager : MonoBehaviour
 
         if (StageInfo.stage_number == 10)
         {
+            var mainBtnObj = GameObject.Find("Go To Main");
+            Destroy(mainBtnObj);
+
+            resultWindow.btnNext.transform.localPosition = 
+                new Vector3(0, resultWindow.btnNext.transform.localPosition.y);
+
             resultWindow.btnNext.onClick.AddListener(() =>
             {
                 ButtonActions.Instance.ChangeScene("C-01_ThemeSelect");
 
                 if (!StageManager.Instance.GetStage(StageInfo.theme_number, 0).is_startable)
+                {
                     StageManager.Instance.theme_clear = true;
+                }
             });
         }
         else
