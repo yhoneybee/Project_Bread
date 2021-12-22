@@ -88,6 +88,10 @@ public class SelectTheme : MonoBehaviour
         celebrationParticles[0].Play();
         yield return new WaitForSeconds(0.15f);
         celebrationParticles[1].Play();
+        yield return new WaitForSeconds(0.5f);
+        celebrationParticles[2].Play();
+        yield return new WaitForSeconds(0.5f);
+        celebrationParticles[3].Play();
 
         StageManager.Instance.theme_clear = false;
         StartCoroutine(FadeOut(text));
