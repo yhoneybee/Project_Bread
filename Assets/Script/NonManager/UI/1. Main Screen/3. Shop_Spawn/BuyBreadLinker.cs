@@ -107,7 +107,6 @@ public class BuyBreadLinker : MonoBehaviour
 
                 ShopManager.Instance.Upper.sprite = ShopManager.Instance.UpperLowers[rank_value].Upper;
                 ShopManager.Instance.Lower.sprite = ShopManager.Instance.UpperLowers[rank_value].Lower;
-                UIManager.Instance.FixSizeToRatio(ShopManager.Instance.imgBuyBox, 300);
 
                 ShopManager.Instance.btnOneBuy.onClick.RemoveAllListeners();
                 ShopManager.Instance.btnElevenBuy.onClick.RemoveAllListeners();
