@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager Instance { get; private set; } = null;
 
+    public bool theme_clear { get; set; } = false;
     public Stage_Data[] all_themes;
 
     private void Awake()
@@ -31,7 +32,7 @@ public class StageManager : MonoBehaviour
             {
                 rewards[stage] = all_themes[theme].stages[stage].reward_information;
             }
-            
+
             GameManager.Instance.onAutoSave += () => { SaveManager.Save(rewards, $"{theme}_Theme_Reward"); };
         }
     }

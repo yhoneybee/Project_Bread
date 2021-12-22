@@ -151,16 +151,30 @@ public class IngameManager : MonoBehaviour
         GameManager.Instance.Jem += rewards.Item2;
 
         if (currentStarCount > StageManager.Instance.GetStage().star_count) StageManager.Instance.GetStage().star_count = currentStarCount;
-        StageInfo.stage_number++;
-        StageManager.Instance.GetStage().is_startable = true;
 
         var imgs = resultWindow.rtrnStarParent.GetComponentsInChildren<Image>();
         for (int i = 0; i < currentStarCount; i++) imgs[i].sprite = resultWindow.spStar;
 
-        resultWindow.btnNext.onClick.AddListener(() =>
+        if (StageInfo.stage_number == 10)
         {
-            ButtonActions.Instance.ChangeScene("E-01_DeckView");
-        });
+            resultWindow.btnNext.onClick.AddListener(() =>
+            {
+                ButtonActions.Instance.ChangeScene("C-01_ThemeSelect");
+
+                if (!StageManager.Instance.GetStage(StageInfo.theme_number, 0).is_startable)
+                    StageManager.Instance.theme_clear = true;
+            });
+        }
+        else
+        {
+            resultWindow.btnNext.onClick.AddListener(() =>
+            {
+                ButtonActions.Instance.ChangeScene("E-01_DeckView");
+            });
+        }
+
+        StageInfo.stage_number++;
+        StageManager.Instance.GetStage().is_startable = true;
     }
 
     void SetFullStarLimitUIs()

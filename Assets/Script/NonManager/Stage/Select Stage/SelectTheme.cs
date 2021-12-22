@@ -6,9 +6,11 @@ using TMPro;
 
 public class SelectTheme : MonoBehaviour
 {
-    [SerializeField] Canvas main_canvas;
+    [SerializeField] Canvas msg_canvas;
     // 화면에 나타나는 안내 문구 프리팹
-    [SerializeField] RectTransform help_text_prefab;
+    [SerializeField] GameObject help_text_prefab;
+
+    [SerializeField] ParticleSystem[] celebrationParticles = new ParticleSystem[2];
 
     void Start()
     {
@@ -17,9 +19,14 @@ public class SelectTheme : MonoBehaviour
 
     void Update()
     {
-
+        if (StageManager.Instance.theme_clear || Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(ShowCelebrationMsg());
+        }
     }
-    public void ShowHelpText(int theme_number)
+
+
+    public void LoadTheme(int theme_number)
     {
         if (help_text_prefab)
         {
@@ -28,7 +35,7 @@ public class SelectTheme : MonoBehaviour
             if (theme_number < 5)
                 if (theme_number != 1 && StageManager.Instance.GetStage(StageInfo.theme_number - 2, 9).star_count == 0) // 인덱스로서 접근하기 때문에 빼줌
                 {
-                    RectTransform help_text_obj = Instantiate(help_text_prefab, main_canvas.transform);
+                    GameObject help_text_obj = Instantiate(help_text_prefab, msg_canvas.transform);
                     var text = help_text_obj.GetComponentInChildren<TextMeshProUGUI>();
 
                     text.text = $"에피소드 {--StageInfo.theme_number}을(를) 클리어해주세요.";
@@ -66,5 +73,24 @@ public class SelectTheme : MonoBehaviour
 
         if (text)
             Destroy(text.gameObject);
+    }
+
+    IEnumerator ShowCelebrationMsg()
+    {
+        GameObject help_text_obj = Instantiate(help_text_prefab, msg_canvas.transform);
+        var text = help_text_obj.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = $"에피소드 {StageInfo.theme_number - 1}을(를) 클리어하였습니다!\n" +
+            $"다음 에피소드로 입장 가능합니다.";
+
+        var help_text_tr = help_text_obj.GetComponent<RectTransform>();
+        help_text_tr.sizeDelta = new Vector2(help_text_tr.sizeDelta.x, help_text_tr.sizeDelta.y * 2);
+
+        celebrationParticles[0].Play();
+        yield return new WaitForSeconds(0.15f);
+        celebrationParticles[1].Play();
+
+        StageManager.Instance.theme_clear = false;
+        StartCoroutine(FadeOut(text));
+        StartCoroutine(FadeOut(help_text_obj.GetComponent<Image>()));
     }
 }
