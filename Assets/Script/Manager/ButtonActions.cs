@@ -180,7 +180,6 @@ public class ButtonActions : MonoBehaviour
                 break;
         }
 
-        ShopManager.Instance.BuyWindow.gameObject.SetActive(true);
         //ShopManager.Instance.Unboxing();
     }
 
