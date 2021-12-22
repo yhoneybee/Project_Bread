@@ -289,7 +289,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 60
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 1720465135586536994}
   - component: {fileID: 1720465135586536996}
   - component: {fileID: 1720465135586536995}
-  - component: {fileID: 6919372862311275535}
+  - component: {fileID: 3016058665151090328}
   m_Layer: 0
   m_Name: Product
   m_TagString: Untagged
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6919372862311275535
+--- !u!114 &3016058665151090328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1720465135586536993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b7a4f682b4c7ad49b5dafe195946241, type: 3}
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   price_image: {fileID: 6494582009734210435}

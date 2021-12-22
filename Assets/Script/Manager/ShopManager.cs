@@ -40,7 +40,6 @@ public class ShopManager : MonoBehaviour
     public List<UpperLowerSprite> UpperLowers;
     public List<Sprite> BoxSprites;
 
-    [SerializeField] Image[] ButtonImgs = new Image[6];
     [SerializeField] Image[] BubbleMessage = new Image[3];
     [SerializeField] Image Fade;
     [SerializeField] ParticleSystem ps;
@@ -283,9 +282,11 @@ public class ShopManager : MonoBehaviour
             Image img = obj.transform.GetChild(0).GetComponent<Image>();
             var count_text = obj.GetComponentInChildren<TextMeshProUGUI>();
             var GLG = AllResultParent.GetComponent<GridLayoutGroup>();
+            var newIcon = obj.transform.GetChild(2).gameObject;
 
             img.sprite = spawn_unit.Key.Info.Icon;
             count_text.text = spawn_unit.Value.ToString();
+            newIcon.SetActive(!spawn_unit.Key.Info.Gotten);
 
 
             UIManager.Instance.FixSizeToRatio(img, GLG.cellSize.x - 20);

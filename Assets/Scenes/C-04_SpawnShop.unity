@@ -7251,13 +7251,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 71d7f2cd77be8f84ea8083614776a5d4, type: 3}
   - {fileID: 21300000, guid: ef84e96f5f4fd2948a9be8f60c7e0f9b, type: 3}
   - {fileID: 21300000, guid: 640b1d2b0bd76a44dbbeae257d061371, type: 3}
-  ButtonImgs:
-  - {fileID: 1746659337}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   BubbleMessage:
   - {fileID: 169151185}
   - {fileID: 72978775}
@@ -10006,17 +9999,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5276017031782319415, guid: 09954e6b80b758f4c8eb0cf7eb476f68, type: 3}
   m_PrefabInstance: {fileID: 5276017030306213183}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1746659337 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5276017031782319414, guid: 09954e6b80b758f4c8eb0cf7eb476f68, type: 3}
-  m_PrefabInstance: {fileID: 5276017030306213183}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1763818578
 GameObject:
   m_ObjectHideFlags: 0

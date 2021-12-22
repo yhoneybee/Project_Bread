@@ -222,6 +222,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 500
@@ -253,6 +265,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 72040933}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &72040935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 72040933}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &79121469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1115,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: CoinCost
       value: 5000
@@ -1123,6 +1158,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 421064247}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &421064249 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 421064247}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &463209817
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1274,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 151fdc87089673e48b21dbf3868745d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash_products: []
+  cash_products:
+  - {fileID: 1720465135488378209}
+  - {fileID: 901557786}
+  - {fileID: 1056598203}
+  - {fileID: 1411629892}
+  - {fileID: 463375465}
+  - {fileID: 1873025624}
+  - {fileID: 487026326}
+  - {fileID: 2135424579}
+  - {fileID: 1884293886}
+  - {fileID: 808709426}
+  - {fileID: 421064249}
+  - {fileID: 1796638146}
+  - {fileID: 72040935}
+  - {fileID: 2089487982}
+  - {fileID: 595793545}
   icon_sprites:
   - {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
   - {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
@@ -1330,6 +1391,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 71000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 10000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
       value: 110000
@@ -1365,6 +1442,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 463375463}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &463375465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 463375463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &480277827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1724,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 25000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 100
@@ -1667,6 +1767,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 487026324}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &487026326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 487026324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &527415254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2161,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 5000
@@ -2085,6 +2212,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 595793543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &595793545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 595793543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &603890007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2925,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 500000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 100000
@@ -2818,6 +2968,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 808709424}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &808709426 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 808709424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &821252315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,6 +3524,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 4800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
       value: 5100
@@ -3398,6 +3575,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 901557784}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &901557786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 901557784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &937987198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3740,6 +3928,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 9000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
       value: 10500
@@ -3775,6 +3979,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 1056598201}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056598203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1056598201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1114762664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4620,6 +4835,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 39000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
       value: 54300
@@ -4655,6 +4886,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 1411629890}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1411629892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1411629890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1455851684
 GameObject:
   m_ObjectHideFlags: 0
@@ -5571,7 +5813,7 @@ GameObject:
   - component: {fileID: 1669524600}
   - component: {fileID: 1669524599}
   m_Layer: 0
-  m_Name: Cash Score Image
+  m_Name: Cash Store Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5964,6 +6206,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: CoinCost
       value: 10000
@@ -5995,6 +6249,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 1796638144}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796638146 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1796638144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1817865217
 GameObject:
   m_ObjectHideFlags: 0
@@ -6191,6 +6456,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 10
@@ -6222,6 +6499,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 1873025622}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1873025624 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1873025622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1884293884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6321,6 +6609,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 250000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 10000
@@ -6352,6 +6652,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 1884293884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1884293886 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1884293884}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940941183
 GameObject:
   m_ObjectHideFlags: 0
@@ -6873,6 +7184,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 1000
@@ -6908,6 +7235,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 2089487980}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2089487982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 2089487980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2135424577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7007,6 +7345,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: JemCost
       value: 1000
@@ -7038,6 +7388,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1720465135586536994, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
   m_PrefabInstance: {fileID: 2135424577}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135424579 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 2135424577}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1720465135488378208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7133,6 +7494,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: price_type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_price
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: product_amount
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost
       value: 1400
@@ -7163,3 +7540,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+--- !u!114 &1720465135488378209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+  m_PrefabInstance: {fileID: 1720465135488378208}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eacb182b9ead1fc40a257a894697dff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
