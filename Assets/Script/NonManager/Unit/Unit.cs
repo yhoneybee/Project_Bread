@@ -18,6 +18,7 @@ public enum AnimState
     WALK,
     HIT,
     ATTACK,
+    SKILL,
     DIE,
 }
 
@@ -142,6 +143,7 @@ public abstract class Unit : MonoBehaviour
                 AnimState.WALK => Anim.Walk,
                 AnimState.HIT => Anim.Hit,
                 AnimState.ATTACK => Anim.Attack,
+                AnimState.SKILL => Anim.Skill,
                 AnimState.DIE => Anim.Die,
                 _ => null,
             };
@@ -279,6 +281,9 @@ public abstract class Unit : MonoBehaviour
                 break;
             case AnimState.ATTACK:
                 Animation(Anim.Attack);
+                break;
+            case AnimState.SKILL:
+                Animation(Anim.Skill);
                 break;
             case AnimState.DIE:
                 Animation(Anim.Die);
