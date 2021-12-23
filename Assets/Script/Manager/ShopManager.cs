@@ -215,45 +215,17 @@ public class ShopManager : MonoBehaviour
 
                 first = false;
             }
-            /*        }
 
-                    for (int i = SpawnUnits.Count - 1; i >= 0; i--)
-                    {
-                        print($"IDX : {i}");
-                        switch (SpawnUnits[i].Info.Rank)
-                        {
-                            case Rank.COMMON:
-                                ps_main.startColor = Color.white;
-                                break;
-                            case Rank.RARE:
-                                ps_main.startColor = new Color(0, 1, 0.9023998f, 1);
-                                break;
-                            case Rank.EPIC:
-                                ps_main.startColor = new Color(0.7924528f, 0.4223923f, 0.6858099f, 1);
-                                break;
-                            case Rank.LEGEND:
-                                ps_main.startColor = new Color(0.9617409f, 0.9716981f, 0.2704254f, 1);
-                                break;
-                        }
 
-                        if (first)
-                        {
-                            ps.Play();
-                            yield return StartCoroutine(EClick());
-                            ps.Stop();
+/*            // 나온 카드 보여주기 SpawnUnits[i]
+            var imgShow = ShowCard.GetChild(0).GetComponent<Image>();
+            imgShow.sprite = SpawnUnits[i].Info.Icon;
+            UIManager.Instance.FixSizeToRatio(imgShow, ShowCard.sizeDelta.x - 20);
+            ShowCard.gameObject.SetActive(true);
 
-                            first = false;
-                        }*/
+            // yield return StartCoroutine(EClick());
 
-            /*            // 나온 카드 보여주기 SpawnUnits[i]
-                        var imgShow = ShowCard.GetChild(0).GetComponent<Image>();
-                        imgShow.sprite = SpawnUnits[i].Info.Icon;
-                        UIManager.Instance.FixSizeToRatio(imgShow, ShowCard.sizeDelta.x - 20);
-                        ShowCard.gameObject.SetActive(true);
-
-                        // yield return StartCoroutine(EClick());
-
-                        ShowCard.gameObject.SetActive(false);*/
+            ShowCard.gameObject.SetActive(false);*/
         }
 
         Skip.gameObject.SetActive(false);
