@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BaseSkill : MonoBehaviour
 {
     public Unit owner;
+    public Sprite sprSkill;
     public GameObject originSkill;
     public GameObject goSkill;
     public float coolDown;
