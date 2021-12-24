@@ -7,11 +7,21 @@ public class SkillSpawn : BaseSkill
     public Vector2 cell;
     public float randomAbsValue;
     public bool isNear;
-    public bool isShot;
     public bool isGuide;
     public float betweenSpawnDelayTime = 0.3f;
     public float speed;
     private float betweenSpawnDelayDown;
+    private bool wasAttackAnimEnd;
+
+    protected override void Start()
+    {
+        base.Start();
+        owner.onAnimEndFrame += (animState) =>
+        {
+            if (animState == AnimState.ATTACK)
+                wasAttackAnimEnd = true;
+        };
+    }
 
     public override void Cast()
     {
@@ -20,6 +30,8 @@ public class SkillSpawn : BaseSkill
 
     protected override void Update()
     {
+        if (!wasAttackAnimEnd) return;
+
         base.Update();
 
         if (betweenSpawnDelayDown > 0) betweenSpawnDelayDown -= Time.deltaTime;
@@ -29,18 +41,21 @@ public class SkillSpawn : BaseSkill
             {
                 countDown--;
                 betweenSpawnDelayDown = betweenSpawnDelayTime;
-                GameObject obj = Instantiate(originSkill, owner.transform.position, Quaternion.identity);
+                var obj = Instantiate(originSkill, owner.transform.position, Quaternion.identity);
                 if (isNear)
                     obj.transform.position += new Vector3(Random.Range(-randomAbsValue, randomAbsValue), Random.Range(-randomAbsValue, randomAbsValue)) * (countDown + 1);
                 else
                     obj.transform.position += new Vector3(cell.x, cell.y) * (countDown + 1);
-                if (isShot)
+                var goRight = obj.gameObject.AddComponent<GoRight>();
+                goRight.speed = speed;
+                goRight.duraction = duractionObj;
+                goRight.isGuide = isGuide;
+                var skillObj = obj.gameObject.AddComponent<SkillObj>();
+                skillObj.GetComponent<Animator>().runtimeAnimatorController = controller;
+                skillObj.onEnter += (unit) => 
                 {
-                    var goRight = obj.AddComponent<GoRight>();
-                    goRight.speed = speed;
-                    goRight.duraction = duraction;
-                    goRight.isGuide = isGuide;
-                }
+                    unit.GetComponent<TakeDamageHelper>().StartTickDamage(totalDamage);
+                };
             }
         }
     }

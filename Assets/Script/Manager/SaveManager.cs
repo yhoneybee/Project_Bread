@@ -26,9 +26,9 @@ public class SaveManager : MonoBehaviour
     {
     }
 
-    public string GetFilePath(string file) => $"{Application.persistentDataPath}/{file}.txt";
+    public string GetFilePath(string file) => $"{Application.persistentDataPath}/{file}.json";
 
-    public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.txt");
+    public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.json");
 
     public static void Save<T>(IEnumerable<T> save_target, string file)
     {
@@ -41,9 +41,18 @@ public class SaveManager : MonoBehaviour
         byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
         string code = Convert.ToBase64String(bytes);
         File.WriteAllText(path, code);
-        File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.txt", json);
+        File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.json", json);
 
         //print($"SAVE TO : {path}");
+    }
+
+    public static void SaveToByteFromLog(string file)
+    {
+        string path = Instance.GetFilePath($"{file}_Log");
+        string json = File.ReadAllText(path);
+        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
+        string code = Convert.ToBase64String(bytes);
+        File.WriteAllText(Instance.GetFilePath($"{file}"), code);
     }
 
     public static void SaveUnits(IEnumerable<Unit> save_units, string file) => GameManager.Instance.onAutoSave += () =>

@@ -26,14 +26,6 @@ public class Tower : Unit
     }
 
 
-    public override void OnAnimChanged()
-    {
-    }
-
-    public override void OnEndFrameAnim()
-    {
-    }
-
     protected override void Start()
     {
         Stat.HP = Stat.MaxHP = StageManager.Instance.GetStage().tower_hp;

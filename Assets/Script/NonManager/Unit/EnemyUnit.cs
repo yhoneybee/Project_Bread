@@ -13,12 +13,6 @@ public class EnemyUnit : Unit
         base.Update();
     }
 
-    public override void OnAnimChanged()
-    {
-    }
-    public override void OnEndFrameAnim()
-    {
-    }
     public override void OnHit(Unit taker, float damage)
     {
         base.OnHit(taker, damage);

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: -8181068595605420095}
   - component: {fileID: 6664179484959452544}
+  - component: {fileID: -4369893628375351299}
   m_Layer: 6
   m_Name: Class 3_1
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ec68be1577b462f42895c2ea6560a38d, type: 3}
   - {fileID: 21300000, guid: ec68be1577b462f42895c2ea6560a38d, type: 3}
   Attack: []
+  Skill: []
   Die: []
 --- !u!114 &6664179484959452544
 MonoBehaviour:
@@ -206,5 +208,20 @@ MonoBehaviour:
   Items: []
   Anim: {fileID: 0}
   baseSkill: {fileID: 0}
+  isTower: 0
   Invincibility: 0
   deltaSpeed: 1
+  isDie: 0
+--- !u!114 &-4369893628375351299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651597669138648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}

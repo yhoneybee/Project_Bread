@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
+  - component: {fileID: -488404999064870398}
   m_Layer: 6
   m_Name: "\uB2E8\uD325\uBE75"
   m_TagString: Untagged
@@ -172,8 +173,11 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
+  baseSkill: {fileID: 0}
+  isTower: 0
   Invincibility: 0
   deltaSpeed: 1
+  isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +213,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   Attack: []
+  Skill: []
   Die:
   - {fileID: 21300000, guid: f1957aa9d548b6d4c8164c73d6044d90, type: 3}
   - {fileID: 21300000, guid: 86b0f1755a9571a46acd8c7e57e64545, type: 3}
@@ -225,3 +230,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce20e4670bbd5394291ca983b99b5c59, type: 3}
   - {fileID: 21300000, guid: afa19ae396617594ca0e8bdf0266f588, type: 3}
   - {fileID: 21300000, guid: d39dfaa16552ff84fba21460c4ec062d, type: 3}
+--- !u!114 &-488404999064870398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651597669138648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}

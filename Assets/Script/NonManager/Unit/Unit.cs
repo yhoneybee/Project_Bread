@@ -37,6 +37,14 @@ public enum AttackedEffectType
 
 #region Structs
 [Serializable]
+public struct SkillInfo
+{
+    public string name;
+    public float duraction;
+    public float duractionObj;
+    public float tick;
+}
+[Serializable]
 public struct Info
 {
     ///<summary>Unit Rank</summary>///
@@ -152,7 +160,6 @@ public abstract class Unit : MonoBehaviour
                 AnimIndex = 0;
                 //print($"{Info.Name} anim was {anim_state} change to {value}");
                 anim_state = value;
-                OnAnimChanged();
             }
         }
     }
@@ -164,6 +171,7 @@ public abstract class Unit : MonoBehaviour
     public Anim Anim;
     public BaseSkill baseSkill;
     public bool isTower;
+    public event Action<AnimState> onAnimEndFrame;
 
     public SpriteRenderer SR { get; private set; }
     Rigidbody2D rigid;
@@ -299,17 +307,16 @@ public abstract class Unit : MonoBehaviour
     }
     void Animation(List<Sprite> SF)
     {
-        if (SF.Count == 0) return;
-        if (SR) SR.sprite = SF[AnimIndex];
+        if (SR && SF.Count > 0) SR.sprite = SF[AnimIndex];
         if (time >= 0.1f)
         {
             ++AnimIndex;
             time = 0;
         }
-        if (AnimIndex == SF.Count)
+        if (AnimIndex >= SF.Count)
         {
             AnimIndex = 0;
-            OnEndFrameAnim();
+            onAnimEndFrame?.Invoke(AnimState);
         }
     }
 
@@ -371,6 +378,4 @@ public abstract class Unit : MonoBehaviour
             }
         }
     }
-    public abstract void OnAnimChanged();
-    public abstract void OnEndFrameAnim();
 }

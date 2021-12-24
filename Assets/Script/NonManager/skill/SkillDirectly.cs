@@ -10,6 +10,11 @@ public class SkillDirectly : BaseSkill
     private float moveTo;
     private float betweenAttackDelayDown;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     public override void Cast()
     {
         base.Cast();

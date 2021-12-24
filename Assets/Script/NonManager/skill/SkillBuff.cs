@@ -7,6 +7,11 @@ public class SkillBuff : BaseSkill
     public float range;
     public UnitType buffTarget;
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     public override void Cast()
     {
         base.Cast();
