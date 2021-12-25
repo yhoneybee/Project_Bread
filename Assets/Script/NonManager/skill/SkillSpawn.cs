@@ -51,7 +51,9 @@ public class SkillSpawn : BaseSkill
                 goRight.duraction = duractionObj;
                 goRight.isGuide = isGuide;
                 var skillObj = obj.gameObject.AddComponent<SkillObj>();
-                skillObj.GetComponent<Animator>().runtimeAnimatorController = controller;
+                var anim = skillObj.GetComponent<Animator>();
+                anim.runtimeAnimatorController = controller;
+                anim.Play("Cast");
                 skillObj.onEnter += (unit) => 
                 {
                     unit.GetComponent<TakeDamageHelper>().StartTickDamage(totalDamage);
