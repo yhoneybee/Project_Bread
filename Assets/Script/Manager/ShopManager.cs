@@ -1,6 +1,9 @@
+#define NO_OVERLAP_IN_SPAWN
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.UI;
 using TMPro;
 using System;
@@ -90,9 +93,23 @@ public class ShopManager : MonoBehaviour
     public void AddCommon(int count)
     {
         var commons = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.COMMON);
+
+#if NO_OVERLAP_IN_SPAWN
+        List<int> randoms = new List<int>();
+
+        for (int i = 0; i < commons.Count; i++)
+            randoms.Add(i);
+#endif
+
         for (int i = 0; i < count; i++)
         {
+#if NO_OVERLAP_IN_SPAWN
+            int rand = UnityEngine.Random.Range(0, randoms.Count);
+            var unit = commons[rand];
+            randoms.Remove(rand);
+#else
             var unit = commons[UnityEngine.Random.Range(0, commons.Count)];
+#endif
             if (SpawnUnits.ContainsKey(unit))
                 SpawnUnits[unit]++;
             else
@@ -103,9 +120,22 @@ public class ShopManager : MonoBehaviour
     {
         var rares = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.RARE);
 
+#if NO_OVERLAP_IN_SPAWN
+        List<int> randoms = new List<int>();
+
+        for (int i = 0; i < rares.Count; i++)
+            randoms.Add(i);
+#endif
+
         for (int i = 0; i < count; i++)
         {
+#if NO_OVERLAP_IN_SPAWN
+            int rand = UnityEngine.Random.Range(0, randoms.Count);
+            var unit = rares[rand];
+            randoms.Remove(rand);
+#else
             var unit = rares[UnityEngine.Random.Range(0, rares.Count)];
+#endif
             if (SpawnUnits.ContainsKey(unit))
                 SpawnUnits[unit]++;
             else
@@ -116,9 +146,23 @@ public class ShopManager : MonoBehaviour
     {
         var epics = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.EPIC);
 
+#if NO_OVERLAP_IN_SPAWN
+        List<int> randoms = new List<int>();
+
+        for (int i = 0; i < epics.Count; i++)
+            randoms.Add(i);
+#endif
+
         for (int i = 0; i < count; i++)
         {
+#if NO_OVERLAP_IN_SPAWN
+            int rand = UnityEngine.Random.Range(0, randoms.Count);
+            var unit = epics[rand];
+            randoms.Remove(rand);
+#else
             var unit = epics[UnityEngine.Random.Range(0, epics.Count)];
+#endif
+
             if (SpawnUnits.ContainsKey(unit))
                 SpawnUnits[unit]++;
             else
@@ -128,9 +172,23 @@ public class ShopManager : MonoBehaviour
     public void AddLegend(int count)
     {
         var legends = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.LEGEND);
+
+#if NO_OVERLAP_IN_SPAWN
+        List<int> randoms = new List<int>();
+
+        for (int i = 0; i < legends.Count; i++)
+            randoms.Add(i);
+#endif
+
         for (int i = 0; i < count; i++)
         {
+#if NO_OVERLAP_IN_SPAWN
+            int rand = UnityEngine.Random.Range(0, randoms.Count);
+            var unit = legends[rand];
+            randoms.Remove(rand);
+#else
             var unit = legends[UnityEngine.Random.Range(0, legends.Count)];
+#endif
             if (SpawnUnits.ContainsKey(unit))
                 SpawnUnits[unit]++;
             else
