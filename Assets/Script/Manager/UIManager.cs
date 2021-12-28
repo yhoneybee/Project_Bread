@@ -65,6 +65,8 @@ public class UIManager : MonoBehaviour
 
     public Sprite[] IconSprites = new Sprite[4];
 
+    public SettingWindowLinker setting_linker;
+
     public SwitchSprite ArrowSwitchSprite;
     public SwitchSprite EnquipSwitchSprite;
     public ReleaseUI ReleaseUI;
@@ -82,7 +84,7 @@ public class UIManager : MonoBehaviour
     {
         if (ReleaseUI.go)
         {
-            ReleaseUI.btnYes.onClick.AddListener(() => 
+            ReleaseUI.btnYes.onClick.AddListener(() =>
             {
                 if (GameManager.Instance.Coin >= 50000)
                 {
@@ -137,6 +139,8 @@ public class UIManager : MonoBehaviour
         {
             AnimState = AnimState.WALK;
         }
+
+        SetVolumeSliders();
     }
     private void Update()
     {
@@ -163,6 +167,23 @@ public class UIManager : MonoBehaviour
         }
         else
             Animator();
+    }
+
+    public void SetVolumeSliders()
+    {
+        if (setting_linker)
+        {
+            if (setting_linker.BGMSlider)
+            {
+                setting_linker.BGMSlider.onValueChanged.AddListener((v) => { SoundManager.Instance.BgmVolume = v; });
+                setting_linker.BGMSlider.value = SoundManager.Instance.BgmVolume;
+            }
+            if (setting_linker.SFXSlider)
+            {
+                setting_linker.SFXSlider.onValueChanged.AddListener((v) => { SoundManager.Instance.SfxVolume = v; });
+                setting_linker.SFXSlider.value = SoundManager.Instance.SfxVolume;
+            }
+        }
     }
 
     public void Animator()

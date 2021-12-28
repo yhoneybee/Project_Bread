@@ -2001,6 +2001,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2407641908710818323, guid: 4ff4bb9b1d9021240b12908fe6459cd9, type: 3}
   m_PrefabInstance: {fileID: 662658807}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &662658810 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 611728873822761337, guid: 4ff4bb9b1d9021240b12908fe6459cd9, type: 3}
+  m_PrefabInstance: {fileID: 662658807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662658809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b646a5aa4888eb4db9f8d68b85984d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &731295701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,6 +4356,8 @@ MonoBehaviour:
   TeamBtnLocks: []
   AllUnits: []
   ProductParents: []
+  spRanks: []
+  spRankBgs: []
   Nums:
   - {fileID: 0}
   - {fileID: 0}
@@ -4372,12 +4385,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  setting_linker: {fileID: 662658810}
   ArrowSwitchSprite:
     ASprite: {fileID: 21300000, guid: 559002e5b9664e641940fb9679b1f8b0, type: 3}
     BSprite: {fileID: 21300000, guid: 506a939a928d7e943960f2f64d0994ce, type: 3}
   EnquipSwitchSprite:
     ASprite: {fileID: 21300000, guid: c0aa051905a12b44f8ce06f2e04c15dd, type: 3}
     BSprite: {fileID: 21300000, guid: e74310e02d18fc84dbf957bb898df249, type: 3}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []

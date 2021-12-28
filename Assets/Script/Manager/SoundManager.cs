@@ -23,27 +23,14 @@ public class SoundManager : MonoBehaviour
     private float bgm_volume = 0.5f;
     public float BgmVolume
     {
-        get { return bgm_volume * TotalVolume; }
+        get => bgm_volume;
         set { bgm_volume = value; audioSources[((int)SoundType.BGM)].volume = BgmVolume; }
     }
     private float sfx_volume = 0.5f;
     public float SfxVolume
     {
-        get { return sfx_volume * TotalVolume; }
+        get => sfx_volume;
         set { sfx_volume = value; audioSources[((int)SoundType.EFFECT)].volume = SfxVolume; }
-    }
-
-    private float total_volume;
-    public float TotalVolume
-    {
-        get { return total_volume; }
-        set
-        {
-            total_volume = value;
-
-            audioSources[((int)SoundType.BGM)].volume = BgmVolume;
-            audioSources[((int)SoundType.EFFECT)].volume = SfxVolume;
-        }
     }
 
     private void Awake()
@@ -74,7 +61,10 @@ public class SoundManager : MonoBehaviour
     }
     private void Start()
     {
-        TotalVolume = 1;
+        BgmVolume = PlayerPrefs.GetFloat("Bgm Volume");
+        SfxVolume = PlayerPrefs.GetFloat("Sfx Volume");
+
+        Debug.Log("?");
         //if (!UiManager.Instance.TotalSlider)
         //    UiManager.Instance.TotalSlider.onValueChanged.AddListener((f) => { TotalVolume = f; });
         //if (UiManager.Instance.MuteSwitchBtn)
@@ -89,6 +79,7 @@ public class SoundManager : MonoBehaviour
         //    SetButtonsSound(obj.GetComponentsInChildren<Button>());
         //}
     }
+
     public void SetButtonsSound(Button[] buttons)
     {
         foreach (Button button in buttons)
@@ -160,5 +151,11 @@ public class SoundManager : MonoBehaviour
             Debug.LogWarning($"AudioClip Missing!, path info : {path}");
 
         return audioClip;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetFloat("Bgm Volume", BgmVolume);
+        PlayerPrefs.SetFloat("Sfx Volume", SfxVolume);
     }
 }

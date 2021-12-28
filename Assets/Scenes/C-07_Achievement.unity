@@ -889,12 +889,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  setting_linker: {fileID: 308100742}
   ArrowSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
   EnquipSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
+  ReleaseUI:
+    go: {fileID: 0}
+    btnYes: {fileID: 0}
+    tmpResource: {fileID: 0}
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []
@@ -1477,6 +1482,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2407641908710818323, guid: 4ff4bb9b1d9021240b12908fe6459cd9, type: 3}
   m_PrefabInstance: {fileID: 308100739}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &308100742 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 611728873822761337, guid: 4ff4bb9b1d9021240b12908fe6459cd9, type: 3}
+  m_PrefabInstance: {fileID: 308100739}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308100741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b646a5aa4888eb4db9f8d68b85984d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &438656132
 PrefabInstance:
   m_ObjectHideFlags: 0

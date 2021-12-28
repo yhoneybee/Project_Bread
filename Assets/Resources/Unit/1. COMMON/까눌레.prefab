@@ -161,7 +161,7 @@ MonoBehaviour:
     HP: 1300
     MaxHP: 1300
     MS: 1
-    AR: 1
+    AR: 2
     AS: 1
     LS: 0
     Proportionality:
