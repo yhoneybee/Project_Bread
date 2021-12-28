@@ -293,10 +293,12 @@ public class Ingame : MonoBehaviour
                 GameManager.Instance.Coin += rewards.Item1;
                 GameManager.Instance.Jem += rewards.Item2;
 
-                if (current_star_count > StageManager.Instance.GetStage().star_count)
-                    StageManager.Instance.GetStage().star_count = current_star_count;
-                StageInfo.stage_number++;
-                StageManager.Instance.GetStage().is_startable = true;
+                var stage = StageManager.Instance.GetStage();
+
+                if (current_star_count > stage.star_count)
+                    stage.star_count = current_star_count;
+
+                StageManager.Instance.GetStage(++StageInfo.stage_number).is_startable = true;
 
                 Image[] star_images = result_window.stars_parent.GetComponentsInChildren<Image>();
                 for (int i = 0; i < current_star_count; i++)
