@@ -174,7 +174,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  baseSkill: {fileID: 0}
+  baseSkill: {fileID: 3911149543825759789}
   isTower: 0
   Invincibility: 0
   deltaSpeed: 1
@@ -221,19 +221,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02f4911e3605c0478302911fa064b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 80032049494775327}
   sprSkill: {fileID: 0}
-  originSkill: {fileID: 0}
+  originSkill: {fileID: 4339265511392233734, guid: cf882b5bfe408ae4380cac8dd4604577, type: 3}
   goSkills: []
   controller: {fileID: 0}
   coolDown: 0
   coolTime: 4
-  count: 1
+  count: 10
   countDown: 0
   totalDamage: 0
   damageRatio: 2
   duractionDown: 1
   cell: {x: 0, y: 0}
+  offset: {x: 0, y: 0}
+  spacing: {x: 0, y: 0}
   randomAbsValue: 3
   isNear: 1
   isGuide: 1

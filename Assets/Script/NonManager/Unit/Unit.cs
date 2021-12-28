@@ -201,6 +201,7 @@ public abstract class Unit : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
 
+        baseSkill = GetComponent<BaseSkill>();
         SR = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();

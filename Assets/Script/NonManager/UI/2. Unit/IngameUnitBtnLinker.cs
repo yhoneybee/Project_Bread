@@ -31,6 +31,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
     private void Update()
     {
+        if (!owner || owner.Stat.HP < 0) Destroy(gameObject);
         pressTime += Time.deltaTime;
         if (pressTime > needPressTime && down)
         {

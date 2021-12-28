@@ -20,8 +20,11 @@ public class SkillSpawn : BaseSkill
         base.Start();
         owner.onAnimEndFrame += (animState) =>
         {
-            if (animState == AnimState.ATTACK)
+            if (animState == AnimState.SKILL)
+            {
+                print("true");
                 wasAttackAnimEnd = true;
+            }
         };
     }
 
