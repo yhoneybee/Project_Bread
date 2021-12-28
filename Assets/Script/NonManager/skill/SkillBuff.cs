@@ -15,12 +15,13 @@ public class SkillBuff : BaseSkill
     public override void Cast()
     {
         base.Cast();
-        goSkill = Instantiate(originSkill, owner.transform.position, Quaternion.identity);
+        goSkills.Add(Instantiate(originSkill, owner.transform.position, Quaternion.identity));
     }
 
     protected override void Update()
     {
         base.Update();
-        if (duractionDone) Destroy(goSkill);
+        if (duractionDone)
+            goSkills.ForEach(x => Destroy(x.gameObject));
     }
 }

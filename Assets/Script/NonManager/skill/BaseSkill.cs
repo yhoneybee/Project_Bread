@@ -7,7 +7,7 @@ public abstract class BaseSkill : MonoBehaviour
     public Unit owner;
     public Sprite sprSkill;
     public GameObject originSkill;
-    public GameObject goSkill;
+    public List<GameObject> goSkills;
     public RuntimeAnimatorController controller;
     public float coolDown;
     public float coolTime;

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
   - component: {fileID: 8522642535965174064}
+  - component: {fileID: 3911149543825759789}
   m_Layer: 6
   m_Name: "\uAE4C\uB20C\uB808"
   m_TagString: Untagged
@@ -208,3 +209,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+--- !u!114 &3911149543825759789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6651597669138648231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02f4911e3605c0478302911fa064b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  sprSkill: {fileID: 0}
+  originSkill: {fileID: 0}
+  goSkills: []
+  controller: {fileID: 0}
+  coolDown: 0
+  coolTime: 4
+  count: 1
+  countDown: 0
+  totalDamage: 0
+  damageRatio: 2
+  duractionDown: 1
+  cell: {x: 0, y: 0}
+  randomAbsValue: 3
+  isNear: 1
+  isGuide: 1
+  betweenSpawnDelayTime: 0.7
+  speed: 3

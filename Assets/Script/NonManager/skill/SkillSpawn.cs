@@ -5,6 +5,8 @@ using UnityEngine;
 public class SkillSpawn : BaseSkill
 {
     public Vector2 cell;
+    public Vector2 offset;
+    public Vector2 spacing;
     public float randomAbsValue;
     public bool isNear;
     public bool isGuide;
@@ -45,7 +47,7 @@ public class SkillSpawn : BaseSkill
                 if (isNear)
                     obj.transform.position += new Vector3(Random.Range(-randomAbsValue, randomAbsValue), Random.Range(-randomAbsValue, randomAbsValue)) * (countDown + 1);
                 else
-                    obj.transform.position += new Vector3(cell.x, cell.y) * (countDown + 1);
+                    obj.transform.position += new Vector3(spacing.x, spacing.y) * countDown + new Vector3(cell.x, cell.y) * (countDown + 1) + new Vector3(offset.x, offset.y);
                 var goRight = obj.gameObject.AddComponent<GoRight>();
                 goRight.speed = speed;
                 goRight.duraction = duractionObj;
@@ -54,7 +56,7 @@ public class SkillSpawn : BaseSkill
                 var anim = skillObj.GetComponent<Animator>();
                 anim.runtimeAnimatorController = controller;
                 anim.Play("Cast");
-                skillObj.onEnter += (unit) => 
+                skillObj.onEnter += (unit) =>
                 {
                     unit.GetComponent<TakeDamageHelper>().StartTickDamage(totalDamage);
                 };

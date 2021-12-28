@@ -26,8 +26,7 @@ public class ButtonActions : MonoBehaviour
     {
         //StopAllCoroutines();
         //UIManager.Instance.Fade.color = Color.clear;
-        if (CChangeScene == null)
-            CChangeScene = StartCoroutine(EChangeScene(name));
+        StartCoroutine(EChangeScene(name));
     }
 
     IEnumerator EChangeScene(string name)
