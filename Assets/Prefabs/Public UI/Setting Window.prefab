@@ -145,7 +145,9 @@ RectTransform:
   - {fileID: 2407641907850339457}
   - {fileID: 2407641909182298987}
   - {fileID: 2407641909015604610}
+  - {fileID: 2407641907756367923}
   - {fileID: 2407641908154635434}
+  - {fileID: 2407641909577144835}
   m_Father: {fileID: 2407641908710818324}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,12 +256,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2407641909015604610}
-  m_RootOrder: 5
+  m_Father: {fileID: 2407641907694036145}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -345, y: 0}
+  m_AnchoredPosition: {x: -291, y: 31}
   m_SizeDelta: {x: 98.166664, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2407641907756367926
@@ -714,9 +716,8 @@ RectTransform:
   - {fileID: 2407641909230107925}
   - {fileID: 2407641907674496782}
   - {fileID: 471218146963739793}
-  - {fileID: 2407641909577144835}
   m_Father: {fileID: 2407641907694036145}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1206,7 +1207,6 @@ RectTransform:
   - {fileID: 2407641909576391817}
   - {fileID: 2407641909295131094}
   - {fileID: 1841471883748061391}
-  - {fileID: 2407641907756367923}
   m_Father: {fileID: 2407641907694036145}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1729,12 +1729,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2407641908154635434}
+  m_Father: {fileID: 2407641907694036145}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -345, y: 0}
+  m_AnchoredPosition: {x: -291, y: -167}
   m_SizeDelta: {x: 98.166664, y: 83}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2407641909577144838

@@ -358,6 +358,13 @@ public class Ingame : MonoBehaviour
 
     public void SetTimeScale(float value)
     {
+        StartCoroutine(_SetTimeScale(value));
+    }
+    IEnumerator _SetTimeScale(float value)
+    {
+        if (value == 0)
+            yield return new WaitForSeconds(0.45f);
+
         Time.timeScale = value;
     }
 
