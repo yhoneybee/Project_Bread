@@ -88,6 +88,17 @@ public struct Stat
     public float LS;
     ///<summary>���(�۵�) ������ ����</summary>///
     public Proportionality Proportionality;
+
+    public static Stat operator*(Stat op1, Stat op2)
+    {
+        Stat result = op1;
+
+        result.AD *= op2.AD;
+        result.MS *= op2.MS;
+        result.AS *= op2.AS;
+
+        return result;
+    }
 }
 
 [Serializable]

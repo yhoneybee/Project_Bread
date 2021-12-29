@@ -27,10 +27,10 @@ public abstract class BaseSkill : MonoBehaviour
 
     protected virtual void Start()
     {
-        var find = UnitManager.Instance.skillInfos.Find(x => x.name == owner.Info.Name);
-        duraction = find.duraction;
-        duractionObj = find.duractionObj;
-        tick = find.tick;
+        //var find = UnitManager.Instance.skillInfos.Find(x => x.name == owner.Info.Name);
+        //duraction = find.duraction;
+        //duractionObj = find.duractionObj;
+        //tick = find.tick;
     }
 
     protected virtual void Update()

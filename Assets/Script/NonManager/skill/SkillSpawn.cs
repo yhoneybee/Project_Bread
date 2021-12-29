@@ -51,10 +51,10 @@ public class SkillSpawn : BaseSkill
                     obj.transform.position += new Vector3(Random.Range(-randomAbsValue, randomAbsValue), Random.Range(-randomAbsValue, randomAbsValue)) * (countDown + 1);
                 else
                     obj.transform.position += new Vector3(spacing.x, spacing.y) * countDown + new Vector3(cell.x, cell.y) * (countDown + 1) + new Vector3(offset.x, offset.y);
-                var goRight = obj.gameObject.AddComponent<GoRight>();
-                goRight.speed = speed;
-                goRight.duraction = duractionObj;
-                goRight.isGuide = isGuide;
+                var goRight = obj.gameObject.AddComponent<SpawnedObj>();
+                //goRight.speed = speed;
+                //goRight.duraction = duractionObj;
+                //goRight.isGuide = isGuide;
                 var skillObj = obj.gameObject.AddComponent<SkillObj>();
                 var anim = skillObj.GetComponent<Animator>();
                 anim.runtimeAnimatorController = controller;

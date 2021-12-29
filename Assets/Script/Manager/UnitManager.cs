@@ -8,7 +8,6 @@ public class UnitManager : MonoBehaviour
 
     public Dictionary<string, List<Unit>> Pool = new Dictionary<string, List<Unit>>();
     public List<Unit> Units = new List<Unit>();
-    public List<SkillInfo> skillInfos = new List<SkillInfo>();
 
     private void Awake()
     {
@@ -22,21 +21,6 @@ public class UnitManager : MonoBehaviour
 
         for (int i = 0; i < paths.Length; i++)
             Units.AddRange(Resources.LoadAll<Unit>("Unit/" + paths[i]));
-
-        if (SaveManager.Instance.IsFile("SkillDatas"))
-        {
-            SaveManager.SaveToByteFromLog("SkillDatas");
-            SaveManager.Load(ref skillInfos, "SkillDatas");
-        }
-        else
-        {
-            List<SkillInfo> skillInfossssss = new List<SkillInfo>();
-
-            foreach (var item in Units)
-                skillInfossssss.Add(new SkillInfo { name = item.Info.Name, tick = 0.1f, duraction = 1, duractionObj = 1 });
-
-            SaveManager.Save(skillInfossssss, "SkillDatas");
-        }
 
         for (int i = 0; i < GameManager.Instance.theme_count; i++)
             Units.AddRange(Resources.LoadAll<Unit>($"Unit/Enemy/Theme {i + 1}"));
