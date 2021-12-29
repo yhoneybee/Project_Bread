@@ -54,6 +54,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject ResultPrefab;
     [SerializeField] Button Skip;
 
+    [SerializeField] ParticleSystem drop_box_particle;
+
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
 
     readonly string FREE_SAPWN = "무료뽑기 까지\n";
@@ -217,12 +219,13 @@ public class ShopManager : MonoBehaviour
     }
     IEnumerator _DropBox()
     {
-        imgDropBox.rectTransform.anchoredPosition = new Vector2(-600, 1000);
+        imgDropBox.rectTransform.anchoredPosition = new Vector2(-650, 1000);
 
         var drop_box_animator = imgDropBox.GetComponent<Animator>();
         drop_box_animator.enabled = false;
 
-        yield return StartCoroutine(UIManager.Instance.EMovingUI(imgDropBox, new Vector2(-600, -260), 3000));
+        yield return StartCoroutine(UIManager.Instance.EMovingUI(imgDropBox, new Vector2(-650, -260), 3000));
+        drop_box_particle.Play();
 
         WaitForSeconds second = new WaitForSeconds(0.01f);
 
@@ -257,7 +260,7 @@ public class ShopManager : MonoBehaviour
         drop_box_btn.onClick.RemoveAllListeners();
         drop_box_btn.onClick.AddListener(actions[selected_box_index]);
 
-        imgDropBox.rectTransform.anchoredPosition = new Vector2(-600, -260);
+        imgDropBox.rectTransform.anchoredPosition = new Vector2(-650, -260);
         imgDropBox.rectTransform.localScale = Vector2.one;
     }
 

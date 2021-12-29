@@ -47,7 +47,7 @@ public class LoadingLinker : MonoBehaviour
 
         sin_value += Time.deltaTime * 50;
 
-        Logo.position += new Vector3(0, 0.001f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
+        Logo.position += new Vector3(0, 0.005f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
     }
 
     public void SpeedMulti() => loadSpeed *= 5;

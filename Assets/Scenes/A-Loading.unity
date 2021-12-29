@@ -355,10 +355,10 @@ RectTransform:
   m_Father: {fileID: 1357516464}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -812.34, y: -456.94}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 72}
+  m_SizeDelta: {x: 1333, y: 568}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &375223258
 MonoBehaviour:
@@ -686,6 +686,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  setting_linker: {fileID: 0}
   ArrowSwitchSprite:
     ASprite: {fileID: 0}
     BSprite: {fileID: 0}
@@ -968,7 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Units: []
-  originSkill: {fileID: 1227823725712576087, guid: af1ca17d4d27703439ee61574a6fa39f, type: 3}
+  skillInfos: []
 --- !u!4 &1164915620
 Transform:
   m_ObjectHideFlags: 0
