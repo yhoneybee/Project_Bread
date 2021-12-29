@@ -27,7 +27,7 @@ public class BuyBreadLinker : MonoBehaviour
 
         Coin_one = Coin_eleven = Jem_one = Jem_eleven = 0;
 
-        button.onClick.AddListener(() =>
+        UnityAction action = () =>
         {
             bool isUnboxing_one = false;
             bool isUnboxing_eleven = false;
@@ -102,8 +102,10 @@ public class BuyBreadLinker : MonoBehaviour
 
             ShopManager.Instance.imgDropBox.sprite = ShopManager.Instance.imgBuyBox.sprite = ShopManager.Instance.BoxSprites[rank_value];
             UIManager.Instance.FixSizeToRatio(ShopManager.Instance.imgDropBox, 400);
-            StartCoroutine(UIManager.Instance.EMovingUI(ShopManager.Instance.imgDropBox, new Vector2(-600, -260), 3000));
+            ShopManager.Instance.DropBox();
             ShopManager.Instance.rankTexts[0].text = ShopManager.Instance.rankTexts[1].text = new string[3] { "레어 ~ 일반", "에픽 ~ 레어", "레전드 ~ 에픽" }[rank_value];
+
+            ShopManager.Instance.selected_box_index = rank_value;
 
             if (isUnboxing_one || isUnboxing_eleven)
             {
@@ -161,6 +163,9 @@ public class BuyBreadLinker : MonoBehaviour
                     ShopManager.Instance.DontBuyWindow.gameObject.SetActive(true);
                 });
             }
-        });
+        };
+
+        button.onClick.AddListener(action);
+        ShopManager.Instance.actions[rank_value] = action;
     }
 }

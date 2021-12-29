@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.Events;
 
 [Serializable]
 public class DateTimer
@@ -43,6 +44,8 @@ public class ShopManager : MonoBehaviour
     public List<UpperLowerSprite> UpperLowers;
     public List<Sprite> BoxSprites;
 
+    public UnityAction[] actions = new UnityAction[3];
+
     [SerializeField] Image[] BubbleMessage = new Image[3];
     [SerializeField] Image Fade;
     [SerializeField] ParticleSystem ps;
@@ -51,10 +54,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] GameObject ResultPrefab;
     [SerializeField] Button Skip;
 
-
     TextMeshProUGUI[] Timer = new TextMeshProUGUI[3];
 
     readonly string FREE_SAPWN = "무료뽑기 까지\n";
+
+    public int selected_box_index = 0;
 
     private void Awake()
     {
@@ -88,6 +92,15 @@ public class ShopManager : MonoBehaviour
                 Timer[i].text = $"무료 뽑기!";
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+            actions[0]();
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+            actions[1]();
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+            actions[2]();
+        if (Input.GetKeyDown(KeyCode.Return))
+            actions[selected_box_index]();
     }
 
     public void AddCommon(int count)
@@ -196,12 +209,56 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    Coroutine drop_box = null;
+    public void DropBox()
+    {
+        if (drop_box != null) StopCoroutine(drop_box);
+        drop_box = StartCoroutine(_DropBox());
+    }
+    IEnumerator _DropBox()
+    {
+        imgDropBox.rectTransform.anchoredPosition = new Vector2(-600, 1000);
+
+        var drop_box_animator = imgDropBox.GetComponent<Animator>();
+        drop_box_animator.enabled = false;
+
+        yield return StartCoroutine(UIManager.Instance.EMovingUI(imgDropBox, new Vector2(-600, -260), 3000));
+
+        WaitForSeconds second = new WaitForSeconds(0.01f);
+
+        Vector2 target_scale = new Vector2(1.2f, 0.8f);
+        while (Vector2.Distance(imgDropBox.rectTransform.localScale, target_scale) > 0.01f)
+        {
+            imgDropBox.rectTransform.localScale = Vector2.Lerp(imgDropBox.rectTransform.localScale, target_scale, 0.25f);
+            Debug.Log("1");
+            yield return second;
+        }
+        imgDropBox.rectTransform.localScale = target_scale;
+
+        while (Vector2.Distance(imgDropBox.rectTransform.localScale, Vector2.one) > 0.01f)
+        {
+            imgDropBox.rectTransform.localScale = Vector2.Lerp(imgDropBox.rectTransform.localScale, Vector2.one, 0.25f);
+            Debug.Log("2");
+            yield return second;
+        }
+        imgDropBox.rectTransform.localScale = Vector2.one;
+
+        drop_box_animator.enabled = true;
+        drop_box = null;
+    }
+
     public void UnboxCancel()
     {
         StopAllCoroutines();
         SpawnUnits.Clear();
         BuyWindow.GetComponentInChildren<PopupWindow>().ClosePopupWindow();
-        imgDropBox.GetComponent<RectTransform>().anchoredPosition = new Vector2(-600, 1000);
+
+        var drop_box_btn = imgDropBox.GetComponent<Button>();
+        drop_box_btn.onClick.RemoveAllListeners();
+        drop_box_btn.onClick.AddListener(actions[selected_box_index]);
+
+        imgDropBox.rectTransform.anchoredPosition = new Vector2(-600, -260);
+        imgDropBox.rectTransform.localScale = Vector2.one;
     }
 
     public void Unboxing(bool one)
@@ -275,15 +332,15 @@ public class ShopManager : MonoBehaviour
             }
 
 
-/*            // 나온 카드 보여주기 SpawnUnits[i]
-            var imgShow = ShowCard.GetChild(0).GetComponent<Image>();
-            imgShow.sprite = SpawnUnits[i].Info.Icon;
-            UIManager.Instance.FixSizeToRatio(imgShow, ShowCard.sizeDelta.x - 20);
-            ShowCard.gameObject.SetActive(true);
+            /*            // 나온 카드 보여주기 SpawnUnits[i]
+                        var imgShow = ShowCard.GetChild(0).GetComponent<Image>();
+                        imgShow.sprite = SpawnUnits[i].Info.Icon;
+                        UIManager.Instance.FixSizeToRatio(imgShow, ShowCard.sizeDelta.x - 20);
+                        ShowCard.gameObject.SetActive(true);
 
-            // yield return StartCoroutine(EClick());
+                        // yield return StartCoroutine(EClick());
 
-            ShowCard.gameObject.SetActive(false);*/
+                        ShowCard.gameObject.SetActive(false);*/
         }
 
         Skip.gameObject.SetActive(false);
