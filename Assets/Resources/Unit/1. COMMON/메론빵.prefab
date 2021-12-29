@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
-  - component: {fileID: -1940972417967122286}
-  - component: {fileID: 6830635435845076524}
+  - component: {fileID: 5291272294398971526}
   m_Layer: 6
   m_Name: "\uBA54\uB860\uBE75"
   m_TagString: Untagged
@@ -174,7 +173,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  baseSkill: {fileID: 0}
+  skill: {fileID: 0}
   isTower: 0
   Invincibility: 0
   deltaSpeed: 1
@@ -230,7 +229,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1c75d7cda95de7847b239254fecb28e4, type: 3}
   - {fileID: 21300000, guid: f6db795b176bfea4799003393e1985e4, type: 3}
   - {fileID: 21300000, guid: 037bd49d13ac4ec4ca0b9d51528150d4, type: 3}
---- !u!114 &-1940972417967122286
+--- !u!114 &5291272294398971526
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,39 +238,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6651597669138648231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 0}
---- !u!114 &6830635435845076524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6651597669138648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02f4911e3605c0478302911fa064b56, type: 3}
+  m_Script: {fileID: 11500000, guid: 40041c637549b554eaee9fd61e60f174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   sprSkill: {fileID: 0}
-  originSkill: {fileID: 0}
-  goSkills: []
-  controller: {fileID: 0}
-  coolDown: 0
-  coolTime: 0
-  count: 1
-  countDown: 0
-  totalDamage: 0
-  damageRatio: 0
-  duractionDown: 0
-  cell: {x: 0, y: 0}
-  offset: {x: 0, y: 0}
-  spacing: {x: 0, y: 0}
-  randomAbsValue: 0
-  isNear: 0
-  isGuide: 0
-  betweenSpawnDelayTime: 0.3
-  speed: 0
+  spawn: {fileID: 11400000, guid: ccec77e57d419ce46a7ec2a43598e6ab, type: 2}
+  damage: {fileID: 11400000, guid: 51bbc9b2a4fc6184dbefad15d0992537, type: 2}
+  buff: {fileID: 11400000, guid: 91bcf743cab793c43984ba7bc958ea0c, type: 2}
+  cool: {fileID: 11400000, guid: c409c5e4b1f58ac48ad9a52588902ea0, type: 2}

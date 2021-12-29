@@ -14,8 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
-  - component: {fileID: -6577347441709805925}
-  - component: {fileID: -7803898766579837644}
+  - component: {fileID: 804903804790329730}
   m_Layer: 6
   m_Name: "2\uB2E8\uACFC\uC77C\uCF00\uC774\uD06C"
   m_TagString: Untagged
@@ -174,7 +173,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
-  baseSkill: {fileID: -6577347441709805925}
+  skill: {fileID: 0}
   isTower: 0
   Invincibility: 0
   deltaSpeed: 1
@@ -242,7 +241,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1f7b1d4966f5dc649b3e3d7957dd79fd, type: 3}
   - {fileID: 21300000, guid: 79e547e47e50f0e498c565cf82d038b7, type: 3}
   - {fileID: 21300000, guid: 00cb67f6cc1d0ae458c78928d33d0276, type: 3}
---- !u!114 &-6577347441709805925
+--- !u!114 &804903804790329730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -251,38 +250,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6651597669138648231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02f4911e3605c0478302911fa064b56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  owner: {fileID: 80032049494775327}
-  sprSkill: {fileID: 0}
-  originSkill: {fileID: 4339265511392233734, guid: cf882b5bfe408ae4380cac8dd4604577, type: 3}
-  goSkill: {fileID: 0}
-  coolDown: 0
-  coolTime: 3
-  count: 1
-  countDown: 0
-  totalDamage: 0
-  damageRatio: 3.5
-  duraction: 1
-  duractionDown: 0
-  cell: {x: 1, y: 0}
-  randomAbsValue: 0
-  isNear: 0
-  isShot: 0
-  isGuide: 0
-  betweenSpawnDelayTime: 0.3
-  speed: 0
---- !u!114 &-7803898766579837644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6651597669138648231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
+  m_Script: {fileID: 11500000, guid: 40041c637549b554eaee9fd61e60f174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  sprSkill: {fileID: 0}
+  spawn: {fileID: 11400000, guid: 352c75ee46f8ac946a6ecc4749a05eab, type: 2}
+  damage: {fileID: 11400000, guid: 17195c16172db294aa71d34e95d2f261, type: 2}
+  buff: {fileID: 11400000, guid: f1e9256100c99cf4494b6a45dd329e42, type: 2}
+  cool: {fileID: 11400000, guid: 9816b6ec2dcfa5d44b3b772cb951a167, type: 2}

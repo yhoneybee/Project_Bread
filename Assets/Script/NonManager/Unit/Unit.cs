@@ -93,9 +93,11 @@ public struct Stat
     {
         Stat result = op1;
 
-        result.AD *= op2.AD;
-        result.MS *= op2.MS;
-        result.AS *= op2.AS;
+        result.AD *= op2.AD == 0 ? 1 : op2.AD;
+        result.MS *= op2.MS == 0 ? 1 : op2.MS;
+        result.AS *= op2.AS == 0 ? 1 : op2.AS;
+        result.HP *= op2.HP == 0 ? 1 : op2.HP;
+        result.MaxHP *= op2.MaxHP == 0 ? 1 : op2.MaxHP;
 
         return result;
     }
@@ -180,7 +182,7 @@ public abstract class Unit : MonoBehaviour
     public UnitType UnitType;
     public List<Item> Items = new List<Item>();
     public Anim Anim;
-    public BaseSkill baseSkill;
+    public Skill skill;
     public bool isTower;
     public event Action<AnimState> onAnimEndFrame;
 
@@ -212,7 +214,7 @@ public abstract class Unit : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation/* | RigidbodyConstraints2D.FreezePositionY*/;
 
-        baseSkill = GetComponent<BaseSkill>();
+        skill = GetComponent<Skill>();
         SR = GetComponent<SpriteRenderer>();
         rigid = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();

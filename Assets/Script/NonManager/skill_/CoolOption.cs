@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+[Serializable, CreateAssetMenu(fileName = "CoolOption", menuName = "Datas/Options/CoolOption")]
+public class CoolOption : ScriptableObject
+{
+    [HideInInspector] public Skill context;
+    [Header("쿨타임")]
+    public float coolTime;
+    [Header("남은 쿨타임 (값 확인용)")]
+    public float coolDown;
+    public bool CoolDone => coolDown == 0 && duractionDone;
+
+    [Header("스킬 지속 시간")]
+    public float duraction;
+    [Header("남은 스킬 지속 시간 (값 확인용)")]
+    public float duractionDown;
+    public bool duractionDone => duractionDown == 0;
+
+    public void Initialization()
+    {
+        coolDown = coolTime;
+        duractionDown = duraction;
+    }
+    public void Update()
+    {
+        if (coolDown > 0) coolDown -= Time.deltaTime;
+        else coolDown = 0;
+        if (duractionDown > 0) duractionDown -= Time.deltaTime;
+        else duractionDown = 0;
+    }
+}

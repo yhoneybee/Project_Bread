@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
-  - component: {fileID: -4245238440220298379}
+  - component: {fileID: 433604269222331292}
   m_Layer: 6
   m_Name: "\uBA38\uD540"
   m_TagString: Untagged
@@ -173,7 +173,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 0}
-  baseSkill: {fileID: 0}
+  skill: {fileID: 0}
   isTower: 0
   Invincibility: 0
   deltaSpeed: 1
@@ -241,7 +241,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 38b62b9d064d0744a96b04c2c774eabc, type: 3}
   - {fileID: 21300000, guid: da22a8bdccdf109409d5b4c28338b435, type: 3}
   - {fileID: 21300000, guid: 08e5fb7aed44f1d4891437bac768f531, type: 3}
---- !u!114 &-4245238440220298379
+--- !u!114 &433604269222331292
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,7 +250,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6651597669138648231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
+  m_Script: {fileID: 11500000, guid: 40041c637549b554eaee9fd61e60f174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  sprSkill: {fileID: 0}
+  spawn: {fileID: 11400000, guid: c1c78e58e1bdc5c4986cd81349e9d8f7, type: 2}
+  damage: {fileID: 11400000, guid: a2bfe5e203c9a354399c1b2438627e97, type: 2}
+  buff: {fileID: 11400000, guid: afa953b04e92a804ba1c47e4565763e0, type: 2}
+  cool: {fileID: 11400000, guid: c983e252518bee949a96f37b243a122d, type: 2}

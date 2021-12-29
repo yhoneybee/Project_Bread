@@ -40,7 +40,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             owner.deltaSpeed = owner.deltaSpeed == 1 ? 0 : 1;
             animator.SetBool("StopUiOpen", owner.deltaSpeed == 0);
         }
-        if (owner.baseSkill && owner.baseSkill.CoolDone && isSkillCast)
+        if (owner.skill && owner.skill.cool.CoolDone && isSkillCast)
         {
             isSkillCast = false;
             animator.SetTrigger("SwitchIcon");
@@ -56,12 +56,12 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
     public void OnPointerUp(PointerEventData eventData)
     {
         down = false;
-        if (pressTime <= needPressTime && owner.baseSkill.CoolDone)
+        if (pressTime <= needPressTime && owner.skill.cool.CoolDone)
         {
             // skill »ç¿ë
             isSkillCast = true;
             animator.SetTrigger("SwitchSkill");
-            owner.baseSkill.Cast();
+            owner.skill.Cast();
         }
     }
 
@@ -71,7 +71,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
         if (isSkillSprite)
         {
-            imgIllust.sprite = owner.baseSkill.sprSkill;
+            imgIllust.sprite = owner.skill.sprSkill;
         }
         else
         {

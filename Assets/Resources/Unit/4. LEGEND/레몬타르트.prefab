@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5201215683900690122}
   - component: {fileID: 80032049494775327}
   - component: {fileID: 4763405268191549936}
-  - component: {fileID: 433959266123363612}
+  - component: {fileID: 3135836684955150681}
   m_Layer: 6
   m_Name: "\uB808\uBAAC\uD0C0\uB974\uD2B8"
   m_TagString: Untagged
@@ -195,7 +195,7 @@ MonoBehaviour:
   Attack: []
   Skill: []
   Die: []
---- !u!114 &433959266123363612
+--- !u!114 &3135836684955150681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,7 +204,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6651597669138648231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c579dc732b59d543a012d367aa14d19, type: 3}
+  m_Script: {fileID: 11500000, guid: 40041c637549b554eaee9fd61e60f174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  spawn: {fileID: 0}
+  damage: {fileID: 0}
+  buff: {fileID: 0}
+  cool: {fileID: 0}
