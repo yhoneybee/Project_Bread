@@ -124,7 +124,7 @@ public class CoolOption : ScriptableObject
 
 public class Skill : MonoBehaviour
 {
-    public Unit owner;
+    [HideInInspector] public Unit owner;
     public SpawnOption spawn;
     public DamageOption damage;
     public BuffOption buff;
