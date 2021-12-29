@@ -12,7 +12,6 @@ public class LoadingLinker : MonoBehaviour
 
     [SerializeField] private float loading_persent;
 
-    private float sin_value = 0;
     public float LoadingPersent
     {
         get { return loading_persent; }
@@ -36,19 +35,58 @@ public class LoadingLinker : MonoBehaviour
     }
 
     int loadSpeed = 1;
-
+    Image logo_image;
     private void Start()
     {
         InvokeRepeating(nameof(SpeedMulti), 0, 3f);
+        StartCoroutine(LogoImageFill());
+
+        logo_image = Logo.GetComponent<Image>();
     }
     private void Update()
     {
         LoadingPersent += Time.deltaTime * loadSpeed;
-
-        sin_value += Time.deltaTime * 50;
-
-        Logo.position += new Vector3(0, 0.005f * Mathf.Sin(sin_value * Mathf.Deg2Rad));
     }
 
     public void SpeedMulti() => loadSpeed *= 5;
+
+    IEnumerator LogoImageFill()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        WaitForSeconds second = new WaitForSeconds(0.01f);
+
+        while (1 - logo_image.fillAmount > 0.01f)
+        {
+            logo_image.fillAmount = Mathf.Lerp(logo_image.fillAmount, 1, 0.1f);
+            yield return second;
+        }
+        logo_image.fillAmount = 1;
+
+        StartCoroutine(LogoAnimation());
+    }
+    IEnumerator LogoAnimation()
+    {
+        WaitForSeconds second = new WaitForSeconds(0.01f);
+        Vector2 target_scale;
+
+        while (true)
+        {
+            target_scale = new Vector2(0.8f, 0.8f);
+            while (Vector2.Distance(Logo.localScale, target_scale) > 0.01f)
+            {
+                Logo.localScale = Vector2.Lerp(Logo.localScale, target_scale, 0.01f);
+                yield return second;
+            }
+
+            target_scale = new Vector2(1.2f, 1.2f);
+            while (Vector2.Distance(Logo.localScale, target_scale) > 0.01f)
+            {
+                Logo.localScale = Vector2.Lerp(Logo.localScale, target_scale, 0.01f);
+                yield return second;
+            }
+
+            yield return null;
+        }
+    }
 }

@@ -64,7 +64,6 @@ public class SoundManager : MonoBehaviour
         BgmVolume = PlayerPrefs.GetFloat("Bgm Volume");
         SfxVolume = PlayerPrefs.GetFloat("Sfx Volume");
 
-        Debug.Log("?");
         //if (!UiManager.Instance.TotalSlider)
         //    UiManager.Instance.TotalSlider.onValueChanged.AddListener((f) => { TotalVolume = f; });
         //if (UiManager.Instance.MuteSwitchBtn)
