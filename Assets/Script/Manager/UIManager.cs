@@ -130,7 +130,7 @@ public class UIManager : MonoBehaviour
             {
                 Except.gameObject.SetActive(true);
                 Except.Viewer.Show = select_unit;
-                //Except.Icon.sprite = select_unit.Info.Icon;
+                Except.Icon.sprite = select_unit.Info.Icon;
                 var find = AllUnits.Find((o) => { return o.Show == select_unit; });
                 if (find) find.gameObject.SetActive(false);
             }
