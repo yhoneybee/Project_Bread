@@ -28,7 +28,7 @@ public class SpawnOption : ScriptableObject
     {
         var wait = new WaitForSeconds(spawnDelay);
 
-        for (int i = 0; i < spawnCount; i++)
+        for (int i = 0; origin && i < spawnCount; i++)
         {
             var obj = Instantiate(origin);
             obj.AddComponent<SpawnedObj>().context = context;
