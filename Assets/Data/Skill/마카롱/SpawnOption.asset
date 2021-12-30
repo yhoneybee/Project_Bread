@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   context: {fileID: 0}
   origin: {fileID: 4339265511392233734, guid: cf882b5bfe408ae4380cac8dd4604577, type: 3}
-  spawnCount: 0
+  spawnCount: 1
   spawnDelay: 0
   cell: {x: 0, y: 0}
   spacing: {x: 0, y: 0}
@@ -24,4 +24,4 @@ MonoBehaviour:
   isOnce: 0
   isGuide: 0
   speed: 0
-  duraction: 0
+  duraction: 3

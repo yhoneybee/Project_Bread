@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
         new List<Unit>(){ null,null,null,null,null,null,null, },
         new List<Unit>(){ null,null,null,null,null,null,null, },
     };
+
     public static List<Unit> Select => Instance.Decks[Instance.Index];
 
     public List<Item> Items = new List<Item>();

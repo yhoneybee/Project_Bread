@@ -12,6 +12,8 @@ public class BuffOption : ScriptableObject
     public UnitType target;
     [Header("버프 지속 시간")]
     public float duraction;
+    [Header("본인 해당 여부")]
+    public bool onlyMe;
 
     public IEnumerator EInvoke(Unit unit)
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEditor;
 
 public class SpawnedObj : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class SpawnedObj : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var unit = collision.GetComponent<Unit>();
+        if (unit.Info.Name != context.owner.Info.Name && context.buff.onlyMe) return;
         if (!unit) return;
 
         if (context.damage && unit.UnitType == UnitType.UNFRIEND)
