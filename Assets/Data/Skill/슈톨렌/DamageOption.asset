@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DamageOption
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  damageRatio: 3.5
+  damageRatio: 0.25
   isOnce: 0
-  duraction: 3
+  duraction: 5
   tick: 1

@@ -18,10 +18,10 @@ MonoBehaviour:
   spawnDelay: 0
   cell: {x: 0, y: 0}
   spacing: {x: 0, y: 0}
-  offset: {x: 10, y: 0}
+  offset: {x: -1, y: 0}
   isNear: 0
   range: 0
   isOnce: 0
   isGuide: 0
   speed: 0
-  duraction: 3
+  duraction: 8
