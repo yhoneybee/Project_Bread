@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Unit
-  - 
+  - UI Effect
   - 
   - 
   - 
@@ -42,4 +42,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI Effect
+    uniqueID: 3836635771
     locked: 0

@@ -30,7 +30,7 @@ public struct ResultWindow
     public Button btnNext;
     public Image imgBtnNextText;
     public RectTransform rtrnStarParent;
-    public Sprite spStar;
+    public Image[] yellowStars;
     [Header("0: Next, 1: Retry, 2: Clear, 3: Over")] public List<Sprite> spriteTexts;
 }
 
@@ -153,15 +153,14 @@ public class IngameManager : MonoBehaviour
 
         if (currentStarCount > StageManager.Instance.GetStage().star_count) StageManager.Instance.GetStage().star_count = currentStarCount;
 
-        var imgs = resultWindow.rtrnStarParent.GetComponentsInChildren<Image>();
-        for (int i = 0; i < currentStarCount; i++) imgs[i].sprite = resultWindow.spStar;
+        StartCoroutine(ClearAnimation(currentStarCount));
 
         if (StageInfo.stage_number == 10)
         {
             var mainBtnObj = GameObject.Find("Go To Main");
             Destroy(mainBtnObj);
 
-            resultWindow.btnNext.transform.localPosition = 
+            resultWindow.btnNext.transform.localPosition =
                 new Vector3(0, resultWindow.btnNext.transform.localPosition.y);
 
             resultWindow.btnNext.onClick.AddListener(() =>
@@ -337,6 +336,36 @@ public class IngameManager : MonoBehaviour
                 }
                 yield return new WaitForSeconds(1);
             }
+        }
+    }
+
+    IEnumerator ClearAnimation(int star_count)
+    {
+        Debug.Log(star_count);
+        WaitForSeconds second = new WaitForSeconds(0.01f);
+        Image image;
+
+        for (int i = 0; i < 3; i++)
+        {
+            image = resultWindow.yellowStars[i];
+
+            while (image.color.a < 0.9f)
+            {
+                image.color = Color.Lerp(image.color, Color.white, 0.2f);
+                yield return second;
+            }
+            image.color = Color.white;
+
+            while (image.rectTransform.localScale.x > 1.01f)
+            {
+                image.rectTransform.localScale = Vector2.MoveTowards(image.rectTransform.localScale, Vector2.one, 0.3f);
+                yield return second;
+            }
+            image.rectTransform.localScale = Vector2.one;
+
+            image.GetComponentInChildren<ParticleSystem>().Play();
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 }
