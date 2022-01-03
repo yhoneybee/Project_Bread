@@ -89,7 +89,7 @@ public struct Stat
     ///<summary>���(�۵�) ������ ����</summary>///
     public Proportionality Proportionality;
 
-    public static Stat operator*(Stat op1, Stat op2)
+    public static Stat operator *(Stat op1, Stat op2)
     {
         Stat result = op1;
 
@@ -261,8 +261,7 @@ public abstract class Unit : MonoBehaviour
                         OnAttack(unit);
                         AnimState = AnimState.ATTACK;
                         IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
-                        //ingame.StartCoroutine(ingame.DamageTextAnimation(unit.transform.position, Stat.AD));
-                        unit.StartCoroutine(unit.AttackedEffect(Stat.AD));
+                        unit.AttackedEffect(Stat.AD);
                         unit.AnimState = AnimState.HIT;
                         if (gameObject.activeSelf) StartCoroutine(ASDelay());
                     }
@@ -276,7 +275,6 @@ public abstract class Unit : MonoBehaviour
 
         if (Stat.HP <= 0 && !isDie)
         {
-            SR.color = Color.white;
             AnimState = AnimState.DIE;
             isDie = true;
         }
@@ -371,15 +369,24 @@ public abstract class Unit : MonoBehaviour
 
         if (!Invincibility) Stat.HP -= damage;
     }
-    public virtual IEnumerator AttackedEffect(float damage)
+
+    Coroutine attacked_effect;
+    public void AttackedEffect(float damage)
+    {
+        if (attacked_effect != null) StopCoroutine(attacked_effect);
+        attacked_effect = StartCoroutine(_AttackedEffect(damage));
+    }
+    protected virtual IEnumerator _AttackedEffect(float damage)
     {
         if (!SR) yield break;
+
+        WaitForSeconds second = new WaitForSeconds(0.01f);
 
         SR.color = Color.red;
 
         while (true)
         {
-            yield return new WaitForSeconds(0.01f);
+            yield return second;
 
             if (!SR) yield break;
 
@@ -391,5 +398,7 @@ public abstract class Unit : MonoBehaviour
                 break;
             }
         }
+
+        attacked_effect = null;
     }
 }

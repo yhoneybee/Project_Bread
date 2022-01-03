@@ -8,9 +8,9 @@ public class Tower : Unit
     [SerializeField] Slider hp_slider;
     [SerializeField] Text hp_text;
 
-    public override IEnumerator AttackedEffect(float damage)
+    protected override IEnumerator _AttackedEffect(float damage)
     {
-        StartCoroutine(base.AttackedEffect(damage));
+        StartCoroutine(base._AttackedEffect(damage));
 
         float random_x, random_y;
 

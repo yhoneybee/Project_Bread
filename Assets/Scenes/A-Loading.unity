@@ -617,9 +617,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40041c637549b554eaee9fd61e60f174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  sprSkill: {fileID: 0}
   spawn: {fileID: 0}
   damage: {fileID: 0}
   buff: {fileID: 0}
+  cool: {fileID: 0}
 --- !u!4 &690441611
 Transform:
   m_ObjectHideFlags: 0
