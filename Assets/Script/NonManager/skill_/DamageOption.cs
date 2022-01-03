@@ -25,14 +25,14 @@ public class DamageOption : ScriptableObject
         for (int i = 0; !isOnce && i < TickCount; i++)
         {
             unit.Stat.HP -= TickDamage;
-            IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText((int)TickDamage, unit.transform.position));
+            IngameManager.Instance.DamageText((int)TickDamage, unit.transform.position);
             yield return wait;
         }
 
         if (isOnce)
         {
             unit.Stat.HP -= TotalDamage;
-            IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText((int)TotalDamage, unit.transform.position));
+            IngameManager.Instance.DamageText((int)TotalDamage, unit.transform.position);
         }
 
         yield return null;

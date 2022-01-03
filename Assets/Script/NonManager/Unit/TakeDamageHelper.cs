@@ -34,7 +34,7 @@ public class TakeDamageHelper : MonoBehaviour
             if (time > tick * ((duraction / tick) - tickCountDown) && tickCountDown > 0)
             {
                 owner.AnimState = AnimState.HIT;
-                IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText(((int)tickDamage), owner.transform.position));
+                IngameManager.Instance.DamageText(((int)tickDamage), owner.transform.position);
                 owner.Stat.HP -= tickDamage;
                 tickCountDown--;
             }

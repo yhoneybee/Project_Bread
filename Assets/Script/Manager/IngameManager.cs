@@ -274,18 +274,9 @@ public class IngameManager : MonoBehaviour
         yield return null;
     }
 
-    Coroutine damage_text;
-    public IEnumerator DamageText(int damage, Vector2 pos)
+    public void DamageText(int damage, Vector2 pos)
     {
-        if (damage_text == null)
-        {
-            damage_text = StartCoroutine(_DamageText(damage, pos));
-        }
-        else
-        {
-            yield return damage_text;
-            damage_text = StartCoroutine(_DamageText(damage, pos));
-        }
+        StartCoroutine(_DamageText(damage, pos));
     }
     IEnumerator _DamageText(int damage, Vector2 pos)
     {
@@ -313,7 +304,6 @@ public class IngameManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(0.5f);
-        damage_text = null;
     }
 
     private Sprite GetNumSprite(int num) => UIManager.Instance.Nums[num == 0 ? 9 : num - 1];

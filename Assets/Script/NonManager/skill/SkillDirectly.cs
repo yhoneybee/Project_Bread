@@ -43,7 +43,7 @@ public class SkillDirectly : BaseSkill
         if (countDown > 0 && betweenAttackDelayDown == 0)
         {
             countDown--;
-            IngameManager.Instance.StartCoroutine(IngameManager.Instance.DamageText((int)totalDamage, owner.transform.position));
+            IngameManager.Instance.DamageText((int)totalDamage, owner.transform.position);
             unit.Stat.HP -= totalDamage;
         }
     }
