@@ -236,7 +236,7 @@ public abstract class Unit : MonoBehaviour
 
         if (isDie) return;
 
-        if (is_walk_able)
+        if (is_walk_able && attack_animation == null)
         {
             Moving();
         }
@@ -258,12 +258,9 @@ public abstract class Unit : MonoBehaviour
                     is_walk_able = false;
                     if (is_attack_able)
                     {
-                        OnAttack(unit);
-                        AnimState = AnimState.ATTACK;
-                        IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
-                        unit.AttackedEffect(Stat.AD);
-                        unit.AnimState = AnimState.HIT;
-                        if (gameObject.activeSelf) StartCoroutine(ASDelay());
+                        // AnimState = AnimState.ATTACK;
+                        // IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
+                        if (gameObject.activeSelf) StartCoroutine(ASDelay(unit));
                     }
                     break;
                 }
@@ -332,11 +329,62 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    IEnumerator ASDelay()
+    Coroutine attack_animation;
+    Vector2 anim_start_pos;
+    IEnumerator AttackAnimation(Unit unit)
+    {
+        WaitForSeconds second = new WaitForSeconds(0.01f);
+
+        Quaternion target_q = Quaternion.Euler(0, 0, -30.0f);
+        anim_start_pos = transform.localPosition;
+        Vector2 target_pos = anim_start_pos + dir * Stat.AR * 5;
+        float rot_lerp_f = 0.6f;
+        float pos_lerp_f = 0.5f;
+
+        for (int i = 0; i < 2; i++)
+        {
+            while (true)
+            {
+                transform.localRotation = Quaternion.Lerp(transform.localRotation,
+                    target_q, rot_lerp_f);
+
+                transform.localPosition = Vector2.Lerp(transform.localPosition, target_pos, pos_lerp_f);
+
+                if (Mathf.Abs(transform.localRotation.z - target_q.z) <= 0.001f &&
+                    Mathf.Abs(target_pos.x - transform.localPosition.x) <= 0.01f)
+                    break;
+
+                yield return second;
+            }
+            transform.localRotation = target_q;
+            transform.localPosition = target_pos;
+
+            if (i == 0)
+            {
+                target_q = Quaternion.Euler(0, 0, 0);
+                target_pos = anim_start_pos;
+                rot_lerp_f = 0.6f;
+                pos_lerp_f = 0.3f;
+
+                is_attack_able = true;
+                OnAttack(unit);
+            }
+        }
+    }
+
+    IEnumerator ASDelay(Unit unit)
     {
         is_attack_able = false;
-        yield return new WaitForSeconds(1 / Stat.AS);
-        is_attack_able = true;
+
+        yield return new WaitForSeconds(((1.0f / Stat.AS) - 0.1f));
+
+        if (attack_animation != null)
+        {
+            StopCoroutine(attack_animation);
+            transform.position = anim_start_pos;
+        }
+        attack_animation = StartCoroutine(AttackAnimation(unit));
+
         yield return null;
     }
 
@@ -357,11 +405,13 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void OnAttack(Unit taken)
     {
-        if (is_attack_able)
-        {
-            foreach (var item in Items) item.OnAttack(taken);
-            taken.OnHit(this, Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken));
-        }
+        foreach (var item in Items) item.OnAttack(taken);
+
+        taken.OnHit(this, Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken));
+        taken.AttackedEffect(Stat.AD);
+        taken.AnimState = AnimState.HIT;
+
+        IngameManager.Instance.DamageText(((int)Stat.AD), taken.transform.position);
     }
     public virtual void OnHit(Unit taker, float damage)
     {
@@ -373,6 +423,8 @@ public abstract class Unit : MonoBehaviour
     Coroutine attacked_effect;
     public void AttackedEffect(float damage)
     {
+        if (!gameObject.activeSelf) return;
+
         if (attacked_effect != null) StopCoroutine(attacked_effect);
         attacked_effect = StartCoroutine(_AttackedEffect(damage));
     }
