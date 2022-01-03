@@ -230,6 +230,12 @@ public abstract class Unit : MonoBehaviour
         particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
         walk_particle = Instantiate(particle_prefab);
     }
+    public void Init()
+    {
+        anim_state = AnimState.WALK;
+        isDie = false;
+        Stat.HP = Stat.MaxHP;
+    }
     protected virtual void Update()
     {
         Animator();
@@ -244,31 +250,7 @@ public abstract class Unit : MonoBehaviour
 
         if (Stat.HP > Stat.MaxHP) Stat.HP = Stat.MaxHP;
 
-        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit"));
-        Debug.DrawRay(transform.position, dir * (coll.size.x / 2) + dir * Stat.AR, Color.yellow);
-
-        if (hits.Length > 1)
-        {
-            Unit unit;
-            foreach (var hit in hits)
-            {
-                unit = hit.transform.GetComponent<Unit>();
-                if (unit.UnitType != UnitType)
-                {
-                    is_walk_able = false;
-                    if (is_attack_able)
-                    {
-                        // AnimState = AnimState.ATTACK;
-                        // IngameManager.Instance.DamageText(((int)Stat.AD), unit.transform.position);
-                        if (gameObject.activeSelf) StartCoroutine(ASDelay(unit));
-                    }
-                    break;
-                }
-                else
-                    is_walk_able = true;
-            }
-        }
-        else is_walk_able = true;
+        CheckCollision();
 
         if (Stat.HP <= 0 && !isDie)
         {
@@ -277,12 +259,6 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
-    public void Init()
-    {
-        anim_state = AnimState.WALK;
-        isDie = false;
-        Stat.HP = Stat.MaxHP;
-    }
     public void Animator()
     {
         if (!Anim) return;
@@ -329,8 +305,67 @@ public abstract class Unit : MonoBehaviour
         }
     }
 
+    float sin_value = 0;
+    public virtual void Moving()
+    {
+        sin_value += Time.deltaTime * 1000;
+
+        transform.Translate(dir.x *
+            new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
+
+        // Particle
+        if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
+        {
+            walk_particle.transform.position = new Vector2(transform.position.x, -5);
+            walk_particle.Play();
+        }
+    }
+
+    void CheckCollision()
+    {
+        var hits = Physics2D.RaycastAll(transform.position, dir, 1 * Stat.AR + coll.size.x / 2, 1 << LayerMask.NameToLayer("Unit"));
+        Debug.DrawRay(transform.position, dir * (coll.size.x / 2) + dir * Stat.AR, Color.yellow);
+
+        if (hits.Length > 1)
+        {
+            Unit unit;
+            foreach (var hit in hits)
+            {
+                unit = hit.transform.GetComponent<Unit>();
+                if (unit.UnitType != UnitType)
+                {
+                    is_walk_able = false;
+
+                    if (is_attack_able && gameObject.activeSelf)
+                        StartCoroutine(ASDelay(unit));
+
+                    break;
+                }
+                else
+                    is_walk_able = true;
+            }
+        }
+        else
+        {
+            is_walk_able = true;
+        }
+    }
+
     Coroutine attack_animation;
     Vector2 anim_start_pos;
+    IEnumerator ASDelay(Unit unit)
+    {
+        is_attack_able = false;
+
+        if (attack_animation != null)
+        {
+            StopCoroutine(attack_animation);
+            transform.localPosition = anim_start_pos;
+        }
+        attack_animation = StartCoroutine(AttackAnimation(unit));
+
+        yield return null;
+    }
     IEnumerator AttackAnimation(Unit unit)
     {
         WaitForSeconds second = new WaitForSeconds(0.01f);
@@ -366,41 +401,12 @@ public abstract class Unit : MonoBehaviour
                 rot_lerp_f = 0.6f;
                 pos_lerp_f = 0.3f;
 
-                is_attack_able = true;
                 OnAttack(unit);
             }
         }
-    }
 
-    IEnumerator ASDelay(Unit unit)
-    {
-        is_attack_able = false;
-
-        yield return new WaitForSeconds(((1.0f / Stat.AS) - 0.1f));
-
-        if (attack_animation != null)
-        {
-            StopCoroutine(attack_animation);
-            transform.position = anim_start_pos;
-        }
-        attack_animation = StartCoroutine(AttackAnimation(unit));
-
-        yield return null;
-    }
-
-    float sin_value = 0;
-    public virtual void Moving()
-    {
-        sin_value += Time.deltaTime * 1000;
-
-        transform.Translate(dir.x *
-            new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
-
-        if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
-        {
-            walk_particle.transform.position = new Vector2(transform.position.x, -5);
-            walk_particle.Play();
-        }
+        yield return new WaitForSeconds(1.0f / Stat.AS - 0.1f);
+        is_attack_able = true;
     }
 
     public virtual void OnAttack(Unit taken)
