@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f71e9f676c0b645b090ad4fa572d70, type: 3}
   m_Name: DamageOption
   m_EditorClassIdentifier: 
-  context: {fileID: 0}
-  damageRatio: 0.25
+  damageRatio: 1
   isOnce: 0
   duraction: 5
   tick: 1
+  tickDamageRatio: 1
+  absTickDamage: 0.25

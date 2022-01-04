@@ -27,7 +27,8 @@ public class Skill : MonoBehaviour
         if (!cool && !cool.CoolDone) return;
 
         cool.Initialization();
-        StartCoroutine(spawn.EInvoke(null));
+        if (buff != null && buff.IsInstant) StartCoroutine(buff.EInvoke(null));
+        if (spawn != null) StartCoroutine(spawn.EInvoke(null));
     }
 
     private void Update()

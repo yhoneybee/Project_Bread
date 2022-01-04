@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30036ffe70d93734ab7d3bafa0a13470, type: 3}
-  m_Name: BuffOption
+  m_Script: {fileID: 11500000, guid: 32bd7b3ec71862a4dbebc04f07cef9bc, type: 3}
+  m_Name: FormChangeOption
   m_EditorClassIdentifier: 
-  context: {fileID: 0}
   buff:
     AD: 0
     HP: 0
@@ -27,6 +26,8 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  target: 0
+  sprChange: {fileID: 0}
   duraction: 5
-  onlyMe: 0
+  hitAble: 1
+  toScale: {x: 0, y: 0}
+  isInstant: 1

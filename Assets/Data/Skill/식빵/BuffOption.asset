@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30036ffe70d93734ab7d3bafa0a13470, type: 3}
   m_Name: BuffOption
   m_EditorClassIdentifier: 
-  context: {fileID: 0}
   buff:
-    AD: 0
+    AD: 0.8
     HP: 0
     MaxHP: 0
     MS: 0
@@ -27,5 +26,7 @@ MonoBehaviour:
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  target: 0
-  duraction: 0
+  target: 1
+  duraction: 1
+  onlyMe: 0
+  isInstant: 0

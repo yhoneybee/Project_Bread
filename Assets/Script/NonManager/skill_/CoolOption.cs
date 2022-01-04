@@ -7,10 +7,10 @@ using System;
 public class CoolOption : ScriptableObject
 {
     [HideInInspector] public Skill context;
-    [Header("쿨타임")]
-    public float coolTime;
-    [Header("남은 쿨타임 (값 확인용)")]
-    public float coolDown;
+    [SerializeField, Header("쿨타임")]
+    private float coolTime;
+    [SerializeField, Header("남은 쿨타임 (값 확인용)")]
+    private float coolDown;
     public bool CoolDone => coolDown == 0 && duractionDone;
 
     [SerializeField, Header("스킬 지속 시간")]

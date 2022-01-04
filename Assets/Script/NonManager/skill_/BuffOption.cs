@@ -7,6 +7,7 @@ using System;
 public class BuffOption : ABuffOption
 {
     public override Skill Context { get => context; set => context = value; }
+    public override bool IsInstant { get => isInstant; set => isInstant = value; }
     private Skill context;
 
     public override bool OnlyMe { get => onlyMe; set => onlyMe = value; }
@@ -19,6 +20,8 @@ public class BuffOption : ABuffOption
     private float duraction;
     [SerializeField, Header("본인 해당 여부")]
     private bool onlyMe;
+    [SerializeField, Header("즉발 여부")]
+    private bool isInstant;
 
     public override IEnumerator EInvoke(Unit unit)
     {

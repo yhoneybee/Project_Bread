@@ -32,7 +32,7 @@ public class SpawnedObj : MonoBehaviour
 
         if (context.damage != null && unit.UnitType == UnitType.UNFRIEND)
             unit.StartCoroutine(context.damage.EInvoke(unit));
-        if (context.buff != null)
+        if (context.buff != null && !context.buff.IsInstant)
         {
             if (context.buff.OnlyMe && unit.Info.Name != context.owner.Info.Name) return;
             unit.StartCoroutine(context.buff.EInvoke(unit));

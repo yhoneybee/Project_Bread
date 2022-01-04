@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CoolOption
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  coolTime: 0
-  coolDown: 3
-  duraction: 0
-  duractionDown: 5
+  coolTime: 5
+  coolDown: 0
+  duraction: 5
+  duractionDown: 0
