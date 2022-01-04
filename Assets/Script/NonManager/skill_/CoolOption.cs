@@ -13,10 +13,10 @@ public class CoolOption : ScriptableObject
     public float coolDown;
     public bool CoolDone => coolDown == 0 && duractionDone;
 
-    [Header("스킬 지속 시간")]
-    public float duraction;
-    [Header("남은 스킬 지속 시간 (값 확인용)")]
-    public float duractionDown;
+    [SerializeField, Header("스킬 지속 시간")]
+    private float duraction;
+    [SerializeField, Header("남은 스킬 지속 시간 (값 확인용)")]
+    private float duractionDown;
     public bool duractionDone => duractionDown == 0;
 
     public void Initialization()

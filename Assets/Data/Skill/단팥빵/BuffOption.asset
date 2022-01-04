@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30036ffe70d93734ab7d3bafa0a13470, type: 3}
   m_Name: BuffOption
   m_EditorClassIdentifier: 
-  context: {fileID: 0}
   buff:
     AD: 0
     HP: 1.2
     MaxHP: 1.2
     MS: 0
-    AR: 1.2
+    AR: 0
     AS: 0
     LS: 0
     Proportionality:

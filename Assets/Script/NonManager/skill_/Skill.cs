@@ -7,18 +7,18 @@ public class Skill : MonoBehaviour
 {
     [HideInInspector] public Unit owner;
     public Sprite sprSkill;
-    public SpawnOption spawn;
-    public DamageOption damage;
-    public BuffOption buff;
+    public ASpawnOption spawn;
+    public AOption damage;
+    public ABuffOption buff;
     public CoolOption cool;
 
     private void Start()
     {
         owner = GetComponent<Unit>();
 
-        if (spawn) spawn.context = this;
-        if (damage) damage.context = this;
-        if (buff) buff.context = this;
+        if (spawn != null) spawn.Context = this;
+        if (damage != null) damage.Context = this;
+        if (buff != null) buff.Context = this;
         if (cool) cool.context = this;
     }
 
@@ -27,7 +27,7 @@ public class Skill : MonoBehaviour
         if (!cool && !cool.CoolDone) return;
 
         cool.Initialization();
-        StartCoroutine(spawn.EInvoke());
+        StartCoroutine(spawn.EInvoke(null));
     }
 
     private void Update()

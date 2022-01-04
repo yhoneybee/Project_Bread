@@ -4,33 +4,40 @@ using UnityEngine;
 using System;
 
 [Serializable, CreateAssetMenu(fileName = "SpawnOption", menuName = "Datas/Options/SpawnOption")]
-public class SpawnOption : ScriptableObject
+public class SpawnOption : ASpawnOption
 {
-    [HideInInspector] public Skill context;
-    public GameObject origin;
-    public int spawnCount;
-    public int spawnDelay;
-    public Vector2 cell;
-    public Vector2 spacing;
-    public Vector2 offset;
-    [Header("근처 랜덤 소환 여부 (cell, spacing 무시)")]
-    public bool isNear;
-    public float range;
-    [Header("한번에 소환 여부 (spawnDelay 무시)")]
-    public bool isOnce;
-    [Header("소환되는 객체에 대한 값")]
-    public bool isGuide;
-    public float speed;
-    public float duraction;
+    public override Skill Context { get => context; set => context = value; }
+    private Skill context;
 
-    public IEnumerator EInvoke()
+    public override bool IsGuide { get => isGuide; set => isGuide = value; }
+    public override float Speed { get => speed; set => speed = value; }
+    public override float Duraction { get => duraction; set => duraction = value; }
+
+    [SerializeField] private GameObject origin;
+    [SerializeField] private int spawnCount;
+    [SerializeField] private int spawnDelay;
+    [SerializeField] private Vector2 cell;
+    [SerializeField] private Vector2 spacing;
+    [SerializeField] private Vector2 offset;
+    [SerializeField, Header("근처 랜덤 소환 여부 (cell, spacing 무시)")] 
+    private bool isNear;
+    [SerializeField] private float range;
+    [SerializeField, Header("한번에 소환 여부 (spawnDelay 무시)")]
+    private bool isOnce;
+    [Header("소환되는 객체에 대한 값")]
+    [SerializeField] private bool isGuide;
+    [SerializeField] private float speed;
+    [SerializeField] private float duraction;
+    
+    public override IEnumerator EInvoke(Unit unit)
     {
         var wait = new WaitForSeconds(spawnDelay);
 
         for (int i = 0; origin && i < spawnCount; i++)
         {
             var obj = Instantiate(origin);
-            obj.AddComponent<SpawnedObj>().context = context;
+            var spawned = obj.AddComponent<SpawnedObj>();
+            spawned.context = context;
 
             if (isNear)
             {

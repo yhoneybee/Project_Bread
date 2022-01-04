@@ -10,30 +10,32 @@ public class SpawnedObj : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, context.spawn.duraction);
+        Destroy(gameObject, context.spawn.Duraction);
     }
 
     private void Update()
     {
-        if (context.spawn.isGuide)
+        if (context.spawn.IsGuide)
         {
 
         }
         else
         {
-            transform.Translate(Vector3.right * context.spawn.speed * Time.deltaTime);
+            transform.Translate(Vector3.right * context.spawn.Speed * Time.deltaTime);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var unit = collision.GetComponent<Unit>();
-        if (unit.Info.Name != context.owner.Info.Name && context.buff.onlyMe) return;
         if (!unit) return;
 
-        if (context.damage && unit.UnitType == UnitType.UNFRIEND)
+        if (context.damage != null && unit.UnitType == UnitType.UNFRIEND)
             unit.StartCoroutine(context.damage.EInvoke(unit));
-        if (context.buff)
+        if (context.buff != null)
+        {
+            if (context.buff.OnlyMe && unit.Info.Name != context.owner.Info.Name) return;
             unit.StartCoroutine(context.buff.EInvoke(unit));
+        }
     }
 }
