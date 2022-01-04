@@ -10,6 +10,7 @@ public class Skill : MonoBehaviour
     public ASpawnOption spawn;
     public AOption damage;
     public ABuffOption buff;
+    public AOption move;
     public CoolOption cool;
 
     private void Start()
@@ -19,6 +20,7 @@ public class Skill : MonoBehaviour
         if (spawn != null) spawn.Context = this;
         if (damage != null) damage.Context = this;
         if (buff != null) buff.Context = this;
+        if (move != null) move.Context = this;
         if (cool) cool.context = this;
     }
 
