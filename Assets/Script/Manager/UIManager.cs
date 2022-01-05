@@ -213,7 +213,7 @@ public class UIManager : MonoBehaviour
             AnimImg.sprite = SF[AnimIndex];
             FixSizeToRatio(AnimImg, 600);
         }
-        if (time >= /*SF[AnimIndex].Frame*/0.1f)
+        if (time >= /*SF[AnimIndex].Frame*/0.05f)
         {
             ++AnimIndex;
             time = 0;
