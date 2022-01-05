@@ -339,6 +339,21 @@ public abstract class Unit : MonoBehaviour
                     if (is_attack_able && gameObject.activeSelf)
                         StartCoroutine(ASDelay(unit));
 
+                    if (unit != null && unit.UnitType == UnitType.UNFRIEND && unit.gameObject.layer == 6)
+                    {
+                        if (skill != null && skill.move != null && !skill.cool.CoolDone)
+                        {
+                            if (skill.move.HasDamage)
+                            {
+                                if (skill.damage != null) skill.damage.EInvoke(unit);
+                            }
+                            if (skill.move.HasKnockback)
+                            {
+                                unit.rigid.AddForce(skill.move.KnockbackForce);
+                            }
+                        }
+                    }
+
                     break;
                 }
                 else
@@ -461,35 +476,5 @@ public abstract class Unit : MonoBehaviour
         }
 
         attacked_effect = null;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print($"<color=red>ENTER</color> : {collision.transform.name}");
-        var unit = collision.gameObject.GetComponent<Unit>();
-        if (unit != null && unit.UnitType == UnitType.UNFRIEND && unit.gameObject.layer == 6)
-        {
-            if (skill != null && skill.move != null)
-            {
-                if (skill.move.HasDamage)
-                {
-                    if (skill.damage != null) skill.damage.EInvoke(unit);
-                }
-                if (skill.move.HasKnockback)
-                {
-                    unit.rigid.AddForce(skill.move.KnockbackForce);
-                }
-            }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        print($"<color=blue>ENTER</color> : {collision.transform.name}");
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        print($"<color=black>STAY</color> : {collision.transform.name}");
     }
 }

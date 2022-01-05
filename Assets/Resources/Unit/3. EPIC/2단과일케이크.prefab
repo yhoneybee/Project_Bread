@@ -172,9 +172,10 @@ MonoBehaviour:
       AD: 0
   UnitType: 0
   Items: []
-  Anim: {fileID: 0}
+  Anim: {fileID: 4763405268191549936}
   skill: {fileID: 0}
   isTower: 0
+  rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
   isDie: 0
@@ -258,4 +259,5 @@ MonoBehaviour:
   spawn: {fileID: 11400000, guid: 352c75ee46f8ac946a6ecc4749a05eab, type: 2}
   damage: {fileID: 11400000, guid: 17195c16172db294aa71d34e95d2f261, type: 2}
   buff: {fileID: 11400000, guid: f1e9256100c99cf4494b6a45dd329e42, type: 2}
+  move: {fileID: 0}
   cool: {fileID: 11400000, guid: 9816b6ec2dcfa5d44b3b772cb951a167, type: 2}
