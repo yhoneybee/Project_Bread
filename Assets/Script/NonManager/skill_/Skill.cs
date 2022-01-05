@@ -10,7 +10,7 @@ public class Skill : MonoBehaviour
     public ASpawnOption spawn;
     public AOption damage;
     public ABuffOption buff;
-    public AOption move;
+    public AMoveOption move;
     public CoolOption cool;
 
     private void Start()
@@ -31,6 +31,7 @@ public class Skill : MonoBehaviour
         cool.Initialization();
         if (buff != null && buff.IsInstant) StartCoroutine(buff.EInvoke(null));
         if (spawn != null) StartCoroutine(spawn.EInvoke(null));
+        if (move != null) StartCoroutine(move.EInvoke(null));
     }
 
     private void Update()

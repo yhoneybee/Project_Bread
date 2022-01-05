@@ -187,7 +187,7 @@ public abstract class Unit : MonoBehaviour
     public event Action<AnimState> onAnimEndFrame;
 
     public SpriteRenderer SR { get; private set; }
-    Rigidbody2D rigid;
+    [HideInInspector] public Rigidbody2D rigid;
     BoxCollider2D coll;
 
     public int Need => (Info.Level + 9) * Info.Level;
@@ -368,6 +368,8 @@ public abstract class Unit : MonoBehaviour
     }
     IEnumerator AttackAnimation(Unit unit)
     {
+        if (skill != null && !skill.cool.CoolDone) yield break;
+
         WaitForSeconds second = new WaitForSeconds(0.01f);
 
         Quaternion target_q = Quaternion.Euler(0, 0, -30.0f);
@@ -417,7 +419,8 @@ public abstract class Unit : MonoBehaviour
         taken.AttackedEffect(Stat.AD);
         taken.AnimState = AnimState.HIT;
 
-        IngameManager.Instance.DamageText(((int)Stat.AD), taken.transform.position);
+        if (IngameManager.Instance)
+            IngameManager.Instance.DamageText(((int)Stat.AD), taken.transform.position);
     }
     public virtual void OnHit(Unit taker, float damage)
     {
@@ -458,5 +461,35 @@ public abstract class Unit : MonoBehaviour
         }
 
         attacked_effect = null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print($"<color=red>ENTER</color> : {collision.transform.name}");
+        var unit = collision.gameObject.GetComponent<Unit>();
+        if (unit != null && unit.UnitType == UnitType.UNFRIEND && unit.gameObject.layer == 6)
+        {
+            if (skill != null && skill.move != null)
+            {
+                if (skill.move.HasDamage)
+                {
+                    if (skill.damage != null) skill.damage.EInvoke(unit);
+                }
+                if (skill.move.HasKnockback)
+                {
+                    unit.rigid.AddForce(skill.move.KnockbackForce);
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        print($"<color=blue>ENTER</color> : {collision.transform.name}");
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        print($"<color=black>STAY</color> : {collision.transform.name}");
     }
 }
