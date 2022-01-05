@@ -442,6 +442,8 @@ public abstract class Unit : MonoBehaviour
         foreach (var item in Items) if (!Invincibility) item.OnHit(taker, ref damage);
 
         if (!Invincibility) Stat.HP -= damage;
+
+        if (skill != null && skill.spawn != null && skill.spawn.IsOnHit) skill.spawn.EInvoke(null);
     }
 
     Coroutine attacked_effect;

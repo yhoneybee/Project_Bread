@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f71e9f676c0b645b090ad4fa572d70, type: 3}
-  m_Name: DamageOption
+  m_Script: {fileID: 11500000, guid: 6446709e6ac3e894a85229adb7bd266f, type: 3}
+  m_Name: MoveOption
   m_EditorClassIdentifier: 
-  damageRatio: 4
-  isOnce: 0
-  duraction: 1
-  tick: 1
-  tickDamageRatio: 1
-  absTickDamage: 0
-  damageDelay: 2
+  duraction: 5
+  speed: 3
+  isTrigger: 0
+  hasKnockback: 0
+  knockbackForce: {x: 0, y: 0}
+  hasDamage: 1

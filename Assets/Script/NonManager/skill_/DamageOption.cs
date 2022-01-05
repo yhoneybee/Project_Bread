@@ -21,6 +21,8 @@ public class DamageOption : AOption
     private float tickDamageRatio = 1;
     [SerializeField, Header("Àý´ë tick µ¥¹ÌÁö 0ÀÌ ¾Æ´Ò°æ¿ì ¹Ý¿µµÊ")]
     private float absTickDamage = 0;
+    [SerializeField, Header("µô·¹ÀÌ")]
+    private float damageDelay = 0;
 
     public float TotalDamage => context.owner.Stat.AD * damageRatio;
     public float TickCount => duraction / tick;
@@ -29,6 +31,7 @@ public class DamageOption : AOption
     public override IEnumerator EInvoke(Unit unit)
     {
         var wait = new WaitForSeconds(tick);
+        yield return new WaitForSeconds(damageDelay);
         for (int i = 0; !isOnce && i < TickCount; i++)
         {
             if (absTickDamage != 0) unit.Stat.HP -= absTickDamage;

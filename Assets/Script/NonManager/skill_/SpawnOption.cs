@@ -10,6 +10,7 @@ public class SpawnOption : ASpawnOption
     private Skill context;
 
     public override bool IsGuide { get => isGuide; set => isGuide = value; }
+    public override bool IsOnHit { get => isOnHit; set => isOnHit = value; }
     public override float Speed { get => speed; set => speed = value; }
     public override float Duraction { get => duraction; set => duraction = value; }
 
@@ -24,6 +25,8 @@ public class SpawnOption : ASpawnOption
     [SerializeField] private float range;
     [SerializeField, Header("한번에 소환 여부 (spawnDelay 무시)")]
     private bool isOnce;
+    [SerializeField, Header("피격시 발동 여부")]
+    private bool isOnHit;
     [Header("소환되는 객체에 대한 값")]
     [SerializeField] private bool isGuide;
     [SerializeField] private float speed;
