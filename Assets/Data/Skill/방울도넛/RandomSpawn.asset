@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1e0ef77bedb144aa9bf9e12981a7c4, type: 3}
+  m_Name: RandomSpawn
+  m_EditorClassIdentifier: 
+  origins:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  damages: 000000000000000000000000
+  isOnHit: 0
+  isGuide: 0
+  speed: 0
+  duraction: 0

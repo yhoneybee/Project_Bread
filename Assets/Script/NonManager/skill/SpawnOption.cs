@@ -20,7 +20,7 @@ public class SpawnOption : ASpawnOption
     [SerializeField] private Vector2 cell;
     [SerializeField] private Vector2 spacing;
     [SerializeField] private Vector2 offset;
-    [SerializeField, Header("근처 랜덤 소환 여부 (cell, spacing 무시)")] 
+    [SerializeField, Header("근처 랜덤 소환 여부 (cell, spacing 무시)")]
     private bool isNear;
     [SerializeField] private float range;
     [SerializeField, Header("한번에 소환 여부 (spawnDelay 무시)")]
