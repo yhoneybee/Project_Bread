@@ -343,13 +343,13 @@ public abstract class Unit : MonoBehaviour
                     {
                         if (skill != null && skill.move != null && !skill.cool.CoolDone)
                         {
-                            if (skill.move.HasDamage)
+                            if (skill.move.hasDamage)
                             {
                                 if (skill.damage != null) skill.damage.EInvoke(unit);
                             }
-                            if (skill.move.HasKnockback)
+                            if (skill.move.hasKnockback)
                             {
-                                unit.rigid.AddForce(skill.move.KnockbackForce);
+                                unit.rigid.AddForce(skill.move.knockbackForce);
                             }
                         }
                     }
@@ -443,7 +443,7 @@ public abstract class Unit : MonoBehaviour
 
         if (!Invincibility) Stat.HP -= damage;
 
-        if (skill != null && skill.spawn != null && skill.spawn.IsOnHit) skill.spawn.EInvoke(null);
+        if (skill != null && skill.spawn != null && skill.spawn.isOnHit) skill.spawn.EInvoke(null);
     }
 
     Coroutine attacked_effect;

@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4339265511392233753}
   - component: {fileID: 4339265511392233752}
   - component: {fileID: 4104878222053953697}
+  - component: {fileID: 2701619525954027381}
+  - component: {fileID: 7340441020712773370}
+  - component: {fileID: 2693390552199098504}
   m_Layer: 0
   m_Name: SkillObj
   m_TagString: Untagged
@@ -109,3 +112,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
+--- !u!50 &2701619525954027381
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339265511392233734}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 6
+--- !u!114 &7340441020712773370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339265511392233734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637bf68b2b75e4468eade3a0169aea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Info:
+    Rank: 0
+    Name: 
+    Icon: {fileID: 0}
+    Id: 0
+    Level: 0
+    Cost: 0
+    Count: 0
+    Desc: 
+    DValue: 0
+  Stat:
+    AD: 0
+    HP: 0
+    MaxHP: 0
+    MS: 0
+    AR: 0
+    AS: 0
+    LS: 0
+    Proportionality:
+      MaxHP: 0
+      LostHP: 0
+      EMaxHP: 0
+      ELostHP: 0
+      AD: 0
+  UnitType: 0
+  Items: []
+  Anim: {fileID: 2693390552199098504}
+  skill: {fileID: 0}
+  isTower: 0
+  rigid: {fileID: 0}
+  Invincibility: 0
+  deltaSpeed: 1
+  isDie: 0
+--- !u!114 &2693390552199098504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339265511392233734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Walk: []
+  Hit: []
+  Attack: []
+  Skill: []
+  Die: []

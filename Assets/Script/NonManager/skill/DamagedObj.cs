@@ -9,12 +9,12 @@ public class DamagedObj : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, context.spawn.Duraction);
+        Destroy(gameObject, context.spawn.duraction);
     }
 
     private void Update()
     {
-        transform.Translate(Vector3.right * context.spawn.Speed * Time.deltaTime);
+        transform.Translate(Vector3.right * context.spawn.speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

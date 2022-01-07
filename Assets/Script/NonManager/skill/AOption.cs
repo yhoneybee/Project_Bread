@@ -6,5 +6,5 @@ using UnityEngine;
 public abstract class AOption : ScriptableObject
 {
     public abstract IEnumerator EInvoke(Unit unit);
-    public abstract Skill Context { get; set; }
+    [HideInInspector] public Skill context;
 }

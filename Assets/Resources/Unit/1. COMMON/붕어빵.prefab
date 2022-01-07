@@ -175,6 +175,7 @@ MonoBehaviour:
   Anim: {fileID: 4763405268191549936}
   skill: {fileID: 0}
   isTower: 0
+  rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
   isDie: 0
@@ -249,7 +250,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   sprSkill: {fileID: 0}
-  spawn: {fileID: 11400000, guid: 081e70a70e6ce734ba20d3ee498fb821, type: 2}
+  spawn: {fileID: 11400000, guid: b9716f40a7d240d49a4d379d1410837c, type: 2}
   damage: {fileID: 11400000, guid: 2e64c70447f433d42bdc7a95d3cb2b68, type: 2}
   buff: {fileID: 11400000, guid: 9f638dfed7ea9334a9390a190204646d, type: 2}
+  move: {fileID: 0}
   cool: {fileID: 11400000, guid: 6b5a93a1ec6775643baf323b5c2dac88, type: 2}

@@ -17,10 +17,10 @@ public class Skill : MonoBehaviour
     {
         owner = GetComponent<Unit>();
 
-        if (spawn != null) spawn.Context = this;
-        if (damage != null) damage.Context = this;
-        if (buff != null) buff.Context = this;
-        if (move != null) move.Context = this;
+        if (spawn != null) spawn.context = this;
+        if (damage != null) damage.context = this;
+        if (buff != null) buff.context = this;
+        if (move != null) move.context = this;
         if (cool) cool.context = this;
     }
 
@@ -29,7 +29,7 @@ public class Skill : MonoBehaviour
         if (!cool && !cool.CoolDone) return;
 
         cool.Initialization();
-        if (buff != null && buff.IsInstant) StartCoroutine(buff.EInvoke(owner));
+        if (buff != null && buff.isInstant) StartCoroutine(buff.EInvoke(owner));
         if (spawn != null) StartCoroutine(spawn.EInvoke(null));
         if (move != null) StartCoroutine(move.EInvoke(null));
     }

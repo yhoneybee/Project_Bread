@@ -6,9 +6,6 @@ using System;
 [Serializable, CreateAssetMenu(fileName = "DamageOption", menuName = "Datas/Options/DamageOption")]
 public class DamageOption : AOption
 {
-    public override Skill Context { get => context; set => context = value; }
-    private Skill context;
-
     [SerializeField, Header("데미지 배율 (ex) 20%추가 -> 1.2)")]
     private float damageRatio = 1;
     [SerializeField, Header("한번에 데미지를 주는지에 대한 여부 (tick~ 무시)")]

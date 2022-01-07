@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-[Serializable, CreateAssetMenu(fileName = "SpawnOption", menuName = "Datas/Options/SpawnOption")]
-public class SpawnOption : ASpawnOption
+[System.Serializable, CreateAssetMenu(fileName = "CountSpawn", menuName = "Datas/Options/CountSpawn")]
+public class CountSpawn : ASpawnOption
 {
     public override IEnumerator EInvoke(Unit unit)
     {
         var wait = new WaitForSeconds(spawnDelay);
-
-        for (int i = 0; origin && i < spawnCount; i++)
+        int count = IngameManager.Instance.IngameUnits.Count * 2;
+        if (count == 2) count = 3;
+        for (int i = 0; i < count; i++)
         {
+            if (IngameManager.Instance.IngameUnits.Count == 0) break;
             var obj = Instantiate(origin);
             var spawned = obj.AddComponent<SpawnedObj>();
             spawned.context = context;
 
             if (isNear)
             {
-                obj.transform.position = new Vector3(offset.x + UnityEngine.Random.Range(-range, range), offset.y + UnityEngine.Random.Range(-range, range));
+                obj.transform.position = new Vector3(offset.x + Random.Range(-range, range), offset.y + Random.Range(-range, range));
             }
             else
             {
@@ -26,7 +27,6 @@ public class SpawnOption : ASpawnOption
             }
             if (!isOnce) yield return wait;
         }
-
         yield return null;
     }
 }

@@ -10,18 +10,18 @@ public class SpawnedObj : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, context.spawn.Duraction);
+        Destroy(gameObject, context.spawn.duraction);
     }
 
     private void Update()
     {
-        if (context.spawn.IsGuide)
+        if (context.spawn.isGuide)
         {
 
         }
         else
         {
-            transform.Translate(Vector3.right * context.spawn.Speed * Time.deltaTime);
+            transform.Translate(Vector3.right * context.spawn.speed * Time.deltaTime);
         }
     }
 
@@ -32,9 +32,9 @@ public class SpawnedObj : MonoBehaviour
 
         if (context.damage != null && unit.UnitType == UnitType.UNFRIEND)
             unit.StartCoroutine(context.damage.EInvoke(unit));
-        if (context.buff != null && !context.buff.IsInstant)
+        if (context.buff != null && !context.buff.isInstant)
         {
-            if (context.buff.OnlyMe && unit.Info.Name != context.owner.Info.Name) return;
+            if (context.buff.onlyMe && unit.Info.Name != context.owner.Info.Name) return;
             unit.StartCoroutine(context.buff.EInvoke(unit));
         }
     }
