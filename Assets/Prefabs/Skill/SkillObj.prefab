@@ -127,7 +127,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -148,7 +148,7 @@ MonoBehaviour:
   Info:
     Rank: 0
     Name: 
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 9811aa2b98d29b94c8650fabb49933f9, type: 3}
     Id: 0
     Level: 0
     Cost: 0
@@ -157,8 +157,8 @@ MonoBehaviour:
     DValue: 0
   Stat:
     AD: 0
-    HP: 0
-    MaxHP: 0
+    HP: 100
+    MaxHP: 100
     MS: 0
     AR: 0
     AS: 0
@@ -177,6 +177,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
+  isSkillObj: 1
   isDie: 0
 --- !u!114 &2693390552199098504
 MonoBehaviour:

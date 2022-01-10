@@ -199,6 +199,8 @@ public abstract class Unit : MonoBehaviour
 
     public float deltaSpeed = 1;
 
+    public bool isSkillObj;
+
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
@@ -227,6 +229,7 @@ public abstract class Unit : MonoBehaviour
 
         isDie = false;
 
+        if (isSkillObj) return;
         particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
         walk_particle = Instantiate(particle_prefab);
     }
@@ -308,6 +311,8 @@ public abstract class Unit : MonoBehaviour
     float sin_value = 0;
     public virtual void Moving()
     {
+        if (isSkillObj) return;
+
         sin_value += Time.deltaTime * 1000;
 
         transform.Translate(dir.x *
