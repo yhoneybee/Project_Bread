@@ -394,7 +394,7 @@ public abstract class Unit : MonoBehaviour
 
         Quaternion target_q = Quaternion.Euler(0, 0, -30.0f);
         anim_start_pos = transform.localPosition;
-        Vector2 target_pos = anim_start_pos + dir * Stat.AR * 5;
+        Vector2 target_pos = anim_start_pos + dir * Stat.AR;
         float rot_lerp_f = 0.6f;
         float pos_lerp_f = 0.5f;
 
