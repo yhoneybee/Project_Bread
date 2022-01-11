@@ -125,7 +125,7 @@ public class StageSelect : MonoBehaviour
     /// <param name="target_position">카메라를 이동시킬 위치</param>
     void CameraMove(Vector2 target_position)
     {
-        Vector2 cam_move_position = target_position;
+        Vector3 cam_move_position = target_position;
 
         if (cam_move_position.x < limits[StageInfo.theme_number - 1].limit_x_left.position.x)
             cam_move_position = new Vector2(limits[StageInfo.theme_number - 1].limit_x_left.position.x, cam_move_position.y);
@@ -141,6 +141,7 @@ public class StageSelect : MonoBehaviour
 
         if (!ReadyWindow.activeSelf)
         {
+            cam_move_position.z = -10;
             CameraManager.Instance.MoveCamera(cam_move_position, 5);
         }
     }
