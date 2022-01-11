@@ -102,6 +102,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField] ParticleSystem touch_up_effect_prefab;
+    ParticleSystem touch_up_effect;
     private void Awake()
     {
         Instance = this;
@@ -146,28 +148,7 @@ public class GameManager : MonoBehaviour
         {
             SaveManager.Load(ref DailyRewards, "DailyRewards");
         }
-        else
-        {
-            for (int i = 0; i < 28; i++)
-            {
-                int div = i / 7;
-                switch (div)
-                {
-                    case 0:
-                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Stemina, value = 1 });
-                        break;
-                    case 1:
-                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Jem, value = 2 });
-                        break;
-                    case 2:
-                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Coin, value = 3 });
-                        break;
-                    case 3:
-                        DailyRewards.Add(new DailyReward { gotten = false, kind = StageInfoLinker.Reward_Kind.Jem, value = 4 });
-                        break;
-                }
-            }
-        }
+
         onAutoSave += () => { SaveManager.Save(DailyRewards, "DailyRewards"); };
 
         for (int i = 0; i < 9; i++)
@@ -192,6 +173,15 @@ public class GameManager : MonoBehaviour
             Coin += 50;
             Jem += 50;
             PlayerLevel += 10;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (!touch_up_effect)
+                touch_up_effect = Instantiate(touch_up_effect_prefab);
+
+            touch_up_effect.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            touch_up_effect.Play();
         }
     }
 

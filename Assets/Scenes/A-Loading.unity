@@ -622,6 +622,7 @@ MonoBehaviour:
   spawn: {fileID: 0}
   damage: {fileID: 0}
   buff: {fileID: 0}
+  move: {fileID: 0}
   cool: {fileID: 0}
 --- !u!4 &690441611
 Transform:
@@ -1494,7 +1495,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15ea9f1591a6334bb030adfa143f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DailyRewards: []
+  DailyRewards:
+  - kind: 0
+    value: 5000
+    gotten: 0
+  - kind: 0
+    value: 5000
+    gotten: 0
+  - kind: 3
+    value: 3
+    gotten: 0
+  - kind: 3
+    value: 3
+    gotten: 0
+  - kind: 1
+    value: 200
+    gotten: 0
+  - kind: 1
+    value: 200
+    gotten: 0
+  - kind: 1
+    value: 300
+    gotten: 0
+  - kind: 0
+    value: 6000
+    gotten: 0
+  - kind: 0
+    value: 6000
+    gotten: 0
+  - kind: 3
+    value: 8
+    gotten: 0
+  - kind: 3
+    value: 8
+    gotten: 0
+  - kind: 1
+    value: 300
+    gotten: 0
+  - kind: 1
+    value: 300
+    gotten: 0
+  - kind: 1
+    value: 450
+    gotten: 0
+  - kind: 0
+    value: 7500
+    gotten: 0
+  - kind: 0
+    value: 7500
+    gotten: 0
+  - kind: 3
+    value: 15
+    gotten: 0
+  - kind: 3
+    value: 15
+    gotten: 0
+  - kind: 1
+    value: 400
+    gotten: 0
+  - kind: 1
+    value: 400
+    gotten: 0
+  - kind: 1
+    value: 600
+    gotten: 0
+  - kind: 0
+    value: 10000
+    gotten: 0
+  - kind: 0
+    value: 10000
+    gotten: 0
+  - kind: 3
+    value: 20
+    gotten: 0
+  - kind: 3
+    value: 20
+    gotten: 0
+  - kind: 1
+    value: 500
+    gotten: 0
+  - kind: 1
+    value: 500
+    gotten: 0
+  - kind: 1
+    value: 750
+    gotten: 0
   Items:
   - {fileID: 5586806061641731155, guid: 58c715f084a8cb747a7941623787784b, type: 3}
   - {fileID: 5339225504236965770, guid: bb2f5a5c153aabf4fb8e0dd0304b0312, type: 3}
@@ -1521,6 +1606,7 @@ MonoBehaviour:
   UnBoxingCount: 11
   EnteredDeckView: 0
   DateTimers: []
+  touch_up_effect_prefab: {fileID: 2818275803141509851, guid: c0fc108ec4b6d3b4f8a25a9589a20a41, type: 3}
 --- !u!4 &1952391301
 Transform:
   m_ObjectHideFlags: 0
