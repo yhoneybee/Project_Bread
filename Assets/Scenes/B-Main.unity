@@ -218,10 +218,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 6665966}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 600
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &6665965 stripped
@@ -421,10 +429,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 10348247}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 7,500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &10348246 stripped
@@ -681,10 +697,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 44335185}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 6,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &44335184 stripped
@@ -1473,10 +1497,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 167638508}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &167638507 stripped
@@ -1605,6 +1637,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 169880920}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &169880919 stripped
@@ -1921,6 +1957,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 236422933}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &236422932 stripped
@@ -2045,10 +2085,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 247915115}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &247915114 stripped
@@ -2215,6 +2263,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 263021825}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &263021824 stripped
@@ -3298,10 +3350,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 433402769}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 750
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &433402768 stripped
@@ -3898,10 +3958,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 518255010}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 10,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &518255009 stripped
@@ -4343,10 +4411,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 623570175}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &623570174 stripped
@@ -4475,6 +4551,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 658430333}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &658430332 stripped
@@ -4761,10 +4841,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 708459295}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &708459294 stripped
@@ -6255,6 +6343,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1028631051}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1028631050 stripped
@@ -6581,10 +6673,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1038084870}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1038084869 stripped
@@ -6709,10 +6809,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1085729531}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 400
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1085729530 stripped
@@ -6970,10 +7078,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1096395510}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 5,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1096395509 stripped
@@ -7098,10 +7214,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1103875456}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 7,500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1103875455 stripped
@@ -7464,6 +7588,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1145700553}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1145700552 stripped
@@ -9004,10 +9132,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1351734593}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 6,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1351734592 stripped
@@ -9381,10 +9517,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1427655199}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 5,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1427655198 stripped
@@ -9852,6 +9996,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1609413574}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1609413573 stripped
@@ -10137,6 +10285,10 @@ PrefabInstance:
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1747553351}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1747553350 stripped
@@ -10261,10 +10413,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1838934184}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1838934183 stripped
@@ -11043,10 +11203,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1946857539}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1946857538 stripped
@@ -11171,10 +11339,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8dedd20cf174e9c47ac105643c671844, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1994071531}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 10,000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1994071530 stripped
@@ -12020,10 +12196,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977839636550, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a943b88127d169b4da8f09f1808f3b62, type: 3}
     - target: {fileID: 1998931978085408112, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 2114247411}
+    - target: {fileID: 1998931979766374994, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: m_text
+      value: 450
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &2114247410 stripped

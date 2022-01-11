@@ -30,16 +30,18 @@ public class DailyRewardLinker : MonoBehaviour
 
     private void Start()
     {
-        DailyReward = GameManager.Instance.DailyRewards[transform.GetSiblingIndex()];
+        int this_index = transform.GetSiblingIndex();
+
+        DailyReward = GameManager.Instance.DailyRewards[this_index];
         var text = Count.GetComponent<TextMeshProUGUI>();
         text.text = $"{DailyReward.value}";
         //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
         isGet = DailyReward.gotten;
-        if (transform.GetSiblingIndex() == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
+        if (this_index == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
             GetComponent<Animator>().Play("Flash");
         Get.onClick.AddListener(() =>
         {
-            if (transform.GetSiblingIndex() == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
+            if (this_index == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
             {
                 GetComponent<Animator>().Play("NONE");
                 GameManager.Instance.Daily.Date = System.DateTime.Now;
