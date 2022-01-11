@@ -427,6 +427,8 @@ public abstract class Unit : MonoBehaviour
             }
         }
 
+        attack_animation = null;
+
         yield return new WaitForSeconds(1.0f / Stat.AS - 0.1f);
         is_attack_able = true;
     }
