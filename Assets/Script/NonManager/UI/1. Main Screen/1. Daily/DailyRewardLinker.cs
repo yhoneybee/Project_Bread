@@ -28,7 +28,7 @@ public class DailyRewardLinker : MonoBehaviour
     }
 
 
-    private void Start()
+    private void FixedUpdate()
     {
         int this_index = transform.GetSiblingIndex();
 
@@ -37,11 +37,15 @@ public class DailyRewardLinker : MonoBehaviour
         text.text = $"{DailyReward.value}";
         //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
         isGet = DailyReward.gotten;
-        if (this_index == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
-            GetComponent<Animator>().Play("Flash");
+        string shortDate = GameManager.Instance.Daily.Date.ToString("dd");
+        string nowShortDate = System.DateTime.Now.ToString("dd");
+        int iShortDate = System.Convert.ToInt32(shortDate);
+        int iNowShortDate = System.Convert.ToInt32(nowShortDate);
+        if (this_index == GameManager.Instance.DailyDays && !isGet && (iShortDate < iNowShortDate || (iShortDate == 30 && iNowShortDate < 30) || (iShortDate == 31 && iNowShortDate < 31)))
+            GetComponent<Animator>().Play("Pointing");
         Get.onClick.AddListener(() =>
         {
-            if (this_index == GameManager.Instance.DailyDays && !isGet && GameManager.Instance.Daily.Date + GameManager.Instance.Daily.Time < System.DateTime.Now)
+            if (this_index == GameManager.Instance.DailyDays && !isGet && (iShortDate < iNowShortDate || (iShortDate == 30 && iNowShortDate < 30) || (iShortDate == 31 && iNowShortDate < 31)))
             {
                 GetComponent<Animator>().Play("NONE");
                 GameManager.Instance.Daily.Date = System.DateTime.Now;
