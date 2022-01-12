@@ -58,7 +58,7 @@ public class ButtonActions : MonoBehaviour
 
     public void SetThemeNumber(int theme_number)
     {
-        string[] theme_names = { "밝은 오븐", "넓은 등판", "음침한 숲", "???", "업데이트 예정" };
+        string[] theme_names = { "밝은 오븐", "넓은 등판", "음침한 숲" };
 
         StageInfo.theme_number = theme_number;
         StageInfo.theme_name = theme_names[theme_number - 1];

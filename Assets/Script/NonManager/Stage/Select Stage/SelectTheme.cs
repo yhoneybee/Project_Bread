@@ -9,12 +9,25 @@ public class SelectTheme : MonoBehaviour
     [SerializeField] Canvas msg_canvas;
     // 화면에 나타나는 안내 문구 프리팹
     [SerializeField] GameObject help_text_prefab;
+    GameObject help_text_obj;
 
     [SerializeField] ParticleSystem[] celebrationParticles = new ParticleSystem[2];
 
+    [SerializeField] Image[] theme_images;
+    [SerializeField] Sprite[] theme_sprites;
+    [SerializeField] Sprite dont_startable_sprite;
+
+    bool[] is_theme_startable;
+
     void Start()
     {
+        is_theme_startable = new bool[GameManager.Instance.theme_count];
 
+        for (int i = 0; i < is_theme_startable.Length; i++)
+        {
+            is_theme_startable[i] = StageManager.Instance.GetStage(i, 0).is_startable;
+            theme_images[i].sprite = (is_theme_startable[i] ? theme_sprites[i] : dont_startable_sprite);
+        }
     }
 
     void Update()
@@ -26,27 +39,38 @@ public class SelectTheme : MonoBehaviour
     }
 
 
+    Coroutine text_fade = null;
+    Coroutine panel_fade = null;
     public void LoadTheme(int theme_number)
     {
         if (help_text_prefab)
         {
-            ButtonActions.Instance.SetThemeNumber(theme_number);
 
-            if (theme_number < 5)
-                if (theme_number != 1 && StageManager.Instance.GetStage(StageInfo.theme_number - 2, 9).star_count == 0) // 인덱스로서 접근하기 때문에 빼줌
+            if (theme_number <= GameManager.Instance.theme_count)
+            {
+                if (theme_number != 1 && !is_theme_startable[theme_number - 1])
                 {
-                    GameObject help_text_obj = Instantiate(help_text_prefab, msg_canvas.transform);
+                    if (help_text_obj)
+                    {
+                        StopCoroutine(text_fade);
+                        StopCoroutine(panel_fade);
+                        Destroy(help_text_obj);
+                    }
+
+                    help_text_obj = Instantiate(help_text_prefab, msg_canvas.transform);
                     var text = help_text_obj.GetComponentInChildren<TextMeshProUGUI>();
 
-                    text.text = $"에피소드 {--StageInfo.theme_number}을(를) 클리어해주세요.";
+                    text.text = $"에피소드 {theme_number - 1}을(를) 클리어해주세요.";
 
-                    StartCoroutine(FadeOut(text));
-                    StartCoroutine(FadeOut(help_text_obj.GetComponent<Image>()));
+                    text_fade = StartCoroutine(FadeOut(text));
+                    panel_fade = StartCoroutine(FadeOut(help_text_obj.GetComponent<Image>()));
                 }
                 else
                 {
+                    ButtonActions.Instance.SetThemeNumber(theme_number);
                     ButtonActions.Instance.ChangeScene("D-01_StageSelect");
                 }
+            }
         }
     }
 
