@@ -79,11 +79,11 @@ public class GameManager : MonoBehaviour
         {
             playerLevel = value;
             // TODO : 1레벨당 추가 효과
-            var find = levelUpEffects.Find(x => x.minLevel <= playerLevel && playerLevel <= x.maxLevel);
-            if (find != null)
+            selectLevelUpEffect = levelUpEffects.Find(x => x.minLevel <= playerLevel && playerLevel <= x.maxLevel);
+            if (selectLevelUpEffect != null)
             {
-                Coin += find.rewardC;
-                Jem += find.rewardJ;
+                Coin += selectLevelUpEffect.rewardC;
+                Jem += selectLevelUpEffect.rewardJ;
             }
             if (playerLevel % 10 == 0)
             {
@@ -97,11 +97,13 @@ public class GameManager : MonoBehaviour
         get => playerExp;
         set
         {
-            var find = levelUpEffects.Find(x => x.minLevel <= PlayerLevel && PlayerLevel <= x.maxLevel);
+            if (PlayerLevel >= 100) return;
+
+            selectLevelUpEffect = levelUpEffects.Find(x => x.minLevel <= PlayerLevel && PlayerLevel <= x.maxLevel);
             playerExp = value;
-            if (find.needExp <= playerExp)
+            if (selectLevelUpEffect.needExp <= playerExp)
             {
-                PlayerExp -= find.needExp;
+                PlayerExp -= selectLevelUpEffect.needExp;
                 PlayerLevel++;
             }
         }
@@ -135,6 +137,8 @@ public class GameManager : MonoBehaviour
 
     public List<LevelUpEffect> levelUpEffects = new List<LevelUpEffect>();
 
+    public LevelUpEffect selectLevelUpEffect;
+
     [SerializeField] ParticleSystem touch_up_effect_prefab;
     ParticleSystem touch_up_effect;
     private void Awake()
@@ -154,6 +158,8 @@ public class GameManager : MonoBehaviour
         levelUpEffects.Add(new LevelUpEffect { minLevel = 71, maxLevel = 80, needExp = 3300, rewardC = 8000, rewardJ = 80 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 81, maxLevel = 90, needExp = 4100, rewardC = 9000, rewardJ = 90 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 91, maxLevel = 100, needExp = 5000, rewardC = 10000, rewardJ = 100 });
+
+        selectLevelUpEffect = levelUpEffects[0];
 
         StartCoroutine(EAutoSave());
 

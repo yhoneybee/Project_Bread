@@ -28,8 +28,29 @@ public class ResourceLinker : MonoBehaviour
         if (NameText && ExpSlider)
         {
             NameText.text = $"Lv.{GameManager.Instance.PlayerLevel} yhoneybee";
-            ExpSlider.value = GameManager.Instance.PlayerExp / GameManager.Instance.need_exp;
+            ExpSlider.value = GameManager.Instance.PlayerExp;
+            ExpSlider.maxValue = GameManager.Instance.selectLevelUpEffect.needExp;
             ExpText.text = $"{GameManager.Instance.PlayerExp / GameManager.Instance.need_exp * 100}%";
+
+            if (GameManager.Instance.PlayerLevel >= 100)
+            {
+                ExpSlider.value = 1;
+                ExpSlider.maxValue = 1;
+                ExpText.text = $"MAX";
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            GameManager.Instance.PlayerExp += 100;
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            GameManager.Instance.PlayerExp += 1000;
+        }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            GameManager.Instance.PlayerExp += 10000;
         }
 
         CoinText.text = $"{GameManager.Instance.Coin:#,0}";

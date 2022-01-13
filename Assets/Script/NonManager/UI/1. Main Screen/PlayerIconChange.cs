@@ -26,7 +26,6 @@ public class PlayerIconChange : MonoBehaviour
                 UIManager.Instance.FixSizeToRatio(img, rtrnIconsParent.GetComponent<GridLayoutGroup>().cellSize.x);
                 Obj.GetComponent<Button>().onClick.AddListener(() =>
                 {
-                    print("SDFJK");
                     goConfirm.SetActive(true);
                     sprite = img.sprite;
                     before.sprite = imgIcon.sprite;
