@@ -10,6 +10,8 @@ public struct DailyUI
 {
     public RectTransform Daily;
     public List<DailyRewardLinker> LinkerList;
+    public RectTransform GetDailyParent;
+    public DailyRewardLinker GetDaily;
 }
 [System.Serializable]
 public struct SwitchSprite

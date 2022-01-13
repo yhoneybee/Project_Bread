@@ -2415,6 +2415,8 @@ MonoBehaviour:
     - {fileID: 1946857540}
     - {fileID: 167638509}
     - {fileID: 433402770}
+    GetDailyParent: {fileID: 1825324501}
+    GetDaily: {fileID: 1900036622}
 --- !u!114 &308362920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10335,7 +10337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1825324501
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11008,6 +11010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DailyReward
       objectReference: {fileID: 0}
+    - target: {fileID: 1998931977837078827, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+      propertyPath: isResult
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
 --- !u!224 &1900036621 stripped
@@ -11015,6 +11021,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1998931977837078824, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
   m_PrefabInstance: {fileID: 1900036620}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1900036622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1998931977837078827, guid: f137d74a449e3444a8be0c60a63b6cba, type: 3}
+  m_PrefabInstance: {fileID: 1900036620}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3650c34251b33247819b060b2c0fe62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1928325868
 PrefabInstance:
   m_ObjectHideFlags: 0

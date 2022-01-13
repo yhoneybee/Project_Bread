@@ -11,6 +11,7 @@ public class DailyRewardLinker : MonoBehaviour
     public RectTransform Count;
     public RectTransform Already;
     public Button Get;
+    public bool isResult;
 
     DailyReward DailyReward;
 
@@ -30,46 +31,66 @@ public class DailyRewardLinker : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int this_index = transform.GetSiblingIndex();
-
-        DailyReward = GameManager.Instance.DailyRewards[this_index];
-        var text = Count.GetComponent<TextMeshProUGUI>();
-        text.text = $"{DailyReward.value}";
-        //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
-        isGet = DailyReward.gotten;
-        string shortDate = GameManager.Instance.Daily.Date.ToString("dd");
-        string nowShortDate = System.DateTime.Now.ToString("dd");
-        int iShortDate = System.Convert.ToInt32(shortDate);
-        int iNowShortDate = System.Convert.ToInt32(nowShortDate);
-        if (this_index == GameManager.Instance.DailyDays && !isGet && (iShortDate < iNowShortDate || (iShortDate == 30 && iNowShortDate < 30) || (iShortDate == 31 && iNowShortDate < 31)))
-            GetComponent<Animator>().Play("Pointing");
-        Get.onClick.AddListener(() =>
+        if (!isResult)
         {
+            int this_index = transform.GetSiblingIndex();
+
+            DailyReward = GameManager.Instance.DailyRewards[this_index];
+            var text = Count.GetComponent<TextMeshProUGUI>();
+            text.text = $"{DailyReward.value}";
+            //isGet = GameManager.Instance.Gets[transform.GetSiblingIndex()].gotten;
+            isGet = DailyReward.gotten;
+            string shortDate = GameManager.Instance.Daily.Date.ToString("dd");
+            string nowShortDate = System.DateTime.Now.ToString("dd");
+            int iShortDate = System.Convert.ToInt32(shortDate);
+            int iNowShortDate = System.Convert.ToInt32(nowShortDate);
             if (this_index == GameManager.Instance.DailyDays && !isGet && (iShortDate < iNowShortDate || (iShortDate == 30 && iNowShortDate < 30) || (iShortDate == 31 && iNowShortDate < 31)))
+                GetComponent<Animator>().Play("Pointing");
+            Get.onClick.AddListener(() =>
             {
-                GetComponent<Animator>().Play("NONE");
-                GameManager.Instance.Daily.Date = System.DateTime.Now;
-                ++GameManager.Instance.DailyDays;
-
-                isGet = true;
-
-                switch (DailyReward.kind)
+                string shortDate = GameManager.Instance.Daily.Date.ToString("dd");
+                string nowShortDate = System.DateTime.Now.ToString("dd");
+                int iShortDate = System.Convert.ToInt32(shortDate);
+                int iNowShortDate = System.Convert.ToInt32(nowShortDate);
+                if (this_index == GameManager.Instance.DailyDays && !isGet && (iShortDate < iNowShortDate || (iShortDate == 30 && iNowShortDate < 30) || (iShortDate == 31 && iNowShortDate < 31)))
                 {
-                    case StageInfoLinker.Reward_Kind.Coin:
-                        GameManager.Instance.Coin += DailyReward.value;
-                        break;
-                    case StageInfoLinker.Reward_Kind.Jem:
-                        GameManager.Instance.Jem += DailyReward.value;
-                        break;
-                    case StageInfoLinker.Reward_Kind.Unit:
-                        // NONE
-                        break;
-                    case StageInfoLinker.Reward_Kind.Stemina:
-                        GameManager.Instance.Stemina += DailyReward.value;
-                        break;
+                    GetComponent<Animator>().Play("NONE");
+                    UIManager.Instance.DailyUI.GetDailyParent.gameObject.SetActive(true);
+                    GameManager.Instance.Daily.Date = System.DateTime.Now;
+                    ++GameManager.Instance.DailyDays;
+
+                    isGet = true;
+
+                    switch (DailyReward.kind)
+                    {
+                        case StageInfoLinker.Reward_Kind.Coin:
+                            GameManager.Instance.Coin += DailyReward.value;
+                            break;
+                        case StageInfoLinker.Reward_Kind.Jem:
+                            GameManager.Instance.Jem += DailyReward.value;
+                            break;
+                        case StageInfoLinker.Reward_Kind.Unit:
+                            // NONE
+                            break;
+                        case StageInfoLinker.Reward_Kind.Stemina:
+                            GameManager.Instance.Stemina += DailyReward.value;
+                            break;
+                    }
                 }
+            });
+        }
+        else
+        {
+            DailyReward = GameManager.Instance.DailyRewards[GameManager.Instance.DailyDays];
+            var text = Count.GetComponent<TextMeshProUGUI>();
+            text.text = $"{DailyReward.value}";
+            UIManager.Instance.DailyUI.GetDailyParent.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"{DailyReward.kind}¿ª(∏¶) »πµÊ«œºÃΩ¿¥œ¥Ÿ!";
+            if (Input.GetMouseButton(0))
+            {
+                UIManager.Instance.DailyUI.GetDailyParent.gameObject.SetActive(false);
             }
-        });
+        }
+
         var img = Icon.GetComponent<Image>();
 
         img.sprite = DailyReward.kind switch
@@ -83,6 +104,6 @@ public class DailyRewardLinker : MonoBehaviour
 
         var glg = transform.parent.GetComponent<GridLayoutGroup>();
 
-        UIManager.Instance.FixSizeToRatio(img, glg.cellSize.y - 10);
+        UIManager.Instance.FixSizeToRatio(img, isResult ? 100 : glg.cellSize.y - 10);
     }
 }
