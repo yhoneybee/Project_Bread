@@ -88,7 +88,29 @@ public class GameManager : MonoBehaviour
             if (playerLevel % 10 == 0)
             {
                 // TODO : 10레벨 추가 효과, 아마 문서로 정리되야 할듯
-
+                switch (playerLevel / 10)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        break;
+                    case 10:
+                        break;
+                }
             }
         }
     }
