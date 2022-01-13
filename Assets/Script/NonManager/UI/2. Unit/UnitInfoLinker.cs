@@ -24,6 +24,7 @@ public class UnitInfoLinker : MonoBehaviour
 
     public int upgrade_cost;
     public int card_count;
+    public int get_exp;
 
     int current_panel_index = 0;
 
@@ -31,6 +32,8 @@ public class UnitInfoLinker : MonoBehaviour
 
     void Start()
     {
+        SetUpgradeValue();
+
         SetText();
         RankIcon.sprite = RankSprites[(int)GameManager.SelectUnit.Info.Rank];
         SetStatValue();
@@ -49,6 +52,89 @@ public class UnitInfoLinker : MonoBehaviour
         });
 
         SetTextColor();
+    }
+
+    private void SetUpgradeValue()
+    {
+        switch (GameManager.SelectUnit.Info.Rank)
+        {
+            case Rank.COMMON:
+
+                upgrade_cost = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 3000,
+                    int i when 11 <= i && i <= 20 => 5000,
+                    int i when 21 <= i && i <= 30 => 7000,
+                    _ => 9999999,
+                };
+
+                get_exp = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 100,
+                    int i when 11 <= i && i <= 20 => 125,
+                    int i when 21 <= i && i <= 30 => 150,
+                    _ => 0,
+                };
+
+                break;
+            case Rank.RARE:
+
+                upgrade_cost = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 5000,
+                    int i when 11 <= i && i <= 20 => 7000,
+                    int i when 21 <= i && i <= 30 => 9000,
+                    _ => 9999999,
+                };
+
+                get_exp = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 200,
+                    int i when 11 <= i && i <= 20 => 250,
+                    int i when 21 <= i && i <= 30 => 300,
+                    _ => 0,
+                };
+
+                break;
+            case Rank.EPIC:
+
+                upgrade_cost = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 7000,
+                    int i when 11 <= i && i <= 20 => 9000,
+                    int i when 21 <= i && i <= 30 => 11000,
+                    _ => 9999999,
+                };
+
+                get_exp = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 500,
+                    int i when 11 <= i && i <= 20 => 600,
+                    int i when 21 <= i && i <= 30 => 700,
+                    _ => 0,
+                };
+
+                break;
+            case Rank.LEGEND:
+
+                upgrade_cost = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 9000,
+                    int i when 11 <= i && i <= 20 => 11000,
+                    int i when 21 <= i && i <= 30 => 13000,
+                    _ => 9999999,
+                };
+
+                get_exp = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 800,
+                    int i when 11 <= i && i <= 20 => 1000,
+                    int i when 21 <= i && i <= 30 => 1200,
+                    _ => 0,
+                };
+
+                break;
+        }
     }
 
     void Update()
@@ -129,15 +215,18 @@ public class UnitInfoLinker : MonoBehaviour
 
     public void Upgrade_Unit()
     {
-        if (GameManager.Instance.Coin >= upgrade_cost && GameManager.SelectUnit.Info.Count >= card_count)
+        if (GameManager.Instance.Coin >= upgrade_cost && GameManager.SelectUnit.Info.Count >= card_count && GameManager.SelectUnit.Info.Level < 30)
         {
             GameManager.Instance.Coin -= upgrade_cost;
             GameManager.SelectUnit.Info.Level++;
             GameManager.SelectUnit.Info.Count -= card_count;
+            GameManager.Instance.PlayerExp += get_exp;
 
             SetText();
 
             SetTextColor();
+
+            SetUpgradeValue();
         }
     }
 

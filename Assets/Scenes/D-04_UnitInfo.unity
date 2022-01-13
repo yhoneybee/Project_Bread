@@ -7064,6 +7064,8 @@ MonoBehaviour:
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []
+    GetDailyParent: {fileID: 0}
+    GetDaily: {fileID: 0}
 --- !u!4 &1102601929
 Transform:
   m_ObjectHideFlags: 0

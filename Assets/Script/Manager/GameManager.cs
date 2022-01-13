@@ -14,6 +14,16 @@ public class DailyReward
     public bool gotten;
 }
 
+[Serializable]
+public class LevelUpEffect
+{
+    public int minLevel;
+    public int maxLevel;
+    public int needExp;
+    public int rewardC;
+    public int rewardJ;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
@@ -69,13 +79,34 @@ public class GameManager : MonoBehaviour
         {
             playerLevel = value;
             // TODO : 1레벨당 추가 효과
+            var find = levelUpEffects.Find(x => x.minLevel <= playerLevel && playerLevel <= x.maxLevel);
+            if (find != null)
+            {
+                Coin += find.rewardC;
+                Jem += find.rewardJ;
+            }
             if (playerLevel % 10 == 0)
             {
                 // TODO : 10레벨 추가 효과, 아마 문서로 정리되야 할듯
+
             }
         }
     }
-    public int player_exp = 0;
+    public int PlayerExp
+    {
+        get => playerExp;
+        set
+        {
+            var find = levelUpEffects.Find(x => x.minLevel <= PlayerLevel && PlayerLevel <= x.maxLevel);
+            playerExp = value;
+            if (find.needExp <= playerExp)
+            {
+                PlayerExp -= find.needExp;
+                PlayerLevel++;
+            }
+        }
+    }
+    private int playerExp;
     public int need_exp = 100;
     public int Coin = 0;
     public int Jem = 0;
@@ -102,6 +133,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public List<LevelUpEffect> levelUpEffects = new List<LevelUpEffect>();
+
     [SerializeField] ParticleSystem touch_up_effect_prefab;
     ParticleSystem touch_up_effect;
     private void Awake()
@@ -111,6 +144,17 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 1, maxLevel = 10, needExp = 500, rewardC = 1000, rewardJ = 10 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 11, maxLevel = 20, needExp = 600, rewardC = 2000, rewardJ = 20 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 21, maxLevel = 30, needExp = 800, rewardC = 3000, rewardJ = 30 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 31, maxLevel = 40, needExp = 1100, rewardC = 4000, rewardJ = 40 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 41, maxLevel = 50, needExp = 1500, rewardC = 5000, rewardJ = 50 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 51, maxLevel = 60, needExp = 2000, rewardC = 6000, rewardJ = 60 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 61, maxLevel = 70, needExp = 2600, rewardC = 7000, rewardJ = 70 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 71, maxLevel = 80, needExp = 3300, rewardC = 8000, rewardJ = 80 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 81, maxLevel = 90, needExp = 4100, rewardC = 9000, rewardJ = 90 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 91, maxLevel = 100, needExp = 5000, rewardC = 10000, rewardJ = 100 });
+
         StartCoroutine(EAutoSave());
 
         var resource = SaveManager.Load<int>("ResourceData");
