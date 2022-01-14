@@ -71,6 +71,14 @@ public class GameManager : MonoBehaviour
     public static Unit SelectUnit;
     public static int SelectSlotIdx;
 
+    public int GlobalCP;
+    // LS Persent
+    public int GlobalLSP;
+    // ««»Ì ∫Ò¿≤
+    public int LifeStealRatio;
+    // ∫Œ»∞ »Æ∑¸
+    public int ResurrectionP;
+
     private int playerLevel = 1;
     public int PlayerLevel
     {
@@ -91,24 +99,40 @@ public class GameManager : MonoBehaviour
                 switch (playerLevel / 10)
                 {
                     case 1:
+                        GlobalCP = 10;
                         break;
                     case 2:
+                        GlobalLSP = 5;
+                        LifeStealRatio = 5;
                         break;
                     case 3:
+                        ResurrectionP = 2;
                         break;
                     case 4:
+                        GlobalCP = 20;
                         break;
                     case 5:
+                        GlobalLSP = 10;
+                        LifeStealRatio = 10;
                         break;
                     case 6:
+                        ResurrectionP = 4;
                         break;
                     case 7:
+                        GlobalCP = 30;
                         break;
                     case 8:
+                        GlobalLSP = 15;
+                        LifeStealRatio = 15;
                         break;
                     case 9:
+                        ResurrectionP = 6;
                         break;
                     case 10:
+                        GlobalCP = 45;
+                        GlobalLSP = 20;
+                        LifeStealRatio = 20;
+                        ResurrectionP = 10;
                         break;
                 }
             }

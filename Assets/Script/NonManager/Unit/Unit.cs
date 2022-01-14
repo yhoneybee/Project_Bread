@@ -86,6 +86,8 @@ public struct Stat
     public float AS;
     ///<summary>LS : LifeSteal</summary>///
     public float LS;
+    ///<summary>CP : Critical Persent</summary>///
+    public float CP;
     ///<summary>���(�۵�) ������ ����</summary>///
     public Proportionality Proportionality;
 
@@ -286,7 +288,17 @@ public abstract class Unit : MonoBehaviour
                 if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
                 {
                     if (!isTower)
-                        UnitManager.Instance.ReturnUnit(this, null);
+                    {
+                        if (Resurrection())
+                        {
+                            Stat.HP = Stat.MaxHP;
+                            print($"<color=while>부활!</color>");
+                        }
+                        else
+                        {
+                            UnitManager.Instance.ReturnUnit(this, null);
+                        }
+                    }
                     if (UnitType == UnitType.UNFRIEND)
                         IngameManager.Instance.ingameEnemies.Remove(this);
                 }
@@ -437,7 +449,23 @@ public abstract class Unit : MonoBehaviour
     {
         foreach (var item in Items) item.OnAttack(taken);
 
-        taken.OnHit(this, Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken));
+        var totalDamage = Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken);
+
+        int rand = UnityEngine.Random.Range(1, 101);
+
+        float ls;
+
+        if (GameManager.Instance.GlobalLSP >= rand && GameManager.Instance.LifeStealRatio != 0)
+        {
+            // x : damage = Ratio : 100
+            ls = totalDamage * GameManager.Instance.LifeStealRatio / 100;
+            Stat.HP += ls;
+        }
+
+        ls = totalDamage * Stat.LS / 100;
+        Stat.HP += ls;
+
+        taken.OnHit(this, totalDamage);
         taken.AttackedEffect(Stat.AD);
         taken.AnimState = AnimState.HIT;
 
@@ -446,6 +474,10 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual void OnHit(Unit taker, float damage)
     {
+        int rand = UnityEngine.Random.Range(1, 101);
+
+        if (taker.Stat.CP + GameManager.Instance.GlobalCP >= rand) damage *= 1.5f;
+
         foreach (var item in Items) if (!Invincibility) item.OnHit(taker, ref damage);
 
         if (!Invincibility) Stat.HP -= damage;
@@ -485,5 +517,11 @@ public abstract class Unit : MonoBehaviour
         }
 
         attacked_effect = null;
+    }
+
+    public bool Resurrection()
+    {
+        int rand = UnityEngine.Random.Range(1, 101);
+        return GameManager.Instance.ResurrectionP <= rand;
     }
 }
