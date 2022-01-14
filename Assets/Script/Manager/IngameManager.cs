@@ -183,6 +183,175 @@ public class IngameManager : MonoBehaviour
 
         StageInfo.stage_number++;
         StageManager.Instance.GetStage().is_startable = true;
+
+        switch (StageInfo.theme_number)
+        {
+            case 1:
+                switch (StageInfo.stage_number)
+                {
+                    case 1:
+                        GameManager.Instance.Coin += 500;
+                        GameManager.Instance.Jem += 5;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 2:
+                        GameManager.Instance.Coin += 500;
+                        GameManager.Instance.Jem += 5;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 3:
+                        GameManager.Instance.Coin += 550;
+                        GameManager.Instance.Jem += 5;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 4:
+                        GameManager.Instance.Coin += 550;
+                        GameManager.Instance.Jem += 5;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 5:
+                        GameManager.Instance.Coin += 600;
+                        GameManager.Instance.Jem += 5;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 6:
+                        GameManager.Instance.Coin += 600;
+                        GameManager.Instance.Jem += 10;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 7:
+                        GameManager.Instance.Coin += 650;
+                        GameManager.Instance.Jem += 10;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 8:
+                        GameManager.Instance.Coin += 650;
+                        GameManager.Instance.Jem += 10;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 9:
+                        GameManager.Instance.Coin += 700;
+                        GameManager.Instance.Jem += 10;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                    case 10:
+                        GameManager.Instance.Coin += 700;
+                        GameManager.Instance.Jem += 10;
+                        GameManager.Instance.PlayerExp += 50;
+                        break;
+                }
+                break;
+            case 2:
+                switch (StageInfo.stage_number)
+                {
+                    case 1:
+                        GameManager.Instance.Coin += 1000;
+                        GameManager.Instance.Jem += 20;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 2:
+                        GameManager.Instance.Coin += 1000;
+                        GameManager.Instance.Jem += 20;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 3:
+                        GameManager.Instance.Coin += 1100;
+                        GameManager.Instance.Jem += 20;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 4:
+                        GameManager.Instance.Coin += 1100;
+                        GameManager.Instance.Jem += 20;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 5:
+                        GameManager.Instance.Coin += 1200;
+                        GameManager.Instance.Jem += 20;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 6:
+                        GameManager.Instance.Coin += 1200;
+                        GameManager.Instance.Jem += 30;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 7:
+                        GameManager.Instance.Coin += 1300;
+                        GameManager.Instance.Jem += 30;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 8:
+                        GameManager.Instance.Coin += 1300;
+                        GameManager.Instance.Jem += 30;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 9:
+                        GameManager.Instance.Coin += 1400;
+                        GameManager.Instance.Jem += 30;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                    case 10:
+                        GameManager.Instance.Coin += 1400;
+                        GameManager.Instance.Jem += 30;
+                        GameManager.Instance.PlayerExp += 75;
+                        break;
+                }
+                break;
+            case 3:
+                switch (StageInfo.stage_number)
+                {
+                    case 1:
+                        GameManager.Instance.Coin += 2000;
+                        GameManager.Instance.Jem += 50;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 2:
+                        GameManager.Instance.Coin += 2000;
+                        GameManager.Instance.Jem += 50;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 3:
+                        GameManager.Instance.Coin += 2200;
+                        GameManager.Instance.Jem += 50;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 4:
+                        GameManager.Instance.Coin += 2200;
+                        GameManager.Instance.Jem += 50;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 5:
+                        GameManager.Instance.Coin += 2400;
+                        GameManager.Instance.Jem += 50;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 6:
+                        GameManager.Instance.Coin += 2400;
+                        GameManager.Instance.Jem += 100;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 7:
+                        GameManager.Instance.Coin += 2600;
+                        GameManager.Instance.Jem += 100;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 8:
+                        GameManager.Instance.Coin += 2600;
+                        GameManager.Instance.Jem += 100;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 9:
+                        GameManager.Instance.Coin += 2800;
+                        GameManager.Instance.Jem += 100;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                    case 10:
+                        GameManager.Instance.Coin += 2800;
+                        GameManager.Instance.Jem += 100;
+                        GameManager.Instance.PlayerExp += 100;
+                        break;
+                }
+                break;
+        }
     }
 
     void SetFullStarLimitUIs()
