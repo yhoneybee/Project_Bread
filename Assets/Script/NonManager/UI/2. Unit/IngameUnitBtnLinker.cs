@@ -24,7 +24,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
         if (!DeckManager.Select[index]) Destroy(gameObject);
         else
         {
-            imgIllust.sprite = DeckManager.Select[index].Info.Icon;
+            imgIllust.sprite = owner.GetComponent<Skill>().sprSkill;
             UIManager.Instance.FixSizeToRatio(imgIllust, 130);
         }
     }
@@ -71,11 +71,11 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
         if (isSkillSprite)
         {
-            imgIllust.sprite = owner.skill.sprSkill;
+            imgIllust.sprite = owner.Info.Icon;
         }
         else
         {
-            imgIllust.sprite = owner.Info.Icon;
+            imgIllust.sprite = owner.skill.sprSkill;
         }
         UIManager.Instance.FixSizeToRatio(imgIllust, imgIllust.transform.parent.GetComponent<RectTransform>().sizeDelta.x - 20);
     }

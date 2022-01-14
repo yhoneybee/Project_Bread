@@ -151,9 +151,9 @@ MonoBehaviour:
     Name: "\uB2E8\uD325\uBE75"
     Icon: {fileID: 21300000, guid: 8f51d18d3d3652743bd7e520c3370aad, type: 3}
     Id: 0
-    Level: 1
-    Cost: 1
-    Count: 1
+    Level: 16
+    Cost: 394
+    Count: 641
     Desc: "\"\uB0B4 \uB2E8\uD325\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 2.5
   Stat:
@@ -164,6 +164,7 @@ MonoBehaviour:
     AR: 1
     AS: 1
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
+  isSkillObj: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -244,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  sprSkill: {fileID: 0}
+  sprSkill: {fileID: 21300000, guid: 5d38eafd8da1b1e4b8d73ee706e09076, type: 3}
   spawn: {fileID: 11400000, guid: b4353e785d2597c44902d3e6f055a26d, type: 2}
   damage: {fileID: 11400000, guid: e7787ccfaeab79145a0e35806ea45c36, type: 2}
   buff: {fileID: 11400000, guid: b372449390811b54cb1b6af29bad036a, type: 2}

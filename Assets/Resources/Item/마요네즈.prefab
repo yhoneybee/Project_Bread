@@ -144,6 +144,7 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -152,3 +153,4 @@ MonoBehaviour:
       AD: 0
   Name: "\uB9C8\uC694\uB124\uC988"
   Desc: "HP\uAC00 40%\uC774\uD558 \uC77C\uB54C LS\uAC00 10% \uC99D\uAC00\uD569\uB2C8\uB2E4"
+  gotten: 1

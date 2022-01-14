@@ -144,6 +144,7 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -153,3 +154,4 @@ MonoBehaviour:
   Name: "\uB538\uAE30 \uC7BC"
   Desc: "\uC0AC\uAC70\uB9AC\uAC00 1.5\uC774\uD558\uC77C \uACBD\uC6B0\n\uCD5C\uB300
     \uCCB4\uB825\uC758 10% \uC544\uB2C8\uB77C\uBA74 6%\uC758 \uD53C\uD574\uB97C \uC90C"
+  gotten: 1

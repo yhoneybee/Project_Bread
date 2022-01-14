@@ -164,6 +164,7 @@ MonoBehaviour:
     AR: 1
     AS: 1
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
+  isSkillObj: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -240,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  sprSkill: {fileID: 0}
+  sprSkill: {fileID: 21300000, guid: f21fa0b4d1de3ec42a98fd6b117378f3, type: 3}
   spawn: {fileID: 11400000, guid: 3aad8b3ebefc07943b9b7e63d97ee27d, type: 2}
   damage: {fileID: 11400000, guid: 879fdb4cf265d774dad9d26390c1a05e, type: 2}
   buff: {fileID: 11400000, guid: 8b19a0befcf9ecf40adc6cb901ba46d9, type: 2}
