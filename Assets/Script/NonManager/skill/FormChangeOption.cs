@@ -15,7 +15,7 @@ public class FormChangeOption : ABuffOption
 
     public override IEnumerator EInvoke(Unit unit)
     {
-        var wait = new WaitForSeconds(0.001f);
+        var wait = new WaitForSeconds(0.01f);
 
         var owner = context.owner;
         sprBefore = owner.SR.sprite;
@@ -33,10 +33,10 @@ public class FormChangeOption : ABuffOption
             if (Mathf.Abs(toScale.x - owner.transform.localScale.x) +
                 Mathf.Abs(toScale.y - owner.transform.localScale.y) < 0.05f)
             {
-                owner.transform.localScale = Vector3.Lerp(owner.transform.localScale, toScale, Time.deltaTime * 2);
+                owner.transform.localScale = Vector3.Lerp(owner.transform.localScale, toScale, Time.deltaTime);
             }
 
-            time += 0.001f;
+            time += 0.01f;
             yield return wait;
         }
 

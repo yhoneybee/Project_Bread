@@ -522,6 +522,6 @@ public abstract class Unit : MonoBehaviour
     public bool Resurrection()
     {
         int rand = UnityEngine.Random.Range(1, 101);
-        return GameManager.Instance.ResurrectionP <= rand;
+        return GameManager.Instance.ResurrectionP >= rand;
     }
 }
