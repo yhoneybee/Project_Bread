@@ -73,7 +73,7 @@ public class ItemManager : MonoBehaviour
                 obj.Btn.onClick.AddListener(() =>
                 {
                     Select = obj.Item;
-                    if (obj.Item.Owner) InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.ASprite;
+                    if (obj.Item.Owner && GameManager.SelectUnit.Info.Name == obj.Item.Owner.Info.Name) InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.ASprite;
                     else InfoView.Release.image.sprite = UIManager.Instance.EnquipSwitchSprite.BSprite;
                     ActiveInfoView();
                 });

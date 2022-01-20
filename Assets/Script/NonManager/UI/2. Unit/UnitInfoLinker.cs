@@ -37,7 +37,7 @@ public class UnitInfoLinker : MonoBehaviour
         SetText();
         RankIcon.sprite = RankSprites[(int)GameManager.SelectUnit.Info.Rank];
         SetStatValue();
-        ExpSlider.maxValue = GameManager.SelectUnit.Need;
+        //ExpSlider.maxValue = GameManager.SelectUnit.Need;
 
         btnLeftRight[0].onClick.AddListener(() =>
         {
@@ -60,6 +60,14 @@ public class UnitInfoLinker : MonoBehaviour
         {
             case Rank.COMMON:
 
+                card_count = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 20,
+                    int i when 11 <= i && i <= 20 => 30,
+                    int i when 21 <= i && i <= 30 => 40,
+                    _ => 9999999,
+                };
+
                 upgrade_cost = GameManager.SelectUnit.Info.Level switch
                 {
                     int i when 1 <= i && i <= 10 => 3000,
@@ -78,6 +86,14 @@ public class UnitInfoLinker : MonoBehaviour
 
                 break;
             case Rank.RARE:
+
+                card_count = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 20,
+                    int i when 11 <= i && i <= 20 => 30,
+                    int i when 21 <= i && i <= 30 => 40,
+                    _ => 9999999,
+                };
 
                 upgrade_cost = GameManager.SelectUnit.Info.Level switch
                 {
@@ -98,6 +114,14 @@ public class UnitInfoLinker : MonoBehaviour
                 break;
             case Rank.EPIC:
 
+                card_count = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 15,
+                    int i when 11 <= i && i <= 20 => 25,
+                    int i when 21 <= i && i <= 30 => 35,
+                    _ => 9999999,
+                };
+
                 upgrade_cost = GameManager.SelectUnit.Info.Level switch
                 {
                     int i when 1 <= i && i <= 10 => 7000,
@@ -117,6 +141,14 @@ public class UnitInfoLinker : MonoBehaviour
                 break;
             case Rank.LEGEND:
 
+                card_count = GameManager.SelectUnit.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 15,
+                    int i when 11 <= i && i <= 20 => 25,
+                    int i when 21 <= i && i <= 30 => 35,
+                    _ => 9999999,
+                };
+
                 upgrade_cost = GameManager.SelectUnit.Info.Level switch
                 {
                     int i when 1 <= i && i <= 10 => 9000,
@@ -135,6 +167,12 @@ public class UnitInfoLinker : MonoBehaviour
 
                 break;
         }
+        ExpSlider.maxValue = card_count;
+        int currentCount = GameManager.SelectUnit.Info.Count;
+        ExpSlider.value = currentCount;
+        var text = ExpSlider.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = $"{currentCount}/{card_count}";
+        txtUpgrade.text = $"{upgrade_cost}";
     }
 
     void Update()
@@ -161,6 +199,7 @@ public class UnitInfoLinker : MonoBehaviour
     private void FixedUpdate()
     {
         srtUnit.enabled = !zoom.IsHover;
+        SetUpgradeValue();
     }
 
     void SetText()
@@ -183,34 +222,34 @@ public class UnitInfoLinker : MonoBehaviour
     void ShowStatValue(int index, int value)
     {
         Values[index].GetComponentInChildren<TextMeshProUGUI>().text = value.ToString();
-/*        var one_img = Values[index].GetChild(0).GetComponent<Image>();
-        var ten_img = Values[index].GetChild(1).GetComponent<Image>();
-        var hundred_img = Values[index].GetChild(2).GetComponent<Image>();
-        var thousand_img = Values[index].GetChild(3).GetComponent<Image>();
+        /*        var one_img = Values[index].GetChild(0).GetComponent<Image>();
+                var ten_img = Values[index].GetChild(1).GetComponent<Image>();
+                var hundred_img = Values[index].GetChild(2).GetComponent<Image>();
+                var thousand_img = Values[index].GetChild(3).GetComponent<Image>();
 
-        int one = (value % 10);
-        int ten = (value % 100) / 10;
-        int hundred = (value % 1000) / 100;
-        int thousand = (value % 10000) / 1000;
+                int one = (value % 10);
+                int ten = (value % 100) / 10;
+                int hundred = (value % 1000) / 100;
+                int thousand = (value % 10000) / 1000;
 
-        int one_idx = one == 0 ? 9 : one - 1;
-        int ten_idx = ten == 0 ? 9 : ten - 1;
-        int hundred_idx = hundred == 0 ? 9 : hundred - 1;
-        int thousand_idx = thousand == 0 ? 9 : thousand - 1;
+                int one_idx = one == 0 ? 9 : one - 1;
+                int ten_idx = ten == 0 ? 9 : ten - 1;
+                int hundred_idx = hundred == 0 ? 9 : hundred - 1;
+                int thousand_idx = thousand == 0 ? 9 : thousand - 1;
 
-        one_img.gameObject.SetActive(true);
-        ten_img.gameObject.SetActive(true);
-        hundred_img.gameObject.SetActive(true);
-        thousand_img.gameObject.SetActive(true);
+                one_img.gameObject.SetActive(true);
+                ten_img.gameObject.SetActive(true);
+                hundred_img.gameObject.SetActive(true);
+                thousand_img.gameObject.SetActive(true);
 
-        one_img.sprite = UIManager.Instance.Nums[one_idx];
-        ten_img.sprite = UIManager.Instance.Nums[ten_idx];
-        hundred_img.sprite = UIManager.Instance.Nums[hundred_idx];
-        thousand_img.sprite = UIManager.Instance.Nums[thousand_idx];
+                one_img.sprite = UIManager.Instance.Nums[one_idx];
+                ten_img.sprite = UIManager.Instance.Nums[ten_idx];
+                hundred_img.sprite = UIManager.Instance.Nums[hundred_idx];
+                thousand_img.sprite = UIManager.Instance.Nums[thousand_idx];
 
-        if (thousand_idx == 9) thousand_img.gameObject.SetActive(false);
-        if (hundred_idx == 9 && thousand_idx == 9) hundred_img.gameObject.SetActive(false);
-        if (ten_idx == 9 && hundred_idx == 9 && thousand_idx == 9) ten_img.gameObject.SetActive(false);*/
+                if (thousand_idx == 9) thousand_img.gameObject.SetActive(false);
+                if (hundred_idx == 9 && thousand_idx == 9) hundred_img.gameObject.SetActive(false);
+                if (ten_idx == 9 && hundred_idx == 9 && thousand_idx == 9) ten_img.gameObject.SetActive(false);*/
     }
 
     public void Upgrade_Unit()
@@ -225,8 +264,6 @@ public class UnitInfoLinker : MonoBehaviour
             SetText();
 
             SetTextColor();
-
-            SetUpgradeValue();
         }
     }
 
@@ -266,7 +303,7 @@ public class UnitInfoLinker : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         imgDots[1 - target_value].color = Color.white;
-        imgDots[ target_value].color = new Color(0.5f, 0.5f, 0.5f);
+        imgDots[target_value].color = new Color(0.5f, 0.5f, 0.5f);
 
         btnLeftRight[1 - target_value].gameObject.SetActive(true);
         btnLeftRight[target_value].gameObject.SetActive(false);

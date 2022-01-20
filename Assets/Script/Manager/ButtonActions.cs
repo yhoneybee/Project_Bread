@@ -9,6 +9,10 @@ public class ButtonActions : MonoBehaviour
 {
     public static ButtonActions Instance { get; private set; } = null;
 
+    public static bool directMain;
+
+    private static Stack<string> sBeforeScene = new Stack<string>();
+
     private void Awake()
     {
         Instance = this;
@@ -26,7 +30,23 @@ public class ButtonActions : MonoBehaviour
     {
         //StopAllCoroutines();
         //UIManager.Instance.Fade.color = Color.clear;
+        sBeforeScene.Push(SceneManager.GetActiveScene().name);
+        if (directMain && name == "B-Main")
+        {
+            directMain = false;
+            print("False");
+        }
+        else if (CheckReEntering("B-Main"))
+        {
+            directMain = true;
+            print("True");
+        }
         StartCoroutine(EChangeScene(name));
+    }
+
+    public void BackScene()
+    {
+        StartCoroutine(EChangeScene(sBeforeScene.Pop()));
     }
 
     IEnumerator EChangeScene(string name)
@@ -40,16 +60,6 @@ public class ButtonActions : MonoBehaviour
             yield return wait;
         }
         fade_img.color = Color.black;
-
-        if (CheckReEntering("E-01_DeckView")) GameManager.Instance.EnteredDeckView = true;
-        else if (CheckReEntering("D-01_StageSelect")) GameManager.Instance.EnteredDeckView = false;
-
-        if (GameManager.Instance.EnteredDeckView && name == "B-Main")
-        {
-            GameManager.Instance.EnteredDeckView = false;
-            ChangeScene("E-01_DeckView");
-            yield break;
-        }
 
         SceneManager.LoadScene(name);
 

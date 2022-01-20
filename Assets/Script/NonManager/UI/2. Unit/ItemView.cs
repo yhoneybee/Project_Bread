@@ -30,6 +30,18 @@ public class ItemView : MonoBehaviour
             UIManager.Instance.FixSizeToRatio(Img, ItemManager.Instance.ItemContent.GetComponent<GridLayoutGroup>().cellSize.x);
         }
     }
+
+    private void FixedUpdate()
+    {
+        imgOwner.gameObject.SetActive(true);
+        if (item.Owner)
+        {
+            imgOwner.sprite = item.Owner.Info.Icon;
+            UIManager.Instance.FixSizeToRatio(imgOwner, 70, 1, 1, 1, 1);
+        }
+        else imgOwner.gameObject.SetActive(false);
+    }
     public Image Img;
+    public Image imgOwner;
     public Button Btn;
 }

@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
 
             var select_unit = GameManager.SelectUnit;
 
-            if (select_unit && Except)
+            if (select_unit && Except && !ButtonActions.directMain)
             {
                 Except.gameObject.SetActive(true);
                 Except.Viewer.Show = select_unit;

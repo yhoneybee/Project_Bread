@@ -903,6 +903,8 @@ MonoBehaviour:
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []
+    GetDailyParent: {fileID: 0}
+    GetDaily: {fileID: 0}
 --- !u!1 &174485346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1606,7 +1608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeScene
+      value: BackScene
       objectReference: {fileID: 0}
     - target: {fileID: 5118462723905334675, guid: c2b8482659ba47f40b90406288a11212, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

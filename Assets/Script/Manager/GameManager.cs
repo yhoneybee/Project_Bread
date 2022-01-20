@@ -155,7 +155,6 @@ public class GameManager : MonoBehaviour
         }
     }
     private int playerExp;
-    public int need_exp = 100;
     public int Coin = 0;
     public int Jem = 0;
     public int Stemina = 20;

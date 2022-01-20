@@ -27,6 +27,7 @@ public class UnitUILinker : MonoBehaviour
         if (IconBtn)
             IconBtn.onClick.AddListener(() =>
             {
+                if (ButtonActions.directMain) return;
                 if (ButtonActions.Instance.CheckReEntering("D-02_UnitSelect"))
                 {
                     DeckManager.Select[GameManager.SelectSlotIdx] = Viewer.Show;
