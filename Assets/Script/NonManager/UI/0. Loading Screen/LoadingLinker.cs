@@ -7,32 +7,9 @@ using TMPro;
 public class LoadingLinker : MonoBehaviour
 {
     public RectTransform Logo;
-    public Slider LoadingBar;
-    public TextMeshProUGUI Persent;
+    public TextMeshProUGUI txtTouchToStart;
 
     [SerializeField] private float loading_persent;
-
-    public float LoadingPersent
-    {
-        get { return loading_persent; }
-        set
-        {
-            loading_persent = value;
-            if (loading_persent >= 100)
-            {
-                LoadingBar.value = loading_persent;
-                Persent.text = $"{(int)loading_persent}%";
-
-                loading_persent = -9999999;
-                ButtonActions.Instance.ChangeScene("B-Main");
-            }
-            else if (loading_persent > 0)
-            {
-                LoadingBar.value = loading_persent;
-                Persent.text = $"{(int)loading_persent}%";
-            }
-        }
-    }
 
     int loadSpeed = 1;
     Image logo_image;
@@ -40,15 +17,35 @@ public class LoadingLinker : MonoBehaviour
     {
         InvokeRepeating(nameof(SpeedMulti), 0, 3f);
         StartCoroutine(LogoImageFill());
+        StartCoroutine(ETextTypeEffect());
 
         logo_image = Logo.GetComponent<Image>();
     }
     private void Update()
     {
-        LoadingPersent += Time.deltaTime * loadSpeed;
+        if (Input.GetMouseButtonDown(0))
+        {
+            ButtonActions.Instance.ChangeScene("B-Main");
+        }
     }
 
     public void SpeedMulti() => loadSpeed *= 5;
+
+    IEnumerator ETextTypeEffect()
+    {
+        string touchToStart = "터치하여 시작하세요!";
+        var typing = new WaitForSeconds(0.1f);
+        var wait = new WaitForSeconds(1);
+        while (true)
+        {
+            for (int i = 0; i <= touchToStart.Length; i++)
+            {
+                txtTouchToStart.text = touchToStart.Substring(0, i);
+                yield return typing;
+            }
+            yield return wait;
+        }
+    }
 
     IEnumerator LogoImageFill()
     {

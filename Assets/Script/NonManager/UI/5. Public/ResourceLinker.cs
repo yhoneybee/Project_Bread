@@ -30,7 +30,9 @@ public class ResourceLinker : MonoBehaviour
             NameText.text = $"Lv.{GameManager.Instance.PlayerLevel} yhoneybee";
             ExpSlider.value = GameManager.Instance.PlayerExp;
             ExpSlider.maxValue = GameManager.Instance.selectLevelUpEffect.needExp;
-            ExpText.text = $"{GameManager.Instance.PlayerExp / GameManager.Instance.need_exp * 100}%";
+            ExpText.text = $"{GameManager.Instance.PlayerExp * 100 / GameManager.Instance.levelUpEffects.Find(x => x.minLevel <= GameManager.Instance.PlayerLevel && GameManager.Instance.PlayerLevel <= x.maxLevel).needExp}%";
+
+            // exp : need = x : 100
 
             if (GameManager.Instance.PlayerLevel >= 100)
             {

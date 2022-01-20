@@ -29,7 +29,11 @@ public class PlayerIconChange : MonoBehaviour
                     goConfirm.SetActive(true);
                     sprite = img.sprite;
                     before.sprite = imgIcon.sprite;
+                    var rtrnBefore = before.GetComponent<RectTransform>();
+                    UIManager.Instance.FixSizeToRatio(before, rtrnBefore.sizeDelta.y);
                     after.sprite = sprite;
+                    var rtrnAfter = after.GetComponent<RectTransform>();
+                    UIManager.Instance.FixSizeToRatio(after, rtrnAfter.sizeDelta.y);
                 });
             }
         }
@@ -40,6 +44,9 @@ public class PlayerIconChange : MonoBehaviour
         goConfirm.transform.GetChild(1).GetChild(0).GetComponent<Button>().onClick.AddListener(() => 
         {
             imgIcon.sprite = sprite;
+            var rtrnImg = imgIcon.GetComponent<RectTransform>();
+            UIManager.Instance.FixSizeToRatio(imgIcon, rtrnImg.sizeDelta.y);
+            rtrnImg.anchoredPosition = Vector2.zero;
         });
     }
 
