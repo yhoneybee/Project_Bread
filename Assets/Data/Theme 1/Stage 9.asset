@@ -91,9 +91,9 @@ MonoBehaviour:
       delay: 1
   enemies_sprite:
   - {fileID: 21300000, guid: ebabe1dbdf2d83947bab5915ea48b751, type: 3}
-  - {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
-  - {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
-  - {fileID: 21300000, guid: 0fe15faffc3fd744fa12e54f5c4f67c5, type: 3}
+  - {fileID: 21300000, guid: 7373337cc5ec92940bb2029d0f9b8c8e, type: 3}
+  - {fileID: 21300000, guid: 17f4ce89053884a44b3412ce016d02ea, type: 3}
+  - {fileID: 21300000, guid: a283afa15bf18bc49a4f950a64f75816, type: 3}
   reward_information:
     first_clear:
       coin: 7
