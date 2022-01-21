@@ -58,7 +58,7 @@ public class DeckManager : MonoBehaviour
         DeckApply();
         GameManager.Instance.onAutoSave += () =>
         {
-            SaveManager.Save(new List<int>() { LockStartIndex }, "DeckSlot");
+            SaveManager.SaveEnumerable(new List<int>() { LockStartIndex }, "DeckSlot");
         };
     }
 }

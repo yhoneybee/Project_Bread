@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
         set
         {
             daily_days = value;
-            daily_days %= 28;
+            //daily_days %= 28;
         }
     }
 
@@ -193,7 +193,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        levelUpEffects.Add(new LevelUpEffect { minLevel = 1, maxLevel = 10, needExp = 500, rewardC = 1000, rewardJ = 10 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 1,  maxLevel = 10, needExp = 500, rewardC = 1000, rewardJ = 10 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 11, maxLevel = 20, needExp = 600, rewardC = 2000, rewardJ = 20 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 21, maxLevel = 30, needExp = 800, rewardC = 3000, rewardJ = 30 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 31, maxLevel = 40, needExp = 1100, rewardC = 4000, rewardJ = 40 });
@@ -218,7 +218,11 @@ public class GameManager : MonoBehaviour
             MaxStemina = resource.ElementAt(3);
         }
 
-        onAutoSave += () => { SaveManager.Save(new List<int>() { Coin, Jem, Stemina, MaxStemina }, "ResourceData"); };
+        onAutoSave += () => { SaveManager.SaveEnumerable(new List<int>() { Coin, Jem, Stemina, MaxStemina }, "ResourceData"); };
+
+        DailyDays = SaveManager.LoadValue<int>("DailyDays");
+
+        onAutoSave += () => { SaveManager.SaveValue(DailyDays, "DailyDays"); };
 
         if (SaveManager.Instance.IsFile($"DateTimers_Date"))
         {
@@ -236,15 +240,15 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < 3; i++) DateTimers.Add(new DateTimer { Date = DateTime.Now, Time = new TimeSpan(0, 30 * (i + 1), 0) });
         }
 
-        onAutoSave += () => { SaveManager.Save(DateTimers.Select((o) => o.Date.ToString()), "DateTimers_Date"); };
-        onAutoSave += () => { SaveManager.Save(DateTimers.Select((o) => o.Time.ToString()), "DateTimers_Time"); };
+        onAutoSave += () => { SaveManager.SaveEnumerable(DateTimers.Select((o) => o.Date.ToString()), "DateTimers_Date"); };
+        onAutoSave += () => { SaveManager.SaveEnumerable(DateTimers.Select((o) => o.Time.ToString()), "DateTimers_Time"); };
 
         if (SaveManager.Instance.IsFile($"DailyRewards"))
         {
             SaveManager.Load(ref DailyRewards, "DailyRewards");
         }
 
-        onAutoSave += () => { SaveManager.Save(DailyRewards, "DailyRewards"); };
+        onAutoSave += () => { SaveManager.SaveEnumerable(DailyRewards, "DailyRewards"); };
 
         for (int i = 0; i < 9; i++)
         {

@@ -12,6 +12,14 @@ public class Serialization<T>
     public List<T> target;
 }
 
+[Serializable]
+public class ValueSerialization<T>
+{
+    public ValueSerialization(T value) => this.value = value;
+    public T value;
+}
+
+
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager Instance = null;
@@ -30,7 +38,21 @@ public class SaveManager : MonoBehaviour
 
     public bool IsFile(string file_name) => File.Exists($"{Application.persistentDataPath}/{file_name}.json");
 
-    public static void Save<T>(IEnumerable<T> save_target, string file)
+    public static void SaveValue<T>(T save_target, string file)
+    {
+        string path = Instance.GetFilePath(file);
+
+        string json = JsonUtility.ToJson(new ValueSerialization<T>(save_target));
+
+        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
+        string code = Convert.ToBase64String(bytes);
+        File.WriteAllText(path, code);
+        File.WriteAllText($"{Application.persistentDataPath}/{file}_Log.json", json);
+
+        //print($"SAVE TO : {path}");
+    }
+
+    public static void SaveEnumerable<T>(IEnumerable<T> save_target, string file)
     {
         string path = Instance.GetFilePath(file);
 
@@ -57,7 +79,7 @@ public class SaveManager : MonoBehaviour
 
     public static void SaveUnits(IEnumerable<Unit> save_units, string file) => GameManager.Instance.onAutoSave += () =>
     {
-        Save(save_units.Select((o) =>
+        SaveEnumerable(save_units.Select((o) =>
         {
             if (o != null) return o.Info.Name;
             return "___";
@@ -113,5 +135,20 @@ public class SaveManager : MonoBehaviour
         //print($"LOAD FROM : {path}");
 
         return JsonUtility.FromJson<Serialization<T>>(json).target;
+    }
+
+    public static T LoadValue<T>(string file = "")
+    {
+        string path = Instance.GetFilePath(file);
+
+        if (!File.Exists(path)) { return default(T); }
+
+        string code = File.ReadAllText(path);
+        byte[] bytes = Convert.FromBase64String(code);
+        string json = System.Text.Encoding.UTF8.GetString(bytes);
+
+        //print($"LOAD FROM : {path}");
+
+        return JsonUtility.FromJson<ValueSerialization<T>>(json).value;
     }
 }

@@ -164,6 +164,7 @@ MonoBehaviour:
     AR: 1
     AS: 1
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -178,6 +179,7 @@ MonoBehaviour:
   rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
+  isSkillObj: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:

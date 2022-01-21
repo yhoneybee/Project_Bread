@@ -13,6 +13,9 @@ public class UnitUILinker : MonoBehaviour
     public Image imgRankBg;
     public RectTransform IconRestore;
 
+    public Slider CardSlider;
+    public TextMeshProUGUI textCard;
+
     public Button IconBtn;
     public Button InfoBtn;
     public Button[] Buttons;
@@ -60,5 +63,65 @@ public class UnitUILinker : MonoBehaviour
                 ButtonActions.Instance.ChangeScene("D-03_UnitItemInfo");
             });
         }
+    }
+
+    private void FixedUpdate()
+    {
+        CardSlider.gameObject.SetActive(Viewer.Show);
+        if (!Viewer.Show) return;
+        int card_count = 0;
+
+        switch (Viewer.Show.Info.Rank)
+        {
+            case Rank.COMMON:
+
+                card_count = Viewer.Show.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 20,
+                    int i when 11 <= i && i <= 20 => 30,
+                    int i when 21 <= i && i <= 30 => 40,
+                    _ => 9999999,
+                };
+
+                break;
+            case Rank.RARE:
+
+                card_count = Viewer.Show.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 20,
+                    int i when 11 <= i && i <= 20 => 30,
+                    int i when 21 <= i && i <= 30 => 40,
+                    _ => 9999999,
+                };
+
+                break;
+            case Rank.EPIC:
+
+                card_count = Viewer.Show.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 15,
+                    int i when 11 <= i && i <= 20 => 25,
+                    int i when 21 <= i && i <= 30 => 35,
+                    _ => 9999999,
+                };
+
+                break;
+            case Rank.LEGEND:
+
+                card_count = Viewer.Show.Info.Level switch
+                {
+                    int i when 1 <= i && i <= 10 => 15,
+                    int i when 11 <= i && i <= 20 => 25,
+                    int i when 21 <= i && i <= 30 => 35,
+                    _ => 9999999,
+                };
+
+                break;
+        }
+
+        CardSlider.maxValue = card_count;
+        int currentCount = Viewer.Show.Info.Count;
+        CardSlider.value = currentCount;
+        textCard.text = $"{currentCount}/{card_count}";
     }
 }
