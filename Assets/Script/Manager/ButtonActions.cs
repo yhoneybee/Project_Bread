@@ -11,7 +11,7 @@ public class ButtonActions : MonoBehaviour
 
     public static bool directMain;
 
-    private static Stack<string> sBeforeScene = new Stack<string>();
+    private static List<string> lBeforeScene = new List<string>();
 
     private void Awake()
     {
@@ -30,13 +30,23 @@ public class ButtonActions : MonoBehaviour
     {
         //StopAllCoroutines();
         //UIManager.Instance.Fade.color = Color.clear;
-        sBeforeScene.Push(SceneManager.GetActiveScene().name);
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        //Units
+        //Deck
+        //Main
+        //Loading
+
+        lBeforeScene.Remove(currentScene);
+        lBeforeScene.Remove(name);
+        if (lBeforeScene.LastOrDefault() != "C-03_DeckSelect" && currentScene != "D-02_UnitSelect") lBeforeScene.Add(currentScene);
+
         if (directMain && name == "B-Main")
         {
             directMain = false;
             print("False");
         }
-        else if (CheckReEntering("B-Main"))
+        else if (CheckReEntering("B-Main") && name == "D-02_UnitSelect")
         {
             directMain = true;
             print("True");
@@ -46,7 +56,9 @@ public class ButtonActions : MonoBehaviour
 
     public void BackScene()
     {
-        StartCoroutine(EChangeScene(sBeforeScene.Pop()));
+        var pop = lBeforeScene[lBeforeScene.Count - 1];
+        lBeforeScene.RemoveAt(lBeforeScene.Count - 1);
+        StartCoroutine(EChangeScene(pop));
     }
 
     IEnumerator EChangeScene(string name)
