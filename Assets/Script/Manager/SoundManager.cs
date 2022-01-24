@@ -9,6 +9,8 @@ public enum SoundType
 {
     BGM,
     EFFECT,
+    BUTTON,
+    ATTACK,
     END,
 }
 
@@ -30,7 +32,13 @@ public class SoundManager : MonoBehaviour
     public float SfxVolume
     {
         get => sfx_volume;
-        set { sfx_volume = value; audioSources[((int)SoundType.EFFECT)].volume = SfxVolume; }
+        set 
+        { 
+            sfx_volume = value; 
+            audioSources[((int)SoundType.EFFECT)].volume = SfxVolume;
+            audioSources[((int)SoundType.BUTTON)].volume = SfxVolume;
+            audioSources[((int)SoundType.ATTACK)].volume = SfxVolume;
+        }
     }
 
     private void Awake()
@@ -69,7 +77,7 @@ public class SoundManager : MonoBehaviour
         //if (UiManager.Instance.MuteSwitchBtn)
         //    UiManager.Instance.MuteSwitchBtn.onClick.AddListener(() => { SwitchMute(); });
 
-        //Play("Bgm", SoundType.BGM);
+        Play("BG/Main", SoundType.BGM);
 
         //if (UiManager.Instance)
         //    SetButtonsSound(UiManager.Instance.Canvas.GetComponentsInChildren<Button>());

@@ -67,8 +67,8 @@ public class UnitUILinker : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!CardSlider || !Viewer.Show) return;
         CardSlider.gameObject.SetActive(Viewer.Show);
-        if (!Viewer.Show) return;
         int card_count = 0;
 
         switch (Viewer.Show.Info.Rank)

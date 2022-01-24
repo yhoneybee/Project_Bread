@@ -1145,6 +1145,8 @@ MonoBehaviour:
   audioSources:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1757223680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,7 +1416,6 @@ MonoBehaviour:
   GlobalLSP: 0
   LifeStealRatio: 0
   ResurrectionP: 0
-  need_exp: 100
   Coin: 0
   Jem: 0
   Stemina: 20

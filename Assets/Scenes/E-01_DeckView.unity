@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 137570260}
   - component: {fileID: 137570259}
   - component: {fileID: 137570258}
+  - component: {fileID: 137570262}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -341,6 +342,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &137570262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 137570257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad53f674587052c4f879fd03559209f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &160225477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,6 +1401,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 160225478}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 568772696}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -2245,6 +2260,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 1722582270}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 795079555}
   InfoBtn: {fileID: 0}
   Buttons:
@@ -2444,6 +2461,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 466611748}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 803800041}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -2679,6 +2698,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 1700374176}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 835600002}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -3756,6 +3777,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 1255537549}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 1194250341}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -4177,6 +4200,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 1655302982}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 1296415227}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -4988,6 +5013,8 @@ MonoBehaviour:
   imgRank: {fileID: 0}
   imgRankBg: {fileID: 0}
   IconRestore: {fileID: 1423879545}
+  CardSlider: {fileID: 0}
+  textCard: {fileID: 0}
   IconBtn: {fileID: 1661989937}
   InfoBtn: {fileID: 0}
   Buttons: []
@@ -5211,7 +5238,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1543682658}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999726
+  m_Size: 0.8133459
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5362,7 +5389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -364.26, y: 59}
+  m_AnchoredPosition: {x: -364.21393, y: 59}
   m_SizeDelta: {x: 728, y: 118}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1706304448

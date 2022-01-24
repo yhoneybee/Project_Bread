@@ -7425,6 +7425,7 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -7436,8 +7437,10 @@ MonoBehaviour:
   Anim: {fileID: 0}
   skill: {fileID: 0}
   isTower: 1
+  rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 0
+  isSkillObj: 0
   isDie: 0
   hp_slider: {fileID: 1205840481}
   hp_text: {fileID: 208372932}
@@ -10161,6 +10164,8 @@ MonoBehaviour:
   DailyUI:
     Daily: {fileID: 0}
     LinkerList: []
+    GetDailyParent: {fileID: 0}
+    GetDaily: {fileID: 0}
 --- !u!4 &1157917340
 Transform:
   m_ObjectHideFlags: 0
@@ -10709,6 +10714,7 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -10720,8 +10726,10 @@ MonoBehaviour:
   Anim: {fileID: 0}
   skill: {fileID: 0}
   isTower: 1
+  rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 0
+  isSkillObj: 0
   isDie: 0
   hp_slider: {fileID: 146612583}
   hp_text: {fileID: 1777675435}
@@ -18698,6 +18706,7 @@ GameObject:
   - component: {fileID: 1743917753}
   - component: {fileID: 1743917752}
   - component: {fileID: 1743917751}
+  - component: {fileID: 1743917755}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -18792,6 +18801,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1743917755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743917750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad53f674587052c4f879fd03559209f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1747619139
 GameObject:
   m_ObjectHideFlags: 0
