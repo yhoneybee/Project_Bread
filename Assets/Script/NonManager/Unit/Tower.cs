@@ -14,6 +14,8 @@ public class Tower : Unit
 
         float random_x, random_y;
 
+        SoundManager.Instance.Play("SFX/Unit/Tower Hit", SoundType.EFFECT);
+
         // 타워 흔들리는 연출
         for (int i = 0; i < 20; i++)
         {

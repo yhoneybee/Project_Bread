@@ -304,6 +304,7 @@ public class ShopManager : MonoBehaviour
 
         // »óÀÚ ¶Ñ²± ¿­¸®±â
         var upper_pos = Upper.GetComponent<RectTransform>();
+        SoundManager.Instance.Play("SFX/Spawn Bread/Spawn Bread", SoundType.EFFECT);
         yield return StartCoroutine(UIManager.Instance.EMovingUI(Upper, (Screen.height / 2 + upper_pos.sizeDelta.y) * Vector2.up, 5000));
 
         bool first = true;
@@ -383,6 +384,8 @@ public class ShopManager : MonoBehaviour
             spawn_unit.Key.Info.Count++;
 
             objs.Add(obj);
+
+            SoundManager.Instance.Play("SFX/Spawn Bread/Each Bread", SoundType.EFFECT);
 
             yield return wait;
         }

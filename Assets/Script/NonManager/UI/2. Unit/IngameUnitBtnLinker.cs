@@ -12,7 +12,6 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
     public Animator animator;
 
     private float pressTime;
-    private int index;
     private bool down;
     private bool isSkillSprite;
     private readonly float needPressTime = 0.5f;
@@ -20,8 +19,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
     private void Start()
     {
-        index = transform.GetSiblingIndex();
-        if (!DeckManager.Select[index]) Destroy(gameObject);
+        if (!owner) Destroy(gameObject);
         else
         {
             imgIllust.sprite = owner.GetComponent<Skill>().sprSkill;

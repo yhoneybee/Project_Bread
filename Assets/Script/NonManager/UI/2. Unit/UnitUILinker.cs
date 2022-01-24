@@ -30,6 +30,7 @@ public class UnitUILinker : MonoBehaviour
         if (IconBtn)
             IconBtn.onClick.AddListener(() =>
             {
+                print(ButtonActions.directMain);
                 if (ButtonActions.directMain) return;
                 if (ButtonActions.Instance.CheckReEntering("D-02_UnitSelect"))
                 {
@@ -67,8 +68,8 @@ public class UnitUILinker : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (CardSlider) CardSlider.gameObject.SetActive(Viewer.Show);
         if (!CardSlider || !Viewer.Show) return;
-        CardSlider.gameObject.SetActive(Viewer.Show);
         int card_count = 0;
 
         switch (Viewer.Show.Info.Rank)

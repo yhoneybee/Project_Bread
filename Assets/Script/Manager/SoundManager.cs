@@ -22,11 +22,14 @@ public class SoundManager : MonoBehaviour
 
     Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
 
+    private float bgm_total_volume = 0.1f;
+    private float sfx_total_volume = 0.5f;
+
     private float bgm_volume = 0.5f;
     public float BgmVolume
     {
         get => bgm_volume;
-        set { bgm_volume = value; audioSources[((int)SoundType.BGM)].volume = BgmVolume; }
+        set { bgm_volume = value; audioSources[((int)SoundType.BGM)].volume = BgmVolume * bgm_total_volume; }
     }
     private float sfx_volume = 0.5f;
     public float SfxVolume
@@ -35,9 +38,9 @@ public class SoundManager : MonoBehaviour
         set 
         { 
             sfx_volume = value; 
-            audioSources[((int)SoundType.EFFECT)].volume = SfxVolume;
-            audioSources[((int)SoundType.BUTTON)].volume = SfxVolume;
-            audioSources[((int)SoundType.ATTACK)].volume = SfxVolume;
+            audioSources[((int)SoundType.EFFECT)].volume = SfxVolume * sfx_total_volume;
+            audioSources[((int)SoundType.BUTTON)].volume = SfxVolume * sfx_total_volume;
+            audioSources[((int)SoundType.ATTACK)].volume = SfxVolume * sfx_total_volume;
         }
     }
 

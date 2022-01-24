@@ -47,6 +47,7 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private StarLimit starLimit;
     [SerializeField] private StageUiInfo stageUiInfo;
     [SerializeField] private RectTransform rtrnDamageText;
+    [SerializeField] private RectTransform lkIngameUnitBtnsParent;
     [SerializeField] private List<IngameUnitBtnLinker> lkIngameUnitBtns;
     [SerializeField] private StageInfoLinker stageInfoLinker;
     [SerializeField] private RectTransform rtrnDeckParent;
@@ -119,6 +120,7 @@ public class IngameManager : MonoBehaviour
         MyUnitsSpawnAll();
         for (int i = 0; i < ingameUnits.Count; i++)
             lkIngameUnitBtns[i].owner = ingameUnits[i];
+        lkIngameUnitBtnsParent.gameObject.SetActive(true);
     }
 
     private void CountUp() => starCount++;
@@ -137,6 +139,8 @@ public class IngameManager : MonoBehaviour
 
         resultWindow.imgResultText.sprite = resultWindow.spriteTexts[win ? 2 : 3];
         UIManager.Instance.FixSizeToRatio(resultWindow.imgResultText, 520);
+
+        SoundManager.Instance.Play(win ? "SFX/Stage Result/Stage Clear" : "SFX/Stage Result/Stage Fail", SoundType.EFFECT);
 
         if (!win) return;
 
@@ -504,7 +508,7 @@ public class IngameManager : MonoBehaviour
         WaitForSeconds second = new WaitForSeconds(0.01f);
         Image image;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < star_count; i++)
         {
             image = resultWindow.yellowStars[i];
 
@@ -523,6 +527,8 @@ public class IngameManager : MonoBehaviour
             image.rectTransform.localScale = Vector2.one;
 
             image.GetComponentInChildren<ParticleSystem>().Play();
+
+            SoundManager.Instance.Play("SFX/Stage Result/Star Sound", SoundType.EFFECT);
 
             yield return new WaitForSeconds(0.2f);
         }

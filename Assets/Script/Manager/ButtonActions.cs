@@ -32,16 +32,11 @@ public class ButtonActions : MonoBehaviour
         //UIManager.Instance.Fade.color = Color.clear;
         string currentScene = SceneManager.GetActiveScene().name;
 
-        //Units
-        //Deck
-        //Main
-        //Loading
-
         lBeforeScene.Remove(currentScene);
         lBeforeScene.Remove(name);
-        if (lBeforeScene.LastOrDefault() != "C-03_DeckSelect" && currentScene != "D-02_UnitSelect") lBeforeScene.Add(currentScene);
+        lBeforeScene.Add(currentScene);
 
-        if (directMain && name == "B-Main")
+        if (directMain)
         {
             directMain = false;
             print("False");

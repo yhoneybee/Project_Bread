@@ -330,6 +330,8 @@ public abstract class Unit : MonoBehaviour
         transform.Translate(dir.x *
             new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
 
+        if (Stat.MS * deltaSpeed > 0) SoundManager.Instance.Play("SFX/Unit/Unit Walk", SoundType.EFFECT);
+
         // Particle
         if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
         {
@@ -447,6 +449,8 @@ public abstract class Unit : MonoBehaviour
 
     public virtual void OnAttack(Unit taken)
     {
+        SoundManager.Instance.Play("SFX/Unit/Unit Attack", SoundType.EFFECT);
+
         foreach (var item in Items) item.OnAttack(taken);
 
         var totalDamage = Stat.AD + Stat.Proportionality.GetTotalDamage(this, taken);

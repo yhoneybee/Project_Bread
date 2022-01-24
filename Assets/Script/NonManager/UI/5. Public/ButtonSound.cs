@@ -9,7 +9,6 @@ public class ButtonSound : MonoBehaviour
     {
         foreach (var btn in GetComponentsInChildren<Button>())
         {
-            btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(() =>
             {
                 if (btn.gameObject.name == "Back") SoundManager.Instance.Play("SFX/Button/Back Button");
