@@ -215,9 +215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  imgCard: {fileID: 2280464139890640750}
   imgIllust: {fileID: 2280464141117238506}
+  imgStop: {fileID: 3863559656373238435}
   txtCool: {fileID: 2280464139999393310}
   animator: {fileID: 5037716514763434863}
+  isSkillCast: 0
 --- !u!95 &5037716514763434863
 Animator:
   serializedVersion: 3

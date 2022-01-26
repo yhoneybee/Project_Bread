@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public Unit owner;
+    public Image imgCard;
     public Image imgIllust;
+    public Image imgStop;
     public Text txtCool;
     public Animator animator;
 
@@ -29,7 +31,10 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
 
     private void Update()
     {
-        if (!owner || owner.Stat.HP < 0) Destroy(gameObject);
+        //if (!owner || owner.Stat.HP < 0) Destroy(gameObject);
+        imgIllust.gameObject.SetActive(owner && owner.Stat.HP > 0);
+        imgCard.gameObject.SetActive(owner && owner.Stat.HP > 0);
+
         pressTime += Time.deltaTime;
         if (pressTime > needPressTime && down)
         {
