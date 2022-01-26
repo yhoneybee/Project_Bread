@@ -242,7 +242,7 @@ public abstract class Unit : MonoBehaviour
     {
         StopAllCoroutines();
         anim_state = AnimState.WALK;
-        SR.color = Color.white;
+        GetComponent<SpriteRenderer>().color = Color.white;
         isDie = false;
         once = true;
         Stat.HP = Stat.MaxHP;
