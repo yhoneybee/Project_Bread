@@ -203,6 +203,8 @@ public abstract class Unit : MonoBehaviour
 
     public bool isSkillObj;
 
+    bool once;
+
     int AnimIndex = 0;
     float time = 0;
     bool is_walk_able = true;
@@ -230,6 +232,7 @@ public abstract class Unit : MonoBehaviour
         if (Anim == null) Anim = GetComponent<Anim>();
 
         isDie = false;
+        once = true;
 
         if (isSkillObj) return;
         particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
@@ -237,8 +240,11 @@ public abstract class Unit : MonoBehaviour
     }
     public void Init()
     {
+        StopAllCoroutines();
         anim_state = AnimState.WALK;
+        SR.color = Color.white;
         isDie = false;
+        once = true;
         Stat.HP = Stat.MaxHP;
     }
     protected virtual void Update()
@@ -287,17 +293,10 @@ public abstract class Unit : MonoBehaviour
                 Animation(Anim.Die);
                 if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
                 {
-                    if (!isTower)
+                    if (!isTower && once)
                     {
-                        if (Resurrection())
-                        {
-                            Stat.HP = Stat.MaxHP;
-                            print($"<color=while>부활!</color>");
-                        }
-                        else
-                        {
-                            UnitManager.Instance.ReturnUnit(this, null);
-                        }
+                        once = !once;
+                        StartCoroutine(EDieAnim());
                     }
                     if (UnitType == UnitType.UNFRIEND)
                         IngameManager.Instance.ingameEnemies.Remove(this);
@@ -330,7 +329,7 @@ public abstract class Unit : MonoBehaviour
         transform.Translate(dir.x *
             new Vector2(1 * Stat.MS, 5 * Mathf.Sin(sin_value * Mathf.Deg2Rad)) * Time.deltaTime * deltaSpeed);
 
-        if (Stat.MS * deltaSpeed > 0) SoundManager.Instance.Play("SFX/Unit/Unit Walk", SoundType.EFFECT);
+        //if (Stat.MS * deltaSpeed > 0) SoundManager.Instance.Play("SFX/Unit/Unit Walk", SoundType.EFFECT);
 
         // Particle
         if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
@@ -402,7 +401,7 @@ public abstract class Unit : MonoBehaviour
     }
     IEnumerator AttackAnimation(Unit unit)
     {
-        if (skill != null && !skill.cool.CoolDone) yield break;
+        /*if (skill != null && !skill.cool.CoolDone) yield break;*/
 
         WaitForSeconds second = new WaitForSeconds(0.01f);
 
@@ -445,6 +444,51 @@ public abstract class Unit : MonoBehaviour
 
         yield return new WaitForSeconds(1.0f / Stat.AS - 0.1f);
         is_attack_able = true;
+    }
+
+    IEnumerator EDieAnim()
+    {
+        var wait = new WaitForSeconds(0.001f);
+        float moveX = 0;
+        float rotZ = 0;
+        var pos = transform.localPosition;
+        while (moveX < 10)
+        {
+            var move = -dir * 10 * Time.deltaTime;
+            transform.localPosition += new Vector3(move.x, move.x / 2);
+            transform.localEulerAngles = Vector3.forward * rotZ;
+            rotZ += 10;
+            moveX += Mathf.Abs(move.x);
+            yield return wait;
+        }
+
+        yield return null;
+
+        if (Resurrection() && UnitType == UnitType.FRIEND)
+        {
+            transform.localPosition = pos;
+            var scale = transform.localScale;
+            transform.localScale = scale * 2;
+            transform.localEulerAngles = Vector3.zero;
+
+            deltaSpeed = 0;
+            while (transform.localScale.x > scale.x + 0.01f)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, scale, 5 * Time.deltaTime);
+                yield return wait;
+            }
+            deltaSpeed = 1;
+
+            transform.localScale = scale;
+
+            Stat.HP = Stat.MaxHP;
+            Init();
+            print($"<color=while>부활!</color>");
+        }
+        else
+        {
+            UnitManager.Instance.ReturnUnit(this, null);
+        }
     }
 
     public virtual void OnAttack(Unit taken)
