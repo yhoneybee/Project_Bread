@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
             playerLevel = value;
             // TODO : 1레벨당 추가 효과
             selectLevelUpEffect = levelUpEffects.Find(x => x.minLevel <= playerLevel && playerLevel <= x.maxLevel);
+            var levelup = GameObject.Find("LevelUp").GetComponent<LevelUpLinker>();
+            levelup.txtCoinCount.text = $"{selectLevelUpEffect.rewardC:#,0}";
+            levelup.txtJemCount.text = $"{selectLevelUpEffect.rewardJ:#,0}";
+            levelup.rtrnRealParent.gameObject.SetActive(true);
             if (selectLevelUpEffect != null)
             {
                 Coin += selectLevelUpEffect.rewardC;
