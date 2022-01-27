@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2701619525954027381}
   - component: {fileID: 7340441020712773370}
   - component: {fileID: 2693390552199098504}
+  - component: {fileID: -295767973382085394}
   m_Layer: 0
   m_Name: SkillObj
   m_TagString: Untagged
@@ -163,6 +164,7 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -196,3 +198,16 @@ MonoBehaviour:
   Attack: []
   Skill: []
   Die: []
+--- !u!114 &-295767973382085394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339265511392233734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a1654e645b6df489e9ba9a2064bcae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 0}

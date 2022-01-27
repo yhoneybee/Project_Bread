@@ -290,8 +290,8 @@ public abstract class Unit : MonoBehaviour
                 Animation(Anim.Skill);
                 break;
             case AnimState.DIE:
-                Animation(Anim.Die);
-                if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
+                //Animation(Anim.Die);
+                //if (AnimIndex == Anim.Die.Count - 1 || Anim.Die.Count == 0)
                 {
                     if (!isTower && once)
                     {

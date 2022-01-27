@@ -13,7 +13,7 @@ public class SpawnOption : ASpawnOption
         for (int i = 0; origin && i < spawnCount; i++)
         {
             var obj = Instantiate(origin);
-            var spawned = obj.AddComponent<SpawnedObj>();
+            var spawned = obj.GetComponent<SpawnedObj>();
             spawned.context = context;
 
             if (isNear)

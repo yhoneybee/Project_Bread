@@ -26,6 +26,7 @@ public class Skill : MonoBehaviour
 
     public void Cast()
     {
+        owner.AnimState = AnimState.SKILL;
         if (!cool && !cool.CoolDone) return;
 
         cool.Initialization();

@@ -6,11 +6,15 @@ using UnityEditor;
 
 public class SpawnedObj : MonoBehaviour
 {
+    public SpriteRenderer sr;
     public Skill context;
+    public Anim anim;
+    public int delayOfFrameCount;
 
     private void Start()
     {
         Destroy(gameObject, context.spawn.duraction);
+        StartCoroutine(EAnim());
     }
 
     private void Update()
@@ -37,5 +41,21 @@ public class SpawnedObj : MonoBehaviour
             if (context.buff.onlyMe && unit.Info.Name != context.owner.Info.Name) return;
             unit.StartCoroutine(context.buff.EInvoke(unit));
         }
+    }
+
+    IEnumerator EAnim()
+    {
+        var wait = new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(delayOfFrameCount * 0.1f);
+
+        for (int i = 0; i < anim.Skill.Count; i++)
+        {
+            sr.sprite = anim.Skill[i];
+            yield return wait;
+        }
+
+        Destroy(gameObject);
+
+        yield return null;
     }
 }
