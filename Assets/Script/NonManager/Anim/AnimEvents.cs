@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AnimEvents : MonoBehaviour
 {
-    public void Destroy()
+    public void ReturnObj()
     {
-        Destroy(gameObject);
+        IngameManager.Instance.ReturnDamageText(GetComponent<RectTransform>());
     }
 }

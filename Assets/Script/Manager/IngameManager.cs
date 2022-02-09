@@ -52,6 +52,7 @@ public class IngameManager : MonoBehaviour
     [SerializeField] private StageInfoLinker stageInfoLinker;
     [SerializeField] private RectTransform rtrnDeckParent;
 
+    private List<RectTransform> rtrnDamageTextPool = new List<RectTransform>();
     private Coroutine CTowerDestory;
 
     public List<Unit> IngameUnits
@@ -794,12 +795,38 @@ public class IngameManager : MonoBehaviour
     {
         StartCoroutine(_DamageText(damage, pos));
     }
+
+    RectTransform GetDamageText()
+    {
+        RectTransform rtrn;
+
+        if (rtrnDamageTextPool.Count > 0)
+        {
+            rtrn = rtrnDamageTextPool[0];
+            rtrnDamageTextPool.RemoveAt(0);
+            rtrn.gameObject.SetActive(true);
+        }
+        else
+        {
+            rtrn = Instantiate(rtrnDamageText);
+        }
+
+        return rtrn;
+    }
+
+    public void ReturnDamageText(RectTransform rtrn)
+    {
+        rtrn.gameObject.SetActive(false);
+        rtrnDamageTextPool.Add(rtrn);
+    }
+
     IEnumerator _DamageText(int damage, Vector2 pos)
     {
         yield return null;
 
         Vector2 spawn_position = pos + Vector2.up;
-        var damageText = Instantiate(rtrnDamageText, spawn_position, Quaternion.identity);
+        var damageText = GetDamageText();
+        damageText.transform.position = spawn_position;
         List<int> list2 = new List<int>()
         {
             (damage % 10000000) / 1000000,

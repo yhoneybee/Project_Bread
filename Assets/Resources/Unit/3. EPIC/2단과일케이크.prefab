@@ -161,8 +161,8 @@ MonoBehaviour:
     HP: 3560
     MaxHP: 3560
     MS: 7
-    AR: 8
-    AS: 6
+    AR: 1
+    AS: 1
     LS: 2
     CP: 0
     Proportionality:
