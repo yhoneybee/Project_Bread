@@ -267,6 +267,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  strSkillInfo: "\uB79C\uB364\uD558\uAC8C \uBD88\uAF43\uC744 \uBC1C\uC0AC\uD558\uC5EC
+    \uD53C\uD574\uB97C \uC785\uD78C\uB2E4\n\uB0A8\uC0C9 : 3.3\uBC30 / \uB178\uB780\uC0C9
+    : 5\uBC30 / \uBC1D\uC740 \uB0A8\uC0C9 : 3\uBC30 / \uD558\uB298\uC0C9 : 2.5\uBC30"
+  skillType: 1
   sprSkill: {fileID: 21300000, guid: 5c22d642986bd274a835d070cf317fa7, type: 3}
   spawn: {fileID: 11400000, guid: 7f61f982a78c1d3428236b7a7318aabb, type: 2}
   damage: {fileID: 11400000, guid: eee152bb7d412c54ba40b616b0e99a5d, type: 2}

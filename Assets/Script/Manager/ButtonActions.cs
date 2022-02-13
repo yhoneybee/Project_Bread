@@ -36,12 +36,8 @@ public class ButtonActions : MonoBehaviour
         lBeforeScene.Remove(name);
         lBeforeScene.Add(currentScene);
 
-        if (directMain)
-        {
-            directMain = false;
-            print("False");
-        }
-        else if (CheckReEntering("B-Main") && name == "D-02_UnitSelect")
+        directMain = false;
+        if (CheckReEntering("B-Main") && name == "D-02_UnitSelect")
         {
             directMain = true;
             print("True");
@@ -53,6 +49,8 @@ public class ButtonActions : MonoBehaviour
     {
         var pop = lBeforeScene[lBeforeScene.Count - 1];
         lBeforeScene.RemoveAt(lBeforeScene.Count - 1);
+        if (CheckReEntering("C-03_DeckSelect"))
+            directMain = true;
         StartCoroutine(EChangeScene(pop));
     }
 

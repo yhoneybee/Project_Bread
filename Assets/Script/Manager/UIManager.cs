@@ -125,7 +125,7 @@ public class UIManager : MonoBehaviour
                     if (o == null) return false;
                     return o.Info.Name == show.Info.Name;
                 });
-                view.gameObject.SetActive(find == null);
+                view.gameObject.SetActive(find == null || ButtonActions.directMain);
                 view.Show = show;
             }
 

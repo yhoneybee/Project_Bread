@@ -55,6 +55,16 @@ public class CashShopLinker : MonoBehaviour
 
         foreach (var cash_product in cash_products)
         {
+            cash_product.price_text.text = $"{cash_product.product_price:#,0}";
+            if (cash_product.product_type == ProductType.JEM)
+                cash_product.price_text.text = "\\ " + cash_product.price_text.text;
+            cash_product.amount_text.text = $"{cash_product.product_amount:#,0}°³";
+            cash_product.buy_button.onClick.AddListener(() =>
+            {
+                buy_window.selecrted_product = cash_product;
+                buy_window.Setting();
+            });
+
             switch (cash_product.product_type)
             {
                 case ProductType.COIN:
@@ -84,16 +94,6 @@ public class CashShopLinker : MonoBehaviour
                     }
                     break;
             }
-
-            cash_product.price_text.text = $"{cash_product.product_price:#,0}";
-            if (cash_product.product_type == ProductType.JEM)
-                cash_product.price_text.text = "\\ " + cash_product.price_text.text;
-            cash_product.amount_text.text = $"{cash_product.product_amount:#,0}°³";
-            cash_product.buy_button.onClick.AddListener(() =>
-            {
-                buy_window.selecrted_product = cash_product;
-                buy_window.Setting();
-            });
         }
     }
 

@@ -170,6 +170,7 @@ public class IngameManager : MonoBehaviour
 
             resultWindow.btnNext.onClick.AddListener(() =>
             {
+                GameManager.Instance.GameCount++;
                 ButtonActions.Instance.ChangeScene("C-01_ThemeSelect");
 
                 if (!StageManager.Instance.GetStage(StageInfo.theme_number, 0).is_startable)

@@ -12,8 +12,8 @@ public class AdmobManager : MonoBehaviour
     private RewardedAd rewardedAd;
     public bool isTestMode = true;
 
-    public StageInfoLinker.Reward_Kind rewardKind;
-    public float rewardValue;
+    public ProductType rewardKind;
+    public int rewardValue;
 
     bool rewareded;
 
@@ -34,7 +34,18 @@ public class AdmobManager : MonoBehaviour
     {
         if (rewareded)
         {
-
+            switch (rewardKind)
+            {
+                case ProductType.COIN:
+                    GameManager.Instance.Coin += rewardValue;
+                    break;
+                case ProductType.JEM:
+                    GameManager.Instance.Jem += rewardValue;
+                    break;
+                case ProductType.STEMINA:
+                    GameManager.Instance.Stemina += rewardValue;
+                    break;
+            }
             rewareded = false;
         }
     }

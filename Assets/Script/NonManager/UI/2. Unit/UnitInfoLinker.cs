@@ -19,6 +19,9 @@ public class UnitInfoLinker : MonoBehaviour
     [SerializeField] TextMeshProUGUI txtUpgrade;
     [SerializeField] Image imgIcon;
     [SerializeField] UnitZoom zoom;
+    [SerializeField] Image imgSkillIcon;
+    [SerializeField] TextMeshProUGUI txtSkillType;
+    [SerializeField] TextMeshProUGUI txtSkillInfo;
 
     Coroutine c_move_panel = null;
 
@@ -32,6 +35,7 @@ public class UnitInfoLinker : MonoBehaviour
 
     void Start()
     {
+        imgDots[current_panel_index].color = Color.white;
         SetUpgradeValue();
 
         SetText();
@@ -39,16 +43,28 @@ public class UnitInfoLinker : MonoBehaviour
         SetStatValue();
         //ExpSlider.maxValue = GameManager.SelectUnit.Need;
 
+        txtSkillInfo.text = GameManager.SelectUnit.skill.strSkillInfo;
+        txtSkillType.text = GameManager.SelectUnit.skill.skillType switch
+        {
+            eSKILL_TYPE.Buff => "버프 스킬",
+            eSKILL_TYPE.Damage => "공격 스킬",
+            eSKILL_TYPE.Move => "이동 스킬",
+            eSKILL_TYPE.Spawn => "소환 스킬",
+            _ => "??? 스킬",
+        };
+
+        // 왼쪽
         btnLeftRight[0].onClick.AddListener(() =>
         {
-            if (c_move_panel != null) StopCoroutine(c_move_panel);
-            c_move_panel = StartCoroutine(MovePanel(-1));
+            StopAllCoroutines();
+            c_move_panel = StartCoroutine(MovePanel(current_panel_index - 1));
         });
 
+        // 오른쪽
         btnLeftRight[1].onClick.AddListener(() =>
         {
-            if (c_move_panel != null) StopCoroutine(c_move_panel);
-            c_move_panel = StartCoroutine(MovePanel(1));
+            StopAllCoroutines();
+            c_move_panel = StartCoroutine(MovePanel(current_panel_index + 1));
         });
 
         SetTextColor();
@@ -181,17 +197,19 @@ public class UnitInfoLinker : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && !is_moving)
         {
-            if (current_panel_index == 0)
+            StopAllCoroutines();
+            switch (current_panel_index)
             {
-                if (c_move_panel != null) StopCoroutine(c_move_panel);
-                c_move_panel =
-                    StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value >= 0.25f ? 1 : -1));
-            }
-            else
-            {
-                if (c_move_panel != null) StopCoroutine(c_move_panel);
-                c_move_panel =
-                StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value <= 0.75f ? -1 : 1));
+                case 0:
+                    StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value > 0.25f ? 1 : 0));
+                    break;
+                case 1:
+                    if (srtUnit.horizontalScrollbar.value < 0.25f) StartCoroutine(MovePanel(0));
+                    else if (srtUnit.horizontalScrollbar.value > 0.75f) StartCoroutine(MovePanel(2));
+                    break;
+                case 2:
+                    StartCoroutine(MovePanel(srtUnit.horizontalScrollbar.value < 0.75f ? 1 : 2));
+                    break;
             }
         }
     }
@@ -290,25 +308,45 @@ public class UnitInfoLinker : MonoBehaviour
     IEnumerator MovePanel(int direction_x)
     {
         is_moving = true;
-        int target_value = direction_x == 1 ? 1 : 0;
 
-        while (true)
+        direction_x = direction_x < 0 ? 0 : direction_x;
+        direction_x = direction_x > 2 ? 2 : direction_x;
+
+        float moveTo = direction_x / 2.0f;
+
+        current_panel_index = direction_x;
+
+        var wait = new WaitForSeconds(0.01f);
+
+        while (Mathf.Abs(srtUnit.horizontalScrollbar.value - moveTo) >= 0.01f)
         {
-            if (Mathf.Abs(srtUnit.horizontalScrollbar.value - target_value) <= 0.01f)
-            {
-                srtUnit.horizontalScrollbar.value = target_value;
-                break;
-            }
-            srtUnit.horizontalScrollbar.value = Mathf.MoveTowards(srtUnit.horizontalScrollbar.value, target_value, 0.1f);
-            yield return new WaitForSeconds(0.01f);
+            srtUnit.horizontalScrollbar.value = Mathf.MoveTowards(srtUnit.horizontalScrollbar.value, moveTo, 0.1f);
+            yield return wait;
         }
-        imgDots[1 - target_value].color = Color.white;
-        imgDots[target_value].color = new Color(0.5f, 0.5f, 0.5f);
+        srtUnit.horizontalScrollbar.value = moveTo;
 
-        btnLeftRight[1 - target_value].gameObject.SetActive(true);
-        btnLeftRight[target_value].gameObject.SetActive(false);
+        for (int i = 0; i < 3; i++)
+            imgDots[i].color = Color.gray;
 
-        current_panel_index = target_value;
+        imgDots[direction_x].color = Color.white;
+
+        switch (direction_x)
+        {
+            case 0:
+                btnLeftRight[0].gameObject.SetActive(false);
+                btnLeftRight[1].gameObject.SetActive(true);
+                break;
+            case 1:
+                btnLeftRight[0].gameObject.SetActive(true);
+                btnLeftRight[1].gameObject.SetActive(true);
+                break;
+            case 2:
+                btnLeftRight[0].gameObject.SetActive(true);
+                btnLeftRight[1].gameObject.SetActive(false);
+                break;
+        }
+
+        yield return null;
         is_moving = false;
     }
 }

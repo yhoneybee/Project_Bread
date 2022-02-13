@@ -3,9 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum eSKILL_TYPE
+{
+    Buff,
+    Damage,
+    Move,
+    Spawn,
+}
+
 public class Skill : MonoBehaviour
 {
     [HideInInspector] public Unit owner;
+    [TextArea(3, 5)]
+    public string strSkillInfo;
+    public eSKILL_TYPE skillType;
     public Sprite sprSkill;
     public ASpawnOption spawn;
     public AOption damage;
