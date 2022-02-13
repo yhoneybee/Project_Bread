@@ -164,6 +164,16 @@ public class GameManager : MonoBehaviour
     public int Stemina = 20;
     public int MaxStemina = 20;
     public int UnBoxingCount = 11;
+    public int GameCount
+    {
+        get => gameCount;
+        set
+        {
+            if (value % 2 == 0) AdmobManager.Instance.ShowInterstitial();
+            GameCount = value;
+        }
+    }
+    private int gameCount;
 
     public bool EnteredDeckView = false;
 

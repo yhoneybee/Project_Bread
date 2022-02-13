@@ -235,13 +235,14 @@ public abstract class Unit : MonoBehaviour
         once = true;
 
         if (isSkillObj) return;
-        particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
-        walk_particle = Instantiate(particle_prefab);
+        //particle_prefab = Resources.Load<ParticleSystem>("Particle/Walk Particle");
+        //walk_particle = Instantiate(particle_prefab);
     }
     public void Init()
     {
         StopAllCoroutines();
         anim_state = AnimState.WALK;
+        transform.localEulerAngles = Vector3.zero;
         GetComponent<SpriteRenderer>().color = Color.white;
         isDie = false;
         once = true;
@@ -401,6 +402,7 @@ public abstract class Unit : MonoBehaviour
     }
     IEnumerator AttackAnimation(Unit unit)
     {
+        if (unit.isDie) yield break;
         /*if (skill != null && !skill.cool.CoolDone) yield break;*/
 
         WaitForSeconds second = new WaitForSeconds(0.01f);
@@ -464,7 +466,7 @@ public abstract class Unit : MonoBehaviour
 
         yield return null;
 
-        if (Resurrection() && UnitType == UnitType.FRIEND)
+        if ((Resurrection() && UnitType == UnitType.FRIEND) || Input.GetKey(KeyCode.Keypad0))
         {
             transform.localPosition = pos;
             var scale = transform.localScale;

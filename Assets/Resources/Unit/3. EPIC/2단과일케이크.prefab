@@ -161,8 +161,8 @@ MonoBehaviour:
     HP: 3560
     MaxHP: 3560
     MS: 7
-    AR: 8
-    AS: 6
+    AR: 1
+    AS: 1
     LS: 2
     CP: 0
     Proportionality:
@@ -174,7 +174,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  skill: {fileID: 0}
+  skill: {fileID: 804903804790329730}
   isTower: 0
   rigid: {fileID: 0}
   Invincibility: 0
@@ -274,6 +274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  strSkillInfo: "\uC804\uBC29\uC744 \uD718\uB458\uB7EC \uD53C\uACA9\uB2F9\uD55C \uC801\uC740
+    3\uCD08 \uB3D9\uC548 \uC9C0\uC18D\uB370\uBBF8\uC9C0\uB97C \uBC1B\uB294\uB2E4"
+  skillType: 1
   sprSkill: {fileID: 21300000, guid: 5f3df9b4a4ef67b41896273f906ef76a, type: 3}
   spawn: {fileID: 11400000, guid: 352c75ee46f8ac946a6ecc4749a05eab, type: 2}
   damage: {fileID: 11400000, guid: 17195c16172db294aa71d34e95d2f261, type: 2}

@@ -43,7 +43,7 @@ public class IngameUnitBtnLinker : MonoBehaviour, IPointerDownHandler, IPointerU
             owner.deltaSpeed = owner.deltaSpeed == 1 ? 0 : 1;
             animator.SetBool("StopUiOpen", owner.deltaSpeed == 0);
         }
-        if (owner.skill && owner.skill.cool.CoolDone && isSkillCast)
+        if (owner && owner.skill && owner.skill.cool.CoolDone && isSkillCast)
         {
             isSkillCast = false;
             animator.SetTrigger("SwitchIcon");
