@@ -24,6 +24,14 @@ public class LevelUpEffect
     public int rewardJ;
 }
 
+[Serializable]
+public class RewardCount
+{
+    public int JemRewardCount;
+    public int CoinRewardCount;
+    public int SteminaRewardCount;
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; } = null;
@@ -170,7 +178,7 @@ public class GameManager : MonoBehaviour
         set
         {
             if (value % 2 == 0) AdmobManager.Instance.ShowInterstitial();
-            GameCount = value;
+            gameCount = value;
         }
     }
     private int gameCount;
@@ -183,6 +191,8 @@ public class GameManager : MonoBehaviour
 
     public DateTimer Daily = new DateTimer { Time = new TimeSpan(24, 0, 0) };
 
+    public DateTime lastLogin;
+
     private int daily_days = 0;
     public int DailyDays
     {
@@ -193,6 +203,8 @@ public class GameManager : MonoBehaviour
             //daily_days %= 28;
         }
     }
+
+    public RewardCount RewardCount;
 
     public List<LevelUpEffect> levelUpEffects = new List<LevelUpEffect>();
 
@@ -207,7 +219,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        levelUpEffects.Add(new LevelUpEffect { minLevel = 1,  maxLevel = 10, needExp = 500, rewardC = 1000, rewardJ = 10 });
+        levelUpEffects.Add(new LevelUpEffect { minLevel = 1, maxLevel = 10, needExp = 500, rewardC = 1000, rewardJ = 10 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 11, maxLevel = 20, needExp = 600, rewardC = 2000, rewardJ = 20 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 21, maxLevel = 30, needExp = 800, rewardC = 3000, rewardJ = 30 });
         levelUpEffects.Add(new LevelUpEffect { minLevel = 31, maxLevel = 40, needExp = 1100, rewardC = 4000, rewardJ = 40 });
@@ -223,6 +235,38 @@ public class GameManager : MonoBehaviour
         StartCoroutine(EAutoSave());
 
         var resource = SaveManager.Load<int>("ResourceData");
+
+        RewardCount.JemRewardCount = 3;
+        RewardCount.CoinRewardCount = 3;
+        RewardCount.SteminaRewardCount = 3;
+
+        if (SaveManager.Instance.IsFile("RewardCount"))
+        {
+            RewardCount = SaveManager.LoadValue<RewardCount>("RewardCount");
+        }
+
+        if (SaveManager.Instance.IsFile("LastLogin"))
+        {
+            lastLogin = DateTime.Parse(SaveManager.LoadValue<string>("LastLogin"));
+            if (lastLogin < DateTime.Parse(DateTime.Now.ToString("d")))
+            {
+                lastLogin = DateTime.Now;
+                RewardCount.JemRewardCount = 3;
+                RewardCount.CoinRewardCount = 3;
+                RewardCount.SteminaRewardCount = 3;
+            }
+        }
+        else
+        {
+            lastLogin = DateTime.Now;
+            RewardCount.JemRewardCount = 3;
+            RewardCount.CoinRewardCount = 3;
+            RewardCount.SteminaRewardCount = 3;
+        }
+
+        onAutoSave += () => { SaveManager.SaveValue(RewardCount, "RewardCount"); };
+
+        SaveManager.SaveValue(lastLogin.ToString("d"), "LastLogin");
 
         if (resource != null && resource.Count() > 0)
         {

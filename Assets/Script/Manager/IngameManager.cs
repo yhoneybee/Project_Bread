@@ -188,6 +188,7 @@ public class IngameManager : MonoBehaviour
         }
 
         StageInfo.stage_number++;
+        GameManager.Instance.GameCount++;
         StageManager.Instance.GetStage().is_startable = true;
 
         if (firstTry)

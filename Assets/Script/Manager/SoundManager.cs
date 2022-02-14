@@ -80,7 +80,7 @@ public class SoundManager : MonoBehaviour
         //if (UiManager.Instance.MuteSwitchBtn)
         //    UiManager.Instance.MuteSwitchBtn.onClick.AddListener(() => { SwitchMute(); });
 
-        Play("BG/Main", SoundType.BGM);
+        Play("BG/Title, Main, Stage Select BGM", SoundType.BGM);
 
         //if (UiManager.Instance)
         //    SetButtonsSound(UiManager.Instance.Canvas.GetComponentsInChildren<Button>());

@@ -43,6 +43,7 @@ public class UnitInfoLinker : MonoBehaviour
         SetStatValue();
         //ExpSlider.maxValue = GameManager.SelectUnit.Need;
 
+        imgSkillIcon.sprite = GameManager.SelectUnit.skill.sprSkill;
         txtSkillInfo.text = GameManager.SelectUnit.skill.strSkillInfo;
         txtSkillType.text = GameManager.SelectUnit.skill.skillType switch
         {

@@ -73,6 +73,7 @@ public class UIManager : MonoBehaviour
     public SwitchSprite EnquipSwitchSprite;
     public ReleaseUI ReleaseUI;
     public DailyUI DailyUI;
+    public RewardInfoLinker rewardInfoLinker;
 
     int AnimIndex = 0;
     float time = 0;
@@ -216,7 +217,7 @@ public class UIManager : MonoBehaviour
         if (AnimImg)
         {
             AnimImg.sprite = SF[AnimIndex];
-            FixSizeToRatio(AnimImg, 600);
+            FixSizeToRatio(AnimImg, ButtonActions.Instance.CheckReEntering("B-Main") ? 600 : 200);
         }
         if (time >= /*SF[AnimIndex].Frame*/0.05f)
         {

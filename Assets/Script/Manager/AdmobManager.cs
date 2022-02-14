@@ -46,6 +46,7 @@ public class AdmobManager : MonoBehaviour
                     GameManager.Instance.Stemina += rewardValue;
                     break;
             }
+            UIManager.Instance.rewardInfoLinker.Show(rewardKind, rewardValue);
             rewareded = false;
         }
     }

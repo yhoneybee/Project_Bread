@@ -16,4 +16,10 @@ public class ButtonSound : MonoBehaviour
             });
         }
     }
+
+    public void BtnClick(bool isBack)
+    {
+        if (isBack) SoundManager.Instance.Play("SFX/Button/Back Button");
+        else SoundManager.Instance.Play("SFX/Button/Button Click");
+    }
 }

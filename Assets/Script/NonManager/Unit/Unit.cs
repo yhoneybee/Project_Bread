@@ -333,11 +333,11 @@ public abstract class Unit : MonoBehaviour
         //if (Stat.MS * deltaSpeed > 0) SoundManager.Instance.Play("SFX/Unit/Unit Walk", SoundType.EFFECT);
 
         // Particle
-        if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
-        {
-            walk_particle.transform.position = new Vector2(transform.position.x, -5);
-            walk_particle.Play();
-        }
+        //if (sin_value % 360 >= 170f && sin_value % 360 <= 180f)
+        //{
+        //    walk_particle.transform.position = new Vector2(transform.position.x, -5);
+        //    walk_particle.Play();
+        //}
     }
 
     void CheckCollision()
