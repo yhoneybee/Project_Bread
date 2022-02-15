@@ -174,7 +174,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  skill: {fileID: 0}
+  skill: {fileID: -7998171935255237360}
   isTower: 0
   rigid: {fileID: 0}
   Invincibility: 0

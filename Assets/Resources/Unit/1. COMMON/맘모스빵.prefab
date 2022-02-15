@@ -174,7 +174,7 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  skill: {fileID: 0}
+  skill: {fileID: 4329473117026825893}
   isTower: 0
   rigid: {fileID: 0}
   Invincibility: 0
@@ -211,6 +211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  strSkillInfo: "\uCCB4\uB825\uC774 50%\uC774\uD558\uC77C\uB54C \uC55E\uC73C\uB85C
+    \uB3CC\uC9C4\uD558\uC5EC \uCCB4\uB825\uC774 1\uC774 \uB418\uACE0 \uD0C0\uACA9\uC2DC
+    10\uBC30\uC758 \uB370\uBBF8\uC9C0\uB97C \uC900\uB2E4"
+  skillType: 2
   sprSkill: {fileID: 21300000, guid: 09fa77782a38f174d9196f203dce35ff, type: 3}
   spawn: {fileID: 0}
   damage: {fileID: 0}

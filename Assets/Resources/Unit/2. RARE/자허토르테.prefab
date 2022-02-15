@@ -164,6 +164,7 @@ MonoBehaviour:
     AR: 1
     AS: 0.75
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -173,10 +174,12 @@ MonoBehaviour:
   UnitType: 0
   Items: []
   Anim: {fileID: 4763405268191549936}
-  baseSkill: {fileID: 0}
+  skill: {fileID: 364078119120477112}
   isTower: 0
+  rigid: {fileID: 0}
   Invincibility: 0
   deltaSpeed: 1
+  isSkillObj: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -208,7 +211,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  strSkillInfo: "\uC804\uBC29\uC5D0 \uD3EC\uD0C8\uC744 \uC18C\uD658, \uC774\uC6A9\uD558\uC5EC
+    \uD53C\uB2C9\uC2A4\uB97C \uC18C\uD658\uD558\uC5EC 5\uBC30\uC758 \uB370\uBBF8\uC9C0\uB97C
+    \uC900\uB2E4"
+  skillType: 3
+  sprSkill: {fileID: 0}
   spawn: {fileID: 0}
   damage: {fileID: 0}
   buff: {fileID: 0}
+  move: {fileID: 0}
   cool: {fileID: 0}
