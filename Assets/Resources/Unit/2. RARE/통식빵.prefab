@@ -210,7 +210,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b1eb30929f2b3c049a02549a85fce580, type: 3}
   - {fileID: 21300000, guid: b1eb30929f2b3c049a02549a85fce580, type: 3}
   Attack: []
-  Skill: []
+  Skill:
+  - {fileID: 21300000, guid: 8215cc62a5f260e4fb27374c0f0a98db, type: 3}
   Die:
   - {fileID: 21300000, guid: 5b72b352321bdb5469aa1ec542ad99f1, type: 3}
   - {fileID: 21300000, guid: 52e8f59327daed44e8c002de72b67971, type: 3}

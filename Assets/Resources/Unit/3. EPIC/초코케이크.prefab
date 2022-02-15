@@ -213,7 +213,30 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cca5ccab5484e61499cb17cb72b73e02, type: 3}
   - {fileID: 21300000, guid: cca5ccab5484e61499cb17cb72b73e02, type: 3}
   Attack: []
-  Skill: []
+  Skill:
+  - {fileID: 21300000, guid: 44c0f304ba165c540beafbac6a525965, type: 3}
+  - {fileID: 21300000, guid: e4cc07da435228947957c0750988ddbd, type: 3}
+  - {fileID: 21300000, guid: 03f4e7cc54b8150498919278ea6f55a4, type: 3}
+  - {fileID: 21300000, guid: 69895b6d618a5a4489bfc3de6c5e7786, type: 3}
+  - {fileID: 21300000, guid: 17377e503c06d3e41a123bfb90eb0727, type: 3}
+  - {fileID: 21300000, guid: ca22c5aa5189a9649ade2c5fc47e1fe3, type: 3}
+  - {fileID: 21300000, guid: 34e05c2b396647549848b014ce02dbf0, type: 3}
+  - {fileID: 21300000, guid: 04fe388c2c45ea54fb22af4a032bc544, type: 3}
+  - {fileID: 21300000, guid: 5c36ee8f3fc6c5445bec52f60fabed9c, type: 3}
+  - {fileID: 21300000, guid: a53c2f3c9875c2e4d8fe69ac9940fa17, type: 3}
+  - {fileID: 21300000, guid: 63a2d01020ac78f41a9fd900e2d3cc8d, type: 3}
+  - {fileID: 21300000, guid: 74ddd73722ca75f45a0435d6c594f7bb, type: 3}
+  - {fileID: 21300000, guid: 892cdef3ab62548488f12c329667874c, type: 3}
+  - {fileID: 21300000, guid: 512418432dae5cf43b9962e7f0dfe616, type: 3}
+  - {fileID: 21300000, guid: bc6b3f2644c731b4aa4a0d298c0a2241, type: 3}
+  - {fileID: 21300000, guid: dc372ffb1860a9a459057de0474c77fd, type: 3}
+  - {fileID: 21300000, guid: 3caef6f68d87ea2448380e31f6ffeeea, type: 3}
+  - {fileID: 21300000, guid: b381f0534fb66774cbe4e700e023d213, type: 3}
+  - {fileID: 21300000, guid: df7189e05498ffd4484356221b7a891c, type: 3}
+  - {fileID: 21300000, guid: a21446c876aaf834c8b5976b996aff7b, type: 3}
+  - {fileID: 21300000, guid: 9c17ab15896676f48870a7e296ab17c7, type: 3}
+  - {fileID: 21300000, guid: 4c24999ff2db4844cb30708da96803f7, type: 3}
+  - {fileID: 21300000, guid: 9b5991967d7c52b4cafef4c744f082ae, type: 3}
   Die:
   - {fileID: 21300000, guid: 90755880649ea1944ac83c56a6838328, type: 3}
   - {fileID: 21300000, guid: f0f8562e58500774b8fdce7d34228528, type: 3}

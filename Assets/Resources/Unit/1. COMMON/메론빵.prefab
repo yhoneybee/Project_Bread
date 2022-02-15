@@ -210,7 +210,21 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9e8a371cbfc7bd041992f629e71511ae, type: 3}
   - {fileID: 21300000, guid: 9e8a371cbfc7bd041992f629e71511ae, type: 3}
   Attack: []
-  Skill: []
+  Skill:
+  - {fileID: 21300000, guid: 03918a88c14a1ef48a9f26ee35b93812, type: 3}
+  - {fileID: 21300000, guid: 3b756b025c13ac8429fbdc2a446466eb, type: 3}
+  - {fileID: 21300000, guid: cdb10be51380aab42a9c8cf9c2e68c26, type: 3}
+  - {fileID: 21300000, guid: 4acf392ca6d4c064dba2330ade32eea9, type: 3}
+  - {fileID: 21300000, guid: 71b83de97cdea574e8ad29ac5f47a38f, type: 3}
+  - {fileID: 21300000, guid: 900d31799458c09458317e883cd16d4c, type: 3}
+  - {fileID: 21300000, guid: 4ecfdecf19019854c921f619b0575281, type: 3}
+  - {fileID: 21300000, guid: 9f62b19721723844bba94758d1f472a9, type: 3}
+  - {fileID: 21300000, guid: 2ff00536af7654741a9be993f21e7f00, type: 3}
+  - {fileID: 21300000, guid: 0fc1f14bdb63ca44dba95ef0cf5f22fc, type: 3}
+  - {fileID: 21300000, guid: c8477d56c72e9114183b0c9bf9da7b77, type: 3}
+  - {fileID: 21300000, guid: 2d929baf89caf0a4d91e13e2dc75c45a, type: 3}
+  - {fileID: 21300000, guid: afed273e9008c0f45ab9ce058bc03538, type: 3}
+  - {fileID: 21300000, guid: c4c01da90a7df2c4fab9494ab14e7418, type: 3}
   Die:
   - {fileID: 21300000, guid: 0a94b5b752b44ed4e814eb5f83e6cd7f, type: 3}
   - {fileID: 21300000, guid: 2b9650ef26e299643952ef7a0332b6a4, type: 3}

@@ -216,7 +216,31 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   - {fileID: 21300000, guid: 0032745baa9d2d749952356850e90f2c, type: 3}
   Attack: []
-  Skill: []
+  Skill:
+  - {fileID: 21300000, guid: dac34bcdea9530b46bb8870e37a593b6, type: 3}
+  - {fileID: 21300000, guid: 352c6a17df05a1b49a762239bde54bee, type: 3}
+  - {fileID: 21300000, guid: 107ceaae65f7136478c147aeaa6dd151, type: 3}
+  - {fileID: 21300000, guid: 2419dcf9ba6b4f1488c0d0458e37d617, type: 3}
+  - {fileID: 21300000, guid: a3b2f67f1e78c3d4891509125606960a, type: 3}
+  - {fileID: 21300000, guid: 4f7e2d0135eec3d40bafb8105e24fda3, type: 3}
+  - {fileID: 21300000, guid: 39d63eafd4a2397479e4b5cc37eb8661, type: 3}
+  - {fileID: 21300000, guid: 26cbd5c4f5b5c234ea651d485cf736ec, type: 3}
+  - {fileID: 21300000, guid: f169226fa2b2fb346887b25f6cd25a80, type: 3}
+  - {fileID: 21300000, guid: 4ac42245d12ac6546ae43c26afe4dc7f, type: 3}
+  - {fileID: 21300000, guid: 03455e9abbd483b43b63f8ac2338f735, type: 3}
+  - {fileID: 21300000, guid: 786e97268efacde488a863bd04584f54, type: 3}
+  - {fileID: 21300000, guid: 86a2f0708f311e34681a3cb63dcbddc2, type: 3}
+  - {fileID: 21300000, guid: 5804f626a635c434581bb55ba718f844, type: 3}
+  - {fileID: 21300000, guid: 4046ef35140b40645b5232dbd7bd153f, type: 3}
+  - {fileID: 21300000, guid: 7939262666c574c4fadebaf521a4bedb, type: 3}
+  - {fileID: 21300000, guid: f67e7fe999f9e604c8c1fb7fc60770d9, type: 3}
+  - {fileID: 21300000, guid: 9117d5574b58a3c47b083e3f96b7b476, type: 3}
+  - {fileID: 21300000, guid: 3c9b3bde80e0c624cba299d303a4660b, type: 3}
+  - {fileID: 21300000, guid: 29fcc4af8c382b946b9b34c4aa934b10, type: 3}
+  - {fileID: 21300000, guid: 87f81ffa030c2e54498e18d9b1666a89, type: 3}
+  - {fileID: 21300000, guid: e7401c4e40a08ba41a4cda20cca96ea7, type: 3}
+  - {fileID: 21300000, guid: 5c4b1c6dc1216ea4fbde7964181ceacb, type: 3}
+  - {fileID: 21300000, guid: 1466b781ced591f449b8429b509e809b, type: 3}
   Die:
   - {fileID: 21300000, guid: f1957aa9d548b6d4c8164c73d6044d90, type: 3}
   - {fileID: 21300000, guid: 86b0f1755a9571a46acd8c7e57e64545, type: 3}
