@@ -13,12 +13,29 @@ public class CashProduct : MonoBehaviour
     public TextMeshProUGUI price_text;
     public TextMeshProUGUI amount_text;
 
-    public float product_amount;
+    public int product_amount;
 
     public float product_price;
 
     public ProductType product_type;
     public PriceType price_type;
+
+    public void GetReward()
+    {
+        switch (product_type)
+        {
+            case ProductType.COIN:
+                GameManager.Instance.Coin += product_amount;
+                break;
+            case ProductType.JEM:
+                GameManager.Instance.Jem += product_amount;
+                break;
+            case ProductType.STEMINA:
+                GameManager.Instance.Stemina += product_amount;
+                break;
+        }
+    }
+
 
     /*    public Button Button;
         public TextMeshProUGUI CostText;

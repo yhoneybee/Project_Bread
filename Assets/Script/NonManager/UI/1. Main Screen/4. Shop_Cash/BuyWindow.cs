@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Purchasing;
 
 public class BuyWindow : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BuyWindow : MonoBehaviour
     [SerializeField] Image product_icon;
     [SerializeField] Image price_icon;
     [SerializeField] Button buy_button;
+
     void Start()
     {
         buy_button.onClick.AddListener(() =>

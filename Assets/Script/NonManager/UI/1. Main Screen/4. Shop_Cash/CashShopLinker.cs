@@ -59,11 +59,13 @@ public class CashShopLinker : MonoBehaviour
             if (cash_product.product_type == ProductType.JEM)
                 cash_product.price_text.text = "\\ " + cash_product.price_text.text;
             cash_product.amount_text.text = $"{cash_product.product_amount:#,0}°³";
-            cash_product.buy_button.onClick.AddListener(() =>
-            {
-                buy_window.selecrted_product = cash_product;
-                buy_window.Setting();
-            });
+
+            if (cash_product.product_type != ProductType.JEM)
+                cash_product.buy_button.onClick.AddListener(() =>
+                {
+                    buy_window.selecrted_product = cash_product;
+                    buy_window.Setting();
+                });
 
             switch (cash_product.product_type)
             {
