@@ -12,7 +12,7 @@ public class RewardInfoLinker : MonoBehaviour
         set
         {
             count = value;
-            txtCount.text = $"{count:#,0}";
+            OnEnable();
         }
     }
     private int count;
@@ -27,6 +27,7 @@ public class RewardInfoLinker : MonoBehaviour
     }
     private ProductType kind;
     public TextMeshProUGUI txtCount;
+    public TextMeshProUGUI txtKind;
     public Image img;
 
     void OnEnable()
@@ -37,6 +38,14 @@ public class RewardInfoLinker : MonoBehaviour
             ProductType.JEM => UIManager.Instance.IconSprites[1],
             ProductType.STEMINA => UIManager.Instance.IconSprites[3],
             _ => null,
+        };
+        txtCount.text = $"{count:#,0}";
+        txtKind.text = Kind switch
+        {
+            ProductType.COIN => "ÄÚÀÎÀ»(¸¦) È¹µæÇÏ¼Ì½À´Ï´Ù!",
+            ProductType.JEM => "·çºñÀ»(¸¦) È¹µæÇÏ¼Ì½À´Ï´Ù!",
+            ProductType.STEMINA => "½ºÅ×¹Ì³ªÀ»(¸¦) È¹µæÇÏ¼Ì½À´Ï´Ù!",
+            _ => "",
         };
         UIManager.Instance.FixSizeToRatio(img, 100);
     }
