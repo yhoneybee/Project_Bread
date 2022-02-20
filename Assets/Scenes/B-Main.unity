@@ -9308,6 +9308,14 @@ PrefabInstance:
       propertyPath: m_text
       value: "[\uAFC0\uD301] \uB354 \uC7AC\uBC0C\uAC8C \uC990\uAE30\uB294 \uBC29\uBC95"
       objectReference: {fileID: 0}
+    - target: {fileID: 7080100463571082610, guid: b8605ed0b8ed827489551cf5c2eaadff, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7080100463571082610, guid: b8605ed0b8ed827489551cf5c2eaadff, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7080100464702344708, guid: b8605ed0b8ed827489551cf5c2eaadff, type: 3}
       propertyPath: m_Name
       value: Content 2

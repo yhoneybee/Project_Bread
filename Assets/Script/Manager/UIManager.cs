@@ -205,8 +205,8 @@ public class UIManager : MonoBehaviour
             case AnimState.HIT:
                 Animation(GameManager.SelectUnit.Anim.Hit);
                 break;
-            case AnimState.ATTACK:
-                Animation(GameManager.SelectUnit.Anim.Attack);
+            case AnimState.SKILL:
+                Animation(GameManager.SelectUnit.Anim.Skill);
                 break;
         }
     }
