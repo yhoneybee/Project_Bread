@@ -203,6 +203,8 @@ public abstract class Unit : MonoBehaviour
 
     public bool isSkillObj;
 
+    public bool stopAnim;
+
     bool once;
 
     int AnimIndex = 0;
@@ -250,7 +252,8 @@ public abstract class Unit : MonoBehaviour
     }
     protected virtual void Update()
     {
-        Animator();
+        if (!stopAnim)
+            Animator();
 
         if (isDie) return;
 

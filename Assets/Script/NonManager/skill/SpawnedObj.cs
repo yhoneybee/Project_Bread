@@ -11,11 +11,17 @@ public class SpawnedObj : MonoBehaviour
     public Anim anim;
     public int delayOfFrameCount;
     public bool continueToDuraction;
+    public bool shotable;
+    public DamagedObj shotObj;
+    public bool onDestroySpawnObj;
+    public SpawnedObj destroySpawnObj;
+    public bool isStay;
 
     private void Start()
     {
         Destroy(gameObject, context.spawn.duraction);
         StartCoroutine(EAnim());
+        if (shotable) InvokeRepeating(nameof(Shot), 0, 0.5f);
     }
 
     private void Update()
@@ -24,7 +30,7 @@ public class SpawnedObj : MonoBehaviour
         {
 
         }
-        else
+        else if (!isStay)
         {
             transform.Translate(Vector3.right * context.spawn.speed * Time.deltaTime);
         }
@@ -67,5 +73,20 @@ public class SpawnedObj : MonoBehaviour
             Destroy(gameObject);
 
         yield return null;
+    }
+
+    private void Shot()
+    {
+        var obj = Instantiate(shotObj, transform.position, Quaternion.identity);
+        obj.context = context;
+    }
+
+    private void OnDestroy()
+    {
+        if (onDestroySpawnObj)
+        {
+            var obj = Instantiate(destroySpawnObj, transform.position, Quaternion.identity);
+            obj.context = context;
+        }
     }
 }

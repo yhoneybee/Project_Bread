@@ -18,6 +18,15 @@ public class FormChangeOption : ABuffOption
         var wait = new WaitForSeconds(0.01f);
 
         var owner = context.owner;
+
+        while (owner.AnimState == AnimState.SKILL)
+        {
+            yield return wait;
+        }
+        owner.stopAnim = true;
+
+        if (toScale == Vector2.zero) toScale = owner.transform.localScale;
+
         sprBefore = owner.SR.sprite;
         owner.SR.sprite = sprChange;
 
@@ -40,6 +49,7 @@ public class FormChangeOption : ABuffOption
             yield return wait;
         }
 
+        owner.stopAnim = false;
         owner.transform.localScale = toScale;
         owner.Invincibility = false;
 

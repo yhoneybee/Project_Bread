@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2879574174323773601}
   - component: {fileID: 2879574174323773600}
-  - component: {fileID: 2879574174323777374}
-  - component: {fileID: 121062052812564042}
   - component: {fileID: 2720117952897295001}
   - component: {fileID: 7888024449676937328}
+  - component: {fileID: -5886710801130228339}
   m_Layer: 0
-  m_Name: "\uBA54\uB860\uBE75 SkillObj"
+  m_Name: "\uBA54\uB860\uBE75 \uC0C8\uC2F9 \uD22C\uC0AC\uCCB4 SkillObj"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,64 +74,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c0aa517094936de468be8a78c0111d10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.89, y: 0.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2879574174323777374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879574174323773603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a1654e645b6df489e9ba9a2064bcae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sr: {fileID: 2879574174323773600}
-  context: {fileID: 0}
-  anim: {fileID: 121062052812564042}
-  delayOfFrameCount: 0
-  continueToDuraction: 0
-  shotable: 0
-  shotObj: {fileID: 0}
-  onDestroySpawnObj: 1
-  destroySpawnObj: {fileID: 2879574174323777374, guid: 3f131df776bb44d4baf3ea68262912af, type: 3}
-  isStay: 1
---- !u!114 &121062052812564042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2879574174323773603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce91b366838c6da4fb0d890c9c9d9bc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Walk: []
-  Hit: []
-  Attack: []
-  Skill:
-  - {fileID: 21300000, guid: f25c2efe1f308c446afeedd549e2e1c6, type: 3}
-  - {fileID: 21300000, guid: 6b17d3d567f7ad64a9ba7e1178909006, type: 3}
-  - {fileID: 21300000, guid: 7b6e2daa7ebb70f4dbe8a9d94aeb2247, type: 3}
-  - {fileID: 21300000, guid: b1b4d45eb9c554a4392f067266c5934a, type: 3}
-  - {fileID: 21300000, guid: d6ab976fa84ca95419958404ec8af49e, type: 3}
-  - {fileID: 21300000, guid: 934662bd03d1c2b4ea856d270ba9bb93, type: 3}
-  - {fileID: 21300000, guid: 66877a68f57625742b7b947ef073f08f, type: 3}
-  - {fileID: 21300000, guid: 49ab7f64b5fc5b64eb878e455278ecb9, type: 3}
-  Die: []
 --- !u!61 &2720117952897295001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,14 +102,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 0.89, y: 0.9}
+    newSize: {x: 0.89, y: 0.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.89, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &7888024449676937328
 Rigidbody2D:
@@ -180,3 +132,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-5886710801130228339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2879574174323773603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63154c1008e0b3c43b84db37fe39424d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  context: {fileID: 0}
+  damage: 0
+  useDamageValue: 0

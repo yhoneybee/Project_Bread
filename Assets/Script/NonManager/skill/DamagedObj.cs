@@ -6,6 +6,7 @@ public class DamagedObj : MonoBehaviour
 {
     public Skill context;
     public float damage;
+    public bool useDamageValue;
 
     private void Start()
     {
@@ -22,7 +23,18 @@ public class DamagedObj : MonoBehaviour
         var unit = collision.GetComponent<Unit>();
         if (!unit) return;
 
-        unit.Stat.HP -= damage;
-        IngameManager.Instance.DamageText((int)damage, unit.transform.position);
+        if (unit.UnitType == UnitType.FRIEND) return;
+
+        if (useDamageValue)
+        {
+            unit.OnHit(context.owner, damage);
+            IngameManager.Instance.DamageText((int)damage, unit.transform.position);
+        }
+        else
+        {
+            context.owner.OnAttack(unit);
+        }
+
+        Destroy(gameObject);
     }
 }

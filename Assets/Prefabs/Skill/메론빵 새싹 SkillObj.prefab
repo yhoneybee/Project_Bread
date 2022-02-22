@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2720117952897295001}
   - component: {fileID: 7888024449676937328}
   m_Layer: 0
-  m_Name: "\uBA54\uB860\uBE75 SkillObj"
+  m_Name: "\uBA54\uB860\uBE75 \uC0C8\uC2F9 SkillObj"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,11 +102,11 @@ MonoBehaviour:
   context: {fileID: 0}
   anim: {fileID: 121062052812564042}
   delayOfFrameCount: 0
-  continueToDuraction: 0
-  shotable: 0
-  shotObj: {fileID: 0}
-  onDestroySpawnObj: 1
-  destroySpawnObj: {fileID: 2879574174323777374, guid: 3f131df776bb44d4baf3ea68262912af, type: 3}
+  continueToDuraction: 1
+  shotable: 1
+  shotObj: {fileID: -5886710801130228339, guid: c0c3f69f6843cf340a60da3d0af8ad67, type: 3}
+  onDestroySpawnObj: 0
+  destroySpawnObj: {fileID: 0}
   isStay: 1
 --- !u!114 &121062052812564042
 MonoBehaviour:
@@ -124,14 +124,9 @@ MonoBehaviour:
   Hit: []
   Attack: []
   Skill:
-  - {fileID: 21300000, guid: f25c2efe1f308c446afeedd549e2e1c6, type: 3}
-  - {fileID: 21300000, guid: 6b17d3d567f7ad64a9ba7e1178909006, type: 3}
-  - {fileID: 21300000, guid: 7b6e2daa7ebb70f4dbe8a9d94aeb2247, type: 3}
-  - {fileID: 21300000, guid: b1b4d45eb9c554a4392f067266c5934a, type: 3}
-  - {fileID: 21300000, guid: d6ab976fa84ca95419958404ec8af49e, type: 3}
-  - {fileID: 21300000, guid: 934662bd03d1c2b4ea856d270ba9bb93, type: 3}
-  - {fileID: 21300000, guid: 66877a68f57625742b7b947ef073f08f, type: 3}
-  - {fileID: 21300000, guid: 49ab7f64b5fc5b64eb878e455278ecb9, type: 3}
+  - {fileID: 21300000, guid: 9651221360dfda049a8f20e35e3a3b5f, type: 3}
+  - {fileID: 21300000, guid: 8d6f327e9b4f5964fbad646696d83146, type: 3}
+  - {fileID: 21300000, guid: 6d1915882a309b145acba53e599f4c15, type: 3}
   Die: []
 --- !u!61 &2720117952897295001
 BoxCollider2D:

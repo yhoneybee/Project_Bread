@@ -22,6 +22,7 @@ public class RandomSpawn : ASpawnOption
 
         obj = Instantiate(origin);
         var spawned = obj.AddComponent<DamagedObj>();
+        spawned.useDamageValue = true;
         spawned.context = context;
         spawned.transform.position = context.owner.transform.position;
         spawned.damage = damages[idx];
