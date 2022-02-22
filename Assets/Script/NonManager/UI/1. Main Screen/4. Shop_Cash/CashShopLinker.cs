@@ -13,7 +13,7 @@ public enum PriceType
 {
     COIN,
     JEM,
-    WON
+    DOLLAR
 }
 
 public class CashShopLinker : MonoBehaviour
@@ -57,7 +57,7 @@ public class CashShopLinker : MonoBehaviour
         {
             cash_product.price_text.text = $"{cash_product.product_price:#,0}";
             if (cash_product.product_type == ProductType.JEM)
-                cash_product.price_text.text = "\\ " + cash_product.price_text.text;
+                cash_product.price_text.text = cash_product.price_text.text + " $";
             cash_product.amount_text.text = $"{cash_product.product_amount:#,0}°³";
 
             if (cash_product.product_type != ProductType.JEM)

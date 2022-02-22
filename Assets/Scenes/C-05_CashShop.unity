@@ -1486,11 +1486,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_price
-      value: 71000
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_amount
-      value: 10000
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 278.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9121
       objectReference: {fileID: 0}
     - target: {fileID: 6354545356800885303, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3954,11 +3966,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_price
-      value: 4800
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_amount
-      value: 500
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 278.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9121
       objectReference: {fileID: 0}
     - target: {fileID: 6354545356800885303, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4402,11 +4426,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_price
-      value: 9000
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_amount
-      value: 1000
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 278.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9121
       objectReference: {fileID: 0}
     - target: {fileID: 6354545356800885303, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -5487,11 +5523,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_price
-      value: 39000
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_amount
-      value: 5000
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 278.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9121
       objectReference: {fileID: 0}
     - target: {fileID: 6354545356800885303, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -9136,11 +9184,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_price
-      value: 1000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3016058665151090328, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: product_amount
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 278.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 68.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4598982492790815312, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.9121
       objectReference: {fileID: 0}
     - target: {fileID: 6919372862311275535, guid: f44ff87e1f5332e43878b17cd6232c70, type: 3}
       propertyPath: MoneyCost

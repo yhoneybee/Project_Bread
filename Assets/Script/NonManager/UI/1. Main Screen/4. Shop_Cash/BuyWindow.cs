@@ -90,7 +90,7 @@ public class BuyWindow : MonoBehaviour
                 product_price_text.color = GameManager.Instance.Jem >=
                             selecrted_product.product_price ? Color.white : Color.red;
                 break;
-            case PriceType.WON:
+            case PriceType.DOLLAR:
                 product_price_text.color = Color.white;
                 break;
         }
@@ -111,7 +111,7 @@ public class BuyWindow : MonoBehaviour
         price_icon.rectTransform.sizeDelta /=
             (selecrted_product.price_type == PriceType.JEM ? 11f : 7f);
 
-        if (selecrted_product.price_type == PriceType.WON)
+        if (selecrted_product.price_type == PriceType.DOLLAR)
             price_icon.enabled = false;
 
         buy_button.GetComponentInChildren<TextMeshProUGUI>().text = selecrted_product.price_text.text;
