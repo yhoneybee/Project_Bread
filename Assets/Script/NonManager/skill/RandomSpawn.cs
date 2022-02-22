@@ -10,10 +10,17 @@ public class RandomSpawn : ASpawnOption
 
     public override IEnumerator EInvoke(Unit unit)
     {
+        var obj = Instantiate(this.origin);
+
+        if (parentToSkillOwner)
+        {
+            obj.transform.SetParent(context.owner.transform);
+        }
+
         int idx = Random.Range(0, origins.Count - 1);
         var origin = origins[idx];
 
-        var obj = Instantiate(origin);
+        obj = Instantiate(origin);
         var spawned = obj.AddComponent<DamagedObj>();
         spawned.context = context;
         spawned.transform.position = context.owner.transform.position;

@@ -12,12 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1e0ef77bedb144aa9bf9e12981a7c4, type: 3}
   m_Name: RandomSpawn
   m_EditorClassIdentifier: 
+  context: {fileID: 0}
+  origin: {fileID: 2879574174323773603, guid: e4d4c43c87627bf4b9f0993bba1edbcf, type: 3}
+  spawnCount: 1
+  spawnDelay: 0
+  cell: {x: 0, y: 0}
+  spacing: {x: 0, y: 0}
+  offset: {x: 0, y: 0}
+  isNear: 0
+  range: 0
+  isOnce: 0
+  isOnHit: 0
+  isGuide: 0
+  speed: 0
+  duraction: 0
   origins:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   damages: 000000000000000000000000
-  isOnHit: 0
-  isGuide: 0
-  speed: 0
-  duraction: 0
