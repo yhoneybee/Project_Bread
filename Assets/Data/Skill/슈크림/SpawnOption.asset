@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpawnOption
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  origin: {fileID: 4339265511392233734, guid: cf882b5bfe408ae4380cac8dd4604577, type: 3}
+  origin: {fileID: 2879574174323773603, guid: 9486c58b1ef406949a6dae2194c63f57, type: 3}
   spawnCount: 1
   spawnDelay: 0
   cell: {x: 0, y: 0}
@@ -22,6 +22,7 @@ MonoBehaviour:
   isNear: 0
   range: 0
   isOnce: 0
+  isOnHit: 0
   isGuide: 0
   speed: 0
   duraction: 6

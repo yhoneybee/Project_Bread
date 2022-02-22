@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CountSpawn
   m_EditorClassIdentifier: 
   context: {fileID: 0}
-  origin: {fileID: 4339265511392233734, guid: cf882b5bfe408ae4380cac8dd4604577, type: 3}
+  origin: {fileID: 2879574174323773603, guid: 2722b87b5c5d8ee4aa5c8a195949a01e, type: 3}
   spawnCount: 0
   spawnDelay: 0.1
   cell: {x: 0, y: 0}

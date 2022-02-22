@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bd7b3ec71862a4dbebc04f07cef9bc, type: 3}
   m_Name: FormChangeOption
   m_EditorClassIdentifier: 
+  context: {fileID: 0}
   buff:
     AD: 0
     HP: 0
@@ -20,14 +21,17 @@ MonoBehaviour:
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  sprChange: {fileID: 0}
+  target: 0
   duraction: 5
+  onlyMe: 0
+  isInstant: 1
+  sprChange: {fileID: 21300000, guid: 8d625bee556e5134eac9c1f33d209939, type: 3}
   hitAble: 1
   toScale: {x: 0, y: 0}
-  isInstant: 1

@@ -22,4 +22,5 @@ public abstract class ASpawnOption : AOption
     public bool isGuide;
     public float speed;
     public float duraction;
+    public bool parentToSkillOwner;
 }

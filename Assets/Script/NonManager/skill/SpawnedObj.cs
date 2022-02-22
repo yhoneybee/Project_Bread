@@ -10,6 +10,7 @@ public class SpawnedObj : MonoBehaviour
     public Skill context;
     public Anim anim;
     public int delayOfFrameCount;
+    public bool continueToDuraction;
 
     private void Start()
     {
@@ -48,13 +49,22 @@ public class SpawnedObj : MonoBehaviour
         var wait = new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(delayOfFrameCount * 0.1f);
 
+        var v2 = Vector2.zero;
+        var box2D = GetComponent<BoxCollider2D>();
+
         for (int i = 0; i < anim.Skill.Count; i++)
         {
             sr.sprite = anim.Skill[i];
+
+            v2 = sr.sprite.bounds.size;
+            box2D.size = v2;
+            box2D.offset = Vector2.zero;
+
             yield return wait;
         }
 
-        Destroy(gameObject);
+        if (!continueToDuraction)
+            Destroy(gameObject);
 
         yield return null;
     }

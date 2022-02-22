@@ -14,7 +14,7 @@ public class CountSpawn : ASpawnOption
         {
             if (IngameManager.Instance.IngameUnits.Count == 0) break;
             var obj = Instantiate(origin);
-            var spawned = obj.AddComponent<SpawnedObj>();
+            var spawned = obj.GetComponent<SpawnedObj>();
             spawned.context = context;
 
             if (isNear)
