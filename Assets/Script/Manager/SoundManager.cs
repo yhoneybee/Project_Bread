@@ -22,8 +22,8 @@ public class SoundManager : MonoBehaviour
 
     Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
 
-    private float bgm_total_volume = 0.1f;
-    private float sfx_total_volume = 0.5f;
+    private float bgm_total_volume = 0.2f;
+    private float sfx_total_volume = 1f;
 
     private float bgm_volume = 0.5f;
     public float BgmVolume

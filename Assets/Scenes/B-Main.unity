@@ -11196,11 +11196,11 @@ RectTransform:
   m_Father: {fileID: 356482191}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -827, y: 178}
-  m_SizeDelta: {x: 176.69, y: 187.14}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 90, y: 20}
+  m_SizeDelta: {x: 176.69, y: 187.14001}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1338363577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11218,13 +11218,13 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 6
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 147.24167, y: 155.95}
-  m_Spacing: {x: 0, y: 20}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Spacing: {x: 45, y: 20}
+  m_Constraint: 2
+  m_ConstraintCount: 1
 --- !u!1 &1338425912
 GameObject:
   m_ObjectHideFlags: 0
