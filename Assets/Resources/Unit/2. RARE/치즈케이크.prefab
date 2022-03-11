@@ -180,6 +180,8 @@ MonoBehaviour:
   Invincibility: 0
   deltaSpeed: 1
   isSkillObj: 0
+  stopAnim: 0
+  IsLock: 1
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:

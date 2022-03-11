@@ -15,12 +15,13 @@ MonoBehaviour:
   context: {fileID: 0}
   buff:
     AD: 0
-    HP: 0
+    HP: 1.1
     MaxHP: 0
     MS: 0
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
@@ -28,4 +29,6 @@ MonoBehaviour:
       ELostHP: 0
       AD: 0
   target: 0
-  duraction: 0
+  duraction: 3
+  onlyMe: 0
+  isInstant: 1

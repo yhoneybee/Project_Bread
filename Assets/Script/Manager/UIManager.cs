@@ -114,8 +114,9 @@ public class UIManager : MonoBehaviour
             var btnObj = GameObject.Find("Deck Setting Button").GetComponent<Button>();
             if (btnObj) btnObj.gameObject.SetActive(ButtonActions.directMain);
 
-            var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND && o.Info.Gotten; });
-            Content.sizeDelta = new Vector2 { x = Content.sizeDelta.x, y = friends.Count / 5 * (375.1f + 58) };
+            var friends = UnitManager.Instance.Units.FindAll((o) => { return o.UnitType == UnitType.FRIEND && o.Info.Gotten && !o.IsLock; });
+            var line = friends.Count / 5;
+            Content.sizeDelta = new Vector2 { x = Content.sizeDelta.x, y = (line + (friends.Count % 5 >= 1 ? 1 : 0)) * (375.1f + 58) };
             for (int i = 0; i < friends.Count; i++)
             {
                 var view_go = Instantiate(SquadPrefab, Content, false);

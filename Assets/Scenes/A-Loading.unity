@@ -529,6 +529,7 @@ MonoBehaviour:
     LinkerList: []
     GetDailyParent: {fileID: 0}
     GetDaily: {fileID: 0}
+  rewardInfoLinker: {fileID: 0}
 --- !u!4 &830950892
 Transform:
   m_ObjectHideFlags: 0
@@ -587,6 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTestMode: 0
+  rewardKind: 0
+  rewardValue: 0
 --- !u!1 &1078521822
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1221227630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1417,6 +1420,10 @@ MonoBehaviour:
   UnBoxingCount: 11
   EnteredDeckView: 0
   DateTimers: []
+  RewardCount:
+    JemRewardCount: 0
+    CoinRewardCount: 0
+    SteminaRewardCount: 0
   levelUpEffects: []
   selectLevelUpEffect:
     minLevel: 0

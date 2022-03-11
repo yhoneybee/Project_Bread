@@ -107,7 +107,7 @@ public class ShopManager : MonoBehaviour
 
     public void AddCommon(int count)
     {
-        var commons = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.COMMON);
+        var commons = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.COMMON && !o.IsLock);
 
 #if NO_OVERLAP_IN_SPAWN
         List<int> randoms = new List<int>();
@@ -133,7 +133,7 @@ public class ShopManager : MonoBehaviour
     }
     public void AddRare(int count)
     {
-        var rares = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.RARE);
+        var rares = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.RARE && !o.IsLock);
 
 #if NO_OVERLAP_IN_SPAWN
         List<int> randoms = new List<int>();
@@ -159,7 +159,7 @@ public class ShopManager : MonoBehaviour
     }
     public void AddEpic(int count)
     {
-        var epics = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.EPIC);
+        var epics = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.EPIC && !o.IsLock);
 
 #if NO_OVERLAP_IN_SPAWN
         List<int> randoms = new List<int>();
@@ -186,7 +186,7 @@ public class ShopManager : MonoBehaviour
     }
     public void AddLegend(int count)
     {
-        var legends = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.LEGEND);
+        var legends = UnitManager.Instance.Units.FindAll((o) => o.UnitType == UnitType.FRIEND && o.Info.Rank == Rank.LEGEND && !o.IsLock);
 
 #if NO_OVERLAP_IN_SPAWN
         List<int> randoms = new List<int>();

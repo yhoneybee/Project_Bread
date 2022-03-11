@@ -16,7 +16,8 @@ public class BuffOption : ABuffOption
 
         float hp = unit.Stat.HP;
 
-        unit.Stat = UnitManager.Instance.Units.Find(x => unit.Info.Name == x.Info.Name).Stat;
+        var stat = UnitManager.Instance.Units.Find(x => unit.Info.Name == x.Info.Name).Stat;
+        unit.Stat = stat;
         unit.Stat.HP = hp;
 
         yield return null;

@@ -205,6 +205,8 @@ public abstract class Unit : MonoBehaviour
 
     public bool stopAnim;
 
+    public bool IsLock;
+
     bool once;
 
     int AnimIndex = 0;

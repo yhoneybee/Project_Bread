@@ -102,6 +102,12 @@ MonoBehaviour:
   context: {fileID: 0}
   anim: {fileID: 121062052812564042}
   delayOfFrameCount: 0
+  continueToDuraction: 0
+  shotable: 0
+  shotObj: {fileID: 0}
+  onDestroySpawnObj: 0
+  destroySpawnObj: {fileID: 0}
+  isStay: 1
 --- !u!114 &121062052812564042
 MonoBehaviour:
   m_ObjectHideFlags: 0

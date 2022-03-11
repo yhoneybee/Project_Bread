@@ -17,15 +17,18 @@ MonoBehaviour:
     AD: 0
     HP: 0
     MaxHP: 0
-    MS: 0
+    MS: 0.05
     AR: 0
     AS: 0
     LS: 0
+    CP: 0
     Proportionality:
       MaxHP: 0
       LostHP: 0
       EMaxHP: 0
       ELostHP: 0
       AD: 0
-  target: 0
-  duraction: 0
+  target: 1
+  duraction: 3
+  onlyMe: 0
+  isInstant: 0

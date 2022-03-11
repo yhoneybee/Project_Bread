@@ -19,7 +19,7 @@ public class CountSpawn : ASpawnOption
 
             if (isNear)
             {
-                obj.transform.position = new Vector3(offset.x + Random.Range(-range, range), offset.y + Random.Range(-range, range));
+                obj.transform.position = new Vector3(context.owner.transform.position.x + offset.x + Random.Range(-range, range), context.owner.transform.position.y + offset.y + Random.Range(-range, range));
             }
             else
             {

@@ -18,7 +18,7 @@ MonoBehaviour:
   spawnDelay: 0.1
   cell: {x: 0, y: 0}
   spacing: {x: 0, y: 0}
-  offset: {x: 0, y: 0}
+  offset: {x: 20, y: 0}
   isNear: 1
   range: 3
   isOnce: 0
@@ -26,3 +26,4 @@ MonoBehaviour:
   isGuide: 1
   speed: 1
   duraction: 5
+  parentToSkillOwner: 0

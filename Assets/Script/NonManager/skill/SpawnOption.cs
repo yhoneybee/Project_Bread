@@ -14,6 +14,10 @@ public class SpawnOption : ASpawnOption
         {
             var obj = Instantiate(origin);
             var spawned = obj.GetComponent<SpawnedObj>();
+            if (parentToSkillOwner)
+            {
+                spawned.transform.SetParent(context.transform);
+            }
             spawned.context = context;
 
             if (isNear)

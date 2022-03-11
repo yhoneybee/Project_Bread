@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6446709e6ac3e894a85229adb7bd266f, type: 3}
   m_Name: MoveOption
   m_EditorClassIdentifier: 
-  duraction: 5
-  speed: 1
+  context: {fileID: 0}
+  duraction: 2
+  speed: 5
   isTrigger: 0
-  hasKnockback: 1
+  hasKnockback: 0
   knockbackForce: {x: 50, y: 50}
   hasDamage: 0

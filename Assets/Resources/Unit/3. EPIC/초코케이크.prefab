@@ -180,6 +180,8 @@ MonoBehaviour:
   Invincibility: 0
   deltaSpeed: 1
   isSkillObj: 0
+  stopAnim: 0
+  IsLock: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -298,7 +300,7 @@ MonoBehaviour:
   strSkillInfo: "2\uCD08\uAC04 \uC804\uBC29\uC73C\uB85C \uB3CC\uC9C4 2.5\uBC30\uC758
     \uB370\uBBF8\uC9C0\uB97C \uC8FC\uACE0 \uC801\uC744 \uBC00\uC5B4\uB0B8\uB2E4"
   skillType: 2
-  sprSkill: {fileID: 0}
+  sprSkill: {fileID: 21300000, guid: 323a5769ed4ba8949bee7d54f6f34575, type: 3}
   spawn: {fileID: 11400000, guid: 8212ced45d6ed2b4b80864c6b3752bf8, type: 2}
   damage: {fileID: 11400000, guid: 3d5c3ff288bb2a34a99526df2d98251d, type: 2}
   buff: {fileID: 11400000, guid: 3ca6c760d6030b74a9ecb16a2c7296b8, type: 2}

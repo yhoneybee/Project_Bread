@@ -26,4 +26,4 @@ MonoBehaviour:
   isGuide: 0
   speed: 5
   duraction: 5
-  parentToSkillOwner: 1
+  parentToSkillOwner: 0
