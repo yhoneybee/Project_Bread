@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "917262752332",
+    "project_id": "bread-adventure-55bd5",
+    "storage_bucket": "bread-adventure-55bd5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917262752332:android:29a5bb363232c0eb9bf2e9",
+        "android_client_info": {
+          "package_name": "com.dmddo.dmddo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917262752332-e4d8ofhcu4ke4pbu0vfudm77b54a35m8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0EHCP6LiM_i8DwxhEisqRwXCv57IfBgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917262752332-e4d8ofhcu4ke4pbu0vfudm77b54a35m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
