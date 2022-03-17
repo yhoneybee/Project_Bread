@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using System.Linq;
 using TMPro;
+using System.Threading.Tasks;
 
 [Serializable]
 public class DailyReward
