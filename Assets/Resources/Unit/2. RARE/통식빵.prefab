@@ -156,6 +156,7 @@ MonoBehaviour:
     Count: 1
     Desc: "\"\uB0B4 \uD1B5\uC2DD\uBE75 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 2.5
+    skillSound: {fileID: 8300000, guid: 8339581da6f360e49a62706d6f45aea2, type: 3}
   Stat:
     AD: 440
     HP: 2750
@@ -180,6 +181,8 @@ MonoBehaviour:
   Invincibility: 0
   deltaSpeed: 1
   isSkillObj: 0
+  stopAnim: 0
+  IsLock: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:
@@ -249,6 +252,6 @@ MonoBehaviour:
   sprSkill: {fileID: 21300000, guid: f21fa0b4d1de3ec42a98fd6b117378f3, type: 3}
   spawn: {fileID: 11400000, guid: 3aad8b3ebefc07943b9b7e63d97ee27d, type: 2}
   damage: {fileID: 11400000, guid: 879fdb4cf265d774dad9d26390c1a05e, type: 2}
-  buff: {fileID: 11400000, guid: 8b19a0befcf9ecf40adc6cb901ba46d9, type: 2}
+  buff: {fileID: 0}
   move: {fileID: 11400000, guid: 85c86f0bb93c44146b9619d85bcb9530, type: 2}
   cool: {fileID: 11400000, guid: a7b5a652af6fc52489dc7d1ded37841c, type: 2}

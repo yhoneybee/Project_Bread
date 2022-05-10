@@ -156,6 +156,7 @@ MonoBehaviour:
     Count: 1
     Desc: "\"\uB0B4 \uCE04\uB7EC\uC2A4 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 3
+    skillSound: {fileID: 8300000, guid: 8339581da6f360e49a62706d6f45aea2, type: 3}
   Stat:
     AD: 255
     HP: 1300

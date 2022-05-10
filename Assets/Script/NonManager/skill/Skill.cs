@@ -38,6 +38,9 @@ public class Skill : MonoBehaviour
     public void Cast()
     {
         owner.AnimState = AnimState.SKILL;
+
+        SoundManager.Instance.Play(owner.Info.skillSound, SoundType.EFFECT);
+
         if (!cool && !cool.CoolDone) return;
 
         cool.Initialization();

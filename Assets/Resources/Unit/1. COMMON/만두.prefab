@@ -156,6 +156,7 @@ MonoBehaviour:
     Count: 1
     Desc: "\"\uB0B4 \uB9CC\uB450 \uB9DB \uC880 \uBCFC\uB798?\""
     DValue: 3
+    skillSound: {fileID: 8300000, guid: 82453bc870994dc4b9282f58f1b97897, type: 3}
   Stat:
     AD: 95
     HP: 2000
@@ -180,6 +181,8 @@ MonoBehaviour:
   Invincibility: 0
   deltaSpeed: 1
   isSkillObj: 0
+  stopAnim: 0
+  IsLock: 0
   isDie: 0
 --- !u!114 &4763405268191549936
 MonoBehaviour:

@@ -67,6 +67,8 @@ public struct Info
     public float DValue;
     /// <summary> this Unit was get? </summary>///
     public bool Gotten => Count > 0 || Level > 1;
+
+    public AudioClip skillSound;
 }
 
 [Serializable]
