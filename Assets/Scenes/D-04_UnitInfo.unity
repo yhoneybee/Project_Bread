@@ -3350,8 +3350,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -10713,7 +10713,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -115.01, y: 0}
+  m_AnchoredPosition: {x: -115.00995, y: 0}
   m_SizeDelta: {x: -230.02, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529431963
@@ -12999,7 +12999,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 414831501}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.33330074
+  m_Size: 0.33330077
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
