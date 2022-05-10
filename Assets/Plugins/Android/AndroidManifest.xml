@@ -4,10 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unity3d.player"
     xmlns:tools="http://schemas.android.com/tools">
-    <application>
+    <application android:name="androidx.multidex.MultiDexApplication"
+				 android:allowBackup="false"
+				 android:fullBackupContent="false"
+				 tools:replace="android:fullBackupContent">
         <activity android:name="com.unity3d.player.UnityPlayerActivity"
-                  android:theme="@style/UnityThemeSelector"
-				  android:exported="true">
+                  android:theme="@style/UnityThemeSelector">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
