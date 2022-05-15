@@ -178,7 +178,7 @@ public class GameManager : MonoBehaviour
         get => gameCount;
         set
         {
-            if (value % 2 == 0) AdmobManager.Instance.ShowInterstitial();
+            //if (value % 2 == 0) AdmobManager.Instance.ShowInterstitial();
             gameCount = value;
         }
     }

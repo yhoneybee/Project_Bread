@@ -46,7 +46,7 @@ public class RewardCashLinker : MonoBehaviour
 
             AdmobManager.Instance.rewardKind = product_type;
             AdmobManager.Instance.rewardValue = product_amount;
-            AdmobManager.Instance.ShowRewardedAd();
+            //AdmobManager.Instance.ShowRewardedAd();
         });
     }
 }
