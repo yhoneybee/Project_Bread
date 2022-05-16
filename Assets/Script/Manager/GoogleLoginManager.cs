@@ -1,145 +1,102 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Firebase;
-using Google;
-using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.UI;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
+using Firebase.Auth;
 
 public class GoogleLoginManager : MonoBehaviour
 {
-    public Text infoText;
-    public string webClientId = "917262752332-e4d8ofhcu4ke4pbu0vfudm77b54a35m8.apps.googleusercontent.com";
-
     private FirebaseAuth auth;
-    private GoogleSignInConfiguration configuration;
+    public string FireBaseId = string.Empty;
 
     private void Awake()
     {
-        configuration = new GoogleSignInConfiguration { WebClientId = webClientId, RequestEmail = true, RequestIdToken = true };
-        CheckFirebaseDependencies();
+
     }
 
-    private void Start()
-    {
-        SignInWithGoogle();
-    }
+    //void Start()
+    //{
+    //    m_saved_state = GoogleSavedFileState.GOOGLE_SAVED_STATE_NONE;
 
-    private void CheckFirebaseDependencies()
-    {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-        {
-            if (task.IsCompleted)
-            {
-                if (task.Result == DependencyStatus.Available)
-                    auth = FirebaseAuth.DefaultInstance;
-                else
-                    AddToInformation("Could not resolve all Firebase dependencies: " + task.Result.ToString());
-            }
-            else
-            {
-                AddToInformation("Dependency check was not completed. Error : " + task.Exception.Message);
-            }
-        });
-    }
 
-    public void SignInWithGoogle() { OnSignIn(); }
-    public void SignOutFromGoogle() { OnSignOut(); }
+    //    PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder()
+    //    // enables saving game progress.
+    //    .EnableSavedGames()
+    //    .RequestIdToken()
+    //    .Build();
 
-    private void OnSignIn()
-    {
-        GoogleSignIn.Configuration = configuration;
-        GoogleSignIn.Configuration.UseGameSignIn = false;
-        GoogleSignIn.Configuration.RequestIdToken = true;
-        AddToInformation("Calling SignIn");
+    //    PlayGamesPlatform.InitializeInstance(config);
+    //    PlayGamesPlatform.DebugLogEnabled = true;
+    //    PlayGamesPlatform.Activate();
 
-        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
-    }
+    //    auth = FirebaseAuth.DefaultInstance;
 
-    private void OnSignOut()
-    {
-        AddToInformation("Calling SignOut");
-        GoogleSignIn.DefaultInstance.SignOut();
-    }
+    //}
 
-    public void OnDisconnect()
-    {
-        AddToInformation("Calling Disconnect");
-        GoogleSignIn.DefaultInstance.Disconnect();
-    }
 
-    internal void OnAuthenticationFinished(Task<GoogleSignInUser> task)
-    {
-        if (task.IsFaulted)
-        {
-            using (IEnumerator<Exception> enumerator = task.Exception.InnerExceptions.GetEnumerator())
-            {
-                if (enumerator.MoveNext())
-                {
-                    GoogleSignIn.SignInException error = (GoogleSignIn.SignInException)enumerator.Current;
-                    AddToInformation("Got Error: " + error.Status + " " + error.Message);
-                }
-                else
-                {
-                    AddToInformation("Got Unexpected Exception?!?" + task.Exception);
-                }
-            }
-        }
-        else if (task.IsCanceled)
-        {
-            AddToInformation("Canceled");
-        }
-        else
-        {
-            AddToInformation("Welcome: " + task.Result.DisplayName + "!");
-            AddToInformation("Email = " + task.Result.Email);
-            AddToInformation("Google ID Token = " + task.Result.IdToken);
-            AddToInformation("Email = " + task.Result.Email);
-            SignInWithGoogleOnFirebase(task.Result.IdToken);
-        }
-    }
 
-    private void SignInWithGoogleOnFirebase(string idToken)
-    {
-        Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
+    //public void Login()
+    //{
+    //    LogManager.Debug("GameCenter Login");
+    //    if (!Social.localUser.authenticated) // 로그인 되어 있지 않다면
+    //    {
+    //        Social.localUser.Authenticate(success => // 로그인 시도
+    //        {
+    //            if (success) // 성공하면
+    //            {
+    //                LogManager.Debug("google game service Success");
+    //                //SystemMessageManager.Instance.AddMessage("google game service Success");
+    //                StartCoroutine(TryFirebaseLogin()); // Firebase Login 시도
+    //            }
+    //            else // 실패하면
+    //            {
+    //                LogManager.Debug("google game service Fail");
+    //                SystemMessageManager.Instance.AddMessage("google game service Fail");
+    //            }
+    //        });
+    //    }
+    //}
 
-        auth.SignInWithCredentialAsync(credential).ContinueWith(task =>
-        {
-            AggregateException ex = task.Exception;
-            if (ex != null)
-            {
-                if (ex.InnerExceptions[0] is FirebaseException inner && (inner.ErrorCode != 0))
-                    AddToInformation("\nError code = " + inner.ErrorCode + " Message = " + inner.Message);
-            }
-            else
-            {
-                AddToInformation("Sign In Successful.");
-            }
-        });
-    }
 
-    public void OnSignInSilently()
-    {
-        GoogleSignIn.Configuration = configuration;
-        GoogleSignIn.Configuration.UseGameSignIn = false;
-        GoogleSignIn.Configuration.RequestIdToken = true;
-        AddToInformation("Calling SignIn Silently");
+    //public void TryGoogleLogout()
+    //{
+    //    if (Social.localUser.authenticated) // 로그인 되어 있다면
+    //    {
+    //        PlayGamesPlatform.Instance.SignOut(); // Google 로그아웃
+    //        auth.SignOut(); // Firebase 로그아웃
+    //    }
+    //}
 
-        GoogleSignIn.DefaultInstance.SignInSilently().ContinueWith(OnAuthenticationFinished);
-    }
 
-    public void OnGamesSignIn()
-    {
-        GoogleSignIn.Configuration = configuration;
-        GoogleSignIn.Configuration.UseGameSignIn = true;
-        GoogleSignIn.Configuration.RequestIdToken = false;
+    //IEnumerator TryFirebaseLogin()
+    //{
+    //    while (string.IsNullOrEmpty(((PlayGamesLocalUser)Social.localUser).GetIdToken()))
+    //        yield return null;
+    //    string idToken = ((PlayGamesLocalUser)Social.localUser).GetIdToken();
 
-        AddToInformation("Calling Games SignIn");
 
-        GoogleSignIn.DefaultInstance.SignIn().ContinueWith(OnAuthenticationFinished);
-    }
+    //    Credential credential = GoogleAuthProvider.GetCredential(idToken, null);
+    //    auth.SignInWithCredentialAsync(credential).ContinueWith(task => {
+    //        if (task.IsCanceled)
+    //        {
+    //            SystemMessageManager.Instance.AddMessage("SignInWithCredentialAsync was canceled!!");
+    //            return;
+    //        }
+    //        if (task.IsFaulted)
+    //        {
+    //            SystemMessageManager.Instance.AddMessage("SignInWithCredentialAsync encountered an error: " + task.Exception);
 
-    private void AddToInformation(string str) { infoText.text += "\n" + str; }
+    //            return;
+    //        }
+
+    //        Firebase.Auth.FirebaseUser newUser = task.Result;
+    //        FireBaseId = newUser.UserId;
+
+    //        //Debug.Log("Success!");
+    //        //SystemMessageManager.Instance.AddMessage("firebase Success!!");
+    //    });
+    //}
 }

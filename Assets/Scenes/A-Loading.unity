@@ -376,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1964eeedcb560d40973b79bece67c56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim_state: 0
   UnitViews: []
   TeamBtnLocks: []
   AllUnits: []
@@ -410,22 +411,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   setting_linker: {fileID: 0}
-  ArrowSwitchSprite:
-    ASprite: {fileID: 0}
-    BSprite: {fileID: 0}
-  EnquipSwitchSprite:
-    ASprite: {fileID: 0}
-    BSprite: {fileID: 0}
-  ReleaseUI:
-    go: {fileID: 0}
-    btnYes: {fileID: 0}
-    tmpResource: {fileID: 0}
-  DailyUI:
-    Daily: {fileID: 0}
-    LinkerList: []
-    GetDailyParent: {fileID: 0}
-    GetDaily: {fileID: 0}
+  ArrowSwitchSprite: {ASprite: {fileID: 0}, BSprite: {fileID: 0}}
+  EnquipSwitchSprite: {ASprite: {fileID: 0}, BSprite: {fileID: 0}}
+  ReleaseUI: {go: {fileID: 0}, btnYes: {fileID: 0}, tmpResource: {fileID: 0}}
+  DailyUI: {Daily: {fileID: 0}, LinkerList: []
+, GetDailyParent: {fileID: 0}, GetDaily: {fileID: 0}}
   rewardInfoLinker: {fileID: 0}
+  AnimIndex: 0
+  time: 0
 --- !u!4 &830950892
 Transform:
   m_ObjectHideFlags: 0
@@ -486,6 +479,7 @@ MonoBehaviour:
   isTestMode: 1
   rewardKind: 0
   rewardValue: 0
+  rewareded: 0
 --- !u!1 &1078521822
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,8 +841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf0b4d305e999c41bf2749ca8d09884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  infoText: {fileID: 1436790957}
-  webClientId: 917262752332-e4d8ofhcu4ke4pbu0vfudm77b54a35m8.apps.googleusercontent.com
 --- !u!1 &1357516460
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +938,7 @@ RectTransform:
   - {fileID: 1489905015}
   - {fileID: 1221227630}
   - {fileID: 1436790956}
+  - {fileID: 1445687275}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -969,6 +962,8 @@ MonoBehaviour:
   Logo: {fileID: 375223257}
   txtTouchToStart: {fileID: 1221227631}
   loading_persent: 0
+  loadSpeed: 1
+  logo_image: {fileID: 0}
 --- !u!1 &1436790955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1047,6 +1042,138 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436790955}
+  m_CullTransparentMesh: 1
+--- !u!1 &1445687274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1445687275}
+  - component: {fileID: 1445687278}
+  - component: {fileID: 1445687277}
+  - component: {fileID: 1445687276}
+  m_Layer: 5
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1445687275
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445687274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1357516464}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0000076294, y: -360}
+  m_SizeDelta: {x: 280, y: 192}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1445687276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445687274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1445687277}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301584675}
+        m_TargetAssemblyTypeName: GoogleLoginManager, Assembly-CSharp
+        m_MethodName: SignInWithGoogle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1445687277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445687274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1445687278
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445687274}
   m_CullTransparentMesh: 1
 --- !u!1 &1454399010
 GameObject:
@@ -1322,6 +1449,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  bgm_total_volume: 0.2
+  sfx_total_volume: 1
+  bgm_volume: 0.5
+  sfx_volume: 0.5
 --- !u!1 &1757223680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,6 +1482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ee5681f40f5d454ba463f855e288b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <theme_clear>k__BackingField: 0
   all_themes:
   - stages:
     - {fileID: 11400000, guid: 5dfc04eefdb61a1448519ba6eed21463, type: 2}
@@ -1591,17 +1723,23 @@ MonoBehaviour:
   - {fileID: 6917443943168017846, guid: fdaa135601908dd449a7a33d76118be2, type: 3}
   - {fileID: 916560030384291169, guid: e093f9704d799f24c94175c7aaac2a81, type: 3}
   - {fileID: 3600416196861177426, guid: f1f31661336a90d41bae2d80e0b9f601, type: 3}
+  index: 0
   GlobalCP: 0
   GlobalLSP: 0
   LifeStealRatio: 0
   ResurrectionP: 0
+  playerLevel: 1
+  playerExp: 0
   Coin: 0
   Jem: 0
   Stemina: 20
   MaxStemina: 20
   UnBoxingCount: 11
+  gameCount: 0
   EnteredDeckView: 0
   DateTimers: []
+  Daily: {}
+  daily_days: 0
   RewardCount:
     JemRewardCount: 0
     CoinRewardCount: 0
@@ -1614,6 +1752,7 @@ MonoBehaviour:
     rewardC: 0
     rewardJ: 0
   touch_up_effect_prefab: {fileID: 2818275803141509851, guid: c0fc108ec4b6d3b4f8a25a9589a20a41, type: 3}
+  touch_up_effect: {fileID: 0}
 --- !u!4 &1952391301
 Transform:
   m_ObjectHideFlags: 0

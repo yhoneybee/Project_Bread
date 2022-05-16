@@ -23,10 +23,10 @@ public class LoadingLinker : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ButtonActions.Instance.ChangeScene("B-Main");
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    ButtonActions.Instance.ChangeScene("B-Main");
+        //}
     }
 
     public void SpeedMulti() => loadSpeed *= 5;
